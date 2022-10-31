@@ -36,11 +36,11 @@ in {
     source = (pkgs.formats.json { }).generate "supergfxd.conf" {
       mode = "Integrated";
       vfio_enable = true;
-      vfio_save = false;
+      vfio_save = true;
       always_reboot = false;
       no_logind = true;
       logout_timeout_s = 180;
-      hotplug_type = "Asus";
+      hotplug_type = "None";
     };
   };
 	 systemd.services.supergfxd.path = [ pkgs.kmod pkgs.pciutils ];
