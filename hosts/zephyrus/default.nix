@@ -3,7 +3,7 @@
 # { ... }: part of the module system
 #
 
-{ config, pkgs, lib, inputs, specialArgs, ... }:
+{ config, pkgs, lib, inputs, options, specialArgs, ... }:
 
 {
   imports = [
@@ -121,6 +121,8 @@
   '';
 
   programs.steam.enable = true;
+
+  networking.timeServers = options.networking.timeServers.default ++ [ "time.google.com" ];
 
   # Meta
   system.stateVersion = "21.05";
