@@ -8,9 +8,17 @@ in {
   };
 
   config = mkIf cfg.enable {
-    users.users.${specialArgs.username} = {
-      isNormalUser = true;
-      password = "1";
+    users = {
+      mutableUsers = false;
+      users = {
+         ${specialArgs.username} = {
+         extraGroups = [ "wheel" ];
+         isNormalUser = true;
+         password = "1";
+         passwordFile = config.age.secrets.nate_user_password.path;
+         home = "/home/${specialArgs.username}";
+       };
+      };
     };
   };
 }

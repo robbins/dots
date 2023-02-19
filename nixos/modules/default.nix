@@ -8,5 +8,6 @@ inputs@{self, ... }:
     ./android
     ./hardware
     ./user/users.nix
+    ./services/ssh.nix
   ];
 }

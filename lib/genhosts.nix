@@ -26,7 +26,7 @@ in
     {
       modules' = [
         (import ../hosts/${hostname}) # hosts/hostname/default.nix, where config options are set
-        ../nixos/nixconf.nix
+        ../common/nixconf.nix
         { networking.hostName = mkDefault ("${hostname}"); }
       ];
     }

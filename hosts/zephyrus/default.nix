@@ -12,6 +12,7 @@
   ];
 
   modules = {
+    services.ssh.enable = true;
     user.enable = true;
     hardware = {
       filesystems = {

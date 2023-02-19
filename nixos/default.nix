@@ -9,6 +9,7 @@ in
 {
   imports = [
     ((import ../nixos/modules) inputs) # all my custom NixOS modules
+    ./agenix.nix
   ];
 
   options.modules.nixos = {
