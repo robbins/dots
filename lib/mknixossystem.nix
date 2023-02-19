@@ -22,7 +22,6 @@ nixosSystem {
   };
   modules = [
     ../nixos/nixos.nix
-    ../nixos/nixconf.nix
     { modules.nixos.localNixpkgs = pkgsForSystem; }
   ] ++ modules';
   specialArgs = { inherit inputs username; };

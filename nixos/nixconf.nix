@@ -1,5 +1,5 @@
 #
-# Common configuration for the Nix package manager
+# Common configuration for the Nix package manager on all hosts
 #
 { config, pkgs, inputs, ... }:
 

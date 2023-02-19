@@ -26,7 +26,7 @@ in
     {
       modules' = [
         (import ../hosts/${hostname}) # hosts/hostname/default.nix, where config options are set
-        ((import ../nixos/modules) inputs) # all my custom NixOS modules TODO: if mkHost is for Darwin, we don't want nixos modules
+        ../nixos/nixconf.nix
         { networking.hostName = mkDefault ("${hostname}"); }
       ];
     }
