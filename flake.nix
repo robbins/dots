@@ -3,6 +3,8 @@
     # Nixpkgs
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-stable.url = "github:nixos/nixpkgs/nixos-22.11";
+    # Hardware
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";

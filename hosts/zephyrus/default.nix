@@ -7,5 +7,7 @@
 
 {
   imports = [
+    ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
   ];
 }
