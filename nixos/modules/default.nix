@@ -5,5 +5,6 @@
 inputs@{self, ... }:
 {
   imports = [
+    ./android
   ];
 }
