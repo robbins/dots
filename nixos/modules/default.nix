@@ -4,5 +4,6 @@
 
 inputs@{self, ... }:
 {
-  imports = [];
+  imports = [
+  ];
 }

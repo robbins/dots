@@ -6,11 +6,11 @@
 #
 
 inputs:
-{ username,
-  system,
-  modules' ? [],
-  overlays' ? [],
-  pkgsForSystem ? inputs.nixos-unstable
+{ username
+, system
+, modules' ? [ ]
+, overlays' ? [ ]
+, pkgsForSystem ? inputs.nixos-unstable
 }:
 with pkgsForSystem.lib;
 nixosSystem {
@@ -20,6 +20,10 @@ nixosSystem {
     config = { allowUnfree = true; };
     overlays = overlays';
   };
-  modules = [ ../nixos/nixos.nix ] ++ modules';
+  modules = [
+    ../nixos/nixos.nix
+    ../nixos/nixconf.nix
+    { modules.nixos.localNixpkgs = pkgsForSystem; }
+  ] ++ modules';
   specialArgs = { inherit inputs username; };
 }
