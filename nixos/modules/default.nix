@@ -7,5 +7,6 @@ inputs@{self, ... }:
   imports = [
     ./android
     ./hardware
+    ./user/users.nix
   ];
 }

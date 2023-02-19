@@ -21,7 +21,7 @@ nixosSystem {
     overlays = overlays';
   };
   modules = [
-    ../nixos/nixos.nix
+    ../nixos
     { modules.nixos.localNixpkgs = pkgsForSystem; }
   ] ++ modules';
   specialArgs = { inherit inputs username; };

@@ -3,7 +3,7 @@
 # { ... }: part of the module system
 #
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, specialArgs, ... }:
 
 {
   imports = [
@@ -12,6 +12,7 @@
   ];
 
   modules = {
+    user.enable = true;
     hardware = {
       filesystems = {
         enable = true;
