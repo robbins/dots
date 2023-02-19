@@ -10,4 +10,17 @@
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
   ];
+
+  modules = {
+    hardware = {
+      filesystems = {
+        enable = true;
+        zfs = {
+          enable = true;
+          unstable = true;
+          hostId = "aabbccdd";
+        };
+      };
+    };
+  };
 }
