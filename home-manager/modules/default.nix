@@ -5,6 +5,6 @@
 inputs@{self, ... }:
 {
   imports = [
+    ./services/persistence.nix
   ];
-  programs.bat.enable = true;
 }

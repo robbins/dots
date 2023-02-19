@@ -13,8 +13,25 @@
 
   modules = {
     services.ssh.enable = true;
+    services.persistence.system.enable = true;
     user.enable = true;
     hardware = {
+      networking = {
+        enable = true;
+        wifi = {
+          enable = true;
+          interfaceName = "wlan0";
+          dhcp = "yes";
+        };
+        wired = {
+          enable = true;
+          interfaceName = "usbethernet";
+        };
+        usbTether = {
+          enable = true;
+          interfaceName = "usbtether0";
+        };
+      };
       filesystems = {
         enable = true;
         zfs = {

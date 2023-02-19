@@ -9,5 +9,7 @@ inputs@{self, ... }:
     ./hardware
     ./user/users.nix
     ./services/ssh.nix
+    ./services/persistence.nix
+    ./hardware/networking/default.nix
   ];
 }
