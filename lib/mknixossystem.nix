@@ -20,6 +20,6 @@ nixosSystem {
     config = { allowUnfree = true; };
     overlays = overlays';
   };
-  modules = [ ] ++ modules';
+  modules = [ ../nixos/nixos.nix ] ++ modules';
   specialArgs = { inherit inputs username; };
 }

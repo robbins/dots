@@ -27,6 +27,7 @@ in
       modules' = [
         { networking.hostName = mkDefault ("${hostname}"); }
         (import ../hosts/${hostname}) # hosts/hostname/default.nix, where config options are set
+        ((import ../nixos/modules) inputs) # all my custom NixOS modules
       ];
     }
     (hostArgs.${hostname} inputs) # Attribute set of arguments passed to mkNixosSystem from hosts/hostname/hostname.nix
