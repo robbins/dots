@@ -23,6 +23,8 @@ nixosSystem {
   modules = [
     ../nixos
     ../nixos/agenix.nix
+    inputs.home-manager.nixosModules.home-manager #TODO: find a way to check if darwin or nixos and then put this in genHosts maybe
+    ../home-manager
     { modules.nixos.localNixpkgs = pkgsForSystem; }
   ] ++ modules';
   specialArgs = { inherit inputs username; };
