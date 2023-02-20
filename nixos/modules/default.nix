@@ -9,6 +9,6 @@ inputs@{self, ... }:
     ./hardware
     ./users.nix
     ./services
-    ./hardware/networking
+    ./hardware
   ];
 }

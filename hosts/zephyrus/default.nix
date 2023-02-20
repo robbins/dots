@@ -19,6 +19,7 @@
       passwordFile = config.age.secrets.nate_user_password.path;
     };
     hardware = {
+      bootloader.quiet = true;
       networking = {
         enable = true;
         wifi = {
