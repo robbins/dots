@@ -14,7 +14,10 @@
   modules = {
     services.ssh.enable = true;
     services.persistence.system.enable = true;
-    user.enable = true;
+    user = {
+      enable = true;
+      passwordFile = config.age.secrets.nate_user_password.path;
+    };
     hardware = {
       networking = {
         enable = true;
@@ -42,4 +45,7 @@
       };
     };
   };
+
+  # Meta
+  system.stateVersion = "21.05";
 }

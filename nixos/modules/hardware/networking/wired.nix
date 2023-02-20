@@ -3,7 +3,7 @@
 let cfg = config.modules.hardware.networking.wired;
 in {
   options.modules.hardware.networking.wired = { 
-    enable = lib.mkEnableOption "enable"; 
+    enable = lib.mkEnableOption "Wired"; 
     interfaceName = lib.mkOption { default = ""; type = lib.types.str; };
     dhcp = lib.mkOption { default = "yes"; type = lib.types.str; };
   };

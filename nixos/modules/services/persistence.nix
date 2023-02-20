@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, specialArgs, ... }:
 let cfg = config.modules.services.persistence.system;
 in {
   imports = [
@@ -6,7 +6,7 @@ in {
   ];
 
   options.modules.services.persistence.system = { 
-    enable = lib.mkEnableOption "enable"; 
+    enable = lib.mkEnableOption "System Persistence"; 
   };
 
   config = lib.mkIf cfg.enable {
@@ -14,8 +14,7 @@ in {
       Defaults lecture = never
     '';
 
-    programs.fuse.userAllowOther = lib.mkIf (config.home-manager.users.nate.modules.services.persistence.home.enable) true;
-    #TODO: this should be a generic module, not hardcoded to nate user
+    programs.fuse.userAllowOther = lib.mkIf (config.home-manager.users.${specialArgs.username}.modules.services.persistence.home.enable) true;
 
     systemd.tmpfiles.rules = if (config.modules.hardware.networking.wifi.enable) then [
     "L /var/lib/iwd/UofT.8021x - - - - /persist/var/lib/iwd/UofT.8021x"
@@ -35,10 +34,6 @@ in {
         "/etc/ssh/ssh_host_rsa_key.pub"
         "/etc/ssh/ssh_host_ed25519_key"
         "/etc/ssh/ssh_host_ed25519_key.pub"
-      ] else []);
-      directories = (if (config.modules.hardware.networking.wifi.enable) then [
-#        "/var/lib/iwd" # This makes /var owned by nate:users and not root:root
-#        { file = "/var/lib/iwd"; parentDirectory = { user = "root"; group = "root"; }; }
       ] else []);
     };
   };

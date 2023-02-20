@@ -1,4 +1,6 @@
+#
 # Attribute set of hostnames to {nixos,darwin}Configurations 
+#
 inputs:
 with inputs.nixos-unstable.lib;
 let

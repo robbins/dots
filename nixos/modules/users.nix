@@ -5,6 +5,7 @@ let cfg = config.modules.user;
 in {
   options.modules.user = {
     enable = mkEnableOption "enable";
+    passwordFile = mkOption { default = ""; type = types.path; };
   };
 
   config = mkIf cfg.enable {
@@ -15,7 +16,7 @@ in {
          extraGroups = [ "wheel" ];
          isNormalUser = true;
          password = "1";
-         passwordFile = config.age.secrets.nate_user_password.path;
+         passwordFile = cfg.passwordFile;
          home = "/home/${specialArgs.username}";
        };
       };

@@ -35,7 +35,6 @@
     { device = "zephyrus/local/nix";
       fsType = "zfs";
       neededForBoot = true;
-#      options = [ "zfsutil" ];
     };
 
   fileSystems."/persist" =
@@ -48,7 +47,6 @@
   fileSystems."/root" =
     { device = "zephyrus/data/home/root";
       fsType = "zfs";
-#      options = [ "zfsutil" ];
     };
 
   fileSystems."/home/nate" =
@@ -62,7 +60,6 @@
   fileSystems."/var/log" =
     { device = "zephyrus/system/var/log";
       fsType = "zfs";
-#      options = [ "zfsutil" ];
     };
 
   fileSystems."/tmp" = 

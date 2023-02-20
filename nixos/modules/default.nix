@@ -7,9 +7,8 @@ inputs@{self, ... }:
   imports = [
     ./android
     ./hardware
-    ./user/users.nix
-    ./services/ssh.nix
-    ./services/persistence.nix
-    ./hardware/networking/default.nix
+    ./users.nix
+    ./services
+    ./hardware/networking
   ];
 }
