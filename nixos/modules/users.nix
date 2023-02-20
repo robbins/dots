@@ -21,5 +21,6 @@ in {
        };
       };
     };
+    nix.settings.trusted-users = [ "${specialArgs.username}" ];
   };
 }
