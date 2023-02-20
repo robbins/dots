@@ -74,7 +74,7 @@
   fileSystems."/home/nate/data" =
   { device = "zephyrus/data";
     fsType = "zfs";
-    options = [ "zfsutil" "X-mount.mkdir" ];
+    options = [ "X-mount.mkdir" ];
   };
 
   fileSystems."/backups" =
@@ -92,7 +92,7 @@
   fileSystems."/home/nate/src" =
     { device = "zephyrus/data/src";
       fsType = "zfs";
-      options = [ "zfsutil" "X-mount.mkdir" ];
+      options = [ "X-mount.mkdir" ];
     };
 
   swapDevices =
