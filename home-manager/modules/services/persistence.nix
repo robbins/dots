@@ -10,9 +10,7 @@ in {
   config = mkIf cfg.enable {
     home.persistence."/persist/home/${specialArgs.username}" = {
       directories = [
-        "Desktop"
         "Downloads"
-        "Documents"
         "Pictures"
         "Music"
         "Videos"
@@ -26,30 +24,10 @@ in {
         ".config/microsoft-edge-dev"
         ".cache/microsoft-edge-dev"
         ".cache/nix-index"
-#        ".steam"
 
         ".config/gtk-3.0"
         ".config/gtk-4.0"
-        ".config/plasma-workspace"
 
-        ".local/share/aurorae"
-        ".local/share/color-schemes"
-        ".local/share/dolphin"
-        ".local/share/gwenview"
-        ".local/share/kactivitymanagerd"
-        ".local/share/kcookiejar"
-        ".local/share/klipper"
-        ".local/share/knewstuff3"
-        ".local/share/konsole"
-        ".local/share/kscreen"
-        ".local/share/kwalletd"
-        ".local/share/plasma"
-        ".local/share/RecentDocuments"
-
-        ".config/kdedefaults"
-        ".config/autostart"
-
-        ".local/share/PolyMC" #TODO: /games maybe? if we can move in polymc settings
         ".themes"
         ".local/share/backgrounds"
         ".config/Google"
@@ -60,21 +38,15 @@ in {
 
         ".config/JetBrains"
 
-        ".config/goa-1.0"
-
         ".config/swaync"
 
         ".local/share/PrismLauncher"
 
         ".local/share/lutris"
         ".wine"
-
-        ".config/forge"
-
       ];
       files = [
         ".config/gh/hosts.yml"
-        ".config/monitors.xml"
       ];
       allowOther = true;
     };
