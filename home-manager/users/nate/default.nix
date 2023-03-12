@@ -23,6 +23,12 @@
     };
     shell = {
       zsh.enable = true;
+      git = {
+        enable = true;
+        userName = "Nathanael Robbins";
+        userEmail = "nejrobbins@gmail.com";
+      };
+      ghcli.enable = true;
     };
   };
 
