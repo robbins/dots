@@ -21,6 +21,9 @@
     dev = {
       shell.enable = true;
     };
+    shell = {
+      zsh.enable = true;
+    };
   };
 
   # Meta

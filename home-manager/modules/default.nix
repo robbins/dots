@@ -8,5 +8,6 @@ inputs@{self, ... }:
     ./services/persistence.nix
     ./gui
     ./dev
+    ./shell
   ];
 }
