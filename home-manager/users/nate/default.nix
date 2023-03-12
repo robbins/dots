@@ -13,6 +13,7 @@
       persistence.home.enable = true;
     };
     gui = {
+      microsoftEdge.enable = true;
       kitty.enable = true;
       hyprland.enable = true;
     };
