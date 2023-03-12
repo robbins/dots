@@ -22,6 +22,11 @@ in {
         kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
       };
       networking.hostId = cfg.zfs.hostId;
+      services.zfs.autoScrub = {
+        enable = true;
+        pools = [ "${config.networking.hostName}" ];
+        interval = "monthly";
+      };
     })
   ]);
 }
