@@ -53,8 +53,9 @@
       displayManager = {
         enable = true;
         autoLogin = true;
-        autoSessionCommand = "";
+        autoSessionCommand = "Hyprland";
       };
+      hyprland.enable = true;
     };
     documentation.enable = true;
   };

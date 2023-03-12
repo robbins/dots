@@ -6,13 +6,17 @@
 {
   imports = [
     ((import ../../modules) inputs) # all my custom HM modules
+    inputs.hyprland.homeManagerModules.default
   ];
   modules = {
     services = {
       persistence.home.enable = true;
     };
+    gui = {
+      hyprland.enable = true;
+    };
   };
 
-# Meta
+  # Meta
   home.stateVersion = "21.05";
 }

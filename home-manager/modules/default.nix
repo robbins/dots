@@ -6,5 +6,6 @@ inputs@{self, ... }:
 {
   imports = [
     ./services/persistence.nix
+    ./gui
   ];
 }

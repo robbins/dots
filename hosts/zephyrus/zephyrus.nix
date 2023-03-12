@@ -7,6 +7,7 @@ rec {
   system = "x86_64-linux";
   username = "nate";
   modules' = [
+    inputs.hyprland.nixosModules.default
     (./.)
   ];
   overlays' = [];
