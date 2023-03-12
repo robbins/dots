@@ -1,14 +1,15 @@
 { config, pkgs, lib, ... }:
 
+with lib;
 let cfg = config.modules.hardware.audio;
 in {
   options.modules.hardware.audio = {
-    enable = lib.mkEnableOption "enable";
-    bluetooth.enable = lib.mkOption { default = false; type = lib.types.bool; };
+    enable = mkEnableOption "enable";
+    bluetooth.enable = mkOption { default = false; type = lib.types.bool; };
   };
 
-  config = lib.mkIf cfg.enable {
-   sound.enable = mkFalse;
+  config = mkIf cfg.enable {
+   sound.enable = mkForce false;
    security.rtkit.enable = true;
    services.pipewire = {
      enable = true;

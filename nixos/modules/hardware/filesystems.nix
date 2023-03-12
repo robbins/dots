@@ -13,20 +13,28 @@ in {
   };
   config = mkIf cfg.enable (mkMerge [
     {
+
     }
 
     (mkIf cfg.zfs.enable {
       boot = {
         supportedFilesystems = [ "zfs" ];
-        zfs.enableUnstable = cfg.zfs.unstable;
+        zfs = {
+          enableUnstable = cfg.zfs.unstable;
+          devNodes = "/dev/disk/by-partuuid";
+        };
         kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
       };
       networking.hostId = cfg.zfs.hostId;
-      services.zfs.autoScrub = {
-        enable = true;
-        pools = [ "${config.networking.hostName}" ];
-        interval = "monthly";
+      services.zfs = {
+        autoScrub = {
+          enable = true;
+          pools = [ "${config.networking.hostName}" ];
+          interval = "monthly";
+        };
+        trim.enable = true;
       };
+      services.fstrim.enable = mkForce false;
     })
   ]);
 }

@@ -45,6 +45,8 @@
           hostId = "aabbccdd";
         };
       };
+      laptop.enable = true;
+      nvidia.enable = true;
     };
   };
 
