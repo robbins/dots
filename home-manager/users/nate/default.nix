@@ -16,6 +16,10 @@
       microsoftEdge.enable = true;
       kitty.enable = true;
       hyprland.enable = true;
+      wayland.enable = true;
+    };
+    dev = {
+      shell.enable = true;
     };
   };
 

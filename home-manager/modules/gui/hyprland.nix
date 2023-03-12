@@ -5,7 +5,9 @@ let cfg = config.modules.gui.hyprland;
 in {
   options.modules.gui.hyprland.enable = mkEnableOption "Hyprland";
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.kitty pkgs.microsoft-edge ];
+    home.packages = with pkgs; [ 
+      swaybg
+    ];
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = ''
