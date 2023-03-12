@@ -13,6 +13,7 @@
       persistence.home.enable = true;
     };
     gui = {
+      kitty.enable = true;
       hyprland.enable = true;
     };
   };
