@@ -44,6 +44,13 @@ in
         VISUAL = EDITOR;
         GIT_EDITOR = EDITOR;
       };
+      plugins = [
+        {
+            name = "powerlevel10k-config";
+            src = ./.;
+            file = "p10k.zsh";
+        }
+      ];
     };
   };
 }
