@@ -14,6 +14,7 @@
   modules = {
     services.ssh.enable = true;
     services.persistence.system.enable = true;
+    android.adb.enable = true;
     user = {
       enable = true;
       passwordFile = config.age.secrets.nate_user_password.path;
@@ -48,7 +49,12 @@
       laptop.enable = true;
       nvidia.enable = true;
     };
+    documentation.enable = true;
   };
+
+  # Misc
+  time.timeZone = "Canada/Eastern";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # Meta
   system.stateVersion = "21.05";

@@ -5,6 +5,7 @@
 { config, lib, ... }:
 
 {
+  security.polkit.enable = true;
   security.protectKernelImage = true;
   boot = {
     tmpOnTmpfs = false;

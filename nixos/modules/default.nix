@@ -10,5 +10,6 @@ inputs@{self, ... }:
     ./users.nix
     ./services
     ./hardware
+    ./documentation.nix
   ];
 }
