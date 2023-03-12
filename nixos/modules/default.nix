@@ -11,5 +11,6 @@ inputs@{self, ... }:
     ./services
     ./hardware
     ./documentation.nix
+    ./gui
   ];
 }

@@ -49,6 +49,13 @@
       laptop.enable = true;
       nvidia.enable = true;
     };
+    gui = {
+      displayManager = {
+        enable = true;
+        autoLogin = true;
+        autoSessionCommand = "";
+      };
+    };
     documentation.enable = true;
   };
 
