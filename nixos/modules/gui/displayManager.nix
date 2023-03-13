@@ -20,7 +20,7 @@ in {
         enable = true;
         settings = {
           default_session = {
-            command = "${pkgs.greetd.greetd}/bin/agreety --cmd bash";
+            command = "${pkgs.greetd.greetd}/bin/agreety --cmd zsh";
           };
           initial_session = {
             command = "${cfg.autoSessionCommand}";
