@@ -30,8 +30,11 @@ in
       historySubstringSearch.enable = true;
       initExtra = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        bindkey -M menuselect '\r' accept-line
       '';
       initExtraBeforeCompInit = ''
+        zstyle ':autocomplete:*' fzf-completion no
+        zstyle ':autocomplete:*' widget-style menu-select
         source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       '';
