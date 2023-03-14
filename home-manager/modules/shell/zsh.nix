@@ -27,6 +27,11 @@ in
         save = 100000;
         size = 100000;
       };
+      sessionVariables = rec {
+        EDITOR = "vim";
+	VISUAL = EDITOR;
+	GIT_EDITOR = EDITOR;
+      };
       historySubstringSearch.enable = true;
       initExtra = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
