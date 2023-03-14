@@ -16,6 +16,7 @@ in
       zsh-powerlevel10k
       zsh-completions
       zsh-vi-mode
+      fzf
     ];
     programs.zsh = {
       enable = true;
@@ -33,12 +34,8 @@ in
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-#        bindkey -M menuselect -s '^[' '^G^_'
-#        zstyle ':autocomplete:*' min-input 0
       '';
       initExtraBeforeCompInit = ''
-#        zstyle ':autocomplete:*' widget-style menu-select
         fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       '';
       enableAutosuggestions = true;
