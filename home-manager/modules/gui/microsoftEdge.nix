@@ -18,5 +18,8 @@ in {
       categories = [ "Network" "WebBrowser" ];
       startupNotify = true;
     };
+    programs.zsh.shellAliases = {
+      microsoft-edge-dev = "microsoft-edge-dev --user-data-dir=/persist/home/nate/.config/microsoft-edge-dev";
+    };
   };
 }
