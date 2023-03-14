@@ -17,6 +17,9 @@ in {
   in
   {
     home.packages = [ kitty-run ];
+    programs.zsh.shellAliases = {
+      kitty = "MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json kitty";
+    };
     programs.kitty = {
       enable = true;
       font = {
