@@ -13,6 +13,10 @@ in {
    security.rtkit.enable = true;
    services.pipewire = {
      enable = true;
+     alsa = {
+       enable = true;
+       support32Bit = true;
+     };
      pulse.enable = true; #TODO: check if we need Pulseaudio backend
    };
    hardware.bluetooth.enable = cfg.bluetooth.enable;
