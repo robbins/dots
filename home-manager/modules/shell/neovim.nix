@@ -11,6 +11,8 @@ in
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
+      vimAlias = true;
+      colorschemes.gruvbox.enable = true;
     };
   };
 }
