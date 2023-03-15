@@ -29,7 +29,7 @@ monitor=HDMI-A-1,1920x1080@74,0x0,1
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
 # Execute your favorite apps at launch
-exec-once = waybar & swaybg -i /home/nate/Pictures/Wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg -m fill & swaync & eww daemon & swayidle -w timeout 5 '$lockCmd'
+exec-once = swaybg -i /home/nate/Pictures/Wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg -m fill & swayidle -w timeout 5 '$lockCmd'
 
 # Source a file (multi-file configs)
 # source = ~/.config/hypr/myColors.conf
@@ -44,8 +44,8 @@ input {
 
     follow_mouse = 1
 
-    repeat_rate=25
-    repeat_delay=350
+    repeat_rate=30
+    repeat_delay=300
 
     touchpad {
         natural_scroll = yes
@@ -71,7 +71,7 @@ decoration {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
     rounding = 5
-    blur = yes
+    blur = no
     blur_size = 5 #7
     blur_passes = 4 #3
     blur_new_optimizations = on
@@ -110,8 +110,8 @@ master {
 gestures {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     workspace_swipe = true
-    workspace_swipe_forever = false
-    workspace_swipe_numbered = false 
+    workspace_swipe_forever = true 
+    workspace_swipe_numbered = true
 }
 
 # Example per-device config
@@ -158,7 +158,7 @@ bindl=,switch:off:Lid Switch,exec,sleep 1 && hyprctl dispatch dpms on HDMI-A-1
 $lockCmd = swaylock -i /home/nate/Pictures/Wallpapers/2022-MacBook-Air-wallpaper-blue-dark.jpeg --font "SF Pro Display" --scaling fill --indicator --clock --datestr "%A %b %d, %Y" --timestr "%I:%M %p" --text-color FFFFFF --ring-color CCCCCC00 --inside-color 22222299 --indicator-radius 175 --key-hl-color EEEEEE55 -n --separator-color 00000000 --indicator-thickness 20 -r --inside-clear-color FFFFFF22 --ring-clear-color BBEEFF --inside-ver-color FFFFFF22 --ring-ver-color BBEEFF
 
 #Launcher
-bind = $mainMod, space, exec, rofi -show drun
+bind = $mainMod, space, exec, j4-dmenu-desktop --dmenu 'bemenu -i -H 1' --no-generic
 
 #Volume
 binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ $(jq -n --argjson cur "$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2)" '[1, $cur + 0.05]|min')
@@ -174,7 +174,7 @@ binde = ,XF86MonBrightnessUp, exec, echo "$(cur=$(($(cat /sys/class/backlight/am
 binde = ,XF86MonBrightnessDown, exec, echo "$(cur=$(($(cat /sys/class/backlight/amdgpu_bl1/brightness) - 15)) ; echo $(($cur <= 0 ? 0 : $cur)))" | tee /sys/class/backlight/amdgpu_bl1/brightness
 
 #Screenshot
-bind = ,Print, exec, grimblast copysave area
+bind = ,Print, exec, grimblast copysave area ~/Pictures/Screenshots/"Screenshot_"$(date +%F_%I_%m_%M)
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l
