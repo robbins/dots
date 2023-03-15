@@ -44,6 +44,8 @@ in {
 
         ".local/share/lutris"
         ".wine"
+	
+	".local/state/nix"
       ];
       files = [
         ".config/gh/hosts.yml"
