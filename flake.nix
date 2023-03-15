@@ -26,6 +26,14 @@
       url = "github:robbins/minidev";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
+    nixvim = {
+      url = "github:pta2002/nixvim";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
   };
 
   outputs = inputs@{ self, ... }: {

@@ -7,6 +7,7 @@
   imports = [
     ((import ../../modules) inputs) # all my custom HM modules
     inputs.hyprland.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
   ];
   modules = {
     services = {
@@ -29,6 +30,7 @@
         userEmail = "nejrobbins@gmail.com";
       };
       ghcli.enable = true;
+      neovim.enable = true;
     };
   };
 

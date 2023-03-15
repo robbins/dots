@@ -10,6 +10,6 @@ rec {
     inputs.hyprland.nixosModules.default
     (./.)
   ];
-  overlays' = [];
+  overlays' = [ inputs.neovim-nightly.overlay ];
   pkgsForSystem = inputs.nixos-unstable;
 }
