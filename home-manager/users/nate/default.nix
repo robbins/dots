@@ -44,6 +44,8 @@
   home.packages = [
     inputs.hyprland-contrib.packages.x86_64-linux.grimblast
     inputs.comma.packages.x86_64-linux.comma
+    pkgs.bemenu
+    pkgs.j4-dmenu-desktop
   ];
 
 
