@@ -29,6 +29,8 @@ in
     environment.etc."nixos/nixpkgs".source = cfg.localNixpkgs;
     nix.nixPath = [ "/etc/nixos" ];
 
+    nix.registry.nixpkgs.flake = inputs.nixos-unstable;
+
     # Every NixOS machine needs a bootloader - always systemd-boot
     boot.loader = {
       timeout = 0;
