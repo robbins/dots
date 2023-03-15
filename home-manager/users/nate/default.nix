@@ -8,6 +8,7 @@
     ((import ../../modules) inputs) # all my custom HM modules
     inputs.hyprland.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
+    inputs.minidev.homeModules.default
   ];
   modules = {
     services = {
@@ -33,6 +34,18 @@
       neovim.enable = true;
     };
   };
+
+  # Misc
+  minidev = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  home.packages = [
+    inputs.hyprland-contrib.packages.x86_64-linux.grimblast
+    inputs.comma.packages.x86_64-linux.comma
+  ];
+
 
   # Meta
   home.stateVersion = "21.05";

@@ -34,6 +34,10 @@
       url = "github:pta2002/nixvim";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
   };
 
   outputs = inputs@{ self, ... }: {
