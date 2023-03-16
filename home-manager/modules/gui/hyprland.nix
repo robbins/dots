@@ -158,7 +158,7 @@ bindl=,switch:off:Lid Switch,exec,sleep 1 && hyprctl dispatch dpms on HDMI-A-1
 $lockCmd = swaylock -i /home/nate/Pictures/Wallpapers/2022-MacBook-Air-wallpaper-blue-dark.jpeg --font "SF Pro Display" --scaling fill --indicator --clock --datestr "%A %b %d, %Y" --timestr "%I:%M %p" --text-color FFFFFF --ring-color CCCCCC00 --inside-color 22222299 --indicator-radius 175 --key-hl-color EEEEEE55 -n --separator-color 00000000 --indicator-thickness 20 -r --inside-clear-color FFFFFF22 --ring-clear-color BBEEFF --inside-ver-color FFFFFF22 --ring-ver-color BBEEFF
 
 #Launcher
-bind = $mainMod, space, exec, j4-dmenu-desktop --dmenu 'bemenu -i -H 1' --no-generic
+bind = $mainMod, space, exec, j4-dmenu-desktop --no-generic --dmenu 'bemenu -i -n -H 1 --scrollbar autohide --ff "##ebdbb2" --scb "##ebdbb2" --scf "##1d2021" --tb "##665c54" --nb "##222222" --nf "##ebdbb2" --fb "##1d2021" --tf "##ebdbb2" --hb "##665c54" --hf "##ebdbb2" --sb "##ebdbb2" --sf "##ebdbb2" --ab "##222222" --af "##ebdbb2" --fn "PragmataPro Mono Liga"' --term='kitty'
 
 #Volume
 binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ $(jq -n --argjson cur "$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2)" '[1, $cur + 0.05]|min')
