@@ -4,5 +4,6 @@
     ./git.nix
     ./ghcli.nix
     ./neovim.nix
+    ./direnv.nix
   ];
 }

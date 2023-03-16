@@ -32,6 +32,7 @@
       };
       ghcli.enable = true;
       neovim.enable = true;
+      direnv.enable = true;
     };
   };
 
