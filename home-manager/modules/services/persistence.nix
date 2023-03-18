@@ -43,7 +43,7 @@ in {
       ];
       files = [
         ".config/gh/hosts.yml"
-        ".local/share/zsh"
+        ".zsh_history"
       ];
       allowOther = true;
     };
