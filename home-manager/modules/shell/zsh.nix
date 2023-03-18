@@ -37,6 +37,7 @@ in
       initExtra = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         bindkey -M menuselect '\r' accept-line
+        export HISTFILE="~/.local/share/zsh/history"; #TODO use from sessionvariables when fixed
       '';
       initExtraBeforeCompInit = ''
         zstyle ':autocomplete:*' fzf-completion no
