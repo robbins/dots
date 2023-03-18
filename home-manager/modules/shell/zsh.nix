@@ -31,6 +31,7 @@ in
         EDITOR = "vim";
 	VISUAL = EDITOR;
 	GIT_EDITOR = EDITOR;
+        HISTFILE = "${config.xdg.dataHome}/zsh/history";
       };
       historySubstringSearch.enable = true;
       initExtra = ''
