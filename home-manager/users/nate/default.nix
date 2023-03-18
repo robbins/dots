@@ -13,6 +13,7 @@
   modules = {
     services = {
       persistence.home.enable = true;
+      xdg.enable = true;
     };
     gui = {
       microsoftEdge.enable = true;
@@ -45,10 +46,9 @@
   home.packages = [
     inputs.hyprland-contrib.packages.x86_64-linux.grimblast
     inputs.comma.packages.x86_64-linux.comma
-    pkgs.bemenu
+    pkgs.bemenu #TODO: wayland launcher module
     pkgs.j4-dmenu-desktop
   ];
-
 
   # Meta
   home.stateVersion = "21.05";

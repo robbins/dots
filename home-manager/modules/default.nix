@@ -5,7 +5,7 @@
 inputs@{self, ... }:
 {
   imports = [
-    ./services/persistence.nix
+    ./services
     ./gui
     ./dev
     ./shell

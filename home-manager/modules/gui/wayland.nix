@@ -12,7 +12,6 @@ in {
       wl-clipboard
       slurp
       grim
-      xdg-desktop-portal 
-   ];
+    ];
   };
 }

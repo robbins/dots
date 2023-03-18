@@ -10,10 +10,10 @@ in {
   config = mkIf cfg.enable {
     home.persistence."/persist/home/${specialArgs.username}" = {
       directories = [
-        "Downloads"
-        "Pictures"
-        "Music"
-        "Videos"
+        "downloads"
+        "pictures"
+        "music"
+        "videos"
         ".local/share/icons"
         ".icons"
         ".config/discord"
@@ -28,7 +28,6 @@ in {
         ".config/gtk-3.0"
         ".config/gtk-4.0"
 
-        ".themes"
         ".local/share/backgrounds"
         ".config/Google"
         ".android"
@@ -38,13 +37,8 @@ in {
 
         ".config/JetBrains"
 
-        ".config/swaync"
-
         ".local/share/PrismLauncher"
 
-        ".local/share/lutris"
-        ".wine"
-	
 	".local/state/nix"
       ];
       files = [
