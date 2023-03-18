@@ -115,7 +115,7 @@ gestures {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     workspace_swipe = true
     workspace_swipe_forever = true 
-    workspace_swipe_numbered = true
+    workspace_swipe_numbered = false
 }
 
 # Example per-device config
@@ -174,8 +174,8 @@ bind = ,XF86KbdBrightnessDown,exec, asusctl -p
 bind = ,XF86KbdBrightnessUp,exec, asusctl -n
 
 #Display brightness
-binde = ,XF86MonBrightnessUp, exec, echo "$(cur=$(($(cat /sys/class/backlight/amdgpu_bl1/brightness) + 15)) ; echo $(($cur >= 255 ? 255 : $cur)))" | tee /sys/class/backlight/amdgpu_bl1/brightness
-binde = ,XF86MonBrightnessDown, exec, echo "$(cur=$(($(cat /sys/class/backlight/amdgpu_bl1/brightness) - 15)) ; echo $(($cur <= 0 ? 0 : $cur)))" | tee /sys/class/backlight/amdgpu_bl1/brightness
+binde = ,XF86MonBrightnessUp, exec, echo "$(cur=$(($(cat /sys/class/backlight/amdgpu_bl0/brightness) + 15)) ; echo $(($cur >= 255 ? 255 : $cur)))" | tee /sys/class/backlight/amdgpu_bl0/brightness
+binde = ,XF86MonBrightnessDown, exec, echo "$(cur=$(($(cat /sys/class/backlight/amdgpu_bl0/brightness) - 15)) ; echo $(($cur <= 0 ? 0 : $cur)))" | tee /sys/class/backlight/amdgpu_bl0/brightness
 
 #Screenshot
 bind = ,Print, exec, grimblast copysave area ~/Pictures/Screenshots/"Screenshot_"$(date +%F_%I_%m_%M)
