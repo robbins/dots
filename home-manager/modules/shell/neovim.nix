@@ -10,7 +10,7 @@ in
 
   config = mkIf cfg.enable {
     programs.zsh.shellAliases = {
-      v = "neovim";
+      v = "vim";
     };
     programs.nixvim = {
       enable = true;

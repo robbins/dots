@@ -24,8 +24,8 @@ in
       };
       autocd = true;
       history = {
-        save = 100000;
-        size = 100000;
+        save = 1000000000;
+        size = 1000000000;
       };
       sessionVariables = rec {
         EDITOR = "vim";
