@@ -178,7 +178,7 @@ binde = ,XF86MonBrightnessUp, exec, echo "$(cur=$(($(cat /sys/class/backlight/am
 binde = ,XF86MonBrightnessDown, exec, echo "$(cur=$(($(cat /sys/class/backlight/amdgpu_bl0/brightness) - 15)) ; echo $(($cur <= 0 ? 0 : $cur)))" | tee /sys/class/backlight/amdgpu_bl0/brightness
 
 #Screenshot
-bind = ,Print, exec, grimblast copysave area ~/Pictures/Screenshots/"Screenshot_"$(date +%F_%I_%m_%M)
+bind = ,Print, exec, grimblast copysave area ~/pictures/screenshots/"Screenshot_"$(date +%F_%I_%m_%M)
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l
