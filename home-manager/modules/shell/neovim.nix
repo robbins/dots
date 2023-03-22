@@ -17,6 +17,12 @@ in
       vimAlias = true;
       colorschemes.gruvbox.enable = true;
       plugins = {
+        vimtex = {
+          enable = true;
+          extraConfig = {
+            view_method = "zathura";
+          };
+        };
         clangd-extensions.enable = true;
 	lsp = {
 	  enable = true;
