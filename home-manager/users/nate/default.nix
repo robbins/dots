@@ -48,6 +48,7 @@
     inputs.comma.packages.x86_64-linux.comma
     pkgs.bemenu #TODO: wayland launcher module
     pkgs.j4-dmenu-desktop
+    pkgs.zathura # TODO module
   ];
 
   # Meta
