@@ -16,6 +16,15 @@ in
       enable = true;
       vimAlias = true;
       colorschemes.gruvbox.enable = true;
+      options = {
+        number = true;
+	relativenumber = true;
+	numberwidth = 1;
+	wrap = true;
+      };
+      plugins = {
+        treesitter.enable = true;
+      };
     };
   };
 }
