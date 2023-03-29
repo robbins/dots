@@ -26,8 +26,8 @@ in {
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 monitor=,preferred,auto,auto
-monitor=eDP-1,1920x1080@144,0x1080,1
-monitor=HDMI-A-1,1920x1080@74,0x0,1
+monitor=eDP-1,1920x1080@144,0x0,1
+monitor=HDMI-A-1,1920x1080@74,1920x0,1,transform,3
 
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
