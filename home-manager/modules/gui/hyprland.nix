@@ -165,8 +165,8 @@ $lockCmd = swaylock -i /home/nate/Pictures/Wallpapers/2022-MacBook-Air-wallpaper
 bind = $mainMod, space, exec, j4-dmenu-desktop --no-generic --dmenu 'bemenu -i -n -H 1 --scrollbar autohide --ff "##ebdbb2" --scb "##ebdbb2" --scf "##1d2021" --tb "##665c54" --nb "##222222" --nf "##ebdbb2" --fb "##1d2021" --tf "##ebdbb2" --hb "##665c54" --hf "##ebdbb2" --sb "##ebdbb2" --sf "##ebdbb2" --ab "##222222" --af "##ebdbb2" --fn "PragmataPro Mono Liga"' --term='kitty'
 
 #Volume
-binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ $(jq -n --argjson cur "$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2)" '[1, $cur + 0.05]|min')
-binde=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ $(jq -n --argjson cur "$(wpctl get-volume @DEFAULT_SINK@ | cut -d ' ' -f2)" '[1, $cur - 0.05]|min')
+binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+
+binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 0.0 @DEFAULT_SINK@ 5%-
 binde=, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 #Keyboard brightness
@@ -217,6 +217,18 @@ bind = $mainMod, mouse_up, workspace, e-1
 # Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
+
+# Sets workspaces 1-5 on laptop, 6-0 on vertical display
+wsbind=1,eDP-1
+wsbind=2,eDP-1
+wsbind=3,eDP-1
+wsbind=4,eDP-1
+wsbind=5,eDP-1
+wsbind=6,HDMI-A-1
+wsbind=7,HDMI-A-1
+wsbind=8,HDMI-A-1
+wsbind=9,HDMI-A-1
+wsbind=0,HDMI-A-1
 
       '';
     };
