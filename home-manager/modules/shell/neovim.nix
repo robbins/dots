@@ -28,7 +28,7 @@ in
 	  enable = true;
 	  servers = {
 	    clangd.enable = true;
-	    rnix-lsp.enable = true;
+            nil_ls.enable = true;
 	  };
           keymaps.lspBuf = {
             K = "hover";
@@ -42,7 +42,10 @@ in
 	nvim-cmp.enable = true;
 	telescope.enable = true;
 	todo-comments.enable = true;
-	treesitter.enable = true;
+        treesitter = {
+          enable = true;
+          indent = true;
+        };
 	cmp_luasnip.enable = true;
 	cmp-treesitter.enable = true;
       };
