@@ -16,39 +16,6 @@ in
       enable = true;
       vimAlias = true;
       colorschemes.gruvbox.enable = true;
-      plugins = {
-        vimtex = {
-          enable = true;
-          extraConfig = {
-            view_method = "zathura";
-          };
-        };
-        clangd-extensions.enable = true;
-	lsp = {
-	  enable = true;
-	  servers = {
-	    clangd.enable = true;
-            nil_ls.enable = true;
-	  };
-          keymaps.lspBuf = {
-            K = "hover";
-            gd = "definition";
-          };
-	};
-	lspkind.enable = true;
-	neo-tree.enable = true;
-	nix.enable = true;
-	nvim-autopairs.enable = true;
-	nvim-cmp.enable = true;
-	telescope.enable = true;
-	todo-comments.enable = true;
-        treesitter = {
-          enable = true;
-          indent = true;
-        };
-	cmp_luasnip.enable = true;
-	cmp-treesitter.enable = true;
-      };
     };
   };
 }
