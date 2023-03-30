@@ -20,6 +20,7 @@
       kitty.enable = true;
       hyprland.enable = true;
       wayland.enable = true;
+      bar.enable = true;
     };
     dev = {
       shell.enable = true;
