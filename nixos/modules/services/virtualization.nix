@@ -12,7 +12,7 @@ in {
 #    virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMF ];
     programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [ virt-manager swtpm tpm2-tools libtpms ];
-    users.users.${specialArgs.username}.extraGroups = [ "libvirtd" "tss" ];
+    users.users.${specialArgs.username}.extraGroups = [ "libvirtd" "tss" "virt-viewer" ];
     security.tpm2.enable = true;
     security.tpm2.pkcs11.enable = true;  # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
     security.tpm2.tctiEnvironment.enable = true;  # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
@@ -27,5 +27,9 @@ in {
     	user = "libvirtd";
   	};
 		};
+		boot.kernelModules = [ "vfio-pci" ];
+		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" ];
+		boot.extraModprobeConfig = "options vfio-pci.ids=10de:2520,10de:228e";
+		boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
   };
 }

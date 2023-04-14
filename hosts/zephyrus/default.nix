@@ -66,6 +66,13 @@
   i18n.defaultLocale = "en_US.UTF-8";
   users.defaultUserShell = pkgs.zsh;
 
+  services.supergfxd = {
+    enable = true;
+    settings = {
+    "vfio_enable" = false;
+    "hotplug_type" = "Asus";
+    };
+  };
   services.asusd = {
     enable = true;
     asusdConfig = {
