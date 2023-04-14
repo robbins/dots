@@ -14,6 +14,7 @@
   modules = {
     services.ssh.enable = true;
     services.persistence.system.enable = true;
+    services.virtualization.enable = true;
     android.adb.enable = true;
     user = {
       enable = true;
