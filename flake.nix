@@ -17,7 +17,10 @@
       inputs.nixpkgs.follows = "nixos-unstable";
     };
     # Programs
-    hyprland.url = "github:vaxerski/Hyprland";
+    hyprland = {
+      url = "github:vaxerski/Hyprland";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
     comma = {
       url = "github:nix-community/comma";
       inputs.nixpkgs.follows = "nixos-unstable";
