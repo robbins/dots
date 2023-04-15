@@ -11,8 +11,8 @@ in {
     virtualisation.libvirtd.qemu.swtpm.enable = true;
 #    virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMF ];
     programs.dconf.enable = true;
-    environment.systemPackages = with pkgs; [ virt-manager swtpm tpm2-tools libtpms ];
-    users.users.${specialArgs.username}.extraGroups = [ "libvirtd" "tss" "virt-viewer" ];
+    environment.systemPackages = with pkgs; [ virt-manager swtpm tpm2-tools libtpms looking-glass-client ];
+    users.users.${specialArgs.username}.extraGroups = [ "libvirtd" "tss" "virt-viewer" "kvm" ];
     security.tpm2.enable = true;
     security.tpm2.pkcs11.enable = true;  # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
     security.tpm2.tctiEnvironment.enable = true;  # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
@@ -27,9 +27,9 @@ in {
     	user = "libvirtd";
   	};
 		};
-		boot.kernelModules = [ "vfio-pci" ];
+		boot.kernelModules = [ "vfio-pci" "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+		boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
 		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" ];
-		boot.extraModprobeConfig = "options vfio-pci.ids=10de:2520,10de:228e";
 		boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
 		  environment.etc."supergfxd.conf" = {
     mode = "0644";
@@ -44,5 +44,12 @@ in {
     };
   };
 	 systemd.services.supergfxd.path = [ pkgs.kmod pkgs.pciutils ];
+	 systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 nate kvm -"
+  ];
+  services.udev.extraRules = ''
+      SUBSYSTEM=="kvmfr", OWNER="nate", GROUP="kvm", MODE="0600"
+    '';
+
   };
 }
