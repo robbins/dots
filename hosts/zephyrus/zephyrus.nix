@@ -20,10 +20,22 @@ rec {
   })*/
 
   (final: prev: {
+    looking-glass-client = prev.looking-glass-client.overrideAttrs (_: {
+      src = prev.fetchFromGitHub {
+        owner = "gnif";
+	repo = "LookingGlass";
+	rev = "9759b5aa8f67a1d0b44ad6871487c96c4dc33c91";
+	sha256 = "sha256-vOJmkVxzD7wyhcDfiETT/CHpUTZ+em2sPhktL5zVVrA=";
+	fetchSubmodules = true;
+      };
+    });
+    })
+
+  (final: prev: {
     microsoft-edge-dev = prev.microsoft-edge-dev.overrideAttrs (_: {
       src = final.fetchurl {
         url = "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/microsoft-edge-dev_112.0.1722.7-1_amd64.deb";
-	sha256 = "sha256:NGXr7Da5wk0iYX4JOx60o0OgCOY1VMuuSw3hprsgihA=";
+	sha256 = "sha256-NGXr7Da5wk0iYX4JOx60o0OgCOY1VMuuSw3hprsgihA=";
       };
       buildPhase = let
     libPath = with final.pkgs; {
