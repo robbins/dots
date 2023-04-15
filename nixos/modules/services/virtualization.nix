@@ -27,10 +27,10 @@ in {
     	user = "libvirtd";
   	};
 		};
-		boot.kernelModules = [ "vfio-pci" "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
-		boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
-		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" ];
-		boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
+		#boot.kernelModules = [ "vfio-pci" "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+		#boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
+		#boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" ];
+		#boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
 		  environment.etc."supergfxd.conf" = {
     mode = "0644";
     source = (pkgs.formats.json { }).generate "supergfxd.conf" {
