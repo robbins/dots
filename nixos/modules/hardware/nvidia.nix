@@ -16,7 +16,7 @@ in {
 
     hardware.nvidia = {
       powerManagement.finegrained = true;
-      nvidiaPersistenced = true;
+      nvidiaPersistenced = false;
     };
   };
 }
