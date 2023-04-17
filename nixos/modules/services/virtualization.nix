@@ -30,7 +30,7 @@ in {
 		boot.kernelModules = [ "vfio-pci" ];
 		boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
 		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" ];
-#		boot.blacklistedKernelModules = [ "nouveau" ];
+		boot.blacklistedKernelModules = [ "xpad" ];
 		  environment.etc."supergfxd.conf" = {
     mode = "0644";
     source = (pkgs.formats.json { }).generate "supergfxd.conf" {
