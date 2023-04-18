@@ -27,29 +27,35 @@ in {
     	user = "libvirtd";
   	};
 		};
-		boot.kernelModules = [ "vfio-pci" ];
+		boot.kernelModules = [ "vfio-pci" "kvmfr" ];
 		boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
-		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" ];
+		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" "kvmfr.static_size_mb=32" ];
 		boot.blacklistedKernelModules = [ "xpad" ];
-		  environment.etc."supergfxd.conf" = {
-    mode = "0644";
-    source = (pkgs.formats.json { }).generate "supergfxd.conf" {
-      mode = "Integrated";
-      vfio_enable = true;
-      vfio_save = true;
-      always_reboot = false;
-      no_logind = true;
-      logout_timeout_s = 180;
-      hotplug_type = "None";
+		environment.etc."supergfxd.conf" = {
+      mode = "0644";
+      source = (pkgs.formats.json { }).generate "supergfxd.conf" {
+        mode = "Integrated";
+        vfio_enable = true;
+        vfio_save = true;
+        always_reboot = false;
+        no_logind = true;
+        logout_timeout_s = 180;
+        hotplug_type = "None";
+      };
     };
-  };
 	 systemd.services.supergfxd.path = [ pkgs.kmod pkgs.pciutils ];
-	 systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 nate kvm -"
-  ];
   services.udev.extraRules = ''
       SUBSYSTEM=="kvmfr", OWNER="nate", GROUP="kvm", MODE="0600"
-    '';
-
+  '';
+	virtualisation.libvirtd.qemu.verbatimConfig = ''
+	  namespaces = []
+	  cgroup_device_acl = [
+      "/dev/null", "/dev/full", "/dev/zero",
+      "/dev/random", "/dev/urandom", "/dev/ptmx",
+      "/dev/kvm", "/dev/rtc", "/dev/hpet", "/dev/kvmfr0"
+		]
+	'';
+	boot.initrd.kernelModules = [ "kvmfr" ]; # I think this gets it to always load
+	boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
   };
 }
