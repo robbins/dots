@@ -39,12 +39,12 @@ in {
 
         ".local/share/PrismLauncher"
 
-	".local/state/nix"
+#	".local/state/nix"
 
 	".config/BraveSoftware"
       ];
       files = [
-        ".config/gh/hosts.yml"
+       ".config/gh/hosts.yml"
         ".zsh_history"
       ];
       allowOther = true;
