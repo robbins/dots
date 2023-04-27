@@ -16,7 +16,6 @@
       xdg.enable = true;
     };
     gui = {
-      microsoftEdge.enable = true;
       kitty.enable = true;
       hyprland.enable = true;
       wayland.enable = true;
@@ -47,10 +46,12 @@
   home.packages = [
     inputs.hyprland-contrib.packages.x86_64-linux.grimblast
     inputs.comma.packages.x86_64-linux.comma
-    pkgs.bemenu #TODO: wayland launcher module
-    pkgs.j4-dmenu-desktop
-    pkgs.zathura # TODO module
-  ];
+  ] ++ (with pkgs; [
+    bemenu #TODO: wayland launcher module
+    j4-dmenu-desktop # same
+    zathura # TODO module
+    brave
+  ]);
 
   # Meta
   home.stateVersion = "21.05";
