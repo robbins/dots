@@ -7,8 +7,10 @@
 {
   security.protectKernelImage = true;
   boot = {
-    tmpOnTmpfs = false;
-    cleanTmpDir = lib.mkDefault (!config.boot.tmpOnTmpfs);
+    tmp = {
+      useTmpfs = false;
+      cleanOnBoot = lib.mkDefault (!config.boot.tmp.useTmpfs);
+    };
     loader.systemd-boot.editor = false;
     kernel.sysctl = {
     ## TCP hardening
