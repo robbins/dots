@@ -23,7 +23,7 @@ in
 	wrap = true;
       };
       plugins = {
-        treesitter.enable = true;
+        treesitter.enable = false;
       };
       extraConfigLua = ''
         vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "" })
