@@ -39,7 +39,7 @@ in {
 
         ".local/share/PrismLauncher"
 
-#	".local/state/nix"
+	".local/state/nix/profiles"
 
 	".config/BraveSoftware"
       ];
