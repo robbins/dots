@@ -40,6 +40,8 @@ in {
         ".local/share/PrismLauncher"
 
 	".local/state/nix"
+
+	".config/BraveSoftware"
       ];
       files = [
         ".config/gh/hosts.yml"
