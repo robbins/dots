@@ -10,7 +10,7 @@ inputs:
 , system
 , modules' ? [ ]
 , overlays' ? [ ]
-, pkgsForSystem ? inputs.nixpkgs-darwin
+, pkgsForSystem ? inputs.nixpkgs
 }:
 with pkgsForSystem.lib;
 inputs.darwin.lib.darwinSystem{

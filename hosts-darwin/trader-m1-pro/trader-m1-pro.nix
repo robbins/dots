@@ -11,5 +11,5 @@ rec {
   ];
   overlays' = [
   ];
-  pkgsForSystem = inputs.nixpkgs-darwin;
+  pkgsForSystem = inputs.nixpkgs;
 }
