@@ -7,4 +7,4 @@ let
   mylib = import ../lib inputs;
   hostnames = remove "default.nix" (builtins.attrNames (builtins.readDir ./.));
   hostArgs = genAttrs hostnames (hostname: import ./${hostname}/${hostname}.nix);
-in mylib.genHosts hostArgs mylib.mkNixosSystem
+in mylib.genHosts "linux" hostArgs mylib.mkNixosSystem

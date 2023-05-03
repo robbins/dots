@@ -7,4 +7,5 @@ inputs@{ ... }:
 {
   genHosts = import ./genhosts.nix inputs;
   mkNixosSystem = import ./mknixossystem.nix inputs;
+  mkDarwinSystem = import ./mkdarwinsystem.nix inputs;
 }
