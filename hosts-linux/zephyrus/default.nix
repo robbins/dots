@@ -68,9 +68,11 @@
 
   services.asusd = {
     enable = true;
-    asusdConfig = {
-      bat_charge_limit = 60;
-    };
+    asusdConfig = ''
+      {
+      "bat_charge_limit": 60
+      }
+    '';
     profileConfig = ''
     active_profile = "Quiet"
     [fan_curves.balanced]
