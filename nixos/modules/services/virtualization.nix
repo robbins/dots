@@ -31,19 +31,6 @@ in {
 		boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
 		boot.kernelParams = [ "iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" "kvmfr.static_size_mb=32" ];
 		boot.blacklistedKernelModules = [ "xpad" ];
-		environment.etc."supergfxd.conf" = {
-      mode = "0644";
-      source = (pkgs.formats.json { }).generate "supergfxd.conf" {
-        mode = "Integrated";
-        vfio_enable = true;
-        vfio_save = true;
-        always_reboot = false;
-        no_logind = true;
-        logout_timeout_s = 180;
-        hotplug_type = "None";
-      };
-    };
-	 systemd.services.supergfxd.path = [ pkgs.kmod pkgs.pciutils ];
   services.udev.extraRules = ''
       SUBSYSTEM=="kvmfr", OWNER="nate", GROUP="kvm", MODE="0600"
   '';
