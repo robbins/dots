@@ -5,6 +5,11 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
+    "org/gnome/control-center" = {
+      last-panel = "background";
+      window-state = mkTuple [ 980 640 ];
+    };
+
     "org/gnome/desktop/app-folders" = {
       folder-children = [ "Utilities" "YaST" ];
     };
@@ -22,9 +27,26 @@ with lib.hm.gvariant;
       translate = true;
     };
 
+    "org/gnome/desktop/background" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-07-13-Ventura-Light.jpg";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-07-13-Ventura-Light.jpg";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
+
     "org/gnome/desktop/input-sources" = {
       sources = [ (mkTuple [ "xkb" "us" ]) ];
       xkb-options = [ "terminate:ctrl_alt_bksp" ];
+    };
+
+    "org/gnome/desktop/screensaver" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-07-13-Ventura-Light.jpg";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
     };
 
     "org/gnome/evolution-data-server" = {
