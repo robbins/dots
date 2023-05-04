@@ -53,10 +53,11 @@
     gui = {
       displayManager = {
         enable = true;
-        autoLogin = true;
+        autoLogin = false;
         autoSessionCommand = "Hyprland";
+	gnome = true;
       };
-      hyprland.enable = true;
+      hyprland.enable = false;
     };
     documentation.enable = true;
   };

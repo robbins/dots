@@ -7,7 +7,7 @@ in {
     enable = mkEnableOption "enable";
     autoLogin = mkOption { default = false; type = types.bool; };
     autoSessionCommand = mkOption { default = false; type = types.str; }; # TODO: nest this under autoLogin
-
+    gnome = mkOption { default = false; type = types.bool; };
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -27,6 +27,13 @@ in {
             user = "${specialArgs.username}";
           };
         };
+      };
+    })
+
+    (mkIf cfg.gnome {
+      services.xserver = {
+        displayManager.gdm.enable = true;
+	desktopManager.gnome.enable = true;
       };
     })
   ]);

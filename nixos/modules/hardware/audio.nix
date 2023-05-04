@@ -9,17 +9,18 @@ in {
   };
 
   config = mkIf cfg.enable {
-   sound.enable = mkForce false;
-   security.rtkit.enable = true;
-   services.pipewire = {
-     enable = true;
-     alsa = {
-       enable = true;
-       support32Bit = true;
+    hardware.pulseaudio.enable = false;
+    sound.enable = mkForce false;
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+       alsa = {
+         enable = true;
+         support32Bit = true;
+       };
+       pulse.enable = true; #TODO: check if we need Pulseaudio backend
      };
-     pulse.enable = true; #TODO: check if we need Pulseaudio backend
-   };
-   hardware.bluetooth.enable = cfg.bluetooth.enable;
+    hardware.bluetooth.enable = cfg.bluetooth.enable;
   };
 }
 
