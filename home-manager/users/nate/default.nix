@@ -6,6 +6,7 @@
 {
   imports = [
     ((import ../../modules) inputs) # all my custom HM modules
+    ./dconf.nix
     inputs.hyprland.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
     inputs.minidev.homeModules.default
