@@ -52,6 +52,7 @@
     j4-dmenu-desktop # same
     zathura # TODO module
     brave
+    dconf2nix
   ]);
 
   # Meta
