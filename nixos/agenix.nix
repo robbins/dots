@@ -6,7 +6,7 @@ with lib;
   age = {
     secrets = {
       #TODO: generate these mappings automatically
-      nate_user_password.file = lib.mkForce ../hosts/zephyrus/secrets/nate_user_password.age;
+      nate_user_password.file = lib.mkForce ../hosts-linux/zephyrus/secrets/nate_user_password.age;
     };
     identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ]; #TODO: this is specific
 #      options.age.identityPaths.default ++ (filter pathExists [
