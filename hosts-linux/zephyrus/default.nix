@@ -68,6 +68,15 @@
 
   services.asusd = {
     enable = true;
+    asusdConfig = ''
+    (
+    bat_charge_limit: 60,
+    panel_od: false,
+    disable_nvidia_powerd_on_battery: true,
+    ac_command: "",
+    bat_command: "",
+    )
+    '';
   };
 
   # Access built-in display backlight without root
