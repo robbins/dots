@@ -55,6 +55,8 @@ in {
       ] ++ (with pkgs.gnomeExtensions; [
         just-perfection
 	blur-my-shell
+	workspace-indicator-2
+	gesture-improvements
       ]);
     })
   ]);
