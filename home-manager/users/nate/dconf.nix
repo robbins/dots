@@ -29,6 +29,14 @@ with lib.hm.gvariant;
       last-window-size = mkTuple [ 652 481 ];
     };
 
+    "org/gnome/GWeather4" = {
+      temperature-unit = "centigrade";
+    };
+
+    "org/gnome/Weather" = {
+      locations = "[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]";
+    };
+
     "org/gnome/calendar" = {
       active-view = "month";
       window-maximized = true;
@@ -78,6 +86,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
       color-scheme = "prefer-dark";
+      enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "medium";
       show-battery-percentage = true;
@@ -143,7 +152,13 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
       migrated-gtk-settings = true;
+      search-filter-time-type = "last_modified";
+    };
+
+    "org/gnome/nautilus/window-state" = {
+      initial-size = mkTuple [ 890 550 ];
     };
 
     "org/gnome/photos" = {
@@ -152,13 +167,44 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.661535123817686 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.67039097354663 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
     "org/gnome/shell" = {
+      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
+    };
+
+    "org/gnome/shell/extensions/just-perfection" = {
+      accessibility-menu = false;
+      activities-button = false;
+      activities-button-icon-monochrome = true;
+      animation = 1;
+      app-menu = true;
+      app-menu-icon = true;
+      app-menu-label = true;
+      calendar = true;
+      clock-menu = true;
+      controls-manager-spacing-size = 0;
+      dash = true;
+      events-button = true;
+      keyboard-layout = true;
+      notification-banner-position = 2;
+      panel = true;
+      panel-size = 28;
+      search = false;
+      show-apps-button = false;
+      startup-status = 1;
+      theme = true;
+      window-demands-attention-focus = true;
+      workspace-wrap-around = true;
+    };
+
+    "org/gnome/shell/weather" = {
+      automatic-location = true;
+      locations = "[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]";
     };
 
     "org/gnome/shell/world-clocks" = {
