@@ -6,9 +6,11 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
+      cursor-blink-mode = mkUint32 2;
+      cursor-shape = mkUint32 0;
       easy-copy-paste = true;
       floating-controls = false;
-      font = "PragmataPro Mono Liga 13";
+      font = "PragmataPro Mono Liga 12";
       headerbar-draw-line-single-tab = false;
       hide-single-tab = true;
       scrollback-mode = mkUint32 1;
@@ -31,6 +33,10 @@ with lib.hm.gvariant;
       active-view = "month";
       window-maximized = true;
       window-size = mkTuple [ 768 600 ];
+    };
+
+    "org/gnome/cheese" = {
+      burst-delay = 1000;
     };
 
     "org/gnome/control-center" = {
@@ -70,7 +76,10 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/interface" = {
+      clock-show-seconds = true;
       color-scheme = "prefer-dark";
+      font-antialiasing = "rgba";
+      font-hinting = "medium";
       show-battery-percentage = true;
     };
 
@@ -88,7 +97,7 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/peripherals/mouse" = {
       natural-scroll = true;
-      speed = 0.33333333333333326;
+      speed = 0.333333;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -120,6 +129,10 @@ with lib.hm.gvariant;
       idle-delay = mkUint32 300;
     };
 
+    "org/gnome/desktop/wm/preferences" = {
+      focus-mode = "sloppy";
+    };
+
     "org/gnome/evolution-data-server" = {
       migrated = true;
     };
@@ -133,9 +146,13 @@ with lib.hm.gvariant;
       migrated-gtk-settings = true;
     };
 
+    "org/gnome/photos" = {
+      window-maximized = true;
+    };
+
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.66735718931902 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.661535123817686 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
@@ -150,6 +167,10 @@ with lib.hm.gvariant;
 
     "org/gnome/system/location" = {
       enabled = true;
+    };
+
+    "org/gnome/tweaks" = {
+      show-extensions-notice = false;
     };
 
   };
