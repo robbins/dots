@@ -53,6 +53,7 @@
     zathura # TODO module
     brave
     dconf2nix
+    blackbox-terminal
   ]);
 
   # Meta
