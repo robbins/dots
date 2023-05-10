@@ -37,6 +37,19 @@ in {
 	desktopManager.gnome.enable = true;
       };
       networking.networkmanager.enable = lib.mkForce false;
+      environment.gnome.excludePackages = (with pkgs; [
+        gnome-photos
+        gnome-tour
+      ]) ++ (with pkgs.gnome; [
+        cheese # webcam tool
+        gnome-music
+        gnome-terminal
+        epiphany # web browser
+        geary # email reader
+        evince # document viewer
+        gnome-characters
+        totem # video player
+      ]);
     })
   ]);
 }
