@@ -50,6 +50,12 @@ in {
         gnome-characters
         totem # video player
       ]);
+      environment.systemPackages = with pkgs.gnome; [
+        gnome-tweaks
+      ] ++ (with pkgs.gnomeExtensions; [
+        just-perfection
+	blur-my-shell
+      ]);
     })
   ]);
 }
