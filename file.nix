@@ -15,6 +15,7 @@ with lib.hm.gvariant;
       show-headerbar = true;
       show-menu-button = true;
       stealth-single-tab = true;
+      terminal-padding = mkTuple [ mkUint32 0 mkUint32 0 ];
       theme-dark = "Tommorow Night";
       window-show-borders = true;
     };
