@@ -42,6 +42,8 @@ in {
 	".local/state/nix/profiles"
 
 	".config/BraveSoftware"
+
+	".gradle"
       ];
       files = [
        ".config/gh/hosts.yml"
