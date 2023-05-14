@@ -40,6 +40,7 @@ in {
       environment.gnome.excludePackages = (with pkgs; [
         gnome-photos
         gnome-tour
+	gnome-text-editor
       ]) ++ (with pkgs.gnome; [
         cheese # webcam tool
         gnome-music
@@ -49,6 +50,15 @@ in {
         evince # document viewer
         gnome-characters
         totem # video player
+	gnome-contacts
+	gnome-maps
+	simple-scan
+	baobab
+	file-roller
+	gnome-logs
+	gnome-system-monitor
+	gedit
+	yelp
       ]);
       environment.systemPackages = with pkgs.gnome; [
         gnome-tweaks
