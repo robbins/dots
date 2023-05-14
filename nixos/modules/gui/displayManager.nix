@@ -35,6 +35,7 @@ in {
         enable = true;
         displayManager.gdm.enable = true;
 	desktopManager.gnome.enable = true;
+	excludePackages = [ pkgs.xterm ];
       };
       networking.networkmanager.enable = lib.mkForce false;
       environment.gnome.excludePackages = (with pkgs; [
