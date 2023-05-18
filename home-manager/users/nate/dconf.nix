@@ -41,6 +41,21 @@ with lib.hm.gvariant;
       locations = "[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]";
     };
 
+    "org/gnome/calculator" = {
+      accuracy = 9;
+      angle-units = "degrees";
+      base = 10;
+      button-mode = "basic";
+      number-format = "automatic";
+      show-thousands = false;
+      show-zeroes = false;
+      source-currency = "";
+      source-units = "degree";
+      target-currency = "";
+      target-units = "radian";
+      word-size = 64;
+    };
+
     "org/gnome/calendar" = {
       active-view = "month";
       window-maximized = true;
@@ -52,7 +67,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "search";
+      last-panel = "background";
       window-state = mkTuple [ 980 640 ];
     };
 
@@ -76,8 +91,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-07-13-Ventura-Light.jpg";
-      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-07-13-Ventura-Light.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -90,9 +105,14 @@ with lib.hm.gvariant;
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
       color-scheme = "prefer-dark";
+      cursor-theme = "WhiteSur-cursors";
       enable-animations = true;
       font-antialiasing = "rgba";
       font-hinting = "medium";
+      font-name = "System-ui 11";
+      icon-theme = "BigSur";
+      locate-pointer = true;
+      monospace-font-name = "PragmataPro Liga 10";
       show-battery-percentage = true;
     };
 
@@ -109,6 +129,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "adaptive";
       natural-scroll = true;
       speed = 0.333333;
     };
@@ -128,7 +149,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-07-13-Ventura-Light.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -144,7 +165,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/preferences" = {
+      auto-raise = false;
+      button-layout = "appmenu:close";
       focus-mode = "sloppy";
+      resize-with-right-button = false;
+      titlebar-font = "System-ui Bold 11";
     };
 
     "org/gnome/evolution-data-server" = {
@@ -152,6 +177,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/mutter" = {
+      center-new-windows = true;
       dynamic-workspaces = true;
       edge-tiling = true;
     };
@@ -172,11 +198,12 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.66149990126137 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.66293132111719 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
     "org/gnome/shell" = {
+      app-picker-layout = "[{'com.raggesilver.BlackBox.desktop': <{'position': <0>}>, 'brave-browser.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Calendar.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Nautilus.desktop': <{'position': <6>}>, 'kitty.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'looking-glass-client.desktop': <{'position': <9>}>, 'nvim.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'rog-control-center.desktop': <{'position': <13>}>, 'virt-manager.desktop': <{'position': <14>}>, 'org.pwmt.zathura.desktop': <{'position': <15>}>, 'nixos-manual.desktop': <{'position': <16>}>, 'org.gnome.Console.desktop': <{'position': <17>}>, 'org.gnome.font-viewer.desktop': <{'position': <18>}>, 'org.gnome.tweaks.desktop': <{'position': <19>}>, 'org.gnome.eog.desktop': <{'position': <20>}>, 'org.gnome.seahorse.Application.desktop': <{'position': <21>}>, 'org.gnome.DiskUtility.desktop': <{'position': <22>}>, 'org.gnome.Connections.desktop': <{'position': <23>}>}]";
       disabled-extensions = [ "gestureImprovements@gestures" ];
       enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
       favorite-apps = [];
