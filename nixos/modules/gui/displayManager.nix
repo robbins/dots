@@ -35,7 +35,13 @@ in {
     (mkIf cfg.gnome {
       services.xserver = {
         enable = true;
-        displayManager.gdm.enable = true;
+	displayManager = {
+	  gdm.enable = true;
+	  autoLogin = {
+	    enable = true;
+	    user = "nate";
+	  };
+	};
 	desktopManager.gnome.enable = true;
 	excludePackages = [ pkgs.xterm ];
       };

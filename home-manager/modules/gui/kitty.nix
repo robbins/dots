@@ -80,7 +80,7 @@ in {
 	shell = "zsh";
 
 	shell_integration = "no-title";
-	wayland_titlebar_color = "background";
+	wayland_titlebar_color = "#111111";
       };
     };
   });
