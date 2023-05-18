@@ -22,7 +22,8 @@ with lib.hm.gvariant;
     };
 
     "org/freedesktop/tracker/miner/files" = {
-      index-recursive-directories = [ "&MUSIC" "&PICTURES" "&VIDEOS" "&DOWNLOAD" ];
+      index-recursive-directories = [];
+      index-single-directories = [];
     };
 
     "org/gnome/Console" = {
@@ -48,7 +49,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "power";
+      last-panel = "search";
       window-state = mkTuple [ 980 640 ];
     };
 
@@ -130,6 +131,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/search-providers" = {
+      disabled = [ "org.gnome.Nautilus.desktop" ];
       enabled = [ "org.gnome.Weather.desktop" ];
       sort-order = [ "org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop" ];
     };
@@ -167,7 +169,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.67039097354663 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.66345544925008 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
