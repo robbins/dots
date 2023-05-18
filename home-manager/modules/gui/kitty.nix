@@ -75,9 +75,12 @@ in {
         url_color = "#d65c0d";
 
         enable_audio_bell = false;
-        hide_window_decorations = true;
+        hide_window_decorations = false;
 
 	shell = "zsh";
+
+	shell_integration = "no-title";
+	wayland_titlebar_color = "background";
       };
     };
   });
