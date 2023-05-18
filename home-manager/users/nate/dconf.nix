@@ -8,6 +8,7 @@ with lib.hm.gvariant;
     "com/raggesilver/BlackBox" = {
       cursor-blink-mode = mkUint32 2;
       cursor-shape = mkUint32 0;
+      custom-shell-command = "zsh";
       easy-copy-paste = true;
       floating-controls = false;
       font = "PragmataPro Mono Liga 12";
@@ -18,6 +19,8 @@ with lib.hm.gvariant;
       show-menu-button = true;
       stealth-single-tab = true;
       theme-dark = "Tommorow Night";
+      use-custom-command = true;
+      was-maximized = true;
       window-show-borders = true;
     };
 
@@ -169,14 +172,41 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.66345544925008 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.66149990126137 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" ];
+      disabled-extensions = [ "gestureImprovements@gestures" ];
+      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
+      favorite-apps = [];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      blur = false;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
+      brightness = 0.55;
+      customize = true;
+      noise-amount = 0.0;
+      sigma = 65;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      brightness = 0.55;
+      customize = true;
+      sigma = 200;
+      style-components = 0;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      blur = true;
+      brightness = 0.2;
+      customize = true;
+      sigma = 140;
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
