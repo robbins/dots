@@ -53,8 +53,10 @@
     gui = {
       displayManager = {
         enable = true;
-        autoLogin = false;
-        autoSessionCommand = "Hyprland";
+        autoLogin = {
+          enable = false;
+          autoSessionCommand = "Hyprland";
+        };
 	gnome = true;
       };
       hyprland.enable = false;
@@ -84,10 +86,6 @@
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl1", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl0", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
   '';
-
-  programs.steam.enable = true;
-
-  networking.timeServers = options.networking.timeServers.default ++ [ "time.google.com" ];
 
   # Meta
   system.stateVersion = "21.05";

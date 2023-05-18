@@ -5,8 +5,10 @@ let cfg = config.modules.gui.displayManager;
 in {
   options.modules.gui.displayManager = {
     enable = mkEnableOption "enable";
-    autoLogin = mkOption { default = false; type = types.bool; };
-    autoSessionCommand = mkOption { default = false; type = types.str; }; # TODO: nest this under autoLogin
+    autoLogin = {
+      enable = mkOption { default = false; type = types.bool; };
+      autoSessionCommand = mkOption { default = false; type = types.str; };
+    };
     gnome = mkOption { default = false; type = types.bool; };
   };
 
@@ -15,7 +17,7 @@ in {
       environment.systemPackages = [ pkgs.wlr-randr ];
     }
 
-    (mkIf cfg.autoLogin {
+    (mkIf cfg.autoLogin.enable {
       services.greetd = {
         enable = true;
         settings = {
@@ -67,7 +69,6 @@ in {
         just-perfection
 	blur-my-shell
 	workspace-indicator-2
-	gesture-improvements
       ]);
     })
   ]);
