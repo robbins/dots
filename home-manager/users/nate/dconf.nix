@@ -6,11 +6,11 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "ca/desrt/dconf-editor" = {
-      saved-pathbar-path = "/org/gnome/settings-daemon/plugins/media-keys/";
-      saved-view = "/org/gnome/settings-daemon/plugins/media-keys/";
+      saved-pathbar-path = "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding";
+      saved-view = "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding";
       window-height = 500;
       window-is-maximized = false;
-      window-width = 540;
+      window-width = 566;
     };
 
     "com/raggesilver/BlackBox" = {
@@ -219,6 +219,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Mod4>Return";
       command = "env MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json kitty";
       name = "Kitty";
     };
