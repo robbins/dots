@@ -125,7 +125,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-console" "org-gnome-settings" ];
+      application-children = [ "org-gnome-console" "org-gnome-settings" "gnome-power-panel" ];
+    };
+
+    "org/gnome/desktop/notifications/application/gnome-power-panel" = {
+      application-id = "gnome-power-panel.desktop";
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-console" = {
@@ -210,7 +214,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.662931 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.665588822908376 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
