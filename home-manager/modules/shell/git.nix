@@ -15,6 +15,11 @@ in {
       userName = cfg.userName;
       userEmail = cfg.userEmail;
       delta.enable = true;
+      extraConfig = {
+        http = {
+	  cookiefile = "/home/nate/.gitcookies";
+	};
+      };
     };
   };
 }
