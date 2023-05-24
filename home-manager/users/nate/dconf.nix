@@ -75,7 +75,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "keyboard";
+      last-panel = "power";
       window-state = mkTuple [ 980 640 ];
     };
 
@@ -214,7 +214,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.665588822908376 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.658302699328246 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
@@ -228,13 +228,18 @@ with lib.hm.gvariant;
       name = "Kitty";
     };
 
+    "org/gnome/settings-daemon/plugins/power" = {
+      power-button-action = "nothing";
+      sleep-inactive-ac-type = "nothing";
+    };
+
     "org/gnome/shell" = {
       always-show-log-out = true;
       app-picker-layout = "[{'com.raggesilver.BlackBox.desktop': <{'position': <0>}>, 'brave-browser.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Calendar.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Nautilus.desktop': <{'position': <6>}>, 'kitty.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'looking-glass-client.desktop': <{'position': <9>}>, 'nvim.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'rog-control-center.desktop': <{'position': <13>}>, 'virt-manager.desktop': <{'position': <14>}>, 'org.pwmt.zathura.desktop': <{'position': <15>}>, 'nixos-manual.desktop': <{'position': <16>}>, 'org.gnome.Console.desktop': <{'position': <17>}>, 'org.gnome.font-viewer.desktop': <{'position': <18>}>, 'org.gnome.tweaks.desktop': <{'position': <19>}>, 'org.gnome.eog.desktop': <{'position': <20>}>, 'org.gnome.seahorse.Application.desktop': <{'position': <21>}>, 'org.gnome.DiskUtility.desktop': <{'position': <22>}>, 'org.gnome.Connections.desktop': <{'position': <23>}>}]";
       disabled-extensions = [ "gestureImprovements@gestures" ];
       enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
       favorite-apps = [];
-      last-selected-power-profile = "power-saver";
+      last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.1";
     };
 
