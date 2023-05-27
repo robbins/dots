@@ -360,7 +360,8 @@
       "inputs": {
         "nixpkgs": [
           "nixos-unstable"
-        ]
+        ],
+        "utils": "utils_2"
       },
       "locked": {
         "lastModified": 1694643239,
@@ -372,6 +373,7 @@
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-22.11",
         "repo": "home-manager",
         "type": "github"
       }
