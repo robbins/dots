@@ -20,7 +20,6 @@ A call to darwinSystem
 
 */
 
-
 inputs:
 { username
 , system
@@ -37,6 +36,8 @@ inputs.darwin.lib.darwinSystem{
     overlays = overlays';
   };
   modules = [
+    ../darwin
+    { modules.darwin.localNixpkgs = pkgsForSystem; }
   ] ++ modules';
   specialArgs = { inherit inputs username; };
 }
