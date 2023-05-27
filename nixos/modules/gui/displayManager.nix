@@ -45,6 +45,10 @@ in {
 	desktopManager.gnome.enable = true;
 	excludePackages = [ pkgs.xterm ];
       };
+      systemd.services = {
+        "getty@tty1".enable = false;
+        "autovt@tty1".enable = false;
+      };
       networking.networkmanager.enable = lib.mkForce false;
       environment.gnome.excludePackages = (with pkgs; [
         gnome-photos
