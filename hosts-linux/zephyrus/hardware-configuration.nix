@@ -41,7 +41,7 @@
     { device = "zephyrus/persist";
       fsType = "zfs";
       neededForBoot = true;
-      options = [ "defaults" "user" "zfsutil" ];
+      options = [ "defaults" "user" "zfsutil" "exec" "dev" ];
     };
 
   fileSystems."/root" =
@@ -93,7 +93,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/d362f8f9-b9d4-4840-b74e-feea4c66ecbd"; }
+    [ { device = "/dev/disk/by-uuid/4d4b54a1-3b48-42f5-9e75-5d3de01a6fae"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

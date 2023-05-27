@@ -13,7 +13,9 @@ in {
   };
   config = mkIf cfg.enable (mkMerge [
     {
-
+      environment.systemPackages = with pkgs; [
+        e2fsprogs
+      ];
     }
 
     (mkIf cfg.zfs.enable {
