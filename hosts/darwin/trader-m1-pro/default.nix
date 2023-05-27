@@ -14,11 +14,12 @@
       dock = {
         autohide = true;
         autohide-delay = 0.0;
+        autohide-time-modifier = 0.35;
       };
     };
   };
 
   # Misc
   system.stateVersion = 4;
-  # programs.zsh.enable = true;
+  programs.zsh.enable = true;
 }

@@ -37,6 +37,8 @@ inputs.darwin.lib.darwinSystem{
   };
   modules = [
     ../darwin
+    inputs.home-manager-darwin.darwinModules.home-manager
+    ../home-manager
     { modules.darwin.localNixpkgs = pkgsForSystem; }
   ] ++ modules';
   specialArgs = { inherit inputs username; };
