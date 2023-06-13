@@ -57,8 +57,8 @@
           enable = false;
           autoSessionCommand = "Hyprland";
         };
-	gnome = false;
-	kde = true;
+	gnome = true;
+	kde = false;
       };
       hyprland.enable = false;
     };

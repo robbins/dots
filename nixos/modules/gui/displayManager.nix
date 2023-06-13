@@ -89,6 +89,9 @@ in {
         just-perfection
 	blur-my-shell
 	workspace-indicator-2
+	paperwm
+	vertical-overview
+	switcher
       ]);
     })
   ]);
