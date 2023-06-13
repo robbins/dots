@@ -126,7 +126,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-console" "org-gnome-settings" "gnome-power-panel" ];
+      application-children = [ "org-gnome-console" "org-gnome-settings" "gnome-power-panel" "brave-browser" ];
+    };
+
+    "org/gnome/desktop/notifications/application/brave-browser" = {
+      application-id = "brave-browser.desktop";
     };
 
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
@@ -217,7 +221,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.672727227264424 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.658566042647934 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
@@ -240,8 +244,8 @@ with lib.hm.gvariant;
       always-show-log-out = true;
       app-picker-layout = "[{'com.raggesilver.BlackBox.desktop': <{'position': <0>}>, 'brave-browser.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Calendar.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Nautilus.desktop': <{'position': <6>}>, 'kitty.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'looking-glass-client.desktop': <{'position': <9>}>, 'nvim.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'rog-control-center.desktop': <{'position': <13>}>, 'virt-manager.desktop': <{'position': <14>}>, 'org.pwmt.zathura.desktop': <{'position': <15>}>, 'nixos-manual.desktop': <{'position': <16>}>, 'org.gnome.Console.desktop': <{'position': <17>}>, 'org.gnome.font-viewer.desktop': <{'position': <18>}>, 'org.gnome.tweaks.desktop': <{'position': <19>}>, 'org.gnome.eog.desktop': <{'position': <20>}>, 'org.gnome.seahorse.Application.desktop': <{'position': <21>}>, 'org.gnome.DiskUtility.desktop': <{'position': <22>}>, 'org.gnome.Connections.desktop': <{'position': <23>}>}]";
       disable-user-extensions = false;
-      disabled-extensions = [ "gestureImprovements@gestures" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "window-list@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "paperwm@hedning:matrix.org" "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "vertical-workspaces@G-dH.github.com" ];
-      enabled-extensions = [];
+      disabled-extensions = [ "gestureImprovements@gestures" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "window-list@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" ];
+      enabled-extensions = [ "vertical-workspaces@G-dH.github.com" "paperwm@hedning:matrix.org" ];
       favorite-apps = [];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
@@ -302,11 +306,15 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces" = {
-      list = [ "0760a18b-e8d0-46cf-86e4-f6eb3189dc56" "5a5855b2-1a8f-4f0b-8959-4f6d8931fdf7" "5a9598bb-c89b-4ce1-93d8-b22c1d396361" "a1550d07-27c1-477c-9588-2e71a6fbcd9d" ];
+      list = [ "0760a18b-e8d0-46cf-86e4-f6eb3189dc56" "5a5855b2-1a8f-4f0b-8959-4f6d8931fdf7" "5a9598bb-c89b-4ce1-93d8-b22c1d396361" "a1550d07-27c1-477c-9588-2e71a6fbcd9d" "73c45445-eb16-475a-829b-49a3bfd8d08e" "8aecbb94-16dc-4de8-98d5-2847c2aae258" "5a04980f-605f-44be-8fe4-745c8c311e9c" "8982f387-81fa-407a-86b6-ea79c84f728d" "b3f6b448-9fb7-4cf0-9448-a833aee2a61b" ];
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/0760a18b-e8d0-46cf-86e4-f6eb3189dc56" = {
       index = 0;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/5a04980f-605f-44be-8fe4-745c8c311e9c" = {
+      index = 6;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/5a5855b2-1a8f-4f0b-8959-4f6d8931fdf7" = {
@@ -317,15 +325,45 @@ with lib.hm.gvariant;
       index = 2;
     };
 
+    "org/gnome/shell/extensions/paperwm/workspaces/73c45445-eb16-475a-829b-49a3bfd8d08e" = {
+      index = 4;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/8982f387-81fa-407a-86b6-ea79c84f728d" = {
+      index = 7;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/8aecbb94-16dc-4de8-98d5-2847c2aae258" = {
+      index = 5;
+    };
+
     "org/gnome/shell/extensions/paperwm/workspaces/a1550d07-27c1-477c-9588-2e71a6fbcd9d" = {
       index = 3;
     };
 
+    "org/gnome/shell/extensions/paperwm/workspaces/b3f6b448-9fb7-4cf0-9448-a833aee2a61b" = {
+      index = 8;
+    };
+
     "org/gnome/shell/extensions/vertical-workspaces" = {
+      center-dash-to-ws = false;
+      dash-position = 4;
+      hot-corner-action = 0;
+      hot-corner-ripples = true;
+      osd-position = 6;
+      overview-mode = 0;
+      panel-position = 0;
+      panel-visibility = 0;
       profile-name-1 = "GNOME 3";
       profile-name-2 = "GNOME 40+ - Bottom Hot Edge";
       profile-name-3 = "Hot Corner Centric - Top Left Hot Corner";
       profile-name-4 = "Dock Overview - Bottom Hot Edge";
+      search-fuzzy = true;
+      secondary-ws-preview-shift = false;
+      secondary-ws-thumbnails-position = 2;
+      show-search-entry = false;
+      startup-state = 1;
+      ws-thumbnails-position = 0;
     };
 
     "org/gnome/shell/weather" = {
