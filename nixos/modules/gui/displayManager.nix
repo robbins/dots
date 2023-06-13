@@ -10,6 +10,7 @@ in {
       autoSessionCommand = mkOption { default = false; type = types.str; };
     };
     gnome = mkOption { default = false; type = types.bool; };
+    kde = mkOption { default = false; type = types.bool; };
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -29,6 +30,15 @@ in {
             user = "${specialArgs.username}";
           };
         };
+      };
+    })
+
+    (mkIf cfg.kde {
+      services.xserver = {
+        enable = true;
+	displayManager.sddm.enable = true;
+	desktopManager.plasma5.enable = true;
+	excludePackages = [ pkgs.xterm ];
       };
     })
 
