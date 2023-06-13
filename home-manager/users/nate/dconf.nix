@@ -143,7 +143,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/peripherals/mouse" = {
       accel-profile = "adaptive";
       natural-scroll = false;
-      speed = -0.2325581395348837;
+      speed = -0.232558;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -214,7 +214,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.65718451384782 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.66415783299273 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
@@ -237,8 +237,8 @@ with lib.hm.gvariant;
       always-show-log-out = true;
       app-picker-layout = "[{'com.raggesilver.BlackBox.desktop': <{'position': <0>}>, 'brave-browser.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Calendar.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Nautilus.desktop': <{'position': <6>}>, 'kitty.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'looking-glass-client.desktop': <{'position': <9>}>, 'nvim.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'rog-control-center.desktop': <{'position': <13>}>, 'virt-manager.desktop': <{'position': <14>}>, 'org.pwmt.zathura.desktop': <{'position': <15>}>, 'nixos-manual.desktop': <{'position': <16>}>, 'org.gnome.Console.desktop': <{'position': <17>}>, 'org.gnome.font-viewer.desktop': <{'position': <18>}>, 'org.gnome.tweaks.desktop': <{'position': <19>}>, 'org.gnome.eog.desktop': <{'position': <20>}>, 'org.gnome.seahorse.Application.desktop': <{'position': <21>}>, 'org.gnome.DiskUtility.desktop': <{'position': <22>}>, 'org.gnome.Connections.desktop': <{'position': <23>}>}]";
       disable-user-extensions = false;
-      disabled-extensions = [ "gestureImprovements@gestures" ];
-      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
+      disabled-extensions = [ "gestureImprovements@gestures" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" ];
+      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" ];
       favorite-apps = [];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
@@ -294,6 +294,30 @@ with lib.hm.gvariant;
       workspace-wrap-around = true;
     };
 
+    "org/gnome/shell/extensions/paperwm" = {
+      has-installed-config-template = true;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces" = {
+      list = [ "0760a18b-e8d0-46cf-86e4-f6eb3189dc56" "5a5855b2-1a8f-4f0b-8959-4f6d8931fdf7" "5a9598bb-c89b-4ce1-93d8-b22c1d396361" "a1550d07-27c1-477c-9588-2e71a6fbcd9d" ];
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/0760a18b-e8d0-46cf-86e4-f6eb3189dc56" = {
+      index = 0;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/5a5855b2-1a8f-4f0b-8959-4f6d8931fdf7" = {
+      index = 1;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/5a9598bb-c89b-4ce1-93d8-b22c1d396361" = {
+      index = 2;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/a1550d07-27c1-477c-9588-2e71a6fbcd9d" = {
+      index = 3;
+    };
+
     "org/gnome/shell/weather" = {
       automatic-location = true;
       locations = "[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]";
@@ -309,6 +333,21 @@ with lib.hm.gvariant;
 
     "org/gnome/tweaks" = {
       show-extensions-notice = false;
+    };
+
+    "org/gtk/gtk4/settings/file-chooser" = {
+      date-format = "regular";
+      location-mode = "path-bar";
+      show-hidden = false;
+      show-size-column = true;
+      show-type-column = true;
+      sidebar-width = 140;
+      sort-column = "name";
+      sort-directories-first = false;
+      sort-order = "ascending";
+      type-format = "category";
+      view-type = "list";
+      window-size = mkTuple [ 859 374 ];
     };
 
     "org/gtk/settings/file-chooser" = {
