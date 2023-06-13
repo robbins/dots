@@ -75,7 +75,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "mouse";
+      last-panel = "power";
       window-state = mkTuple [ 980 640 ];
     };
 
@@ -115,6 +115,7 @@ with lib.hm.gvariant;
       color-scheme = "prefer-dark";
       cursor-theme = "WhiteSur-cursors";
       enable-animations = true;
+      enable-hot-corners = false;
       font-antialiasing = "rgba";
       font-hinting = "medium";
       font-name = "System-ui 11";
@@ -180,6 +181,7 @@ with lib.hm.gvariant;
       auto-raise = false;
       button-layout = "appmenu:close";
       focus-mode = "sloppy";
+      num-workspaces = 9;
       resize-with-right-button = false;
       titlebar-font = "System-ui Bold 11";
     };
@@ -194,8 +196,9 @@ with lib.hm.gvariant;
 
     "org/gnome/mutter" = {
       center-new-windows = true;
-      dynamic-workspaces = true;
-      edge-tiling = true;
+      dynamic-workspaces = false;
+      edge-tiling = false;
+      workspaces-only-on-primary = false;
     };
 
     "org/gnome/nautilus/preferences" = {
@@ -214,7 +217,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [ 43.66415783299273 (-79.4343) ];
+      night-light-last-coordinates = mkTuple [ 43.672727227264424 (-79.4343) ];
       night-light-temperature = mkUint32 1700;
     };
 
@@ -237,8 +240,8 @@ with lib.hm.gvariant;
       always-show-log-out = true;
       app-picker-layout = "[{'com.raggesilver.BlackBox.desktop': <{'position': <0>}>, 'brave-browser.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Calendar.desktop': <{'position': <4>}>, 'org.gnome.Extensions.desktop': <{'position': <5>}>, 'org.gnome.Nautilus.desktop': <{'position': <6>}>, 'kitty.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'looking-glass-client.desktop': <{'position': <9>}>, 'nvim.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'rog-control-center.desktop': <{'position': <13>}>, 'virt-manager.desktop': <{'position': <14>}>, 'org.pwmt.zathura.desktop': <{'position': <15>}>, 'nixos-manual.desktop': <{'position': <16>}>, 'org.gnome.Console.desktop': <{'position': <17>}>, 'org.gnome.font-viewer.desktop': <{'position': <18>}>, 'org.gnome.tweaks.desktop': <{'position': <19>}>, 'org.gnome.eog.desktop': <{'position': <20>}>, 'org.gnome.seahorse.Application.desktop': <{'position': <21>}>, 'org.gnome.DiskUtility.desktop': <{'position': <22>}>, 'org.gnome.Connections.desktop': <{'position': <23>}>}]";
       disable-user-extensions = false;
-      disabled-extensions = [ "gestureImprovements@gestures" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" ];
-      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" ];
+      disabled-extensions = [ "gestureImprovements@gestures" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "native-window-placement@gnome-shell-extensions.gcampax.github.com" "window-list@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "paperwm@hedning:matrix.org" "places-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "vertical-workspaces@G-dH.github.com" ];
+      enabled-extensions = [];
       favorite-apps = [];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
@@ -316,6 +319,13 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm/workspaces/a1550d07-27c1-477c-9588-2e71a6fbcd9d" = {
       index = 3;
+    };
+
+    "org/gnome/shell/extensions/vertical-workspaces" = {
+      profile-name-1 = "GNOME 3";
+      profile-name-2 = "GNOME 40+ - Bottom Hot Edge";
+      profile-name-3 = "Hot Corner Centric - Top Left Hot Corner";
+      profile-name-4 = "Dock Overview - Bottom Hot Edge";
     };
 
     "org/gnome/shell/weather" = {
