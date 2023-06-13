@@ -90,7 +90,7 @@ in {
 	blur-my-shell
 	workspace-indicator-2
 	paperwm
-	vertical-overview
+	vertical-workspaces
 	switcher
       ]);
     })
