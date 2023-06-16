@@ -123,6 +123,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
+      enabled-extensions = [ "paperwm@hedning:matrix.org" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -179,6 +180,30 @@ with lib.hm.gvariant;
       theme = true;
       window-demands-attention-focus = true;
       workspace-wrap-around = true;
+    };
+
+    "org/gnome/shell/extensions/paperwm" = {
+      has-installed-config-template = true;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces" = {
+      list = [ "6158c727-87ae-4bb6-b095-d2b4393ee8fd" "de4b39e6-000a-4084-b934-1d17c6f495bd" "21ca5a1f-1bcd-44e4-8a6a-686049cf634f" "3af9c5bd-456d-4fbf-a30a-e3479234b849" ];
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/21ca5a1f-1bcd-44e4-8a6a-686049cf634f" = {
+      index = 2;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/3af9c5bd-456d-4fbf-a30a-e3479234b849" = {
+      index = 3;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/6158c727-87ae-4bb6-b095-d2b4393ee8fd" = {
+      index = 0;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/de4b39e6-000a-4084-b934-1d17c6f495bd" = {
+      index = 1;
     };
 
     "org/gnome/shell/world-clocks" = {
