@@ -5,15 +5,38 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
+    "ca/desrt/dconf-editor" = {
+      saved-pathbar-path = "/org/";
+      saved-view = "/org/";
+      window-height = 500;
+      window-is-maximized = false;
+      window-width = 540;
+    };
+
     "org/freedesktop/tracker/miner/files" = {
       index-recursive-directories = [];
       index-single-directories = [];
+    };
+
+    "org/gnome/control-center" = {
+      last-panel = "multitasking";
+      window-state = mkTuple [ 980 640 ];
+    };
+
+    "org/gnome/desktop/app-folders" = {
+      folder-children = [ "Utilities" "YaST" ];
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
       apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
       categories = [ "X-GNOME-Utilities" ];
       name = "X-GNOME-Utilities.directory";
+      translate = true;
+    };
+
+    "org/gnome/desktop/app-folders/folders/YaST" = {
+      categories = [ "X-SuSE-YaST" ];
+      name = "suse-yast.directory";
       translate = true;
     };
 
@@ -24,6 +47,11 @@ with lib.hm.gvariant;
       picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
+    };
+
+    "org/gnome/desktop/input-sources" = {
+      sources = [ (mkTuple [ "xkb" "us" ]) ];
+      xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
     "org/gnome/desktop/interface" = {
@@ -70,6 +98,20 @@ with lib.hm.gvariant;
       sort-order = [ "org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop" ];
     };
 
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:close";
+      focus-mode = "click";
+    };
+
+    "org/gnome/evolution-data-server" = {
+      migrated = true;
+    };
+
+    "org/gnome/mutter" = {
+      attach-modal-dialogs = false;
+      workspaces-only-on-primary = false;
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
     };
@@ -83,6 +125,10 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
+    };
+
+    "org/gnome/shell/app-switcher" = {
+      current-workspace-only = true;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
@@ -135,6 +181,14 @@ with lib.hm.gvariant;
       workspace-wrap-around = true;
     };
 
+    "org/gnome/shell/world-clocks" = {
+      locations = "@av []";
+    };
+
+    "org/gnome/tweaks" = {
+      show-extensions-notice = false;
+    };
+
     "org/gtk/gtk4/settings/file-chooser" = {
       date-format = "regular";
       location-mode = "path-bar";
@@ -164,5 +218,6 @@ with lib.hm.gvariant;
       window-position = mkTuple [ 26 23 ];
       window-size = mkTuple [ 1203 902 ];
     };
+
   };
 }
