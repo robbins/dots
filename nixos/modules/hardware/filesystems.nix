@@ -25,7 +25,7 @@ in {
           enableUnstable = cfg.zfs.unstable;
           devNodes = "/dev/disk/by-partuuid";
         };
-        kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+        kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
       };
       networking.hostId = cfg.zfs.hostId;
       services.zfs = {
