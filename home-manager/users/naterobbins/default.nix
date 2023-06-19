@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     iterm2
     postman
+    darwin.xcode_14_1
   ];
 
   # Meta
