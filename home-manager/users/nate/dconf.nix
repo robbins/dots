@@ -34,8 +34,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "keyboard";
-      window-state = mkTuple [ 980 640 ];
+      last-panel = "network";
+      window-state = mkTuple [ 980 1038 ];
     };
 
     "org/gnome/desktop/app-folders" = {
@@ -161,7 +161,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "paperwm@hedning:matrix.org" ];
+      disabled-extensions = [];
+      enabled-extensions = [ "paperwm@hedning:matrix.org" "switcher@landau.fi" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -262,6 +263,17 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm/workspaces/de4b39e6-000a-4084-b934-1d17c6f495bd" = {
       index = 1;
+    };
+
+    "org/gnome/shell/extensions/switcher" = {
+      activate-immediately = true;
+      fade-enable = true;
+      font-size = mkUint32 28;
+      matching = mkUint32 1;
+      max-width-percentage = mkUint32 70;
+      on-active-display = true;
+      show-switcher = [ "<Shift>space" ];
+      workspace-indicator = true;
     };
 
     "org/gnome/shell/world-clocks" = {
