@@ -44,6 +44,8 @@ in {
 	".config/BraveSoftware"
 
 	".gradle"
+
+	".config/paperwm"
       ];
       files = [
        ".config/gh/hosts.yml"
