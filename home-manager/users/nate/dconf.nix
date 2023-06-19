@@ -6,9 +6,9 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "ca/desrt/dconf-editor" = {
-      saved-pathbar-path = "/org/";
-      saved-view = "/org/";
-      window-height = 500;
+      saved-pathbar-path = "/org/gnome/";
+      saved-view = "/org/gnome/";
+      window-height = 991;
       window-is-maximized = false;
       window-width = 540;
     };
@@ -18,8 +18,23 @@ with lib.hm.gvariant;
       index-single-directories = [];
     };
 
+    "org/gnome/calculator" = {
+      accuracy = 9;
+      angle-units = "degrees";
+      base = 10;
+      button-mode = "basic";
+      number-format = "automatic";
+      show-thousands = false;
+      show-zeroes = false;
+      source-currency = "";
+      source-units = "degree";
+      target-currency = "";
+      target-units = "radian";
+      word-size = 64;
+    };
+
     "org/gnome/control-center" = {
-      last-panel = "multitasking";
+      last-panel = "keyboard";
       window-state = mkTuple [ 980 640 ];
     };
 
@@ -69,6 +84,14 @@ with lib.hm.gvariant;
       show-battery-percentage = true;
     };
 
+    "org/gnome/desktop/notifications" = {
+      application-children = [ "gnome-power-panel" ];
+    };
+
+    "org/gnome/desktop/notifications/application/gnome-power-panel" = {
+      application-id = "gnome-power-panel.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-settings" = {
       application-id = "org.gnome.Settings.desktop";
     };
@@ -98,6 +121,10 @@ with lib.hm.gvariant;
       sort-order = [ "org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop" ];
     };
 
+    "org/gnome/desktop/wm/keybindings" = {
+      minimize = [];
+    };
+
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:close";
       focus-mode = "click";
@@ -112,8 +139,19 @@ with lib.hm.gvariant;
       workspaces-only-on-primary = false;
     };
 
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
+      migrated-gtk-settings = true;
+      search-filter-time-type = "last_modified";
+    };
+
+    "org/gnome/nautilus/window-state" = {
+      initial-size = mkTuple [ 890 1038 ];
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+      screensaver = [ "<Super>backslash" ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -184,6 +222,26 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm" = {
       has-installed-config-template = true;
+      horizontal-margin = 10;
+      vertical-margin = 5;
+      vertical-margin-bottom = 5;
+      window-gap = 10;
+    };
+
+    "org/gnome/shell/extensions/paperwm/keybindings" = {
+      move-down = [ "<Shift><Super>j" ];
+      move-down-workspace = [ "<Control><Super>j" ];
+      move-left = [ "<Shift><Super>h" ];
+      move-right = [ "<Shift><Super>l" ];
+      move-up = [ "<Shift><Super>k" ];
+      move-up-workspace = [ "<Control><Super>k" ];
+      new-window = [ "<Super>n" ];
+      resize-h-dec = [ "<Control><Super>minus" ];
+      resize-h-inc = [ "<Control><Super>equal" ];
+      switch-down = [ "<Super>j" ];
+      switch-left = [ "<Super>h" ];
+      switch-right = [ "<Super>l" ];
+      switch-up = [ "<Super>k" ];
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces" = {
