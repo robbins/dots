@@ -18,6 +18,10 @@ with lib.hm.gvariant;
       index-single-directories = [];
     };
 
+    "org/gnome/Weather" = {
+      locations = "[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]";
+    };
+
     "org/gnome/calculator" = {
       accuracy = 9;
       angle-units = "degrees";
@@ -34,7 +38,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "network";
+      last-panel = "multitasking";
       window-state = mkTuple [ 980 1038 ];
     };
 
@@ -85,11 +89,15 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-power-panel" ];
+      application-children = [ "gnome-power-panel" "org-gnome-nautilus" ];
     };
 
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
       application-id = "gnome-power-panel.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-nautilus" = {
+      application-id = "org.gnome.Nautilus.desktop";
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-settings" = {
@@ -146,7 +154,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/window-state" = {
-      initial-size = mkTuple [ 890 1038 ];
+      initial-size = mkTuple [ 1168 1038 ];
+    };
+
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -224,23 +236,27 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/paperwm" = {
       has-installed-config-template = true;
       horizontal-margin = 10;
+      topbar-follow-focus = false;
+      use-default-background = false;
       vertical-margin = 5;
       vertical-margin-bottom = 5;
       window-gap = 10;
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
-      move-down = [ "<Shift><Super>j" ];
-      move-down-workspace = [ "<Control><Super>j" ];
+      move-down = [ "" ];
+      move-down-workspace = [ "<Shift><Super>j" ];
       move-left = [ "<Shift><Super>h" ];
       move-right = [ "<Shift><Super>l" ];
-      move-up = [ "<Shift><Super>k" ];
-      move-up-workspace = [ "<Control><Super>k" ];
+      move-up = [ "" ];
+      move-up-workspace = [ "<Shift><Super>k" ];
       new-window = [ "<Super>n" ];
       resize-h-dec = [ "<Control><Super>minus" ];
       resize-h-inc = [ "<Control><Super>equal" ];
       switch-down = [ "<Super>j" ];
       switch-left = [ "<Super>h" ];
+      switch-monitor-above = [ "<Shift><Control>k" ];
+      switch-monitor-below = [ "<Shift><Control>j" ];
       switch-right = [ "<Super>l" ];
       switch-up = [ "<Super>k" ];
     };
@@ -266,14 +282,24 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/switcher" = {
+      activate-by-key = mkUint32 1;
       activate-immediately = true;
       fade-enable = true;
       font-size = mkUint32 28;
+      launcher-stats = ''
+        {"minecraft-launcher.desktop":1}
+      '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
       on-active-display = true;
-      show-switcher = [ "<Shift>space" ];
+      show-executables = true;
+      show-switcher = [ "<Super>w" ];
       workspace-indicator = true;
+    };
+
+    "org/gnome/shell/weather" = {
+      automatic-location = true;
+      locations = "[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]";
     };
 
     "org/gnome/shell/world-clocks" = {
