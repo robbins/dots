@@ -24,6 +24,11 @@ in
       };
       plugins = {
         treesitter.enable = false;
+	lsp = {
+	  servers = {
+	    nil_ls.enable = true;
+	  };
+	};
       };
       extraConfigLua = ''
         vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "" })
