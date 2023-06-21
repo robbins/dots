@@ -24,9 +24,21 @@ in
       };
       plugins = {
         treesitter.enable = false;
+	clangd-extensions.enable = true;
+	lsp.enable = true;
+	nvim-cmp = {
+	  enable = true;
+	};
 	lsp = {
 	  servers = {
+	    clangd.enable = true;
+	    pylsp = {
+	      enable = true;
+	      settings.plugins.ruff.enabled = true;
+	    };
 	    nil_ls.enable = true;
+	    terraformls.enable = true;
+	    texlab.enable = true;
 	  };
 	};
       };
