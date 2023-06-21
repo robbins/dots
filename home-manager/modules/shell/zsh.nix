@@ -26,6 +26,7 @@ in
       history = {
         save = 1000000000;
         size = 1000000000;
+	path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
       sessionVariables = rec {
         EDITOR = "vim";
