@@ -60,6 +60,16 @@ in {
         "autovt@tty1".enable = false;
       };
       networking.networkmanager.enable = lib.mkForce false;
+      environment.systemPackages = with pkgs.gnome; [
+        gnome-tweaks
+      ] ++ (with pkgs.gnomeExtensions; [
+        just-perfection
+        blur-my-shell
+        workspace-indicator-2
+        paperwm
+        vertical-workspaces
+        switcher
+      ]);
       services.gnome.core-utilities.enable = false;
     })
   ]);
