@@ -4,8 +4,10 @@
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-stable.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
+
     # Hardware
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,17 +17,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Darwin
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Modules
     impermanence.url = "github:nix-community/impermanence";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+
     # Programs
     hyprland = {
       url = "github:vaxerski/Hyprland";
@@ -54,7 +59,7 @@
   };
 
   outputs = inputs@{ self, ... }: {
-    nixosConfigurations = import ./hosts-linux inputs;
-    darwinConfigurations = import ./hosts-darwin inputs;
+    nixosConfigurations = import ./hosts "linux" inputs;
+    darwinConfigurations = import ./hosts "darwin" inputs;
   };
 }

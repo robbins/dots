@@ -30,10 +30,10 @@ in
         { networking.hostName = mkDefault ("${hostname}"); }
       ] ++
       (if (system == "linux") then [
-        (import ../hosts-linux/${hostname}) # hosts/hostname/default.nix, where config options are set
+        (import ../hosts/linux/${hostname}) # hosts/platform/hostname/default.nix, where config options are set
       ]
       else [
-        (import ../hosts-darwin/${hostname}) # hosts/hostname/default.nix, where config options are set
+        (import ../hosts/darwin/${hostname}) # hosts/platform/hostname/default.nix, where config options are set
       ]);
     }
     (hostArgs.${hostname} inputs) # Attribute set of arguments passed to mkNixosSystem from hosts/hostname/hostname.nix
