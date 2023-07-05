@@ -180,8 +180,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = [ "vertical-workspaces@G-dH.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "paperwm@hedning:matrix.org" "switcher@landau.fi" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" ];
+      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" ];
+      enabled-extensions = [ "paperwm@hedning:matrix.org" "switcher@landau.fi" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "vertical-workspaces@G-dH.github.com" "just-perfection-desktop@just-perfection" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -206,6 +206,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      blur = false;
       brightness = 0.55;
       customize = true;
       sigma = 200;
@@ -339,7 +340,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\n
+        {"minecraft-launcher.desktop":1}\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
@@ -368,8 +369,8 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.33725491166114807 0.32156863808631897 ]) (mkTuple [ 0.1921568661928177 0.30588236451148987 ]) ];
-      selected-color = mkTuple [ true 0.33725491166114807 ];
+      custom-colors = [ (mkTuple [ 0.337255 0.321569 ]) (mkTuple [ 0.192157 0.305882 ]) ];
+      selected-color = mkTuple [ true 0.337255 ];
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {
