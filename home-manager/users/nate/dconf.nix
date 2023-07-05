@@ -89,11 +89,15 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-power-panel" "org-gnome-nautilus" ];
+      application-children = [ "gnome-power-panel" "org-gnome-nautilus" "kitty" ];
     };
 
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
       application-id = "gnome-power-panel.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/kitty" = {
+      application-id = "kitty.desktop";
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-nautilus" = {
@@ -250,6 +254,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/paperwm" = {
+      cycle-width-steps = [ 0.25 0.3333 0.5 0.6666 ];
       has-installed-config-template = true;
       horizontal-margin = 10;
       topbar-follow-focus = false;
