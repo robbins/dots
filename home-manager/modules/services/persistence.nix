@@ -23,7 +23,6 @@ in {
         ".local/share/TelegramDesktop"
         ".config/microsoft-edge-dev"
         ".cache/microsoft-edge-dev"
-        ".cache/nix-index"
 
         ".config/gtk-3.0"
         ".config/gtk-4.0"
@@ -49,7 +48,7 @@ in {
       ];
       files = [
        ".config/gh/hosts.yml"
-        ".zsh_history"
+       ".local/share/zsh/zsh_history"
       ];
       allowOther = true;
     };

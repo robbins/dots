@@ -46,7 +46,7 @@ in
       '';
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       plugins = [
         {
           name = "zsh-autocomplete";

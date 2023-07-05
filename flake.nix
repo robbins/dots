@@ -31,9 +31,9 @@
       url = "github:vaxerski/Hyprland";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
-    comma = {
-      url = "github:nix-community/comma";
-      inputs.nixpkgs.follows = "nixos-unstable";
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     minidev = {
       url = "github:robbins/minidev";

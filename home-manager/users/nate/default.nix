@@ -10,6 +10,7 @@
     inputs.hyprland.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
     inputs.minidev.homeModules.default
+    inputs.nix-index-database.hmModules.nix-index
   ];
   modules = {
     services = {
@@ -44,9 +45,10 @@
     enableZshIntegration = true;
   };
 
+  programs.nix-index-database.comma.enable = true;
+
   home.packages = [
     inputs.hyprland-contrib.packages.x86_64-linux.grimblast
-    inputs.comma.packages.x86_64-linux.comma
   ] ++ (with pkgs; [
     bemenu #TODO: wayland launcher module
     j4-dmenu-desktop # same
