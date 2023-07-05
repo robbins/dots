@@ -39,7 +39,7 @@ with lib.hm.gvariant;
 
     "org/gnome/control-center" = {
       last-panel = "multitasking";
-      window-state = mkTuple [ 980 1038 ];
+      window-state = mkTuple [ 1900 1041 ];
     };
 
     "org/gnome/desktop/app-folders" = {
@@ -62,8 +62,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
-      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-58-22-Google%20Pixel%203%20Wallpaper%201.png";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-58-22-Google%20Pixel%203%20Wallpaper%201.png";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -118,7 +118,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-11-02-12-58-12-13-Ventura-Dark.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-58-22-Google%20Pixel%203%20Wallpaper%201.png";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -136,6 +136,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:close";
       focus-mode = "click";
+      num-workspaces = 9;
+      workspace-names = [ "Workspace 1" "Workspace 2" "Workspace 3" ];
     };
 
     "org/gnome/evolution-data-server" = {
@@ -144,6 +146,7 @@ with lib.hm.gvariant;
 
     "org/gnome/mutter" = {
       attach-modal-dialogs = false;
+      dynamic-workspaces = false;
       workspaces-only-on-primary = false;
     };
 
@@ -154,7 +157,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/window-state" = {
-      initial-size = mkTuple [ 1168 1038 ];
+      initial-size = mkTuple [ 945 1042 ];
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
@@ -173,14 +176,18 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = [];
-      enabled-extensions = [ "paperwm@hedning:matrix.org" "switcher@landau.fi" ];
+      disabled-extensions = [ "vertical-workspaces@G-dH.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "paperwm@hedning:matrix.org" "switcher@landau.fi" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
 
     "org/gnome/shell/app-switcher" = {
       current-workspace-only = true;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      brightness = 0.86;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
@@ -202,10 +209,17 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = true;
-      brightness = 0.2;
+      blur = false;
+      brightness = 0.46;
       customize = true;
+      override-background = false;
       sigma = 140;
+      static-blur = true;
+    };
+
+    "org/gnome/shell/extensions/horizontal-workspace-indicator" = {
+      icons-style = "circles";
+      widget-position = "right";
     };
 
     "org/gnome/shell/extensions/just-perfection" = {
@@ -219,7 +233,8 @@ with lib.hm.gvariant;
       calendar = true;
       clock-menu = true;
       controls-manager-spacing-size = 0;
-      dash = true;
+      dash = false;
+      dash-separator = false;
       events-button = true;
       keyboard-layout = true;
       notification-banner-position = 2;
@@ -231,6 +246,7 @@ with lib.hm.gvariant;
       theme = true;
       window-demands-attention-focus = true;
       workspace-wrap-around = true;
+      world-clock = false;
     };
 
     "org/gnome/shell/extensions/paperwm" = {
@@ -244,6 +260,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
+      close-window = [ "<Super>q" ];
       move-down = [ "" ];
       move-down-workspace = [ "<Shift><Super>j" ];
       move-left = [ "<Shift><Super>h" ];
@@ -262,39 +279,74 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces" = {
-      list = [ "6158c727-87ae-4bb6-b095-d2b4393ee8fd" "de4b39e6-000a-4084-b934-1d17c6f495bd" "21ca5a1f-1bcd-44e4-8a6a-686049cf634f" "3af9c5bd-456d-4fbf-a30a-e3479234b849" ];
+      list = [ "6158c727-87ae-4bb6-b095-d2b4393ee8fd" "de4b39e6-000a-4084-b934-1d17c6f495bd" "21ca5a1f-1bcd-44e4-8a6a-686049cf634f" "3af9c5bd-456d-4fbf-a30a-e3479234b849" "f6bf0692-27e5-48de-ab73-f4fceffd014c" "af3112a2-de8a-4c89-a0ce-b26cf9f1a4a9" "8900a241-6460-40bb-93b2-ca1c9b01f0df" "4d7951f3-35df-480d-ac09-99bdf9858a29" "b4456136-cc4f-4ea9-ab48-c2677a6765b6" ];
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/21ca5a1f-1bcd-44e4-8a6a-686049cf634f" = {
+      background = "/home/nate/pictures/wallpapers/hello-Green-2-dragged.jpg";
       index = 2;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/3af9c5bd-456d-4fbf-a30a-e3479234b849" = {
+      background = "/home/nate/pictures/wallpapers/hello-Orange-2-dragged.jpg";
       index = 3;
     };
 
+    "org/gnome/shell/extensions/paperwm/workspaces/4d7951f3-35df-480d-ac09-99bdf9858a29" = {
+      background = "/home/nate/pictures/wallpapers/hello-Grey-2-dragged.jpg";
+      index = 7;
+    };
+
     "org/gnome/shell/extensions/paperwm/workspaces/6158c727-87ae-4bb6-b095-d2b4393ee8fd" = {
+      background = "/home/nate/pictures/wallpapers/hello-Blue-2-dragged.jpg";
       index = 0;
+      show-top-bar = true;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/8900a241-6460-40bb-93b2-ca1c9b01f0df" = {
+      background = "/home/nate/pictures/wallpapers/2021-iMac-color-matching-wallpaper-idownloadblog-Blue-Light-@AR72014.jpg";
+      index = 6;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/af3112a2-de8a-4c89-a0ce-b26cf9f1a4a9" = {
+      background = "/home/nate/pictures/wallpapers/hello-Yellow-2-dragged.jpg";
+      index = 5;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/b4456136-cc4f-4ea9-ab48-c2677a6765b6" = {
+      background = "/home/nate/pictures/wallpapers/hello-Green-1-dragged.jpg";
+      index = 8;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/de4b39e6-000a-4084-b934-1d17c6f495bd" = {
+      background = "/home/nate/pictures/wallpapers/hello-Yellow-1-dragged.jpg";
       index = 1;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/f6bf0692-27e5-48de-ab73-f4fceffd014c" = {
+      background = "/home/nate/pictures/wallpapers/hello-Purple-2-dragged.jpg";
+      index = 4;
     };
 
     "org/gnome/shell/extensions/switcher" = {
       activate-by-key = mkUint32 1;
       activate-immediately = true;
-      fade-enable = true;
+      fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}
+        {"minecraft-launcher.desktop":1}\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
       on-active-display = true;
+      ordering = mkUint32 1;
       show-executables = true;
       show-switcher = [ "<Super>w" ];
       workspace-indicator = true;
+    };
+
+    "org/gnome/shell/extensions/vertical-workspaces" = {
+      startup-state = 2;
     };
 
     "org/gnome/shell/weather" = {
@@ -308,6 +360,11 @@ with lib.hm.gvariant;
 
     "org/gnome/tweaks" = {
       show-extensions-notice = false;
+    };
+
+    "org/gtk/gtk4/settings/color-chooser" = {
+      custom-colors = [ (mkTuple [ 0.33725491166114807 0.32156863808631897 ]) (mkTuple [ 0.1921568661928177 0.30588236451148987 ]) ];
+      selected-color = mkTuple [ true 0.33725491166114807 ];
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {
