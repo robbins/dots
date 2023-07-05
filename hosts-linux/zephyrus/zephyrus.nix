@@ -24,10 +24,6 @@ rec {
     });
   })
 
-  (self: super: {
-    fcitx-engines = self.fcitx5;
-  })
-
   ];
   pkgsForSystem = inputs.nixos-unstable;
 }

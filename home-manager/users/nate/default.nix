@@ -48,14 +48,9 @@
   programs.nix-index-database.comma.enable = true;
 
   home.packages = [
-    inputs.hyprland-contrib.packages.x86_64-linux.grimblast
   ] ++ (with pkgs; [
-    bemenu #TODO: wayland launcher module
-    j4-dmenu-desktop # same
-    zathura # TODO module
     brave
     dconf2nix
-    minecraft
   ]);
 
   # Meta
