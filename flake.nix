@@ -59,6 +59,7 @@
   };
 
   outputs = inputs@{ self, ... }: {
+    mylib = import ./lib inputs;
     nixosConfigurations = import ./hosts "linux" inputs;
     darwinConfigurations = import ./hosts "darwin" inputs;
   };

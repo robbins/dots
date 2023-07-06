@@ -1,20 +1,20 @@
 { config, lib, pkgs, options, inputs, specialArgs, ... }:
 
 with lib;
+with inputs.self.mylib;
 {
   imports = [ inputs.agenix.nixosModules.default ];
   age = {
     secrets = 
     let
-      dirs = (builtins.readDir ../hosts/linux);
-      hosts = lib.attrsets.attrNames (lib.attrsets.filterAttrs (n: v: v == "directory") dirs); # TOdo lib function get hosts per platform ig and refactor out to use this everywhere this is linux only
+      hosts = nixosHosts;
       paths = map (host: "../hosts/linux/${host}/secrets") hosts;
-      dir_per_host = lib.attrsets.genAttrs hosts (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets")));
-      files_per_host = lib.attrsets.mapAttrs (name: value: (builtins.attrNames value)) dir_per_host;
-      age_files_per_host = lib.attrsets.mapAttrs (name: value: builtins.filter (file: lib.strings.hasSuffix ".age" file) value ) files_per_host;
-      age_file_names_per_host = lib.attrsets.mapAttrs (name: value: (map (file: lib.strings.removeSuffix ".age" file) value )) age_files_per_host;
-      list = lib.mapAttrsToList (host: files: (lib.genAttrs files (file: {file = ../. + "/hosts/linux/${host}/secrets" + "/${file}.age";}))) age_file_names_per_host;
-      agenix_final_attrset = lib.foldl (acc: attr: acc // attr) {} list;
+      dir_per_host = attrsets.genAttrs hosts (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets")));
+      files_per_host = attrsets.mapAttrs (name: value: (builtins.attrNames value)) dir_per_host;
+      age_files_per_host = attrsets.mapAttrs (name: value: builtins.filter (file: strings.hasSuffix ".age" file) value ) files_per_host;
+      age_file_names_per_host = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value )) age_files_per_host;
+      list = mapAttrsToList (host: files: (genAttrs files (file: {file = ../. + "/hosts/linux/${host}/secrets" + "/${file}.age";}))) age_file_names_per_host;
+      agenix_final_attrset = foldl (acc: attr: acc // attr) {} list;
 
 
 
