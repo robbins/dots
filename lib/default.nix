@@ -33,4 +33,5 @@ with inputs.nixpkgs.lib; rec {
     hostDirs = readDir ../hosts/darwin;
   in attrNames (filterAttrs (_: type: type == "directory") hostDirs);
   platformHosts = platform: if platform == "linux" then nixosHosts else darwinHosts;
+  modulesInDir = currentDir: map (file: currentDir + "/${file}") (builtins.filter (file: file != "default.nix") (builtins.attrNames (builtins.readDir currentDir)));
 }
