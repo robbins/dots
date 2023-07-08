@@ -1,13 +1,9 @@
-#
-# Import all required modules to make them available everywhere
-#
+/**
+Import all my custom modules to make them available everywhere
+*/
 
 inputs@{self, ... }:
+{config, pkgs, ... }:
 {
-  imports = [
-    ./services
-    ./gui
-    ./dev
-    ./shell
-  ];
+  imports = (inputs.self.mylib.modulesInDir ./.);
 }

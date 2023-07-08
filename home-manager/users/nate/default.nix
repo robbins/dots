@@ -5,7 +5,7 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    ((import ../../modules) inputs) # all my custom HM modules
+    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
     ./dconf.nix
     inputs.hyprland.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
