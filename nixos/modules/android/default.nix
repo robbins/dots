@@ -1,5 +1,8 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
+  imports = inputs.self.mylib.modulesInDir ./.;
+/*  imports = [
     ./adb.nix
-  ];
+  ];*/
 }

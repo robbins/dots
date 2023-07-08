@@ -1,6 +1,5 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
-    ./displayManager.nix
-    ./hyprland.nix
-  ];
+  imports = inputs.self.mylib.modulesInDir ./.;
 }

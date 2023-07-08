@@ -1,10 +1,5 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
-    ./filesystems.nix
-    ./networking
-    ./bootloader
-    ./audio.nix
-    ./laptop.nix
-    ./nvidia.nix
-  ];
+  imports = inputs.self.mylib.modulesInDir ./.;
 }
