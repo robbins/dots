@@ -12,21 +12,13 @@ with inputs.self.mylib;
       hostAgeSecretFiles = attrsets.mapAttrs (name: value: builtins.filter (file: strings.hasSuffix ".age" file) value ) hostSecretsDirFiles;
       hostAgeSecretNames = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value )) hostAgeSecretFiles;
       secretToFileMap = mapAttrsToList (host: files: (genAttrs files (file: {file = (lib.mkForce (../. + "/hosts/linux/${host}/secrets" + "/${file}.age"));}))) hostAgeSecretNames;
-      in foldl (acc: attr: acc // attr) {} secretToFileMap;
-    /*{
-      #TODO: generate these mappings automatically
-      nate_user_password.file = lib.mkForce ../hosts/linux/zephyrus/secrets/nate_user_password.age;
-    };*/
-    #identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ]; #TODO: this is specific
+    in foldl (acc: attr: acc // attr) {} secretToFileMap;
+
     identityPaths =
       options.age.identityPaths.default ++ (filter pathExists [
         (config.users.users.${specialArgs.username}.home + "/.ssh/id_ed25519_${config.networking.hostName}")
 	"/persist/etc/ssh/ssh_host_ed25519_key"
 	]);
-#      options.age.identityPaths.default ++ (filter pathExists [
-#        (config.users.users.${specialArgs.username}.home + "/.ssh/id_ed2519_${config.networking.hostName}")
-#        "/persist/etc/ssh/ssh_host_ed25519_key"
-#      ]);
   };
 
 }
