@@ -1,6 +1,6 @@
-#
-# Common configuration for all NixOS hosts when using flakes
-#
+/**
+Common configuration for all NixOS hosts when using flakes
+*/
 
 { config, pkgs, lib, inputs, ...}:
 

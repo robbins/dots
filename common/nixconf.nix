@@ -1,6 +1,6 @@
-#
-# Common configuration for the Nix package manager on all hosts
-#
+/**
+Common configuration for the Nix package manager on all hosts
+*/
 { config, pkgs, inputs, ... }:
 
 {

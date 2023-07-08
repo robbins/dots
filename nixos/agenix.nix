@@ -7,13 +7,12 @@ with inputs.self.mylib;
   age = {
     secrets = 
     let
-      hosts = nixosHosts;
-      dir_per_host = attrsets.genAttrs hosts (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets")));
-      files_per_host = attrsets.mapAttrs (name: value: (builtins.attrNames value)) dir_per_host;
-      age_files_per_host = attrsets.mapAttrs (name: value: builtins.filter (file: strings.hasSuffix ".age" file) value ) files_per_host;
-      age_file_names_per_host = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value )) age_files_per_host;
-      mappings = mapAttrsToList (host: files: (genAttrs files (file: {file = ../. + "/hosts/linux/${host}/secrets" + "/${file}.age";}))) age_file_names_per_host;
-      in foldl (acc: attr: acc // attr) {} mappings;
+      hostSecretsDir = attrsets.genAttrs nixosHosts (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets")));
+      hostSecretsDirFiles = attrsets.mapAttrs (name: value: (builtins.attrNames value)) hostSecretsDir;
+      hostAgeSecretFiles = attrsets.mapAttrs (name: value: builtins.filter (file: strings.hasSuffix ".age" file) value ) hostSecretsDirFiles;
+      hostAgeSecretNames = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value )) hostAgeSecretFiles;
+      secretToFileMap = mapAttrsToList (host: files: (genAttrs files (file: {file = (lib.mkForce (../. + "/hosts/linux/${host}/secrets" + "/${file}.age"));}))) hostAgeSecretNames;
+      in foldl (acc: attr: acc // attr) {} secretToFileMap;
     /*{
       #TODO: generate these mappings automatically
       nate_user_password.file = lib.mkForce ../hosts/linux/zephyrus/secrets/nate_user_password.age;

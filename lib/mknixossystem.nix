@@ -38,7 +38,7 @@ nixosSystem {
   modules = [
     ../nixos
     ../nixos/agenix.nix
-    inputs.home-manager.nixosModules.home-manager #TODO: find a way to check if darwin or nixos and then put this in genHosts maybe
+    inputs.home-manager.nixosModules.home-manager
     ../home-manager
     { modules.nixos.localNixpkgs = pkgsForSystem; }
   ] ++ modules';

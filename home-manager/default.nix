@@ -1,6 +1,7 @@
-#
-# Common configuration for all home-manager setups
-#
+/**
+Common home-manager configuration for all home-manager setups
+Passes flake inputs & username to the module system, and imports the user's HM config
+*/
 
 { config, lib, pkgs, home-manager, inputs, specialArgs, ... }:
 
