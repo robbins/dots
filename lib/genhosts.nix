@@ -1,7 +1,19 @@
-# Returns an attribute set of hostnames to {nixos,darwin}Configurations
-# inputs: all flake.nix inputs
-# hostArgs: An attribute set of hostnames to attribute sets of arguments passed to mkHost
-# mkHost: The function that generates the system configuration, a wrapper to either nixosSystem or darwinSystem
+/**
+genhosts
+
+Generates NixOS or Darwin configurations used as the value of the nixosConfigurations or darwinConfigurations flake output by passing hostArgs to mk{Nixos/Darwin}System wrapper
+
+# Type
+{ ... } -> String -> { ... } -> ( { ... } -> { ... } -> { ... } ) -> { ${hostname} :: a }
+
+# Arguments
+inputs: Attribute set of flake references (top-level flake.nix inputs attribute + self)
+hostArgs: An attribute set of hostnames to attribute sets of arguments passed to mkHost
+mkHost: The function that generates the system configuration, either mkNixosSystem or mkDarwinSystem, wrappers to either nixosSystem or darwinSystem that pass hostArgs (the result of hosts/platform/hostname/hostname.nix)
+
+# Final value
+Attribute set mapping hostnames to mk{Nixos/Darwin}System
+*/
 
 inputs: system: hostArgs: mkHost:
 with inputs.nixos-unstable.lib;

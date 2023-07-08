@@ -8,28 +8,12 @@ with inputs.self.mylib;
     secrets = 
     let
       hosts = nixosHosts;
-      paths = map (host: "../hosts/linux/${host}/secrets") hosts;
       dir_per_host = attrsets.genAttrs hosts (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets")));
       files_per_host = attrsets.mapAttrs (name: value: (builtins.attrNames value)) dir_per_host;
       age_files_per_host = attrsets.mapAttrs (name: value: builtins.filter (file: strings.hasSuffix ".age" file) value ) files_per_host;
       age_file_names_per_host = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value )) age_files_per_host;
-      list = mapAttrsToList (host: files: (genAttrs files (file: {file = ../. + "/hosts/linux/${host}/secrets" + "/${file}.age";}))) age_file_names_per_host;
-      agenix_final_attrset = foldl (acc: attr: acc // attr) {} list;
-
-
-
-      #path = ../hosts/linux/zephyrus/secrets;
-      #files = builtins.attrNames (builtins.readDir path);
-      #age_files = builtins.filter (file: lib.strings.hasSuffix ".age" file) files;
-      #age_file_names = map (file: lib.strings.removeSuffix ".age" file) age_files;
-    #in (genAttrs age_file_names (
-    #  attr: 
-    #  let
-    #    file = (lib.strings.removeSuffix ".file" attr) + ".age";
-    #    filePath = path + "/${file}";
-    #  in { file = filePath; }
-    #));
-    in agenix_final_attrset;
+      mappings = mapAttrsToList (host: files: (genAttrs files (file: {file = ../. + "/hosts/linux/${host}/secrets" + "/${file}.age";}))) age_file_names_per_host;
+      in foldl (acc: attr: acc // attr) {} mappings;
     /*{
       #TODO: generate these mappings automatically
       nate_user_password.file = lib.mkForce ../hosts/linux/zephyrus/secrets/nate_user_password.age;

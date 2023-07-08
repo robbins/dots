@@ -1,9 +1,10 @@
 #
 # Arguments passed to nixosSystem
-# inputs: all flake.nix inputs
+# String -> { a :: String, b :: [ ... ], c :: { ... } }
+# inputs: attribute set of flake references (the argument to the top-level flake.nix outputs attribute) (the flake inputs)
 #
 inputs:
-rec {
+{
   system = "x86_64-linux";
   username = "nate";
   modules' = [
@@ -23,7 +24,6 @@ rec {
       };
     });
   })
-
   ];
   pkgsForSystem = inputs.nixos-unstable;
 }
