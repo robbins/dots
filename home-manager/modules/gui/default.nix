@@ -1,9 +1,5 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
-    ./hyprland.nix
-    ./kitty.nix
-    ./microsoftEdge.nix
-    ./wayland.nix
-    ./bar.nix
-  ];
+  imports = inputs.self.mylib.modulesInDir ./.;
 }

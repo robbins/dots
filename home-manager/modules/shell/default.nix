@@ -1,9 +1,5 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
-    ./zsh.nix
-    ./git.nix
-    ./ghcli.nix
-    ./neovim.nix
-    ./direnv.nix
-  ];
+  imports = inputs.self.mylib.modulesInDir ./.;
 }

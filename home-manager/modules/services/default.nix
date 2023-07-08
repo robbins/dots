@@ -1,6 +1,5 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
-    ./xdg.nix
-    ./persistence.nix
-  ];
+  imports = inputs.self.mylib.modulesInDir ./.;
 }

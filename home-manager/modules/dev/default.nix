@@ -1,5 +1,5 @@
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  imports = [
-    ./shell.nix
-  ];
+  imports = inputs.self.mylib.modulesInDir ./.;
 }
