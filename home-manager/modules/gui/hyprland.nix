@@ -144,6 +144,9 @@ in {
         
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
         $mainMod = SUPER
+
+	bind=SUPERSHIFT,asciitilde,movetoworkspace,special
+        bind=SUPER,grave,togglespecialworkspace,eDP-1
         
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 	bindr =SUPER, SUPER_L, exec, pkill --signal SIGUSR1 waybar
