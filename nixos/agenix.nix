@@ -13,12 +13,13 @@ with inputs.self.mylib;
       hostAgeSecretNames = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value )) hostAgeSecretFiles;
       secretToFileMap = mapAttrsToList (host: files: (genAttrs files (file: {file = (lib.mkForce (../. + "/hosts/linux/${host}/secrets" + "/${file}.age"));}))) hostAgeSecretNames;
     in foldl (acc: attr: acc // attr) {} secretToFileMap;
+    identityPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ]; #TODO: this is specific
 
-    identityPaths =
+/*    identityPaths =
       options.age.identityPaths.default ++ (filter pathExists [
         (config.users.users.${specialArgs.username}.home + "/.ssh/id_ed25519_${config.networking.hostName}")
 	"/persist/etc/ssh/ssh_host_ed25519_key"
-	]);
+	]);*/
   };
 
 }
