@@ -36,7 +36,7 @@ in {
         
         # Execute your favorite apps at launch
         # exec-once = waybar & hyprpaper & firefox
-	exec-once = swaybg -i ~/pictures/wallpapers/hello-Grey-2-dragged.jpg -m fill
+	exec-once = swaybg -i ~/pictures/wallpapers/hello-Grey-2-dragged.jpg -m fill & waybar
         
         # Source a file (multi-file configs)
         # source = ~/.config/hypr/myColors.conf
@@ -71,8 +71,8 @@ in {
             gaps_out = 10
             border_size = 1
 	    #col.active_border = rgba(4d4f58ff) rgba(4d4f58ff) 45deg
-	    col.active_border = rgba(5c5367ff) rgba(4d4f58ff) 45deg
-            col.inactive_border = rgba(303239ff)
+	    col.active_border = rgba(4c4c4eff) rgba(3b3c3cff) 80deg
+            col.inactive_border = rgba(3b3c3cff)
         
             layout = dwindle
         }
@@ -146,13 +146,14 @@ in {
         $mainMod = SUPER
         
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+	bindr =SUPER, SUPER_L, exec, pkill --signal SIGUSR1 waybar
 	bind = $mainMod, Return, exec, kitty-run
         bind = $mainMod, Q, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, V, togglefloating,
         bind = $mainMod, R, exec, wofi --show drun
         bind = $mainMod, P, pseudo, # dwindle
-        bind = $mainMod, J, togglesplit, # dwindle
+        bind = $mainMod, S, togglesplit, # dwindle
 	bind = $mainMod, F, fullscreen
         
         # Move focus with mainMod + arrow keys
