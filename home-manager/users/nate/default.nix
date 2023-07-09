@@ -45,13 +45,13 @@
     enableZshIntegration = true;
   };
 
-  programs.nix-index-database.comma.enable = true;
-
   home.packages = [
   ] ++ (with pkgs; [
     brave
     dconf2nix
   ]);
+
+  programs.nix-index-database.comma.enable = true;
 
   # Meta
   home.stateVersion = "21.05";

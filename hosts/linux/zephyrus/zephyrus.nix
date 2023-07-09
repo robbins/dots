@@ -9,7 +9,6 @@ inputs:
   username = "nate";
   modules' = [
     inputs.hyprland.nixosModules.default
-    inputs.nix-index-database.nixosModules.nix-index
     (./.)
   ];
   overlays' = [ inputs.neovim-nightly.overlay
