@@ -151,7 +151,7 @@ in {
         bind = $mainMod, Q, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, V, togglefloating,
-        bind = $mainMod, R, exec, wofi --show drun
+        bind = $mainMod, Space, exec, rofi -show drun
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, S, togglesplit, # dwindle
 	bind = $mainMod, F, fullscreen

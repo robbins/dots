@@ -22,6 +22,7 @@
       hyprland.enable = true;
       wayland.enable = true;
       bar.enable = true;
+      rofi.enable = true;
     };
     dev = {
       shell.enable = true;
