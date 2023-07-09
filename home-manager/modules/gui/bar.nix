@@ -15,16 +15,20 @@ in {
       settings = [
         {
           layer = "top";
-	  height = 24;
-	  modules-left = ["wlr/workspaces" "cpu" "custom/memory" "disk" "disk#root" ];
-	  modules-center = ["clock" "custom/weather"];
-	  modules-right = ["pulseaudio#mic" "pulseaudio#speaker" "network" "custom/powerprofile" "backlight" "battery" ];
+	  height = 20;
+	  margin-top = 4;
+	  margin-left = 4;
+	  margin-right = 4;
+	  spacing = 8;
+	  modules-left = ["wlr/workspaces" ];
+	  modules-center = ["custom/date" "custom/weather"];
+	  modules-right = [ "battery" "clock" ];
 	"battery" = {
             format = "{capacity}% {icon}";
             format-icons = ["" "" "" "" ""];
-            format-charging = "{icon} {capacity}%  {time}";
+            format-charging = "{capacity}% {time}";
             format-discharging = "{icon} {capacity}% {time}";
-            format-plugged = "  {capacity}%";
+            format-plugged = " {capacity}%";
             format-alt = "{power}";
             interval = 60;
           };
@@ -82,11 +86,14 @@ in {
             format-disconnected = "睊Not connected";
             format-alt = "{ifname}: {ipaddr} {frequency}GHz";
           };
-          "clock" = {
+          "custom/date" = {
             interval = 60;
-            format-alt = "{:%A; %B %d %Y }";
-            format = "{:%a %b %d %I:%M %p}";
+	    exec = "date +'%A, %B %d'";
           };
+	  "clock" = {
+	    interval = 60;
+	    format = "{:%I:%M %p}";
+	  };
 	  }
       ];
     };

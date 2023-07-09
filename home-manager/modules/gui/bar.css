@@ -2,23 +2,22 @@
     all: unset;
     border: none;
     border-radius: 0;
-    font-family: "PragmataPro Liga";
+    font-family: "PragmataPro Mono Liga";
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(29, 32, 33, 0.9);
-    border-bottom: 1px solid rgba(235, 219, 178, 0.9);
-    color: #ebdbb2;
+    background-color: transparent;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: #ebdbb2;
-    border-bottom: 1px solid transparent;
+    color: #222222;
+    padding: 6px;
+    background: #b4bad4;
+    border-radius: 4px;
+    margin-left: 4px;
 }
 
 #workspaces button.focused {
@@ -27,47 +26,24 @@ window#waybar {
     border-bottom: 1px solid #ebdbb2;
 }
 
-#cpu,
-#memory,
-#pulseaudio,
-#network,
-#battery,
-#clock,
-#custom-playerctl {
-    padding: 0 10px;
-    margin: 0 5px;
+#clock {
+	color: #222222;
+	padding: 5 5px;
+	background: #b4bad4;
+	border-radius: 4px
 }
 
-#battery.charging {
-    color: #689d6a;
+#battery {
+	color: #222222;
+	padding: 5 5px;
+	background: #b4bad4;
+	border-radius: 4px
 }
 
-#battery.warning:not(.charging) {
-    color: #d79921;
+#custom-date {
+	color: #222222;
+	padding: 5 5px;
+	background: #b4bad4;
+	border-radius: 4px
 }
 
-@keyframes blink {
-    to {
-        background-color: #1d2021;
-        color: #ebdbb2;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background: #cc241d;
-    color: #ebdbb2;
-    border-bottom: 1px solid #ebdbb2;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#network.disconnected {
-    color: #cc241d;
-}
-
-#pulseaudio.muted {
-    color: #cc241d;
-}
