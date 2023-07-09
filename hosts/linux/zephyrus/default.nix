@@ -54,7 +54,7 @@
       displayManager = {
         enable = true;
         autoLogin = {
-          enable = false;
+          enable = true;
           autoSessionCommand = "Hyprland";
         };
 	gnome = false;

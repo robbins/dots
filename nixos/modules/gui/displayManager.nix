@@ -26,7 +26,7 @@ in {
             command = "${pkgs.greetd.greetd}/bin/agreety --cmd zsh";
           };
           initial_session = {
-            command = "${cfg.autoSessionCommand}";
+            command = cfg.autoLogin.autoSessionCommand;
             user = "${specialArgs.username}";
           };
         };

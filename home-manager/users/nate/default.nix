@@ -19,7 +19,7 @@
     };
     gui = {
       kitty.enable = true;
-      hyprland.enable = false;
+      hyprland.enable = true;
       wayland.enable = true;
       bar.enable = true;
     };
