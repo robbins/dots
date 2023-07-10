@@ -1,23 +1,42 @@
+#
+# Home-Manager configuration for user nate
+#
+
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    (../../modules/shell/git.nix) inputs
+#    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
+    (import ../../modules/shell/zsh.nix)
+    (import ../../modules/shell/git.nix)
+    (import ../../modules/shell/ghcli.nix)
+    (import ../../modules/shell/neovim.nix)
+    (import ../../modules/dev)
+    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nix-index-database.hmModules.nix-index
   ];
-
   modules = {
+    dev = {
+      shell.enable = true;
+    };
     shell = {
+      zsh.enable = true;
       git = {
         enable = true;
         userName = "Nate Robbins";
         userEmail = "nate.robbins@trader.ca";
       };
+      ghcli.enable = true;
+      neovim.enable = true;
     };
   };
 
-  home.packages = with pkgs; [
-    iterm2
-  ];
+  # Misc
+  home.packages = [
+  ] ++ (with pkgs; [
+  ]);
+
+  programs.nix-index-database.comma.enable = true;
 
   # Meta
-  home.stateVersion = "22.11";
+  home.stateVersion = "22.05";
 }
