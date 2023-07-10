@@ -8,6 +8,7 @@ rec {
   username = "naterobbins";
   modules' = [
     (./.)
+    { users.users."naterobbins".home = "/Users/naterobbins"; }
   ];
   overlays' = [
   ];
