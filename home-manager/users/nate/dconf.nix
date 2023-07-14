@@ -38,7 +38,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "background";
+      last-panel = "network";
       window-state = mkTuple [ 1259 1038 ];
     };
 
@@ -87,6 +87,7 @@ with lib.hm.gvariant;
       locate-pointer = true;
       monospace-font-name = "PragmataPro Mono Regular, 10";
       show-battery-percentage = true;
+      text-scaling-factor = 1.0;
     };
 
     "org/gnome/desktop/notifications" = {
@@ -154,7 +155,7 @@ with lib.hm.gvariant;
       button-layout = "appmenu:close";
       focus-mode = "click";
       num-workspaces = 9;
-      titlebar-font = "SF Pro Display Semi-Bold 11";
+      titlebar-font = "SF Pro Display 11";
       workspace-names = [ "Workspace 1" "Workspace 2" "Workspace 3" ];
     };
 
