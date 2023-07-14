@@ -23,7 +23,7 @@ in {
     programs.kitty = {
       enable = true;
       font = {
-        name = "PragmataPro Mono Liga";
+        name = "PragmataPro Mono Liga Regular";
         size = 14;
       };
       keybindings = {
