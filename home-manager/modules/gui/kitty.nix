@@ -21,11 +21,11 @@ in {
       kitty = "MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json kitty";
     };
     programs.kitty = {
+      extraConfig = ''
+        font_family PragmataPro Mono Liga Regular
+	font_size 14.0
+      '';
       enable = true;
-      font = {
-        name = "PragmataPro Mono Liga Regular";
-        size = 14;
-      };
       keybindings = {
       };
       settings = {
