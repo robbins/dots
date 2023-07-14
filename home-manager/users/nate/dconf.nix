@@ -81,7 +81,7 @@ with lib.hm.gvariant;
       enable-animations = true;
       enable-hot-corners = false;
       font-antialiasing = "rgba";
-      font-hinting = "slight";
+      font-hinting = "none";
       font-name = "SF Pro Text 11";
       icon-theme = "Cupertino-Ventura";
       locate-pointer = true;
