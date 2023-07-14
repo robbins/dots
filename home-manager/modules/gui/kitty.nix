@@ -75,6 +75,7 @@ in {
         url_color = "#d65c0d";
 
         enable_audio_bell = false;
+	hide_window_decorations = true;
 
 	shell = "zsh";
       };
