@@ -38,8 +38,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "multitasking";
-      window-state = mkTuple [ 1900 1041 ];
+      last-panel = "background";
+      window-state = mkTuple [ 1259 1038 ];
     };
 
     "org/gnome/desktop/app-folders" = {
@@ -62,8 +62,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-58-22-Google%20Pixel%203%20Wallpaper%201.png";
-      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-58-22-Google%20Pixel%203%20Wallpaper%201.png";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -89,7 +89,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-power-panel" "org-gnome-nautilus" "kitty" "brave-browser" ];
+      application-children = [ "gnome-power-panel" "org-gnome-nautilus" "kitty" "brave-browser" "org-gnome-settings" ];
     };
 
     "org/gnome/desktop/notifications/application/brave-browser" = {
@@ -126,7 +126,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-58-22-Google%20Pixel%203%20Wallpaper%201.png";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -193,8 +193,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "paperwm@hedning:matrix.org" "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "vertical-workspaces@G-dH.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" ];
+      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "hidetopbar@mathieu.bidon.ca" ];
+      enabled-extensions = [ "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "vertical-workspaces@G-dH.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -218,6 +218,12 @@ with lib.hm.gvariant;
       override-background-dynamically = false;
       static-blur = false;
       style-panel = 3;
+    };
+
+    "org/gnome/shell/extensions/hidetopbar" = {
+      enable-active-window = false;
+      enable-intellihide = false;
+      mouse-sensitive = true;
     };
 
     "org/gnome/shell/extensions/horizontal-workspace-indicator" = {
@@ -267,7 +273,7 @@ with lib.hm.gvariant;
       horizontal-margin = 10;
       show-window-position-bar = true;
       topbar-follow-focus = false;
-      use-default-background = false;
+      use-default-background = true;
       vertical-margin = 5;
       vertical-margin-bottom = 5;
       window-gap = 10;
@@ -356,7 +362,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
