@@ -69,6 +69,7 @@ in {
         paperwm
         vertical-workspaces
         switcher
+	rounded-window-corners
       ]);
       services.gnome.core-utilities.enable = false;
     })
