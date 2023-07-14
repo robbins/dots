@@ -77,14 +77,15 @@ with lib.hm.gvariant;
       clock-show-seconds = false;
       color-scheme = "prefer-dark";
       cursor-theme = "WhiteSur-cursors";
+      document-font-name = "SF Pro Text 11";
       enable-animations = true;
       enable-hot-corners = false;
       font-antialiasing = "rgba";
-      font-hinting = "medium";
-      font-name = "System-ui 11";
-      icon-theme = "BigSur";
+      font-hinting = "slight";
+      font-name = "SF Pro Text 11";
+      icon-theme = "Cupertino-Ventura";
       locate-pointer = true;
-      monospace-font-name = "PragmataPro Liga 10";
+      monospace-font-name = "PragmataPro Mono Regular, 10";
       show-battery-percentage = true;
     };
 
@@ -153,6 +154,7 @@ with lib.hm.gvariant;
       button-layout = "appmenu:close";
       focus-mode = "click";
       num-workspaces = 9;
+      titlebar-font = "SF Pro Display Semi-Bold 11";
       workspace-names = [ "Workspace 1" "Workspace 2" "Workspace 3" ];
     };
 
@@ -354,7 +356,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
