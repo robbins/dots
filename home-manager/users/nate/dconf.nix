@@ -139,6 +139,14 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/wm/keybindings" = {
       minimize = [];
+      move-to-workspace-down = [ "<Control><Shift><Alt>Down" ];
+      move-to-workspace-left = [ "<Super><Shift><Alt>Left" "<Control><Shift><Alt>Left" "<Super><Shift>Page_Up" ];
+      move-to-workspace-right = [ "<Super><Shift><Alt>Right" "<Control><Shift><Alt>Right" "<Super><Shift>Page_Down" ];
+      move-to-workspace-up = [ "<Control><Shift><Alt>Up" ];
+      switch-to-workspace-down = [ "<Control><Alt>Down" ];
+      switch-to-workspace-left = [ "<Super><Alt>Left" "<Control><Alt>Left" "<Super>Page_Up" ];
+      switch-to-workspace-right = [ "<Super><Alt>Right" "<Control><Alt>Right" "<Super>Page_Down" ];
+      switch-to-workspace-up = [ "<Control><Alt>Up" ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -185,8 +193,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "vertical-workspaces@G-dH.github.com" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "paperwm@hedning:matrix.org" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" ];
+      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "paperwm@hedning:matrix.org" "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "vertical-workspaces@G-dH.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -197,6 +205,10 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
       compatibility = false;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      blur = false;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
@@ -344,7 +356,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\\\\\n\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
@@ -353,10 +365,6 @@ with lib.hm.gvariant;
       show-executables = true;
       show-switcher = [ "<Super>w" ];
       workspace-indicator = true;
-    };
-
-    "org/gnome/shell/extensions/vertical-workspaces" = {
-      startup-state = 2;
     };
 
     "org/gnome/shell/weather" = {
