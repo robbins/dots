@@ -180,8 +180,9 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" ];
-      enabled-extensions = [ "paperwm@hedning:matrix.org" "switcher@landau.fi" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "vertical-workspaces@G-dH.github.com" "just-perfection-desktop@just-perfection" ];
+      disable-user-extensions = false;
+      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" "places-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "vertical-workspaces@G-dH.github.com" ];
+      enabled-extensions = [];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -334,13 +335,23 @@ with lib.hm.gvariant;
       index = 4;
     };
 
+    "org/gnome/shell/extensions/rounded-window-corners" = {
+      border-color = mkTuple [ 0.38999998569488525 0.38999998569488525 ];
+      border-width = 1;
+      custom-rounded-corner-settings = "@a{sv} {}";
+      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>}";
+      settings-version = mkUint32 5;
+      skip-libadwaita-app = true;
+      tweak-kitty-terminal = true;
+    };
+
     "org/gnome/shell/extensions/switcher" = {
       activate-by-key = mkUint32 1;
       activate-immediately = true;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\n\n
+        {"minecraft-launcher.desktop":1}\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
