@@ -68,8 +68,7 @@ in {
         workspace-indicator-2
         paperwm
         vertical-workspaces
-        switcher
-	rounded-window-corners
+	hide-top-bar
       ]);
       services.gnome.core-utilities.enable = false;
     })

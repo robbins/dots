@@ -89,7 +89,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-power-panel" "org-gnome-nautilus" "kitty" ];
+      application-children = [ "gnome-power-panel" "org-gnome-nautilus" "kitty" "brave-browser" ];
+    };
+
+    "org/gnome/desktop/notifications/application/brave-browser" = {
+      application-id = "brave-browser.desktop";
     };
 
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
@@ -181,8 +185,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" "places-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "vertical-workspaces@G-dH.github.com" ];
-      enabled-extensions = [];
+      disabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "drive-menu@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "vertical-workspaces@G-dH.github.com" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "paperwm@hedning:matrix.org" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -191,36 +195,17 @@ with lib.hm.gvariant;
       current-workspace-only = true;
     };
 
-    "org/gnome/shell/extensions/blur-my-shell" = {
-      brightness = 0.86;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
-      brightness = 0.55;
-      customize = true;
-      noise-amount = 0.0;
-      sigma = 65;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      blur = false;
-      brightness = 0.55;
-      customize = true;
-      sigma = 200;
-      style-components = 0;
+    "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
+      compatibility = false;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = false;
-      brightness = 0.46;
-      customize = true;
-      override-background = false;
-      sigma = 140;
-      static-blur = true;
+      blur = true;
+      customize = false;
+      override-background = true;
+      override-background-dynamically = false;
+      static-blur = false;
+      style-panel = 3;
     };
 
     "org/gnome/shell/extensions/horizontal-workspace-indicator" = {
@@ -232,12 +217,13 @@ with lib.hm.gvariant;
       accessibility-menu = false;
       activities-button = false;
       activities-button-icon-monochrome = true;
-      animation = 1;
-      app-menu = true;
+      animation = 4;
+      app-menu = false;
       app-menu-icon = true;
-      app-menu-label = true;
+      app-menu-label = false;
       calendar = true;
       clock-menu = true;
+      clock-menu-position = 0;
       controls-manager-spacing-size = 0;
       dash = false;
       dash-separator = false;
@@ -245,20 +231,29 @@ with lib.hm.gvariant;
       keyboard-layout = true;
       notification-banner-position = 2;
       panel = true;
-      panel-size = 28;
+      panel-size = 32;
+      ripple-box = false;
       search = false;
       show-apps-button = false;
-      startup-status = 1;
+      startup-status = 0;
       theme = true;
+      top-panel-position = 0;
       window-demands-attention-focus = true;
+      window-preview-close-button = false;
+      workspace = true;
+      workspace-background-corner-size = 0;
+      workspace-switcher-should-show = false;
       workspace-wrap-around = true;
+      workspaces-in-app-grid = true;
       world-clock = false;
     };
 
     "org/gnome/shell/extensions/paperwm" = {
       cycle-width-steps = [ 0.25 0.3333 0.5 0.6666 ];
+      default-show-top-bar = true;
       has-installed-config-template = true;
       horizontal-margin = 10;
+      show-window-position-bar = true;
       topbar-follow-focus = false;
       use-default-background = false;
       vertical-margin = 5;
@@ -336,12 +331,10 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
-      border-color = mkTuple [ 0.38999998569488525 0.38999998569488525 ];
-      border-width = 1;
+      border-width = 0;
       custom-rounded-corner-settings = "@a{sv} {}";
       global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>}";
       settings-version = mkUint32 5;
-      skip-libadwaita-app = true;
       tweak-kitty-terminal = true;
     };
 
@@ -351,7 +344,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
