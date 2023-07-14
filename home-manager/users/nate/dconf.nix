@@ -193,8 +193,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "hidetopbar@mathieu.bidon.ca" ];
-      enabled-extensions = [ "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "vertical-workspaces@G-dH.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" ];
+      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "hidetopbar@mathieu.bidon.ca" "vertical-workspaces@G-dH.github.com" ];
+      enabled-extensions = [ "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "places-menu@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -303,48 +303,40 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/21ca5a1f-1bcd-44e4-8a6a-686049cf634f" = {
-      background = "/home/nate/pictures/wallpapers/hello-Green-2-dragged.jpg";
       index = 2;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/3af9c5bd-456d-4fbf-a30a-e3479234b849" = {
-      background = "/home/nate/pictures/wallpapers/hello-Orange-2-dragged.jpg";
       index = 3;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/4d7951f3-35df-480d-ac09-99bdf9858a29" = {
-      background = "/home/nate/pictures/wallpapers/hello-Grey-2-dragged.jpg";
       index = 7;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/6158c727-87ae-4bb6-b095-d2b4393ee8fd" = {
-      background = "/home/nate/pictures/wallpapers/hello-Blue-2-dragged.jpg";
       index = 0;
       show-top-bar = true;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/8900a241-6460-40bb-93b2-ca1c9b01f0df" = {
-      background = "/home/nate/pictures/wallpapers/2021-iMac-color-matching-wallpaper-idownloadblog-Blue-Light-@AR72014.jpg";
       index = 6;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/af3112a2-de8a-4c89-a0ce-b26cf9f1a4a9" = {
-      background = "/home/nate/pictures/wallpapers/hello-Yellow-2-dragged.jpg";
       index = 5;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/b4456136-cc4f-4ea9-ab48-c2677a6765b6" = {
-      background = "/home/nate/pictures/wallpapers/hello-Green-1-dragged.jpg";
       index = 8;
+      show-top-bar = true;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/de4b39e6-000a-4084-b934-1d17c6f495bd" = {
-      background = "/home/nate/pictures/wallpapers/hello-Yellow-1-dragged.jpg";
       index = 1;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/f6bf0692-27e5-48de-ab73-f4fceffd014c" = {
-      background = "/home/nate/pictures/wallpapers/hello-Purple-2-dragged.jpg";
       index = 4;
     };
 
@@ -362,7 +354,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
