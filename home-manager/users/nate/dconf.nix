@@ -196,8 +196,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "user-theme@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "hidetopbar@mathieu.bidon.ca" "vertical-workspaces@G-dH.github.com" ];
-      enabled-extensions = [ "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "places-menu@gnome-shell-extensions.gcampax.github.com" "paperwm@hedning:matrix.org" ];
+      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "vertical-workspaces@G-dH.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "hidetopbar@mathieu.bidon.ca" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "paperwm@hedning:matrix.org" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -207,7 +207,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
-      compatibility = false;
+      compatibility = true;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/overview" = {
@@ -224,9 +224,15 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/hidetopbar" = {
+      animation-time-overview = 0.20000000000000004;
       enable-active-window = false;
       enable-intellihide = false;
+      keep-round-corners = false;
       mouse-sensitive = true;
+      mouse-sensitive-fullscreen-window = false;
+      pressure-threshold = 100;
+      shortcut-keybind = [];
+      show-in-overview = true;
     };
 
     "org/gnome/shell/extensions/horizontal-workspace-indicator" = {
@@ -271,10 +277,10 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm" = {
       cycle-width-steps = [ 0.25 0.3333 0.5 0.6666 ];
-      default-show-top-bar = true;
+      default-show-top-bar = false;
       has-installed-config-template = true;
       horizontal-margin = 10;
-      show-window-position-bar = true;
+      show-window-position-bar = false;
       topbar-follow-focus = false;
       use-default-background = true;
       vertical-margin = 5;
@@ -357,7 +363,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
@@ -393,9 +399,9 @@ with lib.hm.gvariant;
       show-size-column = true;
       show-type-column = true;
       sidebar-width = 140;
-      sort-column = "name";
+      sort-column = "modified";
       sort-directories-first = false;
-      sort-order = "ascending";
+      sort-order = "descending";
       type-format = "category";
       view-type = "list";
       window-size = mkTuple [ 859 374 ];
