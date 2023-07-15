@@ -38,8 +38,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "network";
-      window-state = mkTuple [ 1259 1038 ];
+      last-panel = "datetime";
+      window-state = mkTuple [ 980 1070 ];
     };
 
     "org/gnome/desktop/app-folders" = {
@@ -62,8 +62,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
-      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-10-22-17-05-54-apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6762.jpg";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-10-22-17-05-54-apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6762.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -74,15 +74,17 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/interface" = {
-      clock-show-seconds = false;
+      clock-format = "12h";
+      clock-show-seconds = true;
       color-scheme = "prefer-dark";
       cursor-theme = "WhiteSur-cursors";
-      document-font-name = "SF Pro Text 11";
+      document-font-name = "SF Pro Text Medium 11";
       enable-animations = true;
       enable-hot-corners = false;
       font-antialiasing = "rgba";
-      font-hinting = "none";
-      font-name = "SF Pro Text 11";
+      font-hinting = "slight";
+      font-name = "SF Pro Text Medium 11";
+      gtk-theme = "WhiteSur-Dark";
       icon-theme = "Cupertino-Ventura";
       locate-pointer = true;
       monospace-font-name = "PragmataPro Mono Regular, 10";
@@ -128,7 +130,7 @@ with lib.hm.gvariant;
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-10-22-17-05-54-apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6762.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -137,6 +139,10 @@ with lib.hm.gvariant;
       disabled = [ "org.gnome.Nautilus.desktop" ];
       enabled = [ "org.gnome.Weather.desktop" ];
       sort-order = [ "org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop" ];
+    };
+
+    "org/gnome/desktop/session" = {
+      idle-delay = mkUint32 300;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
@@ -152,7 +158,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:close";
+      button-layout = "close:appmenu";
       focus-mode = "click";
       num-workspaces = 9;
       titlebar-font = "SF Pro Display 11";
@@ -176,11 +182,13 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/window-state" = {
-      initial-size = mkTuple [ 945 1042 ];
+      initial-size = mkTuple [ 945 1034 ];
+      maximized = false;
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
+      night-light-temperature = mkUint32 1700;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -195,9 +203,10 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
+      command-history = [ "help" ];
       disable-user-extensions = false;
-      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "vertical-workspaces@G-dH.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" "hidetopbar@mathieu.bidon.ca" "blur-my-shell@aunetx" "just-perfection-desktop@just-perfection" "paperwm@hedning:matrix.org" ];
+      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "switcher@landau.fi" "rounded-window-corners@yilozt" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "horizontal-workspace-indicator@tty2.io" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "vertical-workspaces@G-dH.github.com" "apps-menu@gnome-shell-extensions.gcampax.github.com" "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" "hidetopbar@mathieu.bidon.ca" "paperwm@hedning:matrix.org" "places-menu@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -206,25 +215,41 @@ with lib.hm.gvariant;
       current-workspace-only = true;
     };
 
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      color-and-noise = true;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      blur = false;
+    };
+
     "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
       compatibility = true;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      blur = false;
+      blur = true;
+      style-components = 2;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       blur = true;
-      customize = false;
+      brightness = 0.37;
+      customize = true;
       override-background = true;
       override-background-dynamically = false;
-      static-blur = false;
+      sigma = 116;
+      static-blur = true;
       style-panel = 3;
+      unblur-in-overview = true;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/window-list" = {
+      blur = false;
     };
 
     "org/gnome/shell/extensions/hidetopbar" = {
-      animation-time-overview = 0.20000000000000004;
+      animation-time-overview = 0.2;
       enable-active-window = false;
       enable-intellihide = false;
       keep-round-corners = false;
@@ -260,6 +285,7 @@ with lib.hm.gvariant;
       panel = true;
       panel-size = 32;
       ripple-box = false;
+      screen-sharing-indicator = false;
       search = false;
       show-apps-button = false;
       startup-status = 0;
@@ -270,6 +296,7 @@ with lib.hm.gvariant;
       workspace = true;
       workspace-background-corner-size = 0;
       workspace-switcher-should-show = false;
+      workspace-switcher-size = 0;
       workspace-wrap-around = true;
       workspaces-in-app-grid = true;
       world-clock = false;
@@ -313,10 +340,12 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm/workspaces/21ca5a1f-1bcd-44e4-8a6a-686049cf634f" = {
       index = 2;
+      show-top-bar = true;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/3af9c5bd-456d-4fbf-a30a-e3479234b849" = {
       index = 3;
+      show-top-bar = true;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/4d7951f3-35df-480d-ac09-99bdf9858a29" = {
@@ -343,6 +372,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm/workspaces/de4b39e6-000a-4084-b934-1d17c6f495bd" = {
       index = 1;
+      show-top-bar = true;
     };
 
     "org/gnome/shell/extensions/paperwm/workspaces/f6bf0692-27e5-48de-ab73-f4fceffd014c" = {
@@ -363,7 +393,7 @@ with lib.hm.gvariant;
       fade-enable = false;
       font-size = mkUint32 28;
       launcher-stats = ''
-        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
+        {"minecraft-launcher.desktop":1}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\n\\\\\\\\n\\\\n\\n\n
       '';
       matching = mkUint32 1;
       max-width-percentage = mkUint32 70;
@@ -372,6 +402,10 @@ with lib.hm.gvariant;
       show-executables = true;
       show-switcher = [ "<Super>w" ];
       workspace-indicator = true;
+    };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "WhiteSur-Dark";
     };
 
     "org/gnome/shell/weather" = {
@@ -400,7 +434,7 @@ with lib.hm.gvariant;
       show-type-column = true;
       sidebar-width = 140;
       sort-column = "modified";
-      sort-directories-first = false;
+      sort-directories-first = true;
       sort-order = "descending";
       type-format = "category";
       view-type = "list";
@@ -408,6 +442,7 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/settings/file-chooser" = {
+      clock-format = "12h";
       date-format = "regular";
       location-mode = "path-bar";
       show-hidden = false;

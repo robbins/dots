@@ -45,6 +45,8 @@ in {
 	".gradle"
 
 	".config/paperwm"
+
+	".themes"
       ];
       files = [
        ".config/gh/hosts.yml"
