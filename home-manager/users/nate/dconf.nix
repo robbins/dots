@@ -11,7 +11,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "bluetooth";
+      last-panel = "keyboard";
       window-state = mkTuple [ 980 1064 ];
     };
 
@@ -20,8 +20,9 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
+      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
       categories = [ "X-GNOME-Utilities" ];
+      excluded-apps = [ "org.gnome.tweaks.desktop" ];
       name = "X-GNOME-Utilities.directory";
       translate = true;
     };
@@ -155,6 +156,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
+      app-picker-layout = "[{'brave-browser.desktop': <{'position': <0>}>, 'org.gnome.Extensions.desktop': <{'position': <1>}>, 'kitty.desktop': <{'position': <2>}>, 'looking-glass-client.desktop': <{'position': <3>}>, 'nvim.desktop': <{'position': <4>}>, 'nixos-manual.desktop': <{'position': <5>}>, 'nvidia-settings.desktop': <{'position': <6>}>, 'rog-control-center.desktop': <{'position': <7>}>, 'org.gnome.Tour.desktop': <{'position': <8>}>, 'virt-manager.desktop': <{'position': <9>}>, 'org.gnome.Settings.desktop': <{'position': <10>}>, 'Utilities': <{'position': <11>}>, 'org.gnome.tweaks.desktop': <{'position': <12>}>}]";
       disabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "vertical-workspaces@G-dH.github.com" ];
       enabled-extensions = [ "paperwm@hedning:matrix.org" "just-perfection-desktop@just-perfection" "blur-my-shell@aunetx" "hidetopbar@mathieu.bidon.ca" "places-menu@gnome-shell-extensions.gcampax.github.com" ];
       last-selected-power-profile = "power-saver";
@@ -205,7 +207,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/hidetopbar" = {
-      animation-time-autohide = 0.10000000000000003;
+      animation-time-autohide = 0.1;
       animation-time-overview = 0.4;
       enable-active-window = false;
       enable-intellihide = false;
@@ -281,6 +283,7 @@ with lib.hm.gvariant;
       move-monitor-right = [ "" ];
       move-right = [ "<Shift><Control>l" ];
       move-up = [ "" ];
+      new-window = [ "<Super>n" ];
       switch-down = [ "" ];
       switch-left = [ "<Super>h" ];
       switch-monitor-above = [ "<Shift><Super>k" ];
