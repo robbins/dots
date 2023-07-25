@@ -16,6 +16,9 @@
         autohide-delay = 0.0;
         autohide-time-modifier = 0.35;
       };
+      NSGlobalDomain = {
+        ApplePressAndHoldEnabled = true;
+      };
     };
   };
 
