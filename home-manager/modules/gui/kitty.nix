@@ -78,6 +78,8 @@ in {
 	hide_window_decorations = true;
 
 	shell = "zsh";
+
+	tab_bar_edge = "top";
       };
     };
   });
