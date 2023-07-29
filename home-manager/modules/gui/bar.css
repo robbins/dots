@@ -2,8 +2,8 @@
     all: unset;
     border: none;
     border-radius: 0;
-    font-family: "PragmataPro Mono Liga";
-    font-weight: bold;
+    font-family: "PragmataPro Liga Regular";
+    font-weight: 700;
     font-size: 14px;
     min-height: 0;
 }

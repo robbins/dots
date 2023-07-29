@@ -29,14 +29,13 @@ in {
         # See https://wiki.hyprland.org/Configuring/Monitors/
         monitor=,preferred,auto,auto
 	monitor=eDP-1,1920x1080@144,0x0,1
-        monitor=HDMI-A-1,1920x1080@74,1920x0,1,transform,3
-        
+        monitor=HDMI-A-1,1920x1080@74,1920x0,1
         
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
         
         # Execute your favorite apps at launch
         # exec-once = waybar & hyprpaper & firefox
-	exec-once = swaybg -i ~/pictures/wallpapers/hello-Grey-2-dragged.jpg -m fill & waybar
+	exec-once = swaybg -i ~/pictures/wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg -m fill & waybar
         
         # Source a file (multi-file configs)
         # source = ~/.config/hypr/myColors.conf
