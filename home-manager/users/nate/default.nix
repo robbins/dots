@@ -37,6 +37,7 @@
       ghcli.enable = true;
       neovim.enable = true;
       direnv.enable = true;
+      dircolors.enable = true;
     };
   };
 
