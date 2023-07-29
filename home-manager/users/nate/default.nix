@@ -5,7 +5,7 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
+    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason maybe its good cause itll evaluate on all hosts which might not be compatible
     ./dconf.nix
     inputs.hyprland.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
@@ -19,10 +19,10 @@
     };
     gui = {
       kitty.enable = true;
-      hyprland.enable = false;
+      hyprland.enable = true;
       wayland.enable = true;
-      bar.enable = false;
-      rofi.enable = false;
+      bar.enable = true;
+      rofi.enable = true;
     };
     dev = {
       shell.enable = true;
