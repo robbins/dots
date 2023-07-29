@@ -32,7 +32,7 @@ in {
         window_margin_width = "2";
 
         # https://s3.amazonaws.com/burkelibbey/maybe-gruvbox-but-dunno.itermcolors
-        background= "#252524";
+        background= "#232322";
         foreground = "#e4d4ac";
 
         selection_background= "#ebdbb2";
