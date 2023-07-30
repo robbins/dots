@@ -16,6 +16,7 @@ in {
       environment.systemPackages = with pkgs; [
         e2fsprogs
       ];
+      boot.supportedFilesystems = [ "ntfs" ];
     }
 
     (mkIf cfg.zfs.enable {
