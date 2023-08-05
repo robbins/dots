@@ -19,10 +19,10 @@
     };
     gui = {
       kitty.enable = true;
-      hyprland.enable = true;
+      hyprland.enable = false;
       wayland.enable = true;
-      bar.enable = true;
-      rofi.enable = true;
+      bar.enable = false;
+      rofi.enable = false;
     };
     dev = {
       shell.enable = true;

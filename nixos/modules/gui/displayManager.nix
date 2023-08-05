@@ -65,11 +65,9 @@ in {
       ] ++ (with pkgs.gnomeExtensions; [
         just-perfection
         blur-my-shell
-        workspace-indicator-2
-        paperwm
-        vertical-workspaces
-	hide-top-bar
 	rounded-window-corners
+	tiling-assistant
+	space-bar
       ]);
       services.gnome.core-utilities.enable = false;
     })

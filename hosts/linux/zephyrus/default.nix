@@ -57,13 +57,13 @@
       displayManager = {
         enable = true;
         autoLogin = {
-          enable = true;
+          enable = false;
           autoSessionCommand = "Hyprland";
         };
-	gnome = false;
+	gnome = true;
 	kde = false;
       };
-      hyprland.enable = true;
+      hyprland.enable = false;
     };
     documentation.enable = true;
   };
