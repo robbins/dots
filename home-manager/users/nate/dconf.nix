@@ -11,8 +11,12 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "display";
+      last-panel = "power";
       window-state = mkTuple [ 980 640 ];
+    };
+
+    "org/gnome/desktop/a11y/applications" = {
+      screen-magnifier-enabled = false;
     };
 
     "org/gnome/desktop/app-folders" = {
@@ -20,9 +24,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
+      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
       categories = [ "X-GNOME-Utilities" ];
-      excluded-apps = [ "org.gnome.tweaks.desktop" ];
       name = "X-GNOME-Utilities.directory";
       translate = true;
     };
@@ -36,21 +39,23 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
-      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-1-dragged.jpg";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-1-dragged.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
 
     "org/gnome/desktop/input-sources" = {
       sources = [ (mkTuple [ "xkb" "us" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
+      xkb-options = [ "terminate:ctrl_alt_bksp" "lv3:ralt_switch" "compose:ralt" ];
     };
 
     "org/gnome/desktop/interface" = {
       clock-format = "12h";
       clock-show-seconds = true;
+      clock-show-weekday = true;
       color-scheme = "prefer-dark";
+      cursor-blink-time = 1064;
       cursor-theme = "WhiteSur-cursors";
       document-font-name = "SF Pro Text 11";
       enable-animations = true;
@@ -60,10 +65,11 @@ with lib.hm.gvariant;
       font-name = "SF Pro Text 11";
       gtk-theme = "WhiteSur-Dark";
       icon-theme = "Cupertino-Ventura";
-      locate-pointer = true;
+      locate-pointer = false;
       monospace-font-name = "PragmataPro Mono Regular, 11";
       show-battery-percentage = true;
       text-scaling-factor = 1.0;
+      toolkit-accessibility = false;
     };
 
     "org/gnome/desktop/notifications" = {
@@ -74,18 +80,14 @@ with lib.hm.gvariant;
       application-id = "gnome-power-panel.desktop";
     };
 
-    "org/gnome/desktop/peripherals/mouse" = {
-      natural-scroll = false;
-      speed = 0.0;
-    };
-
     "org/gnome/desktop/peripherals/touchpad" = {
-      natural-scroll = true;
+      disable-while-typing = false;
       tap-to-click = true;
       two-finger-scrolling-enabled = true;
     };
 
     "org/gnome/desktop/privacy" = {
+      disable-camera = true;
       old-files-age = mkUint32 30;
       recent-files-max-age = -1;
     };
@@ -94,7 +96,7 @@ with lib.hm.gvariant;
       color-shading-type = "solid";
       lock-delay = mkUint32 30;
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-2-dragged.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-1-dragged.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -127,7 +129,7 @@ with lib.hm.gvariant;
       focus-mode = "click";
       num-workspaces = 9;
       titlebar-font = "SF Pro Display 11";
-      workspace-names = [ "1" "2" ];
+      workspace-names = [ "1" "2" "3" ];
     };
 
     "org/gnome/evolution-data-server" = {
@@ -158,112 +160,75 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Mod4>Return";
+      binding = "<Super>Return";
       command = "env MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json kitty";
       name = "Kitty";
     };
 
+    "org/gnome/settings-daemon/plugins/power" = {
+      power-button-action = "nothing";
+      sleep-inactive-ac-type = "nothing";
+    };
+
     "org/gnome/shell" = {
-      app-picker-layout = "[{'brave-browser.desktop': <{'position': <0>}>, 'org.gnome.Extensions.desktop': <{'position': <1>}>, 'kitty.desktop': <{'position': <2>}>, 'looking-glass-client.desktop': <{'position': <3>}>, 'nvim.desktop': <{'position': <4>}>, 'nixos-manual.desktop': <{'position': <5>}>, 'nvidia-settings.desktop': <{'position': <6>}>, 'rog-control-center.desktop': <{'position': <7>}>, 'org.gnome.Tour.desktop': <{'position': <8>}>, 'virt-manager.desktop': <{'position': <9>}>, 'org.gnome.Settings.desktop': <{'position': <10>}>, 'Utilities': <{'position': <11>}>, 'org.gnome.tweaks.desktop': <{'position': <12>}>}]";
-      disabled-extensions = [ "blur-my-shell@aunetx" "apps-menu@gnome-shell-extensions.gcampax.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "rounded-window-corners@yilozt" "tiling-assistant@leleat-on-github" "just-perfection-desktop@just-perfection" "space-bar@luchrioh" "places-menu@gnome-shell-extensions.gcampax.github.com" ];
-      last-selected-power-profile = "power-saver";
+      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" ];
+      enabled-extensions = [ "just-perfection-desktop@just-perfection" "space-bar@luchrioh" "places-menu@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "tiling-assistant@leleat-on-github" "rounded-window-corners@yilozt" ];
+      last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.1";
     };
 
-    "org/gnome/shell/extensions/blur-my-shell" = {
-      color-and-noise = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/screenshot" = {
-      blur = false;
-    };
-
-    "org/gnome/shell/extensions/blur-my-shell/window-list" = {
-      blur = false;
-    };
-
     "org/gnome/shell/extensions/just-perfection" = {
-      accessibility-menu = false;
       activities-button = false;
+      activities-button-icon-monochrome = false;
+      activities-button-label = false;
+      animation = 4;
       app-menu = false;
-      app-menu-icon = true;
+      app-menu-icon = false;
       app-menu-label = false;
-      background-menu = false;
-      clock-menu = true;
       controls-manager-spacing-size = 0;
-      dash = true;
-      dash-icon-size = 48;
+      dash = false;
+      dash-icon-size = 56;
       dash-separator = false;
-      double-super-to-appgrid = true;
-      events-button = true;
-      gesture = true;
-      hot-corner = false;
-      osd = true;
       panel = true;
-      panel-arrow = true;
-      panel-corner-size = 0;
-      panel-in-overview = true;
+      panel-icon-size = 0;
+      panel-in-overview = false;
+      panel-indicator-padding-size = 0;
       panel-size = 28;
+      power-icon = false;
       ripple-box = false;
       search = false;
       show-apps-button = false;
       startup-status = 0;
+      switcher-popup-delay = true;
       theme = false;
-      top-panel-position = 0;
-      window-demands-attention-focus = false;
       window-picker-icon = true;
-      window-preview-caption = true;
-      window-preview-close-button = true;
-      workspace = true;
-      workspace-background-corner-size = 0;
-      workspace-popup = true;
+      workspace-background-corner-size = 9;
       workspace-switcher-size = 11;
-      workspaces-in-app-grid = true;
-      world-clock = false;
+      workspace-wrap-around = true;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
-      border-color = mkTuple [ 0.28333333134651184 0.2748333215713501 ];
+      border-color = mkTuple [ 0.4300000071525574 0.4300000071525574 ];
       border-width = 1;
       custom-rounded-corner-settings = "@a{sv} {}";
-      enable-preferences-entry = false;
-      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <0.69999999999999996>, 'enabled': <true>}";
+      focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
+      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <false>}>, 'border_radius': <uint32 8>, 'smoothing': <0.20000000000000001>, 'enabled': <true>}";
       settings-version = mkUint32 5;
-      skip-libadwaita-app = true;
       tweak-kitty-terminal = false;
+      unfocused-shadow = "{'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 12, 'spread_radius': -1, 'opacity': 65}";
     };
 
     "org/gnome/shell/extensions/space-bar/appearance" = {
+      active-workspace-font-weight = "700";
+      empty-workspace-font-weight = "700";
+      inactive-workspace-font-weight = "700";
       workspace-margin = 0;
       workspaces-bar-padding = 0;
     };
 
     "org/gnome/shell/extensions/space-bar/behavior" = {
-      position = "left";
       position-index = 0;
-      show-empty-workspaces = false;
-      smart-workspace-names = false;
+      show-empty-workspaces = true;
     };
 
     "org/gnome/shell/extensions/tiling-assistant" = {
@@ -279,13 +244,14 @@ with lib.hm.gvariant;
       debugging-show-tiled-rects = [];
       default-move-mode = 0;
       dynamic-keybinding-behavior = 0;
+      enable-tiling-popup = true;
       import-layout-examples = false;
       last-version-installed = 41;
       maximize-with-gap = true;
       overridden-settings = "{'org.gnome.mutter.edge-tiling': <@mb nothing>, 'org.gnome.desktop.wm.keybindings.maximize': <@mb nothing>, 'org.gnome.desktop.wm.keybindings.unmaximize': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <@mb nothing>}";
       restore-window = [ "<Super>Down" ];
       search-popup-layout = [];
-      single-screen-gap = 4;
+      single-screen-gap = 2;
       tile-bottom-half = [ "<Super>KP_2" ];
       tile-bottom-half-ignore-ta = [];
       tile-bottomleft-quarter = [ "<Super>KP_1" ];
@@ -308,7 +274,7 @@ with lib.hm.gvariant;
       tile-topright-quarter-ignore-ta = [];
       toggle-always-on-top = [];
       toggle-tiling-popup = [];
-      window-gap = 2;
+      window-gap = 4;
     };
 
     "org/gnome/tweaks" = {
@@ -316,8 +282,33 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.28333333134651184 0.2748333215713501 ]) (mkTuple [ 8.68000015616417e-2 8.786666393280029e-2 ]) (mkTuple [ 0.75 0.2499999850988388 ]) (mkTuple [ 0.5 0.5 ]) ];
-      selected-color = mkTuple [ true 0.28333333134651184 ];
+      custom-colors = [ (mkTuple [ 0.4300000071525574 0.4300000071525574 ]) (mkTuple [ 0.6000000238418579 0.6000000238418579 ]) (mkTuple [ 0.5 0.5 ]) ];
+      selected-color = mkTuple [ true 0.4300000071525574 ];
+    };
+
+    "org/virt-manager/virt-manager" = {
+      manager-window-height = 550;
+      manager-window-width = 550;
+    };
+
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
+
+    "org/virt-manager/virt-manager/details" = {
+      show-toolbar = true;
+    };
+
+    "org/virt-manager/virt-manager/vmlist-fields" = {
+      disk-usage = false;
+      network-traffic = false;
+    };
+
+    "org/virt-manager/virt-manager/vms/d3ecee0cf400448685b6517d6e287016" = {
+      autoconnect = 1;
+      scaling = 1;
+      vm-window-size = mkTuple [ 1024 831 ];
     };
 
   };
