@@ -23,6 +23,7 @@
       wayland.enable = true;
       bar.enable = false;
       rofi.enable = false;
+      microsoftEdge.enable = true;
     };
     dev = {
       shell.enable = true;
