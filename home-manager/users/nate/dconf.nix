@@ -11,7 +11,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/control-center" = {
-      last-panel = "power";
+      last-panel = "display";
       window-state = mkTuple [ 980 640 ];
     };
 
@@ -39,8 +39,8 @@ with lib.hm.gvariant;
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-1-dragged.jpg";
-      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-1-dragged.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-10-22-17-05-49-apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg";
+      picture-uri-dark = "file:///home/nate/.local/share/backgrounds/2022-10-22-17-05-49-apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -73,11 +73,19 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-power-panel" ];
+      application-children = [ "gnome-power-panel" "microsoft-edge-dev" "org-gnome-settings" ];
     };
 
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
       application-id = "gnome-power-panel.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/microsoft-edge-dev" = {
+      application-id = "microsoft-edge-dev.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-settings" = {
+      application-id = "org.gnome.Settings.desktop";
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -96,7 +104,7 @@ with lib.hm.gvariant;
       color-shading-type = "solid";
       lock-delay = mkUint32 30;
       picture-options = "zoom";
-      picture-uri = "file:///home/nate/.local/share/backgrounds/2023-07-04-19-38-25-hello-Grey-1-dragged.jpg";
+      picture-uri = "file:///home/nate/.local/share/backgrounds/2022-10-22-17-05-49-apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -208,7 +216,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
-      border-color = mkTuple [ 0.4300000071525574 0.4300000071525574 ];
+      border-color = mkTuple [ 0.43 0.43 ];
       border-width = 1;
       custom-rounded-corner-settings = "@a{sv} {}";
       focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
@@ -248,7 +256,7 @@ with lib.hm.gvariant;
       import-layout-examples = false;
       last-version-installed = 41;
       maximize-with-gap = true;
-      overridden-settings = "{'org.gnome.mutter.edge-tiling': <@mb nothing>, 'org.gnome.desktop.wm.keybindings.maximize': <@mb nothing>, 'org.gnome.desktop.wm.keybindings.unmaximize': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-left': <@mb nothing>, 'org.gnome.mutter.keybindings.toggle-tiled-right': <@mb nothing>}";
+      overridden-settings = "{'org.gnome.mutter.edge-tiling': <false>}";
       restore-window = [ "<Super>Down" ];
       search-popup-layout = [];
       single-screen-gap = 2;
@@ -282,8 +290,8 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.4300000071525574 0.4300000071525574 ]) (mkTuple [ 0.6000000238418579 0.6000000238418579 ]) (mkTuple [ 0.5 0.5 ]) ];
-      selected-color = mkTuple [ true 0.4300000071525574 ];
+      custom-colors = [ (mkTuple [ 0.43 0.43 ]) (mkTuple [ 0.6 0.6 ]) (mkTuple [ 0.5 0.5 ]) ];
+      selected-color = mkTuple [ true 0.43 ];
     };
 
     "org/virt-manager/virt-manager" = {
