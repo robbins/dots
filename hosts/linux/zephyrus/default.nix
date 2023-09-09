@@ -31,7 +31,7 @@
         wifi = {
           enable = true;
           interfaceName = "wlan0";
-          dhcp = "yes";
+          dhcp = "ipv4";
         };
         wired = {
           enable = true;
