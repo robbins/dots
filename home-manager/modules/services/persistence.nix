@@ -10,16 +10,9 @@ in {
   config = mkIf cfg.enable {
     home.persistence."/persist/home/${specialArgs.username}" = {
       directories = [
-        "downloads"
-        "pictures"
-        "music"
-        "videos"
         ".local/share/icons"
-        ".icons"
         ".config/discord"
-        ".minecraft"
         ".local/share/direnv/allow"
-        ".ssh"
         ".local/share/TelegramDesktop"
         ".config/microsoft-edge-dev"
         ".cache/microsoft-edge-dev"
@@ -29,7 +22,6 @@ in {
 
         ".local/share/backgrounds"
         ".config/Google"
-        ".android"
 
         ".cache/jdtls"
         ".cache/Google"
@@ -42,14 +34,10 @@ in {
 
 	".config/BraveSoftware"
 
-	".gradle"
-
 	".config/paperwm"
 
-	".themes"
       ];
       files = [
-       ".config/gh/hosts.yml"
       ];
       allowOther = true;
     };

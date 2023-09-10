@@ -24,6 +24,7 @@ in {
   ] else [];
 
     environment.persistence."/persist" = {
+      hideMounts = true;
       files = [
         { file = "/etc/machine-id"; parentDirectory = { user = "root"; group = "root"; }; }
       ] ++ (if (config.modules.hardware.networking.wifi.enable) then [
@@ -35,6 +36,24 @@ in {
         "/etc/ssh/ssh_host_ed25519_key"
         "/etc/ssh/ssh_host_ed25519_key.pub"
       ] else []);
+      users."${specialArgs.username}" = {
+        directories = [
+          "downloads"
+          "pictures"
+          "music"
+          "videos"
+
+          ".icons"
+          ".minecraft"
+          ".ssh"
+          ".android"
+	  ".gradle"
+	  ".themes"
+	];
+	files = [
+          ".config/gh/hosts.yml"
+	];
+      };
     };
   };
 }
