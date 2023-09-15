@@ -23,7 +23,7 @@
   fileSystems."/" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=1G" "mode=755" ];
+      options = [ "defaults" "size=500M" "mode=755" ];
     };
 
   fileSystems."/boot" =
@@ -55,6 +55,7 @@
       device = "none";
       fsType = "tmpfs"; 
       options = [ "defaults" "size=1G" "mode=755" "uid=1000" "gid=100" ];
+      neededForBoot = true;
     };
 
   fileSystems."/var/log" =
