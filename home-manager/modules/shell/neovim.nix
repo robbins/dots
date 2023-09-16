@@ -33,7 +33,7 @@ in
 	  servers = {
 	    clangd.enable = true;
 	    pylsp = {
-	      enable = true;
+	      enable = false;
 	      settings.plugins.ruff.enabled = true;
 	    };
 	    nil_ls.enable = true;
