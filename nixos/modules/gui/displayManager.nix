@@ -61,6 +61,12 @@ in {
       };
       networking.networkmanager.enable = lib.mkForce false;
       environment.systemPackages = with pkgs.gnome; [
+        nautilus
+	sushi
+	ghex
+	eog
+	gnome-weather
+	gnome-sound-recorder
         gnome-tweaks
       ] ++ (with pkgs.gnomeExtensions; [
         just-perfection
@@ -68,8 +74,11 @@ in {
 	rounded-window-corners
 	tiling-assistant
 	space-bar
+      ]) ++ (with pkgs; [
+        gnome-frog
       ]);
       services.gnome.core-utilities.enable = false;
+      programs.seahorse.enable = true;
     })
   ]);
 }
