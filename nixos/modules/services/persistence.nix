@@ -42,6 +42,26 @@ in {
           "pictures"
           "music"
           "videos"
+	   
+          ".config/discord"
+          ".config/microsoft-edge-dev"
+          ".config/gtk-3.0"
+          ".config/gtk-4.0"
+          ".config/Google"
+          ".config/JetBrains"
+	  ".config/BraveSoftware"
+	  ".config/paperwm"
+
+          ".local/share/icons"
+          ".local/share/direnv/allow"
+          ".local/share/TelegramDesktop"
+          ".local/share/backgrounds"
+          ".local/share/PrismLauncher"
+	  ".local/state/nix/profiles"
+
+          ".cache/microsoft-edge-dev"
+          ".cache/jdtls"
+          ".cache/Google"
 
           ".icons"
           ".minecraft"
