@@ -17,6 +17,7 @@ in {
     hardware.nvidia = {
       powerManagement.finegrained = true;
       nvidiaPersistenced = false;
+      dynamicBoost.enable = true;
     };
   };
 }
