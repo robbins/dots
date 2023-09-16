@@ -88,6 +88,10 @@ with lib.hm.gvariant;
       application-id = "org.gnome.Settings.desktop";
     };
 
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "default";
+    };
+
     "org/gnome/desktop/peripherals/touchpad" = {
       disable-while-typing = false;
       tap-to-click = true;
@@ -179,8 +183,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = [ "drive-menu@gnome-shell-extensions.gcampax.github.com" "blur-my-shell@aunetx" ];
-      enabled-extensions = [ "just-perfection-desktop@just-perfection" "space-bar@luchrioh" "places-menu@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "tiling-assistant@leleat-on-github" "rounded-window-corners@yilozt" ];
+      disabled-extensions = [ "blur-my-shell@aunetx" "window-list@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = [ "just-perfection-desktop@just-perfection" "space-bar@luchrioh" "places-menu@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "rounded-window-corners@yilozt" "tiling-assistant@leleat-on-github" "drive-menu@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -216,11 +220,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
-      border-color = mkTuple [ 0.43 0.43 ];
+      border-color = mkTuple [ 0.3566666543483734 0.3566666543483734 ];
       border-width = 1;
       custom-rounded-corner-settings = "@a{sv} {}";
       focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
-      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <false>}>, 'border_radius': <uint32 8>, 'smoothing': <0.20000000000000001>, 'enabled': <true>}";
+      global-rounded-corner-settings = "{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}";
       settings-version = mkUint32 5;
       tweak-kitty-terminal = false;
       unfocused-shadow = "{'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 12, 'spread_radius': -1, 'opacity': 65}";
@@ -254,12 +258,12 @@ with lib.hm.gvariant;
       dynamic-keybinding-behavior = 0;
       enable-tiling-popup = true;
       import-layout-examples = false;
-      last-version-installed = 41;
+      last-version-installed = 42;
       maximize-with-gap = true;
       overridden-settings = "{'org.gnome.mutter.edge-tiling': <false>}";
       restore-window = [ "<Super>Down" ];
       search-popup-layout = [];
-      single-screen-gap = 2;
+      single-screen-gap = 8;
       tile-bottom-half = [ "<Super>KP_2" ];
       tile-bottom-half-ignore-ta = [];
       tile-bottomleft-quarter = [ "<Super>KP_1" ];
@@ -290,8 +294,8 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.43 0.43 ]) (mkTuple [ 0.6 0.6 ]) (mkTuple [ 0.5 0.5 ]) ];
-      selected-color = mkTuple [ true 0.43 ];
+      custom-colors = [ (mkTuple [ 0.3566666543483734 0.3566666543483734 ]) (mkTuple [ 0.5433333516120911 0.5433333516120911 ]) (mkTuple [ 0.5 0.5 ]) ];
+      selected-color = mkTuple [ true 0.3566666543483734 ];
     };
 
     "org/virt-manager/virt-manager" = {
