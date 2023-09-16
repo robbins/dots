@@ -18,7 +18,7 @@
     android.adb.enable = true;
     user = {
       enable = true;
-      passwordFile = config.age.secrets.nate_user_password.path;
+      hashedPasswordFile = config.age.secrets.nate_user_password.path;
     };
     hardware = {
       audio = {

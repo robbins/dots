@@ -5,7 +5,7 @@ let cfg = config.modules.user;
 in {
   options.modules.user = {
     enable = mkEnableOption "enable";
-    passwordFile = mkOption { default = ""; type = types.path; };
+    hashedPasswordFile = mkOption { default = ""; type = types.path; };
   };
 
   config = mkIf cfg.enable {
@@ -16,7 +16,7 @@ in {
          extraGroups = [ "wheel" ];
          isNormalUser = true;
          password = "1";
-         passwordFile = cfg.passwordFile;
+         hashedPasswordFile = cfg.hashedPasswordFile;
          home = "/home/${specialArgs.username}";
        };
       };
