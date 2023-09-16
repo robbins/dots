@@ -30,6 +30,7 @@
     };
     shell = {
       zsh.enable = true;
+      ripgrep.enable = true;
       git = {
         enable = true;
         userName = "Nathanael Robbins";

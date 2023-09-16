@@ -6,14 +6,9 @@
 {
   imports = [
 #    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
-    (import ../../modules/shell/zsh.nix)
-    (import ../../modules/shell/git.nix)
-    (import ../../modules/shell/ghcli.nix)
-    (import ../../modules/shell/neovim.nix)
-    (import ../../modules/dev)
     inputs.nixvim.homeManagerModules.nixvim
     inputs.nix-index-database.hmModules.nix-index
-  ];
+  ] ++ (inputs.self.mylib.modulesInDir ../../modules/shell) ++ (inputs.self.mylib.modulesInDir ../../modules/dev);
   modules = {
     dev = {
       shell.enable = true;
