@@ -38,6 +38,7 @@ with inputs.nixpkgs.lib; rec {
     then nixosHosts
     else darwinHosts;
   modulesInDir = currentDir: map (file: currentDir + "/${file}") (builtins.attrNames (filterAttrs (n: v: ((v == "directory") || (n != "default.nix" && hasSuffix ".nix" n && v == "regular"))) (builtins.readDir currentDir)));
+  modulesInDirRec = import ./modulesInDirRec.nix inputs;
   #  modulesInDir = currentDir: (builtins.readDir currentDir);
   #modulesInDir = currentDir: map (file: currentDir + "/${file}") (builtins.attrNames (filterAttrs (n: v: ((v == "directory") || (n != "default.nix" && hasSuffix ".nix" n && v == "regular")));
   #modulesInDir = currentDir: map (file: currentDir + "/${file}") ( builtins.filter (file: inputs.nixpkgs.lib.hasSuffix ".nix" file) (builtins.filter (file: file != "default.nix") (builtins.attrNames (builtins.readDir currentDir))));

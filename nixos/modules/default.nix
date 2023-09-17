@@ -7,5 +7,6 @@ inputs @ {self, ...}: {
   pkgs,
   ...
 }: {
-  imports = inputs.self.mylib.modulesInDir ./.;
+  #imports = inputs.self.mylib.modulesInDir ./.;
+  imports = inputs.self.mylib.modulesInDirRec ./.;
 }
