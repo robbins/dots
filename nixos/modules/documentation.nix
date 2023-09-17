@@ -1,10 +1,14 @@
-{ config, pkgs, lib, ...}:
-
-with lib;
-let cfg = config.modules.documentation;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.documentation;
 in {
   options.modules.documentation = {
-    enable = mkOption { default = false; };
+    enable = mkOption {default = false;};
   };
   config = mkIf cfg.enable {
     documentation = {

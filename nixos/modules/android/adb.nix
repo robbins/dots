@@ -1,7 +1,12 @@
-{ config, pkgs, lib, specialArgs, ... }:
-
-with lib;
-let cfg = config.modules.android.adb;
+{
+  config,
+  pkgs,
+  lib,
+  specialArgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.android.adb;
 in {
   options.modules.android.adb = {
     enable = mkEnableOption "enable";
@@ -9,6 +14,6 @@ in {
 
   config = mkIf cfg.enable {
     programs.adb.enable = true;
-    users.users.${specialArgs.username}.extraGroups = [ "adbusers" ];
+    users.users.${specialArgs.username}.extraGroups = ["adbusers"];
   };
 }

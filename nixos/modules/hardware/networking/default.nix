@@ -1,6 +1,10 @@
-{ config, pkgs, lib, ... }:
-
-let cfg = config.modules.hardware.networking;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  cfg = config.modules.hardware.networking;
 in {
   imports = [
     ./usbTether.nix
@@ -8,8 +12,8 @@ in {
     ./wired.nix
   ];
 
-  options.modules.hardware.networking = { 
-    enable = lib.mkEnableOption "Networking"; 
+  options.modules.hardware.networking = {
+    enable = lib.mkEnableOption "Networking";
   };
 
   config = lib.mkIf cfg.enable {
@@ -20,11 +24,11 @@ in {
     services.resolved = {
       enable = true;
       dnssec = "false";
-      domains = [ "~." ];
+      domains = ["~."];
       extraConfig = ''
         DNS=1.1.1.1#1dot1dot1dot1.cloudflare-dns.com
         DNSOverTLS=yes
-        '';
-      };
+      '';
+    };
   };
 }

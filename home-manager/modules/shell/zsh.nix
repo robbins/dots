@@ -1,9 +1,13 @@
-{ config, pkgs, lib, osConfig, ... }:
-
-with lib;
-let cfg = config.modules.shell.zsh;
-in
 {
+  config,
+  pkgs,
+  lib,
+  osConfig,
+  ...
+}:
+with lib; let
+  cfg = config.modules.shell.zsh;
+in {
   options.modules.shell.zsh = {
     enable = mkEnableOption "Zsh";
   };
@@ -26,12 +30,15 @@ in
       history = {
         save = 1000000000;
         size = 1000000000;
-	path = if osConfig.modules.services.persistence.system.enable or false == true then "/persist${config.xdg.dataHome}/zsh/zsh_history" else "${config.xdg.dataHome}/zsh/zsh_history";
+        path =
+          if osConfig.modules.services.persistence.system.enable or false == true
+          then "/persist${config.xdg.dataHome}/zsh/zsh_history"
+          else "${config.xdg.dataHome}/zsh/zsh_history";
       };
       sessionVariables = rec {
         EDITOR = "vim";
-	VISUAL = EDITOR;
-	GIT_EDITOR = EDITOR;
+        VISUAL = EDITOR;
+        GIT_EDITOR = EDITOR;
       };
       historySubstringSearch.enable = true;
       initExtra = ''
@@ -51,10 +58,10 @@ in
         {
           name = "zsh-autocomplete";
           src = pkgs.fetchFromGitHub {
-          owner = "marlonrichert";
-          repo = "zsh-autocomplete";
-          rev = "5cc9da132e7535a540fb1235ce27fd5a233d4f0e";
-          sha256 = "sha256-+w9+d7cYmPBdnqWgooh+OmscavB9JL7dVqOQyj8jJ7E=";
+            owner = "marlonrichert";
+            repo = "zsh-autocomplete";
+            rev = "5cc9da132e7535a540fb1235ce27fd5a233d4f0e";
+            sha256 = "sha256-+w9+d7cYmPBdnqWgooh+OmscavB9JL7dVqOQyj8jJ7E=";
           };
         }
         {

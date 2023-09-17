@@ -1,5 +1,9 @@
-{ config, lib, pkgs, inputs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = inputs.self.mylib.modulesInDir ./.;
 }

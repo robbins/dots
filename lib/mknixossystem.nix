@@ -1,4 +1,5 @@
-/**
+/*
+  *
 mkNixosSystem
 
 Wrapper around nixosSystem to pass username & flake inputs to the NixOS module system, as well as set the system , a list of default plus optional modules and overlays, and the nixpkgs input to use to build the system
@@ -17,30 +18,30 @@ pkgsForSystem: the Nixpkgs input used as the package set for the system. Typical
 
 # Final value
 A call to nixosSystem
-
 */
-
-inputs:
-{ username
-, system
-, modules' ? [ ]
-, overlays' ? [ ]
-, pkgsForSystem ? inputs.nixos-unstable
+inputs: {
+  username,
+  system,
+  modules' ? [],
+  overlays' ? [],
+  pkgsForSystem ? inputs.nixos-unstable,
 }:
 with pkgsForSystem.lib;
-nixosSystem {
-  inherit system;
-  pkgs = import pkgsForSystem {
+  nixosSystem {
     inherit system;
-    config = { allowUnfree = true; };
-    overlays = overlays';
-  };
-  modules = [
-    ../nixos
-    ../nixos/agenix.nix
-    inputs.home-manager.nixosModules.home-manager
-    ../home-manager
-    { modules.nixos.localNixpkgs = pkgsForSystem; }
-  ] ++ modules';
-  specialArgs = { inherit inputs username; };
-}
+    pkgs = import pkgsForSystem {
+      inherit system;
+      config = {allowUnfree = true;};
+      overlays = overlays';
+    };
+    modules =
+      [
+        ../nixos
+        ../nixos/agenix.nix
+        inputs.home-manager.nixosModules.home-manager
+        ../home-manager
+        {modules.nixos.localNixpkgs = pkgsForSystem;}
+      ]
+      ++ modules';
+    specialArgs = {inherit inputs username;};
+  }

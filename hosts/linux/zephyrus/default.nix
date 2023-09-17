@@ -2,10 +2,15 @@
 # Where NixOS & Home-Manager modules are imported
 # { ... }: part of the module system
 #
-
-{ config, pkgs, lib, inputs, options, specialArgs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  options,
+  specialArgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
@@ -23,7 +28,7 @@
     hardware = {
       audio = {
         enable = true;
-	bluetooth.enable = true;
+        bluetooth.enable = true;
       };
       bootloader.quiet = true;
       networking = {
@@ -60,8 +65,8 @@
           enable = false;
           autoSessionCommand = "Hyprland";
         };
-	gnome = true;
-	kde = false;
+        gnome = true;
+        kde = false;
       };
       hyprland.enable = false;
     };
@@ -75,18 +80,18 @@
   services.asusd = {
     enable = true;
     asusdConfig = ''
-    (
-    bat_charge_limit: 60,
-    panel_od: false,
-    disable_nvidia_powerd_on_battery: true,
-    ac_command: "",
-    bat_command: "",
-    )
+      (
+      bat_charge_limit: 60,
+      panel_od: false,
+      disable_nvidia_powerd_on_battery: true,
+      ac_command: "",
+      bat_command: "",
+      )
     '';
   };
 
   # Guided Autonomous Mode
-  boot.kernelParams = [ "amd_pstate=guided" ];
+  boot.kernelParams = ["amd_pstate=guided"];
 
   # Access built-in display backlight without root
   services.udev.extraRules = ''

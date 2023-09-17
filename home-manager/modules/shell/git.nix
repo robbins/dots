@@ -1,12 +1,22 @@
-{ config, pkgs, lib, ... }:
-
-with lib;
-let cfg = config.modules.shell.git;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.shell.git;
 in {
-  options.modules.shell.git = { 
-    enable = mkEnableOption "enable"; 
-    userName = mkOption { type = lib.types.str; default = ""; };
-    userEmail = mkOption { type = lib.types.str; default = ""; };
+  options.modules.shell.git = {
+    enable = mkEnableOption "enable";
+    userName = mkOption {
+      type = lib.types.str;
+      default = "";
+    };
+    userEmail = mkOption {
+      type = lib.types.str;
+      default = "";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -17,8 +27,8 @@ in {
       delta.enable = true;
       extraConfig = {
         http = {
-	  cookiefile = "/home/nate/.gitcookies";
-	};
+          cookiefile = "/home/nate/.gitcookies";
+        };
       };
     };
   };

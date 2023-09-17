@@ -1,7 +1,11 @@
-{ config, pkgs, lib, ...}:
-
-with lib;
-let cfg = config.modules.services.xdg;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.services.xdg;
 in {
   options.modules.services.xdg = {
     enable = lib.mkEnableOption "XDG";
@@ -25,6 +29,6 @@ in {
         templates = null;
         videos = "${config.home.homeDirectory}/videos";
       };
-   };
- };
+    };
+  };
 }

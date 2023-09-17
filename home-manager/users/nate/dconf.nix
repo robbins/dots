@@ -1,9 +1,6 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{ lib, ... }:
-
-with lib.hm.gvariant;
-
-{
+{lib, ...}:
+with lib.hm.gvariant; {
   dconf.settings = {
     "org/freedesktop/tracker/miner/files" = {
       index-recursive-directories = [];
@@ -12,7 +9,7 @@ with lib.hm.gvariant;
 
     "org/gnome/control-center" = {
       last-panel = "display";
-      window-state = mkTuple [ 980 640 ];
+      window-state = mkTuple [980 640];
     };
 
     "org/gnome/desktop/a11y/applications" = {
@@ -20,18 +17,18 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/app-folders" = {
-      folder-children = [ "Utilities" "YaST" ];
+      folder-children = ["Utilities" "YaST"];
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop" ];
-      categories = [ "X-GNOME-Utilities" ];
+      apps = ["gnome-abrt.desktop" "gnome-system-log.desktop" "nm-connection-editor.desktop" "org.gnome.baobab.desktop" "org.gnome.Connections.desktop" "org.gnome.DejaDup.desktop" "org.gnome.Dictionary.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.eog.desktop" "org.gnome.Evince.desktop" "org.gnome.FileRoller.desktop" "org.gnome.fonts.desktop" "org.gnome.seahorse.Application.desktop" "org.gnome.tweaks.desktop" "org.gnome.Usage.desktop" "vinagre.desktop"];
+      categories = ["X-GNOME-Utilities"];
       name = "X-GNOME-Utilities.directory";
       translate = true;
     };
 
     "org/gnome/desktop/app-folders/folders/YaST" = {
-      categories = [ "X-SuSE-YaST" ];
+      categories = ["X-SuSE-YaST"];
       name = "suse-yast.directory";
       translate = true;
     };
@@ -46,8 +43,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" "lv3:ralt_switch" "compose:ralt" ];
+      sources = [(mkTuple ["xkb" "us"])];
+      xkb-options = ["terminate:ctrl_alt_bksp" "lv3:ralt_switch" "compose:ralt"];
     };
 
     "org/gnome/desktop/interface" = {
@@ -73,7 +70,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "gnome-power-panel" "microsoft-edge-dev" "org-gnome-settings" ];
+      application-children = ["gnome-power-panel" "microsoft-edge-dev" "org-gnome-settings"];
     };
 
     "org/gnome/desktop/notifications/application/gnome-power-panel" = {
@@ -115,7 +112,7 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/search-providers" = {
       disable-external = true;
-      sort-order = [ "org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop" ];
+      sort-order = ["org.gnome.Contacts.desktop" "org.gnome.Documents.desktop" "org.gnome.Nautilus.desktop"];
     };
 
     "org/gnome/desktop/session" = {
@@ -125,14 +122,14 @@ with lib.hm.gvariant;
     "org/gnome/desktop/wm/keybindings" = {
       maximize = [];
       minimize = [];
-      move-to-workspace-down = [ "<Control><Shift><Alt>Down" ];
-      move-to-workspace-left = [ "<Super><Shift><Alt>Left" "<Control><Shift><Alt>Left" "<Super><Shift>Page_Up" ];
-      move-to-workspace-right = [ "<Super><Shift><Alt>Right" "<Control><Shift><Alt>Right" "<Super><Shift>Page_Down" ];
-      move-to-workspace-up = [ "<Control><Shift><Alt>Up" ];
-      switch-to-workspace-down = [ "<Control><Alt>Down" ];
-      switch-to-workspace-left = [ "<Super><Alt>Left" "<Control><Alt>Left" "<Super>Page_Up" ];
-      switch-to-workspace-right = [ "<Super><Alt>Right" "<Control><Alt>Right" "<Super>Page_Down" ];
-      switch-to-workspace-up = [ "<Control><Alt>Up" ];
+      move-to-workspace-down = ["<Control><Shift><Alt>Down"];
+      move-to-workspace-left = ["<Super><Shift><Alt>Left" "<Control><Shift><Alt>Left" "<Super><Shift>Page_Up"];
+      move-to-workspace-right = ["<Super><Shift><Alt>Right" "<Control><Shift><Alt>Right" "<Super><Shift>Page_Down"];
+      move-to-workspace-up = ["<Control><Shift><Alt>Up"];
+      switch-to-workspace-down = ["<Control><Alt>Down"];
+      switch-to-workspace-left = ["<Super><Alt>Left" "<Control><Alt>Left" "<Super>Page_Up"];
+      switch-to-workspace-right = ["<Super><Alt>Right" "<Control><Alt>Right" "<Super>Page_Down"];
+      switch-to-workspace-up = ["<Control><Alt>Up"];
       unmaximize = [];
     };
 
@@ -141,7 +138,7 @@ with lib.hm.gvariant;
       focus-mode = "click";
       num-workspaces = 9;
       titlebar-font = "SF Pro Display 11";
-      workspace-names = [ "1" "2" "3" ];
+      workspace-names = ["1" "2" "3"];
     };
 
     "org/gnome/evolution-data-server" = {
@@ -167,8 +164,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
-      screensaver = [ "<Super>backslash" ];
+      custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+      screensaver = ["<Super>backslash"];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -183,8 +180,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = [ "blur-my-shell@aunetx" "window-list@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "just-perfection-desktop@just-perfection" "space-bar@luchrioh" "places-menu@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "rounded-window-corners@yilozt" "tiling-assistant@leleat-on-github" "drive-menu@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com" ];
+      disabled-extensions = ["blur-my-shell@aunetx" "window-list@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com"];
+      enabled-extensions = ["just-perfection-desktop@just-perfection" "space-bar@luchrioh" "places-menu@gnome-shell-extensions.gcampax.github.com" "launch-new-instance@gnome-shell-extensions.gcampax.github.com" "rounded-window-corners@yilozt" "tiling-assistant@leleat-on-github" "drive-menu@gnome-shell-extensions.gcampax.github.com" "native-window-placement@gnome-shell-extensions.gcampax.github.com"];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.1";
     };
@@ -220,7 +217,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/rounded-window-corners" = {
-      border-color = mkTuple [ 0.3566666543483734 0.3566666543483734 ];
+      border-color = mkTuple [0.3566666543483734 0.3566666543483734];
       border-width = 1;
       custom-rounded-corner-settings = "@a{sv} {}";
       focused-shadow = "{'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}";
@@ -261,28 +258,28 @@ with lib.hm.gvariant;
       last-version-installed = 42;
       maximize-with-gap = true;
       overridden-settings = "{'org.gnome.mutter.edge-tiling': <false>}";
-      restore-window = [ "<Super>Down" ];
+      restore-window = ["<Super>Down"];
       search-popup-layout = [];
       single-screen-gap = 8;
-      tile-bottom-half = [ "<Super>KP_2" ];
+      tile-bottom-half = ["<Super>KP_2"];
       tile-bottom-half-ignore-ta = [];
-      tile-bottomleft-quarter = [ "<Super>KP_1" ];
+      tile-bottomleft-quarter = ["<Super>KP_1"];
       tile-bottomleft-quarter-ignore-ta = [];
-      tile-bottomright-quarter = [ "<Super>KP_3" ];
+      tile-bottomright-quarter = ["<Super>KP_3"];
       tile-bottomright-quarter-ignore-ta = [];
       tile-edit-mode = [];
-      tile-left-half = [ "<Super>Left" "<Super>KP_4" ];
+      tile-left-half = ["<Super>Left" "<Super>KP_4"];
       tile-left-half-ignore-ta = [];
-      tile-maximize = [ "<Super>Up" "<Super>KP_5" ];
+      tile-maximize = ["<Super>Up" "<Super>KP_5"];
       tile-maximize-horizontally = [];
       tile-maximize-vertically = [];
-      tile-right-half = [ "<Super>Right" "<Super>KP_6" ];
+      tile-right-half = ["<Super>Right" "<Super>KP_6"];
       tile-right-half-ignore-ta = [];
-      tile-top-half = [ "<Super>KP_8" ];
+      tile-top-half = ["<Super>KP_8"];
       tile-top-half-ignore-ta = [];
-      tile-topleft-quarter = [ "<Super>KP_7" ];
+      tile-topleft-quarter = ["<Super>KP_7"];
       tile-topleft-quarter-ignore-ta = [];
-      tile-topright-quarter = [ "<Super>KP_9" ];
+      tile-topright-quarter = ["<Super>KP_9"];
       tile-topright-quarter-ignore-ta = [];
       toggle-always-on-top = [];
       toggle-tiling-popup = [];
@@ -294,8 +291,8 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.3566666543483734 0.3566666543483734 ]) (mkTuple [ 0.5433333516120911 0.5433333516120911 ]) (mkTuple [ 0.5 0.5 ]) ];
-      selected-color = mkTuple [ true 0.3566666543483734 ];
+      custom-colors = [(mkTuple [0.3566666543483734 0.3566666543483734]) (mkTuple [0.5433333516120911 0.5433333516120911]) (mkTuple [0.5 0.5])];
+      selected-color = mkTuple [true 0.3566666543483734];
     };
 
     "org/virt-manager/virt-manager" = {
@@ -304,8 +301,8 @@ with lib.hm.gvariant;
     };
 
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
 
     "org/virt-manager/virt-manager/details" = {
@@ -320,8 +317,7 @@ with lib.hm.gvariant;
     "org/virt-manager/virt-manager/vms/d3ecee0cf400448685b6517d6e287016" = {
       autoconnect = 1;
       scaling = 1;
-      vm-window-size = mkTuple [ 1024 831 ];
+      vm-window-size = mkTuple [1024 831];
     };
-
   };
 }

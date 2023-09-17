@@ -1,29 +1,33 @@
-{ config, pkgs, lib, ... }:
-
-with lib;
-let cfg = config.modules.gui.bar;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.gui.bar;
 in {
-  options.modules.gui.bar = { 
-    enable = lib.mkEnableOption "Bar"; 
+  options.modules.gui.bar = {
+    enable = lib.mkEnableOption "Bar";
   };
 
   config = lib.mkIf cfg.enable {
     programs.waybar = {
       style = ./bar.css;
       enable = true;
-      package = (pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ]; }));
+      package = pkgs.waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];});
       settings = [
         {
           layer = "top";
-	  height = 20;
-	  margin-top = 4;
-	  margin-left = 4;
-	  margin-right = 4;
-	  spacing = 8;
-	  modules-left = ["wlr/workspaces" ];
-	  modules-center = ["custom/date" "custom/weather"];
-	  modules-right = [ "battery" "clock" ];
-	"battery" = {
+          height = 20;
+          margin-top = 4;
+          margin-left = 4;
+          margin-right = 4;
+          spacing = 8;
+          modules-left = ["wlr/workspaces"];
+          modules-center = ["custom/date" "custom/weather"];
+          modules-right = ["battery" "clock"];
+          "battery" = {
             format = "{capacity}% {icon}";
             format-icons = ["" "" "" "" ""];
             format-charging = "{capacity}% {time}";
@@ -32,7 +36,7 @@ in {
             format-alt = "{power}";
             interval = 60;
           };
-	  "pulseaudio#speaker" = {
+          "pulseaudio#speaker" = {
             format = "{icon} {volume}%";
             format-muted = " {volume}%";
             format-bluetooth = "{icon} {volume}% {desc}";
@@ -60,7 +64,7 @@ in {
             on-scroll-up = "";
             on-scroll-down = "";
           };
-	  "cpu" = {
+          "cpu" = {
             format = "{usage}%  ";
             interval = 5;
           };
@@ -88,13 +92,13 @@ in {
           };
           "custom/date" = {
             interval = 60;
-	    exec = "date +'%A, %B %d'";
+            exec = "date +'%A, %B %d'";
           };
-	  "clock" = {
-	    interval = 60;
-	    format = "{:%I:%M %p}";
-	  };
-	  }
+          "clock" = {
+            interval = 60;
+            format = "{:%I:%M %p}";
+          };
+        }
       ];
     };
   };

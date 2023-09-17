@@ -2,10 +2,15 @@
 # Where NixDarwin & Home-Manager modules are imported
 # { ... }: part of the module system
 #
-
-{ config, pkgs, lib, inputs, options, specialArgs, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  options,
+  specialArgs,
+  ...
+}: {
   imports = [
   ];
 

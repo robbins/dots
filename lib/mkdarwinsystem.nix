@@ -1,4 +1,5 @@
-/**
+/*
+  *
 mkDarwinSystem
 
 Wrapper around darwinSystem to pass username & flake inputs to the NixOS module system, as well as set the system , a list of default plus optional modules and overlays, and the nixpkgs input to use to build the system
@@ -17,29 +18,29 @@ pkgsForSystem: the Nixpkgs input used as the package set for the system. Typical
 
 # Final value
 A call to darwinSystem
-
 */
-
-inputs:
-{ username
-, system
-, modules' ? [ ]
-, overlays' ? [ ]
-, pkgsForSystem ? inputs.nixpkgs
+inputs: {
+  username,
+  system,
+  modules' ? [],
+  overlays' ? [],
+  pkgsForSystem ? inputs.nixpkgs,
 }:
 with pkgsForSystem.lib;
-inputs.darwin.lib.darwinSystem{
-  inherit system;
-  pkgs = import pkgsForSystem {
+  inputs.darwin.lib.darwinSystem {
     inherit system;
-    config = { allowUnfree = true; };
-    overlays = overlays';
-  };
-  modules = [
-    ../darwin
-    inputs.home-manager-darwin.darwinModules.home-manager
-    ../home-manager
-    { modules.darwin.localNixpkgs = pkgsForSystem; }
-  ] ++ modules';
-  specialArgs = { inherit inputs username; };
-}
+    pkgs = import pkgsForSystem {
+      inherit system;
+      config = {allowUnfree = true;};
+      overlays = overlays';
+    };
+    modules =
+      [
+        ../darwin
+        inputs.home-manager-darwin.darwinModules.home-manager
+        ../home-manager
+        {modules.darwin.localNixpkgs = pkgsForSystem;}
+      ]
+      ++ modules';
+    specialArgs = {inherit inputs username;};
+  }

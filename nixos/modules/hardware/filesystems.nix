@@ -1,14 +1,24 @@
-{ config, pkgs, lib, ... }:
-
-with lib;
-let cfg = config.modules.hardware.filesystems;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.hardware.filesystems;
 in {
   options.modules.hardware.filesystems = {
     enable = mkEnableOption "filesystems";
     zfs = {
       enable = mkEnableOption "zfs";
-      unstable = mkOption { default = false; type = types.bool; };
-      hostId = mkOption { default = ""; type = types.str; };
+      unstable = mkOption {
+        default = false;
+        type = types.bool;
+      };
+      hostId = mkOption {
+        default = "";
+        type = types.str;
+      };
     };
   };
   config = mkIf cfg.enable (mkMerge [
@@ -16,12 +26,12 @@ in {
       environment.systemPackages = with pkgs; [
         e2fsprogs
       ];
-      boot.supportedFilesystems = [ "ntfs" ];
+      boot.supportedFilesystems = ["ntfs"];
     }
 
     (mkIf cfg.zfs.enable {
       boot = {
-        supportedFilesystems = [ "zfs" ];
+        supportedFilesystems = ["zfs"];
         zfs = {
           enableUnstable = cfg.zfs.unstable;
           devNodes = "/dev/disk/by-partuuid";
@@ -32,7 +42,7 @@ in {
       services.zfs = {
         autoScrub = {
           enable = true;
-          pools = [ "${config.networking.hostName}" ];
+          pools = ["${config.networking.hostName}"];
           interval = "monthly";
         };
         trim.enable = true;

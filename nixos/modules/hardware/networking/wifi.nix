@@ -1,11 +1,21 @@
-{ config, pkgs, lib, ... }:
-
-let cfg = config.modules.hardware.networking.wifi;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  cfg = config.modules.hardware.networking.wifi;
 in {
-  options.modules.hardware.networking.wifi = { 
-    enable = lib.mkEnableOption "Wifi"; 
-    interfaceName = lib.mkOption { default = ""; type = lib.types.str; };
-    dhcp = lib.mkOption { default = "yes"; type = lib.types.str; };
+  options.modules.hardware.networking.wifi = {
+    enable = lib.mkEnableOption "Wifi";
+    interfaceName = lib.mkOption {
+      default = "";
+      type = lib.types.str;
+    };
+    dhcp = lib.mkOption {
+      default = "yes";
+      type = lib.types.str;
+    };
   };
 
   config = lib.mkIf cfg.enable {

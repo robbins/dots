@@ -1,14 +1,20 @@
 #
 # Home-Manager configuration for user nate
 #
-
-{ config, pkgs, inputs, ... }:
 {
-  imports = [
-#    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
-    inputs.nixvim.homeManagerModules.nixvim
-    inputs.nix-index-database.hmModules.nix-index
-  ] ++ (inputs.self.mylib.modulesInDir ../../modules/shell) ++ (inputs.self.mylib.modulesInDir ../../modules/dev);
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports =
+    [
+      #    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
+      inputs.nixvim.homeManagerModules.nixvim
+      inputs.nix-index-database.hmModules.nix-index
+    ]
+    ++ (inputs.self.mylib.modulesInDir ../../modules/shell)
+    ++ (inputs.self.mylib.modulesInDir ../../modules/dev);
   modules = {
     dev = {
       shell.enable = true;
@@ -27,9 +33,11 @@
   };
 
   # Misc
-  home.packages = [
-  ] ++ (with pkgs; [
-  ]);
+  home.packages =
+    [
+    ]
+    ++ (with pkgs; [
+      ]);
 
   programs.nix-index-database.comma.enable = true;
 

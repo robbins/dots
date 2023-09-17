@@ -1,9 +1,12 @@
 #
 # Home-Manager configuration for user nate
 #
-
-{ config, pkgs, inputs, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason maybe its good cause itll evaluate on all hosts which might not be compatible
     ./dconf.nix
@@ -49,11 +52,13 @@
     enableZshIntegration = true;
   };
 
-  home.packages = [
-  ] ++ (with pkgs; [
-    brave
-    dconf2nix
-  ]);
+  home.packages =
+    [
+    ]
+    ++ (with pkgs; [
+      brave
+      dconf2nix
+    ]);
 
   programs.nix-index-database.comma.enable = true;
 

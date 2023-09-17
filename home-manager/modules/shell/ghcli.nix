@@ -1,11 +1,18 @@
-{ config, pkgs, lib, ... }:
-
-with lib;
-let cfg = config.modules.shell.ghcli;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.shell.ghcli;
 in {
-  options.modules.shell.ghcli = { 
-    enable = mkEnableOption "GitHub CLI"; 
-    gitProtocol = mkOption { type = lib.types.str; default = "https"; };
+  options.modules.shell.ghcli = {
+    enable = mkEnableOption "GitHub CLI";
+    gitProtocol = mkOption {
+      type = lib.types.str;
+      default = "https";
+    };
   };
 
   config = mkIf cfg.enable {

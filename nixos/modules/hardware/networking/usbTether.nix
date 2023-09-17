@@ -1,11 +1,21 @@
-{ config, pkgs, lib, ... }:
-
-let cfg = config.modules.hardware.networking.usbTether;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  cfg = config.modules.hardware.networking.usbTether;
 in {
-  options.modules.hardware.networking.usbTether = { 
-    enable = lib.mkEnableOption "USB Tethering"; 
-    interfaceName = lib.mkOption { default = ""; type = lib.types.str; };
-    dhcp = lib.mkOption { default = "yes"; type = lib.types.str; };
+  options.modules.hardware.networking.usbTether = {
+    enable = lib.mkEnableOption "USB Tethering";
+    interfaceName = lib.mkOption {
+      default = "";
+      type = lib.types.str;
+    };
+    dhcp = lib.mkOption {
+      default = "yes";
+      type = lib.types.str;
+    };
   };
 
   config = lib.mkIf cfg.enable {

@@ -1,7 +1,12 @@
-{ config, pkgs, lib, specialArgs, ... }:
-
-with lib;
-let cfg = config.modules.gui.hyprland;
+{
+  config,
+  pkgs,
+  lib,
+  specialArgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.gui.hyprland;
 in {
   options.modules.gui.hyprland = {
     enable = mkEnableOption "Hyprland";

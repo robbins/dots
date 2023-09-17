@@ -1,7 +1,13 @@
-{ config, pkgs, lib, inputs, specialArgs, ... }:
-
-with lib;
-let cfg = config.modules.services.persistence.home;
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  specialArgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.services.persistence.home;
 in {
   imports = [
     "${inputs.impermanence}/home-manager.nix"

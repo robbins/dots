@@ -1,9 +1,12 @@
-{ config, pkgs, lib, ... }:
-
-with lib;
-let cfg = config.modules.shell.neovim;
-in
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.shell.neovim;
+in {
   options.modules.shell.neovim = {
     enable = mkEnableOption "Neovim";
   };
@@ -18,29 +21,29 @@ in
       colorschemes.gruvbox.enable = true;
       options = {
         number = true;
-	relativenumber = true;
-	numberwidth = 1;
-	wrap = true;
+        relativenumber = true;
+        numberwidth = 1;
+        wrap = true;
       };
       plugins = {
         treesitter.enable = false;
-	clangd-extensions.enable = true;
-	lsp.enable = true;
-	nvim-cmp = {
-	  enable = true;
-	};
-	lsp = {
-	  servers = {
-	    clangd.enable = true;
-	    pylsp = {
-	      enable = false;
-	      settings.plugins.ruff.enabled = true;
-	    };
-	    nil_ls.enable = true;
-	    terraformls.enable = true;
-	    texlab.enable = true;
-	  };
-	};
+        clangd-extensions.enable = true;
+        lsp.enable = true;
+        nvim-cmp = {
+          enable = true;
+        };
+        lsp = {
+          servers = {
+            clangd.enable = true;
+            pylsp = {
+              enable = false;
+              settings.plugins.ruff.enabled = true;
+            };
+            nil_ls.enable = true;
+            terraformls.enable = true;
+            texlab.enable = true;
+          };
+        };
       };
       extraConfigLua = ''
         vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "" })

@@ -1,11 +1,21 @@
-{ config, pkgs, lib, ... }:
-
-let cfg = config.modules.hardware.networking.wired;
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  cfg = config.modules.hardware.networking.wired;
 in {
-  options.modules.hardware.networking.wired = { 
-    enable = lib.mkEnableOption "Wired"; 
-    interfaceName = lib.mkOption { default = ""; type = lib.types.str; };
-    dhcp = lib.mkOption { default = "yes"; type = lib.types.str; };
+  options.modules.hardware.networking.wired = {
+    enable = lib.mkEnableOption "Wired";
+    interfaceName = lib.mkOption {
+      default = "";
+      type = lib.types.str;
+    };
+    dhcp = lib.mkOption {
+      default = "yes";
+      type = lib.types.str;
+    };
   };
 
   config = lib.mkIf cfg.enable {
