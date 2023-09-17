@@ -32,11 +32,11 @@ in {
         window_margin_width = "2";
 
         # https://s3.amazonaws.com/burkelibbey/maybe-gruvbox-but-dunno.itermcolors
-        background= "#252425";
-        foreground = "#e4d4ac";
+        background= "#272727";
+        foreground = "#ebdbb2";
 
         selection_background= "#ebdbb2";
-        selection_foreground= "#e4d4ac";
+        selection_foreground= "#655b53";
 
         active_tab_background = "#1d2021";
         active_tab_foreground = "#dfbf8e";
@@ -70,7 +70,7 @@ in {
         color7 = "#a89983";
         color15 = "#ebdbb2";
 
-        cursor = "#dad0ba";
+        cursor = "#ebdbb2";
         cursor_text_color = "#272727";
         url_color = "#d65c0d";
 
