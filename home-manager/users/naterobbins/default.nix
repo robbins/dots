@@ -34,9 +34,8 @@
   };
 
   # Misc
-  home.packages =
-    [
-    ];
+  home.packages = [
+  ];
 
   programs.nix-index-database.comma.enable = true;
 

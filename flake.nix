@@ -62,6 +62,7 @@
     # The attribute set argument to outputs taking self + all flakes specified in the inputs attribute can be referred to by 'inputs'
     mylib = import ./lib inputs;
     formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
     nixosConfigurations = import ./hosts "linux" inputs;
     darwinConfigurations = import ./hosts "darwin" inputs;
   };
