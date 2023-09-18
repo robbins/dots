@@ -35,9 +35,7 @@
   # Misc
   home.packages =
     [
-    ]
-    ++ (with pkgs; [
-      ]);
+    ];
 
   programs.nix-index-database.comma.enable = true;
 
