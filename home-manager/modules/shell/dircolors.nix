@@ -10,8 +10,19 @@ in {
     enable = lib.mkEnableOption "enable";
   };
 
-  config = lib.mkIf cfg.enable {
-    programs.dircolors.enable = true;
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    (lib.mkIf pkgs.stdenv.isDarwin (let 
+      ls-colors-coreutils = pkgs.runCommand "ls-colors-coreutils" {} ''
+        mkdir -p $out/bin
+	ln -s ${pkgs.coreutils}/bin/ls $out/bin/ls
+	ln -s ${pkgs.coreutils}/bin/dircolors $out/bin/dircolors
+      '';
+    in {
+      home.packages = [ls-colors-coreutils];
+    }))
+
+    {
+      programs.dircolors.enable = true;
     programs.dircolors.settings = with lib; {
       RESET = "0";
       DIR = "38;5;30";
@@ -651,5 +662,9 @@ in {
       ".zwc" = "38;5;241";
       ".zx[0-9]{0,2}" = "38;5;239";
     };
-  };
+    }
+  ]);
+
+/*  config = lib.mkIf cfg.enable {
+  };*/
 }
