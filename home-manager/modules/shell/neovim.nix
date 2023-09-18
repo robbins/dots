@@ -18,7 +18,10 @@ in {
     programs.nixvim = {
       enable = true;
       vimAlias = true;
-      colorschemes.gruvbox.enable = true;
+      colorschemes.gruvbox = {
+        enable = true;
+	package = pkgs.vimPlugins.gruvbox;
+      };
       options = {
         number = true;
         relativenumber = true;
