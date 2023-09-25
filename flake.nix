@@ -30,6 +30,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Programs
     hyprland = {

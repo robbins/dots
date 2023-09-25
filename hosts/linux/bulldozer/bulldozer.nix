@@ -8,6 +8,7 @@ inputs: {
   username = "me";
   modules' = [
     ./.
+    inputs.disko.nixosModules.disko
   ];
   overlays' = [
   ];

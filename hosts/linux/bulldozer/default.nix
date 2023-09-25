@@ -12,6 +12,7 @@
   ...
 }: {
   imports = [
+    inputs.disko.nixosModules.disko
   ];
 
   modules = {
@@ -30,6 +31,34 @@
         };
       };
     };
+  };
+
+  boot.initrd.systemd.enable = true;
+
+  boot.initrd.systemd.services.rollback = {
+    description = "Rollback ZFS datasets to a pristine state";
+    serviceConfig.Type = "oneshot";
+    unitConfig.DefaultDependencies = "no";
+    wantedBy = [
+      "initrd.target"
+    ];
+    after = [
+      "zfs-import-bulldozer.service"
+    ];
+    before = [
+      "sysroot.mount"
+    ];
+    path = with pkgs; [
+      zfs
+    ];
+    script = ''
+      set -ex
+      zfs rollback -r bulldozer/system/root@blank && echo "rollback complete"
+    '';
+  };
+
+  disko.devices = import ./disko.nix {
+    inherit lib;
   };
 
   # Misc
