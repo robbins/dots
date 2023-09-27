@@ -56,14 +56,15 @@
 	"com.sun:auto-snapshot" = "false";
       };
       postCreateHook = ''
-        zfs snapshot -r bulldozer@blank
+        zfs snapshot -r bulldozer/system/root@blank
 	zfs set keylocation="prompt" "bulldozer";
 	'';
       datasets = {
 	system.type = "zfs_fs";
 	"system/root" = {
 	  type = "zfs_fs";
-	  options.mountpoint = "/";
+          mountpoint = "/";
+	  options.mountpoint = "legacy";
 	};
         local.type = "zfs_fs";
 	"local/nix" = {

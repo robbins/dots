@@ -56,6 +56,11 @@
       zfs rollback -r bulldozer/system/root@blank && echo "rollback complete"
     '';
   };*/
+  
+  /*boot.initrd.postDeviceCommands = lib.mkAfter ''
+   zfs rollback -r bulldozer/system/root@blank
+ '';*/
+
 
   disko.devices = import ./disko.nix {
     inherit lib;
