@@ -18,7 +18,7 @@
     services.ssh.enable = true;
     user = {
       enable = true;
-      hashedPasswordFile = ./password;
+      hashedPasswordFile = builtins.toString(./. + "/password");
     };
     hardware = {
       filesystems = {
