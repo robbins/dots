@@ -35,7 +35,7 @@
 
   boot.initrd.systemd.enable = true;
 
-  boot.initrd.systemd.services.rollback = {
+  /*boot.initrd.systemd.services.rollback = {
     description = "Rollback ZFS datasets to a pristine state";
     serviceConfig.Type = "oneshot";
     unitConfig.DefaultDependencies = "no";
@@ -55,7 +55,7 @@
       set -ex
       zfs rollback -r bulldozer/system/root@blank && echo "rollback complete"
     '';
-  };
+  };*/
 
   disko.devices = import ./disko.nix {
     inherit lib;
