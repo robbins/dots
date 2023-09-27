@@ -1,15 +1,14 @@
 { lib, ... }:
 {
-  disk = lib.genAttrs [ "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YHNX0K836387Z" ]
+  disk = lib.genAttrs [ "S3YHNX0K836387Z" ]
     (disk: {
       type = "disk";
-      device = disk;
+      device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_${disk}";
       content = {
         type = "gpt";
 	partitions = {
 	  ESP = {
-	    start = "0";
-	    end = "1024MiB";
+	    size = "1G";
 	    type = "EF00";
 	    content = {
 	      type = "filesystem";
@@ -18,8 +17,8 @@
 	    };
 	  };
 	  SWAP = {
-	    start = "1024MiB";
-	    end = "9216MiB";
+	    size = "8G";
+            type = "8200";
 	    content = {
 	      type = "swap";
 	      randomEncryption = true;
@@ -27,8 +26,7 @@
 	    };
 	  };
 	  ZFS = {
-	    start = "9216MiB";
-	    end = "100%";
+	    size = "100%";
 	    content = {
 	      type = "zfs";
 	      pool = "bulldozer";
@@ -62,6 +60,11 @@
 	zfs set keylocation="prompt" "bulldozer";
 	'';
       datasets = {
+	system.type = "zfs_fs";
+	"system/root" = {
+	  type = "zfs_fs";
+	  mountpoint = "/";
+	};
         local.type = "zfs_fs";
 	"local/nix" = {
 	  type = "zfs_fs";
@@ -70,11 +73,6 @@
 	"persist" = {
 	  type = "zfs_fs";
 	  options.mountpoint = "/persist";
-	};
-	system.type = "zfs_fs";
-	"system/root" = {
-	  type = "zfs_fs";
-	  mountpoint = "/";
 	};
       };
     };
