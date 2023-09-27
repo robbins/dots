@@ -63,7 +63,7 @@
 	system.type = "zfs_fs";
 	"system/root" = {
 	  type = "zfs_fs";
-	  mountpoint = "/";
+	  options.mountpoint = "/";
 	};
         local.type = "zfs_fs";
 	"local/nix" = {
