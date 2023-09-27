@@ -12,7 +12,6 @@
   ...
 }: {
   imports = [
-    inputs.disko.nixosModules.disko
   ];
 
   modules = {

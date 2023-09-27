@@ -7,8 +7,8 @@ inputs: {
   system = "x86_64-linux";
   username = "me";
   modules' = [
-    ./.
     inputs.disko.nixosModules.disko
+    ./.
   ];
   overlays' = [
   ];
