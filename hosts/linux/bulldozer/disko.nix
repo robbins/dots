@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  disk = lib.genAttrs [ "S3YHNX0K836387Z" ]
+  disko.devices.disk = lib.genAttrs [ "S3YHNX0K836387Z" ]
     (disk: {
       type = "disk";
       device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_${disk}";
@@ -35,7 +35,7 @@
 	};
       };
     });
-  zpool = {
+  disko.devices.zpool = {
     bulldozer = {
       type = "zpool";
       options = {
