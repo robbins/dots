@@ -69,11 +69,13 @@
         local.type = "zfs_fs";
 	"local/nix" = {
 	  type = "zfs_fs";
-	  options.mountpoint = "/nix";
+          mountpoint = "/nix";
+	  options.mountpoint = "legacy";
 	};
 	"persist" = {
 	  type = "zfs_fs";
-	  options.mountpoint = "/persist";
+          mountpoint = "/persist";
+	  options.mountpoint = "legacy";
 	};
       };
     };
