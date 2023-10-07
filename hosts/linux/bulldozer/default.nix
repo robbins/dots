@@ -40,7 +40,29 @@
     };
   };
 
-   boot.initrd.systemd.enable = true;
+   boot = {
+     initrd = {
+       systemd.enable = true;
+       network = {
+         enable = true;
+	 ssh = {
+	   enable = true;
+	   port = 2222;
+	   hostKeys = [ /persist/ssh/ssh_host_ed25519_key ];
+	   authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhDWqWzxiIGz/UBCfXPisWKVkCrOy0YTpzpn12e2qdq" ];
+	 };
+       };
+     };
+   };
+
+   services.openssh = {
+     hostKeys = [
+       {
+         path = "/persist/ssh/ssh_host_ed25519_key";
+	 type = "ed25519";
+       }
+     ];
+   };
 
   /*boot.initrd.systemd.services.rollback = {
     description = "Rollback ZFS datasets to a pristine state";
