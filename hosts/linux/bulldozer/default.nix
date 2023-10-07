@@ -19,9 +19,16 @@
     services.ssh.enable = true;
     user = {
       enable = true;
-      hashedPasswordFile = builtins.toString(./. + "/password");
     };
     hardware = {
+      networking = {
+        enable = true;
+	wifi = {
+	  enable = true;
+          interfaceName = "wlan0";
+          dhcp = "ipv4";
+	};
+      };
       filesystems = {
         enable = true;
         zfs = {

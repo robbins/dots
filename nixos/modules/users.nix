@@ -12,7 +12,7 @@ in {
     enable = mkEnableOption "enable";
     hashedPasswordFile = mkOption {
       default = "";
-      type = types.path;
+#      type = types.path;
     };
   };
 
@@ -24,9 +24,8 @@ in {
           extraGroups = ["wheel"];
           isNormalUser = true;
           password = "1";
-          hashedPasswordFile = cfg.hashedPasswordFile;
           home = "/home/${specialArgs.username}";
-        };
+        } // lib.optionalAttrs (cfg.hashedPasswordFile != "") {hashedPasswordFile = cfg.hashedPasswordFile;};
       };
     };
     nix.settings.trusted-users = ["${specialArgs.username}"];
