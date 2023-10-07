@@ -40,7 +40,7 @@
     };
   };
 
-  # boot.initrd.systemd.enable = true;
+   boot.initrd.systemd.enable = true;
 
   /*boot.initrd.systemd.services.rollback = {
     description = "Rollback ZFS datasets to a pristine state";
