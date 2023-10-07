@@ -13,6 +13,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../../../nixos/agenix.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
   ];
 
