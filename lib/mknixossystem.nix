@@ -22,6 +22,7 @@ A call to nixosSystem
 inputs: {
   username,
   system,
+  hostname,
   modules' ? [],
   overlays' ? [],
   pkgsForSystem ? inputs.nixos-unstable,
@@ -43,5 +44,5 @@ with pkgsForSystem.lib;
         {modules.nixos.localNixpkgs = pkgsForSystem;}
       ]
       ++ modules';
-    specialArgs = {inherit inputs username;};
+    specialArgs = {inherit inputs username hostname;};
   }

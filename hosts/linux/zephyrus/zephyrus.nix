@@ -6,6 +6,7 @@
 inputs: {
   system = "x86_64-linux";
   username = "nate";
+  hostname = "zephyrus";
   modules' = [
     inputs.hyprland.nixosModules.default
     ./.

@@ -20,7 +20,8 @@ in {
     localNixpkgs = lib.mkOption {};
   };
 
-  config = {
+  config = lib.mkMerge [
+  {
     environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
 
     # Tag each generation with Git hash
@@ -36,7 +37,9 @@ in {
     nix.nixPath = ["/etc/nixos"];
 
     nix.registry.nixpkgs.flake = inputs.nixos-unstable;
+  }
 
+  (lib.mkIf (config.wsl.enable or false == false) {
     # Every NixOS machine needs a bootloader - always systemd-boot
     boot.loader = {
       timeout = 0;
@@ -45,5 +48,6 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-  };
+  })
+];
 }
