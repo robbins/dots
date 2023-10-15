@@ -79,7 +79,7 @@ in {
           url_color = "#d65c0d";
 
           enable_audio_bell = false;
-          hide_window_decorations = true;
+          hide_window_decorations = if (config.wsl.enable or false) then true else false; # Keep window decorations on WSL
 
           shell = "zsh";
 
