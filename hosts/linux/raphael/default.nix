@@ -19,6 +19,16 @@
     user = {
       enable = true;
     };
+    gui = {
+      displayManager = {
+        enable = true;
+	autoLogin = {
+	  enable = true;
+	  autoSessionCommand = "Hyprland";
+	};
+      };
+      hyprland.enable = true;
+    };
     hardware = {
       networking = {
         enable = true;

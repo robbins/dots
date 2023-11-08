@@ -8,6 +8,7 @@ inputs: {
   username = "nate";
   hostname = "raphael";
   modules' = [
+    inputs.hyprland.nixosModules.default
     ./.
   ];
   overlays' = [
