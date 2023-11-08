@@ -6,6 +6,7 @@
 inputs: {
   system = "x86_64-linux";
   username = "nate";
+  hostname = "raphael";
   modules' = [
     ./.
   ];
