@@ -19,8 +19,10 @@
     gui = {
       hyprland.enable = true;
       kitty.enable = true;
+      microsoftEdge.enable = true;
     };
     shell = {
+      zsh.enable = true;
       git = {
         enable = true;
 	userName = "Nathanael Robbins";
