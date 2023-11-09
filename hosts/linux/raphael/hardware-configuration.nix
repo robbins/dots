@@ -38,6 +38,11 @@
       fsType = "zfs";
     };
 
+  fileSystems."/aosp" = {
+    device = "/dev/nvme0n1p4";
+    fsType = "ext4";
+  };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/bda5f1d0-82d0-4b98-bddc-19a11263aac5"; }
     ];
