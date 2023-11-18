@@ -22,6 +22,7 @@
       microsoftEdge.enable = true;
     };
     shell = {
+      neovim.enable = true;
       zsh.enable = true;
       git = {
         enable = true;
