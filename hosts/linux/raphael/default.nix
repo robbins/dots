@@ -18,9 +18,11 @@
   modules = {
     services = {
       ssh.enable = true;
+      persistence.system.enable = true;
     };
     user = {
       enable = true;
+      hashedPasswordFile = config.age.secrets.nate_raphael_user_password.path;
     };
     gui = {
       displayManager = {
