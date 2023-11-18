@@ -65,6 +65,7 @@ in {
         );
       users."${specialArgs.username}" = {
         directories = [
+	  ".ssh"
 #          "downloads"
 #          "pictures"
 #          "music"

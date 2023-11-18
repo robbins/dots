@@ -12,7 +12,7 @@ with inputs.self.mylib; {
   imports = [inputs.agenix.nixosModules.default];
   age = {
     secrets = let
-      hostSecretsDir = attrsets.genAttrs nixosHosts (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets")));
+      hostSecretsDir = attrsets.genAttrs (lists.singleton specialArgs.hostname) (host: (builtins.readDir (../. + "/hosts/linux/${host}/secrets"))); # TODO: dont really need genattrs when were only generating for current (1) host
       hostSecretsDirFiles = attrsets.mapAttrs (name: value: (builtins.attrNames value)) hostSecretsDir;
       hostAgeSecretFiles = attrsets.mapAttrs (name: value: builtins.filter (file: strings.hasSuffix ".age" file) value) hostSecretsDirFiles;
       hostAgeSecretNames = attrsets.mapAttrs (name: value: (map (file: strings.removeSuffix ".age" file) value)) hostAgeSecretFiles;
