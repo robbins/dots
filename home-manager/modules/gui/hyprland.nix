@@ -84,9 +84,6 @@ in {
                    # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
                    rounding = 3
-                   blur = false
-                   blur_size = 3
-                   blur_passes = 1
 
                    drop_shadow = true
                    shadow_range = 4
