@@ -21,14 +21,14 @@ in {
       Defaults lecture = never
     '';
 
-    programs.fuse.userAllowOther = lib.mkIf (config.home-manager.users.${specialArgs.username}.modules.services.persistence.home.enable) true;
+#    programs.fuse.userAllowOther = lib.mkIf (config.home-manager.users.${specialArgs.username}.modules.services.persistence.home.enable) true;
 
     systemd.tmpfiles.rules =
       if (config.modules.hardware.networking.wifi.enable)
       then [
-        "L /var/lib/iwd/UofT.8021x - - - - /persist/var/lib/iwd/UofT.8021x"
-        "L /var/lib/iwd/eduroam.8021x - - - - /persist/var/lib/iwd/eduroam.8021x"
-        "L /var/lib/iwd/BELL289.psk - - - - /persist/var/lib/iwd/BELL289.psk"
+#        "L /var/lib/iwd/UofT.8021x - - - - /persist/var/lib/iwd/UofT.8021x"
+#        "L /var/lib/iwd/eduroam.8021x - - - - /persist/var/lib/iwd/eduroam.8021x"
+#        "L /var/lib/iwd/BELL289.psk - - - - /persist/var/lib/iwd/BELL289.psk"
         "L /var/lib/iwd/hedgehog_house.psk - - - - /persist/var/lib/iwd/hedgehog_house.psk"
       ]
       else [];
@@ -48,8 +48,8 @@ in {
         ++ (
           if (config.modules.hardware.networking.wifi.enable)
           then [
-            "/etc/ssl/certs/UofT.pem"
-            "/etc/ssl/certs/ca_radius_2022.pem"
+#            "/etc/ssl/certs/UofT.pem"
+#            "/etc/ssl/certs/ca_radius_2022.pem"
           ]
           else []
         )
@@ -65,40 +65,40 @@ in {
         );
       users."${specialArgs.username}" = {
         directories = [
-          "downloads"
-          "pictures"
-          "music"
-          "videos"
+#          "downloads"
+#          "pictures"
+#          "music"
+#          "videos"
 
-          ".config/discord"
-          ".config/microsoft-edge-dev"
-          ".config/gtk-3.0"
-          ".config/gtk-4.0"
-          ".config/Google"
-          ".config/JetBrains"
-          ".config/BraveSoftware"
-          ".config/paperwm"
+#          ".config/discord"
+#          ".config/microsoft-edge-dev"
+#          ".config/gtk-3.0"
+#          ".config/gtk-4.0"
+#          ".config/Google"
+#          ".config/JetBrains"
+#          ".config/BraveSoftware"
+#          ".config/paperwm"
 
-          ".local/share/icons"
-          ".local/share/direnv/allow"
-          ".local/share/TelegramDesktop"
-          ".local/share/backgrounds"
-          ".local/share/PrismLauncher"
-          ".local/state/nix/profiles"
+#          ".local/share/icons"
+#          ".local/share/direnv/allow"
+#          ".local/share/TelegramDesktop"
+#          ".local/share/backgrounds"
+#          ".local/share/PrismLauncher"
+#          ".local/state/nix/profiles"
 
-          ".cache/microsoft-edge-dev"
-          ".cache/jdtls"
-          ".cache/Google"
+#          ".cache/microsoft-edge-dev"
+#          ".cache/jdtls"
+#          ".cache/Google"
 
-          ".icons"
-          ".minecraft"
-          ".ssh"
-          ".android"
-          ".gradle"
-          ".themes"
+#          ".icons"
+#          ".minecraft"
+#          ".ssh"
+#          ".android"
+#          ".gradle"
+#          ".themes"
         ];
         files = [
-          ".config/gh/hosts.yml"
+#          ".config/gh/hosts.yml"
         ];
       };
     };
