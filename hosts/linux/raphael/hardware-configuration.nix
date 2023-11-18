@@ -26,6 +26,7 @@
   fileSystems."/nix" =
     { device = "raphael/local/nix";
       fsType = "zfs";
+      neededForBoot = true;
     };
 
   fileSystems."/var/log" =
@@ -36,6 +37,7 @@
   fileSystems."/persist" =
     { device = "raphael/persist";
       fsType = "zfs";
+      neededForBoot = true;
     };
 
   fileSystems."/aosp" = {

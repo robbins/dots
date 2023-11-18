@@ -29,6 +29,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixos-unstable";
+      inputs.darwin.follows = "";
     };
     disko = {
       url = "github:nix-community/disko";
