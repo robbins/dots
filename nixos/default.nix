@@ -4,7 +4,6 @@ Common configuration for all NixOS hosts when using flakes
 */
 {
   config,
-  pkgs,
   lib,
   inputs,
   ...
@@ -29,18 +28,21 @@ in {
       if (inputs.self ? rev)
       then inputs.self.shortRev
       else throw "Refusing to build from a dirty Git tree!";
+
     system.nixos.label = "GitRev.${config.system.configurationRevision}.Rel.${config.system.nixos.release}";
     environment.etc."os-release".text = "GIT_REV=${inputs.self.shortRev}\n";
 
+    nix.registry.nixpkgs.flake = cfg.localNixpkgs;
+
     # Store the flake's Nixpkgs input to use with tooling that doesn't support flakes
     environment.etc."nixos/nixpkgs".source = cfg.localNixpkgs;
-    nix.nixPath = ["/etc/nixos"];
+    nix.nixPath = ["nixpkgs=${cfg.localNixpkgs}"];
 
-    nix.registry.nixpkgs.flake = inputs.nixos-unstable;
+		nix.registry.activeconfig.flake = inputs.self;
+  	environment.etc."nixos/activeconfig".source = inputs.self;
   }
 
-  (lib.mkIf (config.wsl.enable or false == false) {
-    # Every NixOS machine needs a bootloader - always systemd-boot
+  (lib.mkIf (!config.wsl.enable or false) {
     boot.loader = {
       timeout = 0;
       systemd-boot = {

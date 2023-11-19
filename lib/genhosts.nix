@@ -16,6 +16,7 @@ mkHost: The function that generates the system configuration, either mkNixosSyst
 Attribute set mapping hostnames to mk{Nixos/Darwin}System
 */
 inputs: system: hostArgs: mkHost:
+
 with inputs.nixos-unstable.lib; let
   # https://stackoverflow.com/questions/54504685/nix-function-to-merge-attributes-records-recursively-and-concatenate-arrays
   recursiveMerge = attrList: let

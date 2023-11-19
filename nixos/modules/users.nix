@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   specialArgs,
   ...
@@ -10,9 +9,13 @@ with lib; let
 in {
   options.modules.user = {
     enable = mkEnableOption "enable";
-    hashedPwFile = mkOption {
-      default = "";
-#      type = types.path;
+    hashedPasswordFile = mkOption {
+      default = null;
+      type = types.nullOr types.str;
+    };
+    password = mkOption {
+      default = null;
+      type = types.nullOr types.str;
     };
   };
 
@@ -23,11 +26,12 @@ in {
         ${specialArgs.username} = {
           extraGroups = ["wheel"];
           isNormalUser = true;
-          password = "1";
           home = "/home/${specialArgs.username}";
-        } // (if (cfg.hashedPwFile != "") then {hashedPasswordFile = cfg.hashedPwFile.path;} else {});
+        } // 
+	  (if (cfg.hashedPasswordFile != null) then {inherit (cfg) hashedPasswordFile;}
+	  else if (cfg.password != null) then {inherit (cfg) password;}
+	  else {});
       };
     };
-    nix.settings.trusted-users = ["${specialArgs.username}"];
   };
 }

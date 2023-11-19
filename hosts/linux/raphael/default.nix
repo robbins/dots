@@ -22,7 +22,7 @@
     };
     user = {
       enable = true;
-      hashedPwFile = config.age.secrets.nate_raphael_user_password;
+      hashedPasswordFile = config.age.secrets.nate_raphael_user_password.path;
     };
     gui = {
       displayManager = {
