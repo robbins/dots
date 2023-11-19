@@ -20,6 +20,7 @@
       hyprland.enable = true;
       kitty.enable = true;
       microsoftEdge.enable = true;
+      bar.enable = true;
     };
     shell = {
       neovim.enable = true;
