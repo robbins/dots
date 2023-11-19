@@ -28,21 +28,21 @@ window#waybar {
 
 #clock {
 	color: #222222;
-	padding: 5 5px;
+	padding: 5px 5px;
 	background: #b4bad4;
 	border-radius: 4px
 }
 
 #battery {
 	color: #222222;
-	padding: 5 5px;
+	padding: 5px 5px;
 	background: #b4bad4;
 	border-radius: 4px
 }
 
 #custom-date {
 	color: #222222;
-	padding: 5 5px;
+	padding: 5px 5px;
 	background: #b4bad4;
 	border-radius: 4px
 }

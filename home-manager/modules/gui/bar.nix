@@ -24,7 +24,7 @@ in {
           margin-left = 4;
           margin-right = 4;
           spacing = 8;
-          modules-left = ["wlr/workspaces"];
+          modules-left = ["sway/workspaces"];
           modules-center = ["custom/date" "custom/weather"];
           modules-right = ["battery" "clock"];
           "battery" = {
