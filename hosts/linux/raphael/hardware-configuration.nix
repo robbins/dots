@@ -43,6 +43,7 @@
   fileSystems."/aosp" = {
     device = "/dev/nvme0n1p4";
     fsType = "ext4";
+    options = [ "noatime" "commit=60" ];
   };
 
   fileSystems."/vault" = {
