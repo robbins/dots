@@ -45,6 +45,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/vault" = {
+    device = "vault";
+    fsType = "zfs";
+  };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/bda5f1d0-82d0-4b98-bddc-19a11263aac5"; }
     ];

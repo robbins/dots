@@ -42,7 +42,6 @@ in {
       services.zfs = {
         autoScrub = {
           enable = true;
-          pools = ["${config.networking.hostName}"];
           interval = "monthly";
         };
         trim.enable = true;
