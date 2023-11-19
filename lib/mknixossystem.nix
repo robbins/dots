@@ -20,9 +20,10 @@ pkgsForSystem: the Nixpkgs input used as the package set for the system. Typical
 A call to nixosSystem
 */
 inputs: {
-  username,
   system,
+  username,
   hostname,
+  isDesktop ? true,
   modules' ? [],
   overlays' ? [],
   pkgsForSystem ? inputs.nixos-unstable,
@@ -44,5 +45,5 @@ with pkgsForSystem.lib;
         {modules.nixos.localNixpkgs = pkgsForSystem;}
       ]
       ++ modules';
-    specialArgs = {inherit inputs username hostname;};
+    specialArgs = {inherit inputs username hostname isDesktop;};
   }
