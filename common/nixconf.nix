@@ -35,7 +35,7 @@ Common configuration for the Nix package manager on all hosts
       max-jobs = 4;
       cores = 3;
       log-lines = 15;
-      fsync-metadata = lib.boolToString config.fileSystems."/nix".fsType != "zfs";
+      fsync-metadata = config.fileSystems."/nix".fsType != "zfs";
     };
     package = pkgs.nixUnstable;
     gc = {

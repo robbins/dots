@@ -5,7 +5,8 @@
   inputs,
   specialArgs,
   ...
-}: let
+}: with lib;
+let
   cfg = config.modules.services.persistence.system;
 in {
   imports = [
@@ -13,7 +14,11 @@ in {
   ];
 
   options.modules.services.persistence.system = {
-    enable = lib.mkEnableOption "System Persistence";
+    enable = mkEnableOption "System Persistence";
+    persistenceRoot = mkOption {
+			default = "/persist";
+			type = types.str;
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -21,19 +26,7 @@ in {
       Defaults lecture = never
     '';
 
-#    programs.fuse.userAllowOther = lib.mkIf (config.home-manager.users.${specialArgs.username}.modules.services.persistence.home.enable) true;
-
-    systemd.tmpfiles.rules =
-      if (config.modules.hardware.networking.wifi.enable)
-      then [
-#        "L /var/lib/iwd/UofT.8021x - - - - /persist/var/lib/iwd/UofT.8021x"
-#        "L /var/lib/iwd/eduroam.8021x - - - - /persist/var/lib/iwd/eduroam.8021x"
-#        "L /var/lib/iwd/BELL289.psk - - - - /persist/var/lib/iwd/BELL289.psk"
-        "L /var/lib/iwd/hedgehog_house.psk - - - - /persist/var/lib/iwd/hedgehog_house.psk"
-      ]
-      else [];
-
-    environment.persistence."/persist" = {
+    environment.persistence."${cfg.persistenceRoot}" = {
       hideMounts = true;
       files =
         [
