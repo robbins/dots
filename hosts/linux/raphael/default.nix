@@ -18,7 +18,9 @@
   modules = {
     services = {
       ssh.enable = true;
-      persistence.system.enable = true;
+      persistence.system = {
+        enable = true;
+      };
     };
     user = {
       enable = true;

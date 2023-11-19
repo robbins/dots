@@ -19,6 +19,10 @@ in {
 			default = "/persist";
 			type = types.str;
     };
+		persistUserSshKeys = mkOption {
+		  default = false;
+			type = types.bool;
+		};
   };
 
   config = lib.mkIf cfg.enable {
@@ -26,7 +30,7 @@ in {
       Defaults lecture = never
     '';
 
-    environment.persistence."${cfg.persistenceRoot}" = {
+    environment.persistence."${cfg.persistenceRoot}" = { # use persistentStoragePath TODO
       hideMounts = true;
       files =
         [
@@ -37,28 +41,11 @@ in {
               group = "root";
             };
           }
-        ]
-        ++ (
-          if (config.modules.hardware.networking.wifi.enable)
-          then [
-#            "/etc/ssl/certs/UofT.pem"
-#            "/etc/ssl/certs/ca_radius_2022.pem"
-          ]
-          else []
-        )
-        ++ (
-          if (config.modules.services.ssh.enable)
-          then [
-            "/etc/ssh/ssh_host_rsa_key"
-            "/etc/ssh/ssh_host_rsa_key.pub"
-            "/etc/ssh/ssh_host_ed25519_key"
-            "/etc/ssh/ssh_host_ed25519_key.pub"
-          ]
-          else []
-        );
+        ];
       users."${specialArgs.username}" = {
-        directories = [
-	  ".ssh"
+        directories = []
+				++ (if cfg.persistUserSshKeys then [".ssh"] else []); # TODO mkmerge or this
+#	  ".ssh"
 #          "downloads"
 #          "pictures"
 #          "music"
@@ -90,10 +77,7 @@ in {
 #          ".android"
 #          ".gradle"
 #          ".themes"
-        ];
-        files = [
-#          ".config/gh/hosts.yml"
-        ];
+        files = [];
       };
     };
   };

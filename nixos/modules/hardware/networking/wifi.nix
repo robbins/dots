@@ -9,6 +9,10 @@ let
 in {
   options.modules.hardware.networking.wifi = {
     enable = mkEnableOption "Wifi";
+		persistUoftCerts = mkOption {
+		  default = false;
+			type = types.bool;
+		};
     interfaceName = mkOption {
       default = "";
       type = types.str;
@@ -53,7 +57,12 @@ in {
         "L /var/lib/iwd/BELL289.psk - - - - /persist/var/lib/iwd/BELL289.psk"
         "L /var/lib/iwd/hedgehog_house.psk - - - - /persist/var/lib/iwd/hedgehog_house.psk"
       ];
-			environment.persistence."/sd" = {};
+			environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
+				files = if (cfg.persistUoftCerts) then [
+          "/etc/ssl/certs/UofT.pem"
+          "/etc/ssl/certs/ca_radius_2022.pem"
+				] else [];
+			};
 		})
 	]);
 }
