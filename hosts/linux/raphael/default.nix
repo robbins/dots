@@ -20,6 +20,7 @@
       ssh.enable = true;
       persistence.system = {
         enable = true;
+	persistUserSshKeys = true;
       };
     };
     user = {

@@ -30,7 +30,7 @@ in {
       Defaults lecture = never
     '';
 
-    environment.persistence."${cfg.persistenceRoot}" = { # use persistentStoragePath TODO
+    environment.persistence."${cfg.persistenceRoot}" = {
       hideMounts = true;
       files =
         [
@@ -43,16 +43,16 @@ in {
           }
         ];
       users."${specialArgs.username}" = {
-        directories = []
-				++ (if cfg.persistUserSshKeys then [".ssh"] else []); # TODO mkmerge or this
-#	  ".ssh"
-#          "downloads"
-#          "pictures"
-#          "music"
-#          "videos"
-
+        directories = [
+					".local/state/nix/profiles"
+					".icons" # TODO some kind of isServer or isDesktop specialArgs?
+					".themes"
+          ".local/share/icons"
+				]
+				++ (if cfg.persistUserSshKeys then [".ssh"] else [])
+				++ (if (config.home-manager.users.${specialArgs.username}.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
+				++ (if (config.home-manager.users.${specialArgs.username}.xdg.userDirs or false) then (builtins.attrValues (attrsets.filterAttrs (_: value: builtins.isString value) config.home-manager.users.${specialArgs.username}.xdg.userDirs)) else []);
 #          ".config/discord"
-#          ".config/microsoft-edge-dev"
 #          ".config/gtk-3.0"
 #          ".config/gtk-4.0"
 #          ".config/Google"
@@ -60,23 +60,17 @@ in {
 #          ".config/BraveSoftware"
 #          ".config/paperwm"
 
-#          ".local/share/icons"
 #          ".local/share/direnv/allow"
 #          ".local/share/TelegramDesktop"
 #          ".local/share/backgrounds"
 #          ".local/share/PrismLauncher"
-#          ".local/state/nix/profiles"
 
-#          ".cache/microsoft-edge-dev"
 #          ".cache/jdtls"
 #          ".cache/Google"
 
-#          ".icons"
 #          ".minecraft"
-#          ".ssh"
 #          ".android"
 #          ".gradle"
-#          ".themes"
         files = [];
       };
     };
