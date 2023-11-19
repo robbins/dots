@@ -10,7 +10,7 @@ with lib; let
 in {
   options.modules.user = {
     enable = mkEnableOption "enable";
-    hashedPasswordFile = mkOption {
+    hashedPwFile = mkOption {
       default = "";
 #      type = types.path;
     };
@@ -25,7 +25,7 @@ in {
           isNormalUser = true;
           password = "1";
           home = "/home/${specialArgs.username}";
-        } // lib.optionalAttrs (cfg.hashedPasswordFile != "") {hashedPasswordFile = cfg.hashedPasswordFile;};
+        } // (if (cfg.hashedPwFile != "") then {hashedPasswordFile = cfg.hashedPwFile.path;} else {});
       };
     };
     nix.settings.trusted-users = ["${specialArgs.username}"];
