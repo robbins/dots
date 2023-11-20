@@ -33,7 +33,7 @@ in {
 
     (mkIf cfg.sshInitrd {
       boot = {
-        #kernelParams = [ "ip=dhcp" ];
+        kernelParams = [ "ip=192.168.2.214::::::" ];
         initrd.kernelModules = [ "ath9k" ];
         initrd.network = {
 	  enable = true;
