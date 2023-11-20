@@ -38,7 +38,10 @@
       hyprland.enable = true;
     };
     hardware = {
-      bootloader.quiet = true;
+      bootloader = {
+        quiet = true;
+	sshInitrd = true;
+      };
       networking = {
         enable = true;
 	wifi = {
