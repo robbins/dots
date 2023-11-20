@@ -19,14 +19,14 @@ in {
       settings = [
         {
           layer = "top";
-          height = 20;
+          height = 18;
           margin-top = 4;
           margin-left = 4;
           margin-right = 4;
           spacing = 8;
-          modules-left = ["sway/workspaces"];
-          modules-center = ["custom/date" "custom/weather"];
-          modules-right = ["battery" "clock"];
+          modules-left = ["hyprland/workspaces"];
+          modules-center = ["custom/weather"];
+          modules-right = ["custom/date" "clock"];
           "battery" = {
             format = "{capacity}% {icon}";
             format-icons = ["" "" "" "" ""];
