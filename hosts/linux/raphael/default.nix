@@ -39,7 +39,7 @@
     };
     hardware = {
       bootloader = {
-        quiet = true;
+        quiet = false;
 	sshInitrd = true;
       };
       networking = {
