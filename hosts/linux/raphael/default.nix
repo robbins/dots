@@ -60,7 +60,10 @@
         };
       };
     };
+    documentation.enable = true;
   };
+
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   # Misc
   time.timeZone = "Canada/Eastern";

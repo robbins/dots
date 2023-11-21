@@ -16,26 +16,41 @@
   ];
 
   modules = {
+    services = {
+      xdg.enable = true;
+    };
     gui = {
       hyprland.enable = true;
       kitty.enable = true;
       microsoftEdge.enable = true;
       bar.enable = true;
+      rofi.enable = true;
+    };
+    dev = {
+      shell.enable = true;
     };
     shell = {
       neovim.enable = true;
       zsh.enable = true;
+      ripgrep.enable = true;
       git = {
         enable = true;
 	userName = "Nathanael Robbins";
 	userEmail = "nejrobbins@gmail.com";
       };
       ghcli.enable = true;
+      direnv.enable = true;
+      dircolors.enable = true;
     };
+  };
+
+  minidev = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.nix-index-database.comma.enable = true;
 
   # Meta
-  home.stateVersion = "21.05";
+  home.stateVersion = "23.05";
 }
