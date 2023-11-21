@@ -16,7 +16,15 @@
   fileSystems."/" =
     { device = "none";
       fsType = "tmpfs";
+      options = [ "defaults" "size=500M" "mode=755" ];
     };
+
+  fileSystems."/home/nate" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=500M" "mode=755" "uid=1000" "gid=100" ];
+    neededForBoot = true;
+  };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/5E6A-A5C9";
