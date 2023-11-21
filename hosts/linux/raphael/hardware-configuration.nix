@@ -59,6 +59,16 @@
     fsType = "zfs";
   };
 
+  fileSystems."/home/nate/src" = {
+    device = "raphael/user/home/nate/src";
+    fsType = "zfs";
+  };
+
+  fileSystems."/home/nate/data" = {
+    device = "raphael/user/home/nate/data";
+    fsType = "zfs";
+  };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/bda5f1d0-82d0-4b98-bddc-19a11263aac5"; }
     ];
