@@ -34,6 +34,8 @@
     };
   };
 
+  programs.nix-index-database.comma.enable = true;
+
   # Meta
   home.stateVersion = "21.05";
 }

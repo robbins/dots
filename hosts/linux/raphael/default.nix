@@ -23,6 +23,7 @@
 	persistUserSshKeys = true;
       };
     };
+    android.adb.enable = true;
     user = {
       enable = true;
       hashedPasswordFile = config.age.secrets.nate_raphael_user_password.path;
