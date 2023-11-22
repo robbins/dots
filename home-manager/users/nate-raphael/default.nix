@@ -28,6 +28,7 @@
     };
     dev = {
       shell.enable = true;
+      android.enable = true;
     };
     shell = {
       neovim.enable = true;
