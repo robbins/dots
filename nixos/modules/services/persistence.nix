@@ -68,7 +68,9 @@ in {
 #          ".minecraft"
 #          ".android"
 #          ".gradle"
-        files = [];
+        files = [
+				  ".config/gh/hosts.yml" # TODO: figure out if we can instead set this in the home-manager gh module
+				];
       };
     };
   };
