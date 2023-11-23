@@ -30,5 +30,9 @@ in {
         videos = "${config.home.homeDirectory}/videos";
       };
     };
+    # XDG compliance
+    home.sessionVariables = {
+      _JAVA_OPTIONS = ''-Djava.util.prefs.userRoot="${config.xdg.configHome}"/java -Dawt.useSystemAAFontSettings=on'';
+    };
   };
 }

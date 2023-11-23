@@ -13,7 +13,6 @@ in {
       swaybg
     ];
     home.sessionVariables = {
-      _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=on";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
     wayland.windowManager.hyprland = {
