@@ -33,6 +33,7 @@ in {
     # XDG compliance
     home.sessionVariables = {
       _JAVA_OPTIONS = ''-Djava.util.prefs.userRoot="${config.xdg.configHome}"/java -Dawt.useSystemAAFontSettings=on'';
+      GRADLE_USER_HOME = "${config.xdg.configHome}/gradle";
     };
   };
 }
