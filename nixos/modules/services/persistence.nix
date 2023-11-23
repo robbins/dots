@@ -25,7 +25,9 @@ in {
 		};
   };
 
-  config = lib.mkIf cfg.enable {
+  config = let
+	  homeCfg = config.home-manager.users.${specialArgs.username} or { };
+	in lib.mkIf cfg.enable {
     security.sudo.extraConfig = ''
       Defaults lecture = never
     '';
@@ -47,8 +49,10 @@ in {
 					".local/state/nix/profiles"
 				]
 				++ (if cfg.persistUserSshKeys then [".ssh"] else [])
-				++ (if (config.home-manager.users.${specialArgs.username}.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
-				++ (if specialArgs.isDesktop then [ ".icons" ".themes" ".local/share/icons" "downloads" "music" "pictures" "videos" ] else []);
+				++ (if (homeCfg.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
+				++ (if specialArgs.isDesktop then [ ".icons" ".themes" ".local/share/icons" "downloads" "music" "pictures" "videos" ] else [])
+				++ (if (homeCfg.modules.dev.android.enable or false) then [ ".local/share/android/sdk" ".config/android" ] else []); # TODO: if system adb module as well? maybe if androidFeature where androidFeature is a global of home.android or system.android?
+				# ALSO todo use xdg dir vars here? or did we have an issue doing that
 #          ".config/discord"
 #          ".config/gtk-3.0"
 #          ".config/gtk-4.0"
