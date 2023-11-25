@@ -18,6 +18,9 @@
   modules = {
     android.adb.enable = true;
     documentation.enable = true;
+    services = {
+      ssh.enable = true;
+    };
   };
 
   # Misc
