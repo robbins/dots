@@ -22,6 +22,7 @@
         enable = true;
 	persistUserSshKeys = true;
       };
+      tailscale.enable = true;
     };
     android.adb.enable = true;
     user = {
