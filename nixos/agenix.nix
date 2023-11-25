@@ -1,4 +1,5 @@
 {
+  options,
   lib,
   inputs,
   specialArgs,
@@ -16,7 +17,7 @@ with inputs.self.mylib; {
       secretToFileMap = mapAttrsToList (host: files: (genAttrs files (file: {file = lib.mkForce (../. + "/hosts/linux/${host}/secrets" + "/${file}.age");}))) hostAgeSecretNames;
     in
       foldl (acc: attr: acc // attr) {} secretToFileMap;
-    identityPaths = ["/persist/etc/ssh/ssh_host_ed25519_key"]; #TODO: this is specific, also only needed if / is on tmpfs (secrets are needed decrypted before etc/ssh is available and mounted by impermanence, so get it from the source)
+    identityPaths = options.age.identityPaths.default ++ ["/persist/etc/ssh/ssh_host_ed25519_key"]; #TODO: this is specific, also only needed if / is on tmpfs (secrets are needed decrypted before etc/ssh is available and mounted by impermanence, so get it from the source)
 
     /*
          identityPaths =

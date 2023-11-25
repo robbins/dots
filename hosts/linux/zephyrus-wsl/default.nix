@@ -20,6 +20,7 @@
     documentation.enable = true;
     services = {
       ssh.enable = true;
+      tailscale.enable = true;
     };
   };
 
