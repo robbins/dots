@@ -32,5 +32,13 @@ in {
       };
     })
 
+    (mkIf config.modules.services.persistence.system.enable {
+      environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
+        directories = [
+	  "/var/lib/tailscale"
+	];
+      };
+    })
+
   ]);
 }
