@@ -15,6 +15,8 @@
     inputs.wsl.nixosModules.wsl
   ];
 
+  #TODO: mutableusers = false, set nate password with agenix, set a root password (currently none)
+
   modules = {
     android.adb.enable = true;
     documentation.enable = true;
