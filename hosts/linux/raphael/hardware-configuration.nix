@@ -13,6 +13,10 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  services.logind.extraConfig = ''
+    RuntimeDirectorySize=12G
+  '';
+
   fileSystems."/" =
     { device = "none";
       fsType = "tmpfs";
