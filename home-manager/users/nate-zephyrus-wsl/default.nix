@@ -45,7 +45,8 @@
     enableZshIntegration = true;
   };
 
-  home.packages = [
+  home.packages = with pkgs; [
+    obsidian
   ];
 
   programs.nix-index-database.comma.enable = true;
