@@ -23,6 +23,7 @@
     services = {
       ssh.enable = true;
       tailscale.enable = true;
+      syncthing.enable = true;
     };
   };
 
