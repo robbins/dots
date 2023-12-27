@@ -49,6 +49,29 @@ in {
 	  config = builtins.readFile ./nvim-cmp.lua;
 	}
 
+	{
+	  plugin = (nvim-treesitter.withPlugins (p: [
+	  p.tree-sitter-nix
+	  p.tree-sitter-vim
+	  p.tree-sitter-uiua
+	  p.tree-sitter-sql
+	  p.tree-sitter-r
+	  p.tree-sitter-python
+	  p.tree-sitter-make
+	  p.tree-sitter-lua
+	  p.tree-sitter-markdown
+	  p.tree-sitter-latex
+	  p.tree-sitter-kotlin
+	  p.tree-sitter-java
+	  p.tree-sitter-json
+	  p.tree-sitter-go
+	  p.tree-sitter-c
+	  p.tree-sitter-bash
+	]));
+	  type = "lua";
+	  config = builtins.readFile ./nvim-treesitter.lua;
+	}
+
 	luasnip
 	cmp-nvim-lsp
       ];
