@@ -33,7 +33,12 @@ with pkgsForSystem.lib;
     inherit system;
     pkgs = import pkgsForSystem {
       inherit system;
-      config = {allowUnfree = true;};
+      config = {
+        allowUnfree = true;
+	permittedInsecurePackages = [
+	  "electron-25.9.0" # TODO: remove once Obsidian is updated
+	];
+      };
       overlays = overlays';
     };
     modules =
