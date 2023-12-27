@@ -10,7 +10,6 @@
   imports = [
     ((import ../../modules) inputs)
     inputs.hyprland.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.minidev.homeModules.default
     inputs.nix-index-database.hmModules.nix-index
   ];
