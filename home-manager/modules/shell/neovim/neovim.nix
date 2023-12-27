@@ -42,6 +42,15 @@ in {
 	  type = "lua";
 	  config = builtins.readFile ./nvim-lspconfig.lua;
 	}
+
+	{
+	  plugin = nvim-cmp;
+	  type = "lua";
+	  config = builtins.readFile ./nvim-cmp.lua;
+	}
+
+	luasnip
+	cmp-nvim-lsp
       ];
 
       extraPackages = with pkgs; [
