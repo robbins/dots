@@ -15,6 +15,9 @@ in {
     programs.zsh.shellAliases = {
       v = "nvim";
     };
+    home.file."./.config/nvim/jdtls_setup.lua" = {
+      source = ./jdtls_setup.lua;
+    };
     programs.neovim = {
       enable = true;
 
@@ -52,6 +55,11 @@ in {
         vim.api.nvim_create_autocmd("FileType", {
 	  pattern = "kotlin",
 	  command = "setlocal shiftwidth=4 tabstop=4"
+        })
+
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = "java",
+          callback = require('jdtls_setup').setup()
         })
 
         vim.opt.incsearch = true
@@ -120,11 +128,14 @@ in {
         cmp-latex-symbols
 
         nvim-treesitter-context
+
+        nvim-jdtls
       ];
 
       extraPackages = with pkgs; [
         nixd
         lua-language-server
+        jdt-language-server
       ];
     };
   };
