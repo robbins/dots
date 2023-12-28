@@ -28,6 +28,31 @@ in {
 	vim.opt.number = true
 	vim.opt.wrap = false
 	vim.opt.numberwidth = 1
+
+	--Indent
+	vim.opt.expandtab = true
+
+        --Per-file indent
+        vim.api.nvim_create_autocmd("FileType", {
+	  pattern = "c",
+	  command = "setlocal shiftwidth=2 tabstop=2"
+        })
+        vim.api.nvim_create_autocmd("FileType", {
+	  pattern = "python",
+	  command = "setlocal shiftwidth=4 tabstop=4"
+        })
+        vim.api.nvim_create_autocmd("FileType", {
+	  pattern = "java",
+	  command = "setlocal shiftwidth=4 tabstop=4"
+        })
+        vim.api.nvim_create_autocmd("FileType", {
+	  pattern = "rust",
+	  command = "setlocal shiftwidth=4 tabstop=4"
+        })
+        vim.api.nvim_create_autocmd("FileType", {
+	  pattern = "kotlin",
+	  command = "setlocal shiftwidth=4 tabstop=4"
+        })
       '';
 
       plugins = with pkgs.vimPlugins; [
@@ -43,6 +68,7 @@ in {
 	  config = builtins.readFile ./nvim-lspconfig.lua;
 	}
 
+        # Completion Engine
 	{
 	  plugin = nvim-cmp;
 	  type = "lua";
@@ -50,34 +76,28 @@ in {
 	}
 
 	{
-	  plugin = (nvim-treesitter.withPlugins (p: [
-	  p.tree-sitter-nix
-	  p.tree-sitter-vim
-	  p.tree-sitter-uiua
-	  p.tree-sitter-sql
-	  p.tree-sitter-r
-	  p.tree-sitter-python
-	  p.tree-sitter-make
-	  p.tree-sitter-lua
-	  p.tree-sitter-markdown
-	  p.tree-sitter-latex
-	  p.tree-sitter-kotlin
-	  p.tree-sitter-java
-	  p.tree-sitter-json
-	  p.tree-sitter-go
-	  p.tree-sitter-c
-	  p.tree-sitter-bash
-	]));
+	  plugin = nvim-treesitter.withAllGrammars;
 	  type = "lua";
 	  config = builtins.readFile ./nvim-treesitter.lua;
 	}
 
-	luasnip
-	cmp-nvim-lsp
+	{
+	  plugin = luasnip;
+	  type = "luasnip";
+	  config = builtins.readFile ./luasnip.lua;
+	}
+
+        cmp_luasnip # Snippets
+	cmp-nvim-lsp # Provides LSP snippets to nvim-cmp
+
+        friendly-snippets
+
+        vim-nix
       ];
 
       extraPackages = with pkgs; [
         nixd
+        lua-language-server
       ];
     };
   };
