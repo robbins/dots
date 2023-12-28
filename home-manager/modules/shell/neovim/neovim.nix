@@ -102,6 +102,8 @@ in {
 
         cmp-async-path
         cmp-latex-symbols
+
+        nvim-treesitter-context
       ];
 
       extraPackages = with pkgs; [

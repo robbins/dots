@@ -20,16 +20,27 @@ in {
   };
 
   config = mkIf cfg.enable {
+    programs.zsh.shellAliases = {
+      g = "git";
+      fixup = "git add . && git commit --amend --no-edit";
+    };
     programs.git = {
       enable = true;
       lfs.enable = true;
       userName = cfg.userName;
       userEmail = cfg.userEmail;
       delta.enable = true;
-      extraConfig = {
-        http = {
-          cookiefile = "/home/nate/.gitcookies";
-        };
+      aliases = {
+        "s" = "status";
+        "co" = "checkout";
+        "sh" = "show";
+        "a" = "add";
+        "aa" = "add .";
+        "r" = "rebase";
+        "ri" = "rebase -i";
+        "l" = "log";
+        "ll" = "log --graph --pretty --decorate --all";
+        "lm" = "log --graph --abbrev-commit --pretty --decorate --all --oneline";
       };
     };
   };
