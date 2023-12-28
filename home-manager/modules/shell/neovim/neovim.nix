@@ -87,6 +87,12 @@ in {
 	  config = builtins.readFile ./luasnip.lua;
 	}
 
+	{
+	  plugin = lualine-nvim;
+	  type = "lua";
+	  config = builtins.readFile ./lualine-nvim.lua;
+	}
+
         cmp_luasnip # Snippets
 	cmp-nvim-lsp # Provides LSP snippets to nvim-cmp
 
