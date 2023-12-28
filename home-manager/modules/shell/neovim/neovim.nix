@@ -53,6 +53,14 @@ in {
 	  pattern = "kotlin",
 	  command = "setlocal shiftwidth=4 tabstop=4"
         })
+
+        vim.opt.incsearch = true
+        vim.opt.guicursor = ""
+        vim.opt.scrolloff = 8
+        vim.opt.signcolumn = "yes"
+
+        vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+        vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
       '';
 
       plugins = with pkgs.vimPlugins; [
