@@ -93,6 +93,14 @@ in {
 	  config = builtins.readFile ./lualine-nvim.lua;
 	}
 
+	{
+	  plugin = telescope-nvim;
+	  type = "lua";
+	  config = builtins.readFile ./telescope-nvim.lua;
+	}
+
+        telescope-fzf-native-nvim
+
         cmp_luasnip # Snippets
 	cmp-nvim-lsp # Provides LSP snippets to nvim-cmp
 
