@@ -32,6 +32,8 @@ in {
       delta.enable = true;
       aliases = {
         "s" = "status";
+        "c" = "commit";
+        "cm" = "commit -m";
         "co" = "checkout";
         "sh" = "show";
         "a" = "add";
