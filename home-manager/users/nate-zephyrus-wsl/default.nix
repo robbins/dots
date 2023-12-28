@@ -46,6 +46,7 @@
 
   home.packages = with pkgs; [
     obsidian
+    fd
   ];
 
   programs.nix-index-database.comma.enable = true;
