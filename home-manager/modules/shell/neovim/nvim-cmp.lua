@@ -64,7 +64,13 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users.
     }, {
+      { name = 'latex_symbols',
+        option = {
+          strategy = 2,
+        },
+      },
       { name = 'buffer' },
+      { name = 'async_path' },
     })
   })
 

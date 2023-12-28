@@ -93,6 +93,9 @@ in {
         friendly-snippets
 
         vim-nix
+
+        cmp-async-path
+        cmp-latex-symbols
       ];
 
       extraPackages = with pkgs; [
