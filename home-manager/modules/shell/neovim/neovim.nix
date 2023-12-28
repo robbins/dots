@@ -83,7 +83,7 @@ in {
 
 	{
 	  plugin = luasnip;
-	  type = "luasnip";
+	  type = "lua";
 	  config = builtins.readFile ./luasnip.lua;
 	}
 
