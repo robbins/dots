@@ -11,7 +11,9 @@ in {
     enable = mkEnableOption "Neovim";
   };
 
-  config = mkIf cfg.enable {
+  config = let
+    jdt-language-server-wrapped = (pkgs.writeShellScriptBin "jdt-language-server-wrapped" "JAVA_OPTS=-Xmx1g exec ${pkgs.jdt-language-server}/bin/jdt-language-server $@");
+  in  mkIf cfg.enable {
     programs.zsh.shellAliases = {
       v = "nvim";
     };
@@ -30,7 +32,7 @@ local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
-    'JAVA_OPTS=-Xmx1g ${pkgs.jdt-language-server}/bin/jdt-language-server',
+    '${jdt-language-server-wrapped}/bin/jdt-language-server-wrapped',
     '-Dlog.protocol=true',
     '-data', workspace_dir
   },
@@ -177,8 +179,8 @@ require('jdtls').start_or_attach(config)
       extraPackages = with pkgs; [
         nixd
         lua-language-server
-        jdt-language-server
-#        (writeShellScriptBin "jdtls" "exec ${jdt-language-server}/bin/jdt-language-server")
+      ] ++ [
+        jdt-language-server-wrapped
       ];
     };
   };
