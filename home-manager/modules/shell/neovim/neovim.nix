@@ -183,6 +183,8 @@ require('jdtls').start_or_attach(config)
 
         nvim-web-devicons
 
+        lspkind-nvim
+
       ];
 
       extraPackages = with pkgs; [
