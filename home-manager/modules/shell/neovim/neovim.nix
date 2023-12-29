@@ -30,9 +30,8 @@ local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
-    '${pkgs.jdt-language-server}/bin/jdt-language-server',
+    'JAVA_OPTS=-Xmx1g ${pkgs.jdt-language-server}/bin/jdt-language-server',
     '-Dlog.protocol=true',
-    '-Xmx1g',
     '-data', workspace_dir
   },
 
