@@ -21,8 +21,10 @@ in {
     home.file."./.config/nvim/ftplugin/java.lua" = {
       source = let
         script = pkgs.writeText "ftplugin-java.lua" ''
-        print('hello')
           -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
+          local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+          print(project_name)
+          local workspace_dir = os.getenv('$XDG_CACHE_HOME') .. '/jdtls' .. project_name
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -42,6 +44,11 @@ local config = {
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
+    '-Dosgi.sharedConfiguration.area=${pkgs.jdt-language-server}/share/config',
+    '-Dosgi.sharedConfiguration.area.readOnly=true',
+    '-Dosgi.checkConfiguration=true',
+    '-Dosgi.configuration.cascaded=true',
+
     -- 💀
     '-jar', '${pkgs.jdt-language-server}/share/java/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
@@ -50,7 +57,7 @@ local config = {
 
 
     -- 💀
-    '-configuration', '${pkgs.jdt-language-server}/share/config/config.ini',
+    -- '-configuration', '${pkgs.jdt-language-server}/share/config/config.ini',
     -- '-configuration', '/tmp/config.ini',
                     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
                     -- Must point to the                      Change to one of `linux`, `win` or `mac`
@@ -59,7 +66,7 @@ local config = {
 
     -- 💀
     -- See `data directory configuration` section in the README
-    '-data', '/tmp/jdtls'
+    '-data', workspace_dir
   },
 
   -- 💀
