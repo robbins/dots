@@ -24,9 +24,7 @@ in {
       source = let
         script = pkgs.writeText "ftplugin-java.lua" ''
           -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-          print(vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t'))
           local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-          print(project_name)
           local workspace_dir = os.getenv('XDG_CACHE_HOME') .. '/jdtls/' .. project_name
 local config = {
   -- The command that starts the language server
@@ -47,6 +45,7 @@ local config = {
   -- for a list of options
   settings = {
     java = {
+      signatureHelp = { enabled = true },
     }
   },
 
