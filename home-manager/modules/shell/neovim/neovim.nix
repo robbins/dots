@@ -158,6 +158,12 @@ require('jdtls').start_or_attach(config)
 	  config = builtins.readFile ./telescope-nvim.lua;
 	}
 
+	{
+	  plugin = nvim-autopairs;
+	  type = "lua";
+	  config = builtins.readFile ./nvim-autopairs.lua;
+	}
+
         telescope-fzf-native-nvim
 
         cmp_luasnip # Snippets
@@ -169,10 +175,14 @@ require('jdtls').start_or_attach(config)
 
         cmp-async-path
         cmp-latex-symbols
+        cmp-buffer
 
         nvim-treesitter-context
 
         nvim-jdtls
+
+        nvim-web-devicons
+
       ];
 
       extraPackages = with pkgs; [
