@@ -185,6 +185,7 @@ require('jdtls').start_or_attach(config)
 
         lspkind-nvim
 
+        dropbar-nvim
       ];
 
       extraPackages = with pkgs; [
