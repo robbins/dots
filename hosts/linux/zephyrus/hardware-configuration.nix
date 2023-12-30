@@ -26,6 +26,7 @@
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/7f47d7c2-3824-4137-b72e-2c612448968e";
       fsType = "btrfs";
+      neededForBoot = true;
       options = [ "subvol=nix" "noatime" "discard" "compress-force=zstd:1" ];
     };
 
@@ -44,6 +45,7 @@
   fileSystems."/persist" =
     { device = "/dev/disk/by-uuid/7f47d7c2-3824-4137-b72e-2c612448968e";
       fsType = "btrfs";
+      neededForBoot = true;
       options = [ "subvol=persist" "noatime" "discard" "compress-force=zstd:1" ];
     };
 
