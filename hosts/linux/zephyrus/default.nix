@@ -13,7 +13,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../../nixos/agenix.nix
+    # ../../../nixos/agenix.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga401
   ];
 
@@ -24,7 +24,8 @@
     android.adb.enable = true;
     user = {
       enable = true;
-      hashedPasswordFile = config.age.secrets.nate_user_password.path;
+      password = "1";
+      #hashedPasswordFile = config.age.secrets.nate_user_password.path;
     };
     hardware = {
       audio = {
