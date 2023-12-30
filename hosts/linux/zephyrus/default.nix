@@ -50,11 +50,6 @@
       };
       filesystems = {
         enable = true;
-        zfs = {
-          enable = true;
-          unstable = true;
-          hostId = "aabbccdd";
-        };
       };
       laptop.enable = true;
       nvidia.enable = true;
@@ -63,10 +58,10 @@
       displayManager = {
         enable = true;
         autoLogin = {
-          enable = false;
+          enable = true;
           autoSessionCommand = "Hyprland";
         };
-        gnome = true;
+        gnome = false;
         kde = false;
       };
       hyprland.enable = false;
