@@ -18,6 +18,7 @@
     };
     gui = {
       kitty.enable = true;
+      wezterm.enable = true;
       wayland.enable = true;
     };
     dev = {
