@@ -190,6 +190,7 @@ require('jdtls').start_or_attach(config)
       extraPackages = with pkgs; [
         nixd
         lua-language-server
+        nodePackages_latest.pyright
       ] ++ [
         jdt-language-server-wrapped
       ];
