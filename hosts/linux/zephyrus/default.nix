@@ -65,7 +65,7 @@
         gnome = false;
         kde = false;
       };
-      hyprland.enable = false;
+      hyprland.enable = true;
     };
     documentation.enable = true;
   };
