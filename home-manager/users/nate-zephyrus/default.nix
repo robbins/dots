@@ -18,6 +18,7 @@
     services = {
       persistence.home.enable = true;
       xdg.enable = true;
+      swayidle.enable = true;
     };
     gui = {
       cursors.enable = true;
