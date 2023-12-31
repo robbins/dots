@@ -18,7 +18,7 @@ in {
       gtk.enable = true;
       x11.enable = true;
       package = pkgs.apple-cursor;
-      name = "monterey";
+      name = "macOS-Monterey";
       size = 28;
     };
   };
