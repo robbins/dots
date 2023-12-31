@@ -45,7 +45,6 @@ in {
         ring-wrong-color = "FB4934";
         inside-wrong-color = "00000066";
         font-size = 30;
-        grace = 3;
       };
     };
   };
