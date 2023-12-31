@@ -23,6 +23,9 @@ in {
       ];
       timeouts = [
         { timeout = 300; command = "${config.programs.swaylock.package}/bin/swaylock -fF"; }
+        #{ timeout = 15; command = "[ '$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/AC0/online)' = '0' ] && ${config.wayland.windowManager.hyprland.finalPackage}/bin/hyprctl dispatch dpms off"; }
+        #{ timeout = 15; command = "'[ '$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/AC0/online)' = '0' ] && ${config.wayland.windowManager.hyprland.finalPackage}/bin/hyprctl dispatch dpms off'"; }
+        { timeout = 15; command = "'[ '$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/AC0/online)' = '0' ] && echo hi'"; }
         { timeout = 600; command = "${pkgs.systemd}/bin/systemctl suspend"; }
       ];
     };

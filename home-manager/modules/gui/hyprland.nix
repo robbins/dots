@@ -134,6 +134,8 @@ in {
 				    # See https://wiki.hyprland.org/Configuring/Variables/ for more
                                     disable_hyprland_logo = true
                                     force_default_wallpaper = 0
+                                    mouse_move_enables_dpms = true
+                                    key_press_enables_dpms = true
 				}
 				
 				# Example per-device config
