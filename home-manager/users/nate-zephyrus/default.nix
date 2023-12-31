@@ -20,6 +20,7 @@
       xdg.enable = true;
     };
     gui = {
+      cursors.enable = true;
       kitty.enable = true;
       hyprland.enable = true;
       wayland.enable = true;
