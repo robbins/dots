@@ -17,8 +17,7 @@ in {
     };
     wayland.windowManager.hyprland = {
       enable = true;
-      systemdIntegration = true;
-      recommendedEnvironment = true;
+      systemd.enable = true;
       extraConfig = ''
 				# This is an example Hyprland config file.
 				#
@@ -101,7 +100,6 @@ in {
 				
 				animations {
 				    enabled = true
-                                    first_launch_animation = false
 				
 				    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 				
