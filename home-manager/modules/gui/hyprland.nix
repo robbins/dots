@@ -86,7 +86,7 @@ in {
 				    rounding = 3
 				
 				    blur {
-				        enabled = true
+				        enabled = false
 				        size = 3
 				        passes = 1
 				        
@@ -101,17 +101,18 @@ in {
 				
 				animations {
 				    enabled = true
+                                    first_launch_animation = false
 				
 				    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 				
 				    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
 				
-				    animation = windows, 1, 7, myBezier
+				    animation = windows, 1, 1, myBezier
 				    animation = windowsOut, 1, 7, default, popin 80%
 				    animation = border, 1, 10, default
 				    animation = borderangle, 1, 8, default
 				    animation = fade, 1, 7, default
-				    animation = workspaces, 1, 6, default
+				    animation = workspaces, 1, 1, default
 				}
 				
 				dwindle {
@@ -127,12 +128,13 @@ in {
 				
 				gestures {
 				    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-				    workspace_swipe = false
+				    workspace_swipe = true
 				}
 				
 				misc {
 				    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-				    force_default_wallpaper = 0 # Set to 0 to disable the anime mascot wallpapers
+                                    disable_hyprland_logo = true
+                                    force_default_wallpaper = 0
 				}
 				
 				# Example per-device config
@@ -210,6 +212,12 @@ in {
 				binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+
 				binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 0.0 @DEFAULT_SINK@ 5%-
 				binde=, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+				binde=, F2, exec, asusctl -p
+				binde=, F3, exec, asusctl -n
+
+				binde=, F7, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
+				binde=, F8, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
       '';
     };
   };
