@@ -23,9 +23,10 @@
       kitty.enable = true;
       hyprland.enable = true;
       wayland.enable = true;
-      bar.enable = false;
-      rofi.enable = false;
-      microsoftEdge.enable = true;
+      bar.enable = true;
+      rofi.enable = true;
+      microsoftEdge.enable = false;
+      firefox.enable = true;
     };
     dev = {
       shell.enable = true;
