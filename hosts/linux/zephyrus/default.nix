@@ -96,6 +96,8 @@
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl0", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
   '';
 
+  security.pam.services.swaylock = {};
+
   # Meta
   system.stateVersion = "21.05";
 }
