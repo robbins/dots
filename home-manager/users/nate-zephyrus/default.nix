@@ -30,6 +30,7 @@
       microsoftEdge.enable = false;
       firefox.enable = true;
       swaylock.enable = true;
+      mako.enable = true;
     };
     dev = {
       shell.enable = true;
