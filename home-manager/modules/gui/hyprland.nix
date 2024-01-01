@@ -223,6 +223,8 @@ in {
                                 bind = $mainMod, L, exec, swaylock
 
                                 bindl=,switch:on:Lid Switch, exec, swaylock
+
+                                bind = , Print, exec, grim -t png -g "$(slurp -d)" ${config.xdg.userDirs.pictures}/screenshots/$(date +'%F_%I-%M-%S_%p.png') | wl-copy
       '';
     };
   };
