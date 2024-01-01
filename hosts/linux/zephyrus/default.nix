@@ -18,9 +18,12 @@
   ];
 
   modules = {
-    services.ssh.enable = true;
-    services.persistence.system.enable = true;
-    services.virtualization.enable = true;
+    services = {
+      ssh.enable = true;
+      persistence.system.enable = true;
+      virtualization.enable = true;
+      syncthing.enable = true;
+    };
     android.adb.enable = true;
     user = {
       enable = true;

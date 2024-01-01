@@ -36,6 +36,18 @@
       options = [ "subvol=var/log" "noatime" "discard" "compress-force=zstd:1" ];
     };
 
+  fileSystems."/home/nate/src" =
+    { device = "/dev/disk/by-uuid/7f47d7c2-3824-4137-b72e-2c612448968e";
+      fsType = "btrfs";
+      options = [ "subvol=home/nate/src" "noatime" "discard" "compress-force=zstd:1" ];
+    };
+
+  fileSystems."/home/nate/data" =
+    { device = "/dev/disk/by-uuid/7f47d7c2-3824-4137-b72e-2c612448968e";
+      fsType = "btrfs";
+      options = [ "subvol=home/nate/data" "noatime" "discard" "compress-force=zstd:1" ];
+    };
+
   fileSystems."/root" =
     { device = "/dev/disk/by-uuid/7f47d7c2-3824-4137-b72e-2c612448968e";
       fsType = "btrfs";
