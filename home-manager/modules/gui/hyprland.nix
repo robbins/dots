@@ -37,7 +37,8 @@ in {
 				# See https://wiki.hyprland.org/Configuring/Keywords/ for more
 				
 				# Execute your favorite apps at launch
-				exec-once = swaybg -i ~/pictures/wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg -m fill & waybar
+                                # wp-notifyd currently only locally installed TODO
+				exec-once = swaybg -i ~/pictures/wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg -m fill & waybar & wp-notifyd
 				
 				# Source a file (multi-file configs)
 				# source = ~/.config/hypr/myColors.conf
