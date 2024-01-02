@@ -60,8 +60,9 @@
     [
     ]
     ++ (with pkgs; [
-      brave
       dconf2nix
+      obsidian
+      fd
     ]);
 
   programs.nix-index-database.comma.enable = true;
