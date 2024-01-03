@@ -5,8 +5,7 @@
   specialArgs,
   ...
 }:
-with lib; let
-  cfg = config.modules.gui.hyprland;
+with lib; let cfg = config.modules.gui.hyprland;
 in {
   options.modules.gui.hyprland.enable = mkEnableOption "Hyprland";
   config = mkIf cfg.enable {
@@ -155,8 +154,8 @@ in {
 				# See https://wiki.hyprland.org/Configuring/Keywords/ for more
 				$mainMod = SUPER
 				
-				bind=SUPERSHIFT,asciitilde,movetoworkspace,special
-				bind=SUPER,grave,togglespecialworkspace,HDMI-A-1
+				bind=SUPERSHIFT,asciitilde,movetoworkspace,special:scratchpad
+				bind=SUPER,grave,togglespecialworkspace,scratchpad,HDMI-A-1
 				
 				# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 				bindr =SUPER, SUPER_L, exec, pkill --signal SIGUSR1 waybar
@@ -226,6 +225,8 @@ in {
                                 bindl=,switch:on:Lid Switch, exec, swaylock
 
                                 bind = , Print, exec, grim -t png -g "$(slurp -d)" ${config.xdg.userDirs.pictures}/screenshots/$(date +'%F_%I-%M-%S_%p.png') | wl-copy
+
+                                workspace = special:scratchpad, on-created-empty:kitty-run, gapsout:20
       '';
     };
   };
