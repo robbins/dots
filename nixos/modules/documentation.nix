@@ -12,8 +12,15 @@ in {
   };
   config = mkIf cfg.enable {
     documentation = {
+      enable = true;
+      info.enable = true;
+      doc.enable = true;
       dev.enable = true;
-      man.generateCaches = true;
+      man = {
+        enable = true;
+        generateCaches = true;
+      };
     };
+    environment.systemPackages = with pkgs; [ man-pages man-pages-posix linux-manual ];
   };
 }
