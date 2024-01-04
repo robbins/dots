@@ -23,6 +23,7 @@
       persistence.system.enable = true;
       virtualization.enable = true;
       syncthing.enable = true;
+      tailscale.enable = true;
     };
     android.adb.enable = true;
     user = {
