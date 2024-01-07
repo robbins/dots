@@ -51,7 +51,8 @@ in {
         ++ (if (homeCfg.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
         ++ (if specialArgs.isDesktop then [ ".icons" ".themes" ".local/share/icons" "downloads" "music" "pictures" "videos" ] else [])
         ++ (if (homeCfg.modules.dev.android.enable or false) then [ ".local/share/android/sdk" ".config/android" ".config/Google" ".cache/Google" ] else []) # TODO: if system adb module as well? maybe if androidFeature where androidFeature is a global of home.android or system.android?
-        ++ (if (homeCfg.modules.gui.firefox.enable or false) then [ ".mozilla" ] else []);
+        ++ (if (homeCfg.modules.gui.firefox.enable or false) then [ ".mozilla" ] else [])
+        ++ (if (homeCfg.modules.gui.chromium.enable or false) then [ ".cache/chromium" ] else []);
         # ALSO todo use xdg dir vars here? or did we have an issue doing that
 #          ".config/discord"
 #          ".config/gtk-3.0"

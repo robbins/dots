@@ -27,8 +27,7 @@
       wayland.enable = true;
       bar.enable = true;
       rofi.enable = true;
-      microsoftEdge.enable = false;
-      firefox.enable = true;
+      chromium.enable = true;
       swaylock.enable = true;
       mako.enable = true;
     };
