@@ -34,16 +34,15 @@ in {
 
     environment.persistence."${cfg.persistenceRoot}" = {
       hideMounts = true;
-      files =
-        [
-          {
-            file = "/etc/machine-id";
-            parentDirectory = {
-              user = "root";
-              group = "root";
-            };
-          }
-        ];
+      files = [
+        {
+          file = "/etc/machine-id";
+          parentDirectory = {
+            user = "root";
+            group = "root";
+          };
+        }
+      ];
       users."${specialArgs.username}" = {
         directories = [
           ".local/state/nix/profiles"

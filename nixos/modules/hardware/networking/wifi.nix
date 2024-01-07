@@ -51,18 +51,14 @@ in {
     }
 
     (mkIf config.modules.services.persistence.system.enable {
-      systemd.tmpfiles.rules = [
-        "L /var/lib/iwd/UofT.8021x - - - - /persist/var/lib/iwd/UofT.8021x"
-        "L /var/lib/iwd/eduroam.8021x - - - - /persist/var/lib/iwd/eduroam.8021x"
-        "L /var/lib/iwd/BELL289.psk - - - - /persist/var/lib/iwd/BELL289.psk"
-        "L /var/lib/iwd/hedgehog_house.psk - - - - /persist/var/lib/iwd/hedgehog_house.psk"
-        "L /var/lib/iwd/The\x20Spring\x20Birds.psk - - - - /persist/var/lib/iwd/The\x20Spring\x20Birds.psk"
-      ];
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
         files = if (cfg.persistUoftCerts) then [
           "/etc/ssl/certs/UofT.pem"
           "/etc/ssl/certs/ca_radius_2022.pem"
         ] else [];
+        directories = [
+          "/var/lib/iwd"
+        ];
       };
     })
   ]);
