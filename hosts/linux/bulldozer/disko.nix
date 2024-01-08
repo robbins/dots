@@ -17,7 +17,7 @@
 	    };
 	  };
 	  SWAP = {
-            size = "8G";
+            size = "16G";
             type = "8200";
 	    content = {
 	      type = "swap";
@@ -39,7 +39,7 @@
     bulldozer = {
       type = "zpool";
       options = {
-        ashift = "13";
+        ashift = "12";
 	autotrim = "on";
       };
       rootFsOptions = {
@@ -55,15 +55,11 @@
 	normalization = "formD";
 	"com.sun:auto-snapshot" = "false";
       };
-      postCreateHook = ''
-        zfs snapshot -r bulldozer/system/root@blank
-	zfs set keylocation="prompt" "bulldozer";
-	'';
       datasets = {
 	system.type = "zfs_fs";
-	"system/root" = {
+	"system/var/log" = {
 	  type = "zfs_fs";
-          mountpoint = "/";
+          mountpoint = "/var/log";
 	  options.mountpoint = "legacy";
 	};
         local.type = "zfs_fs";

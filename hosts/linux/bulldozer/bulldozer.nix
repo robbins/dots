@@ -5,7 +5,9 @@
 #
 inputs: {
   system = "x86_64-linux";
-  username = "me";
+  username = "nate";
+  hostname = "bulldozer";
+  isDesktop = false;
   modules' = [
     inputs.disko.nixosModules.disko
     ./.

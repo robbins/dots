@@ -23,4 +23,37 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  
+  fileSystems."/" =
+  { device = "none";
+    fsType = "tmpfs";
+    options = [ "defaults" "size=500M" "mode=755" ];
+  };
+
+  fileSystems."/boot" =
+    { device = lib.mkForce "/dev/disk/by-uuid/3A02-4451";
+      fsType = "vfat";
+    };
+
+  fileSystems."/nix" =
+    { device = "bulldozer/local/nix";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+  fileSystems."/var/log" =
+    { device = "bulldozer/system/var/log";
+      fsType = "zfs";
+    };
+
+  fileSystems."/persist" =
+    { device = "bulldozer/persist";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/b8d71687-eceb-466d-a2af-9a9ffca1b190"; }
+  ];
+
 }

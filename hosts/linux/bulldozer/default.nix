@@ -24,9 +24,7 @@
       networking = {
         enable = true;
 	wifi = {
-	  enable = true;
-          interfaceName = "wlan0";
-          dhcp = "ipv4";
+	  enable = false;
 	};
       };
       filesystems = {
@@ -43,15 +41,6 @@
    boot = {
      initrd = {
        systemd.enable = true;
-       network = {
-         enable = true;
-	 ssh = {
-	   enable = true;
-	   port = 2222;
-	   hostKeys = [ /persist/ssh/ssh_host_ed25519_key ];
-	   authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhDWqWzxiIGz/UBCfXPisWKVkCrOy0YTpzpn12e2qdq" ];
-	 };
-       };
      };
    };
 
@@ -103,5 +92,5 @@
   boot.supportedFilesystems = [ "zfs" ];
 
   # Meta
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }
