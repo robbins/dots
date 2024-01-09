@@ -19,6 +19,7 @@
     services.ssh.enable = true;
     user = {
       enable = true;
+      password = "1";
     };
     hardware = {
       networking = {
@@ -26,6 +27,10 @@
 	wifi = {
 	  enable = false;
 	};
+        usbTether = {
+          enable = true;
+          interfaceName = "oneplus7pro";
+        };
       };
       filesystems = {
         enable = true;
