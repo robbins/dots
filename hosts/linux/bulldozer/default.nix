@@ -25,7 +25,8 @@
       networking = {
         enable = true;
 	      wifi = {
-	        enable = false;
+	        enable = true;
+                interfaceName = "wlan0";
 	      };
         usbTether = {
           enable = true;
@@ -44,9 +45,13 @@
   };
 
    boot = {
+     kernelParams = [ "ip=192.168.2.214::::::" ];
      initrd = {
+      network.enable = true;
+      availableKernelModules = [ "r8169" ];
+      verbose = true;
        systemd.enable = true;
-       ssh = {
+       network.ssh = {
          port = 2222;
          hostKeys = [ /persist/ssh/ssh_host_ed25519_key ];
          authorizedKeys = [ ];
