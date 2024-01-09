@@ -24,9 +24,9 @@
     hardware = {
       networking = {
         enable = true;
-	wifi = {
-	  enable = false;
-	};
+	      wifi = {
+	        enable = false;
+	      };
         usbTether = {
           enable = true;
           interfaceName = "oneplus7pro";
@@ -46,6 +46,11 @@
    boot = {
      initrd = {
        systemd.enable = true;
+       ssh = {
+         port = 2222;
+         hostKeys = [ /persist/ssh/ssh_host_ed25519_key ];
+         authorizedKeys = [ ];
+       };
      };
    };
 
@@ -53,7 +58,7 @@
      hostKeys = [
        {
          path = "/persist/ssh/ssh_host_ed25519_key";
-	 type = "ed25519";
+	       type = "ed25519";
        }
      ];
    };
