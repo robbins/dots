@@ -92,7 +92,7 @@
   };
 
   # Guided Autonomous Mode
-  boot.kernelParams = ["amd_pstate=guided"];
+  boot.kernelParams = ["amd_pstate=active"];
 
   # Access built-in display backlight without root
   services.udev.extraRules = ''
