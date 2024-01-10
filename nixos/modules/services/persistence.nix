@@ -74,8 +74,7 @@ in {
 #          ".android"
 #          ".gradle"
         files = [
-          ".config/gh/hosts.yml" # TODO: figure out if we can instead set this in the home-manager gh module
-        ];
+        ] ++ (if (homeCfg.modules.shell.ghcli.enable or false) then [ ".config/gh/hosts.yml" ] else []); # TODO: figure out if we can instead set this in the home-manager gh module
       };
     };
   };

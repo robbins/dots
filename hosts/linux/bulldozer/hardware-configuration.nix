@@ -53,7 +53,7 @@
     };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/b8d71687-eceb-466d-a2af-9a9ffca1b190"; }
+    { device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YHNX0K836387Z-part2"; }
   ];
 
 }

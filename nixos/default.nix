@@ -44,7 +44,7 @@ in {
   }
 
   (lib.mkIf (!config.wsl.enable or false) {
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     boot.loader = {
       timeout = 0;
       systemd-boot = {
