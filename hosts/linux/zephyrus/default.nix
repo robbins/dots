@@ -29,7 +29,7 @@
     user = {
       enable = true;
       password = "1";
-      #hashedPasswordFile = config.age.secrets.nate_user_password.path;
+      #hashedPasswordFile = config.age.secrets.nate_user_password.path; 
     };
     hardware = {
       audio = {

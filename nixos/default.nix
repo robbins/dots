@@ -3,6 +3,7 @@
 Common configuration for all NixOS hosts when using flakes
 */
 {
+  pkgs,
   config,
   lib,
   inputs,
@@ -43,6 +44,7 @@ in {
   }
 
   (lib.mkIf (!config.wsl.enable or false) {
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     boot.loader = {
       timeout = 0;
       systemd-boot = {
