@@ -20,6 +20,7 @@
       ssh.enable = true;
       persistence.system.enable = true;
       tailscale.enable = true;
+      tailscale-initrd.enable = true;
     };
     user = {
       enable = true;
