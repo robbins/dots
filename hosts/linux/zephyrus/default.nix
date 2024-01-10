@@ -102,6 +102,14 @@
 
   security.pam.services.swaylock = {};
 
+  services.auto-epp = {
+    enable = true;
+    settings.Settings = {
+      epp_state_for_BAT = "power";
+      epp_state_for_AC = "performance";
+    };
+  };
+
   # Meta
   system.stateVersion = "21.05";
 }
