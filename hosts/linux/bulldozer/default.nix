@@ -19,6 +19,7 @@
     services = {
       ssh.enable = true;
       persistence.system.enable = true;
+      tailscale.enable = true;
     };
     user = {
       enable = true;
