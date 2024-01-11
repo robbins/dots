@@ -56,11 +56,6 @@
       availableKernelModules = [ "r8169" ];
       verbose = true;
        systemd.enable = true;
-       network.ssh = {
-         port = 2222;
-         hostKeys = [ /persist/ssh/ssh_host_ed25519_key ];
-         authorizedKeys = [ ];
-       };
      };
    };
 
