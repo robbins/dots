@@ -57,6 +57,7 @@
 
   home.packages =
     [
+      pkgs.prismlauncher
     ]
     ++ (with pkgs; [
       dconf2nix

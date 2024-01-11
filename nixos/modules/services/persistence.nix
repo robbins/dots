@@ -46,6 +46,7 @@ in {
       users."${specialArgs.username}" = {
         directories = [
           ".local/state/nix/profiles"
+          ".local/share/PrismLauncher"
         ]
         ++ (if cfg.persistUserSshKeys then [".ssh"] else [])
         ++ (if (homeCfg.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
