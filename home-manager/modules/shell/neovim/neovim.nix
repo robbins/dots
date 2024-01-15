@@ -192,6 +192,8 @@ require('jdtls').start_or_attach(config)
         nixd
         lua-language-server
         nodePackages_latest.pyright
+        nodePackages_latest.typescript-language-server
+        typescript
       ] ++ [
         jdt-language-server-wrapped
       ];

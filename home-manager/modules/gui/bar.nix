@@ -24,9 +24,9 @@ in {
           margin-left = 4;
           margin-right = 4;
           spacing = 8;
-          modules-left = ["hyprland/workspaces"];
-          modules-center = ["custom/weather"];
-          modules-right = ["custom/date" "clock"];
+          modules-left = [ "hyprland/workspaces" ];
+          modules-center = [""];
+          modules-right = [ "battery" "custom/date" "clock" ];
           "battery" = {
             format = "{capacity}% {icon}";
             format-icons = ["" "" "" "" ""];
