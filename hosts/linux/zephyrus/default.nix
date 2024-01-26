@@ -112,6 +112,8 @@
     };
   };
 
+  fonts.fontconfig.subpixel.rgba = "rgb";
+
   # Meta
   system.stateVersion = "21.05";
 }
