@@ -17,9 +17,12 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    systemd.network = {
+      enable = true;
+    };
     networking = {
       useDHCP = false;
-      useNetworkd = true;
+      useNetworkd = false;
     };
     services.resolved = {
       enable = true;

@@ -38,15 +38,19 @@ in {
       };
 
       systemd.network.networks = {
-        "25-wireless".extraConfig = ''
-          [Match]
-          Name=${cfg.interfaceName}
-          [Network]
-          DHCP=${cfg.dhcp}
-          [DHCP]
-          UseDNS=false
-          RouteMetric=20
-        '';
+        "25-wireless" = {
+          matchConfig = {
+            Name = "${cfg.interfaceName}";
+          };
+          networkConfig = {
+            DHCP = "${cfg.dhcp}";
+          };
+          dhcpV4Config = {
+            UseDNS = false;
+            UseRoutes = true;
+            RouteMetric = 20;
+          };
+        };
       };
     }
 

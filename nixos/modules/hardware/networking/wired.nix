@@ -20,15 +20,19 @@ in {
 
   config = lib.mkIf cfg.enable {
     systemd.network.networks = {
-      "30-wired".extraConfig = ''
-        [Match]
-        Name=${cfg.interfaceName}
-        [Network]
-        DHCP=${cfg.dhcp}
-        [DHCP]
-        UseDNS=false
-        RouteMetric=30
-      '';
+      "30-wired" = {
+        matchConfig = {
+          Name = "${cfg.interfaceName}";
+        };
+        networkConfig = {
+          DHCP = "${cfg.dhcp}";
+        };
+        dhcpV4Config = {
+          UseDNS = false;
+          UseRoutes = true;
+          RouteMetric = 30;
+        };
+      };
     };
 
     services.udev.extraRules = ''

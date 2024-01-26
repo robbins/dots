@@ -20,15 +20,19 @@ in {
 
   config = lib.mkIf cfg.enable {
     systemd.network.networks = {
-      "20-usbtether0".extraConfig = ''
-        [Match]
-        Name=${cfg.interfaceName}
-        [Network]
-        DHCP=${cfg.dhcp}
-        [DHCP]
-        UseDNS=false
-        RouteMetric=10
-      '';
+      "20-usbtether0" = {
+        matchConfig = {
+          Name = "${cfg.interfaceName}";
+        };
+        networkConfig = {
+          DHCP = "${cfg.dhcp}";
+        };
+        dhcpV4Config = {
+          UseDNS = false;
+          UseRoutes = true;
+          RouteMetric = 10;
+        };
+      };
     };
     services.udev.extraRules = ''
       SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="2a70", ATTRS{idProduct}=="9024", NAME="${cfg.interfaceName}"
