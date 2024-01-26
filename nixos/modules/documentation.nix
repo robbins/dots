@@ -18,7 +18,7 @@ in {
       dev.enable = true;
       man = {
         enable = true;
-        generateCaches = true;
+        generateCaches = false;
       };
     };
     environment.systemPackages = with pkgs; [ man-pages man-pages-posix linux-manual ];
