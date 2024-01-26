@@ -20,7 +20,10 @@
   modules = {
     services = {
       ssh.enable = true;
-      persistence.system.enable = true;
+      persistence.system = {
+        enable = true;
+        persistUserSshKeys = true;
+      };
       virtualization.enable = true;
       syncthing.enable = true;
       tailscale.enable = true;
