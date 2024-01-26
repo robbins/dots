@@ -14,17 +14,16 @@ let
   users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate ];
   systems = [ zephyrus_host zephyrus-wsl_host bulldozer_host raphael_host ];
 in {
+  # Global
+  "global_tailscale_auth_key.age".publicKeys = users ++ systems;
+
   # Zephyrus
   "nate_zephyrus_user_password.age".publicKeys = [ zephyrus_nate zephyrus_host ];
-  "nate_zephyrus_tailscale_auth_key.age".publicKeys = [ zephyrus_nate zephyrus_host ];
 
   # Zephyrus-WSL
-  "nate_zephyrus-wsl_tailscale_auth_key.age".publicKeys = [ zephyrus-wsl_host zephyrus-wsl_nate ];
 
   # Raphael
   "nate_raphael_user_password.age".publicKeys = [ raphael_host raphael_nate ];
-  "nate_raphael_tailscale_auth_key.age".publicKeys = [ raphael_host raphael_nate ];
 
   # Bulldozer
-  "nate_bulldozer_tailscale_auth_key.age".publicKeys = [ bulldozer_host ];
 }

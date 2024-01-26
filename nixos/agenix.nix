@@ -11,7 +11,7 @@ with inputs.self.mylib; {
   age = {
     secrets = let
       ageSecretFiles = (builtins.filter (file: (lib.hasSuffix ".age") file) (builtins.attrNames (builtins.readDir (../secrets))));
-      ageSecretFilesForHostname = (builtins.filter (file: ((lib.hasInfix "${specialArgs.hostname}" file) || (lib.hasInfix "tailscale" file))) ageSecretFiles);
+      ageSecretFilesForHostname = (builtins.filter (file: ((lib.hasInfix "${specialArgs.hostname}" file) || (lib.hasInfix "global" file))) ageSecretFiles);
       ageSecrets = (map (secretFile: lib.strings.removeSuffix ".age" secretFile) ageSecretFilesForHostname);
       secretFileToPath = (lib.genAttrs ageSecrets (secret: { file = (../secrets + "/${secret}.age"); }));
     in

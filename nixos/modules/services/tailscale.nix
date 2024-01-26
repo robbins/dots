@@ -15,7 +15,7 @@ in {
     {
       services.tailscale = {
         enable = true;
-	authKeyFile = config.age.secrets."${specialArgs.username}_${specialArgs.hostname}_tailscale_auth_key".path;
+	authKeyFile = config.age.secrets."global_tailscale_auth_key".path;
 	openFirewall = true;
       };
 
