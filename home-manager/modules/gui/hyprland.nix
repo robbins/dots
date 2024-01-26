@@ -214,11 +214,11 @@ in {
 				binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 0.0 @DEFAULT_SINK@ 5%-
 				binde=, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-				binde=, F2, exec, asusctl -p
-				binde=, F3, exec, asusctl -n
+				binde=, XF86KbdBrightnessDown, exec, asusctl -p
+				binde=, XF86KbdBrightnessUp, exec, asusctl -n
 
-				binde=, F7, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
-				binde=, F8, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
+				binde=, XF86MonBrightnessDown, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
+				binde=, XF86MonBrightnessUp, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
 
                                 bind = $mainMod, L, exec, swaylock
 
