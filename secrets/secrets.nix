@@ -11,7 +11,7 @@ let
   raphael_nate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOFDezCzrk25XQKXWts+ISFtNyivW/vuHGzDjWJIMo2L nate@raphael";
   raphael_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTd6H0NLHdbltc4KEZgz6koT6GkvWKdUdsmHcXt6ClD root@raphael";
   # Oracle
-  oracle_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGw1EG7eSeoooa6lp3NOTPgyEJjGVRckqYfv+QMkSGzm root@oracle";
+  oracle_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhUBMs83Mw85SfwLJStWmnWNL4Zi6rZapo5nzqVlamw root@oracle";
 
   users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate ];
   systems = [ zephyrus_host zephyrus-wsl_host bulldozer_host raphael_host oracle_host ];
