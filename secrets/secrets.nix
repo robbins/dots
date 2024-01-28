@@ -10,8 +10,10 @@ let
   # Raphael
   raphael_nate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOFDezCzrk25XQKXWts+ISFtNyivW/vuHGzDjWJIMo2L nate@raphael";
   raphael_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTd6H0NLHdbltc4KEZgz6koT6GkvWKdUdsmHcXt6ClD root@raphael";
+  # Oracle
+  oracle_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID9LlqWzxcoPERjeGAEivH2PpWDl9hOawY6466AOj2HT";
 
-  users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate ];
+  users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate oracle_host ];
   systems = [ zephyrus_host zephyrus-wsl_host bulldozer_host raphael_host ];
 in {
   # Global
