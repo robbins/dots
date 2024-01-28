@@ -14,35 +14,17 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "none";
-      fsType = "tmpfs";
-      options = [ "defaults" "size=500M" "mode=755" ];
+    { device = "/dev/disk/by-uuid/12607fe8-8f88-429d-8dfa-446f4f2b1822";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B059-87F4";
+    { device = "/dev/disk/by-uuid/EFEC-4025";
       fsType = "vfat";
     };
 
-  fileSystems."/nix" =
-    { device = "oracle/local/nix";
-      fsType = "zfs";
-      neededForBoot = true;
-    };
-
-  fileSystems."/persist" =
-    { device = "oracle/persist";
-      fsType = "zfs";
-      neededForBoot = true;
-    };
-
-  fileSystems."/var/log" =
-    { device = "oracle/system/var/log";
-      fsType = "zfs";
-    };
-
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/781f3982-2afe-4e5c-9e58-13ac456058c1"; }
+    [ { device = "/dev/disk/by-uuid/e02f7591-4c77-4f31-9cc0-520090586815"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
