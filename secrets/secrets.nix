@@ -13,8 +13,8 @@ let
   # Oracle
   oracle_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGw1EG7eSeoooa6lp3NOTPgyEJjGVRckqYfv+QMkSGzm root@oracle";
 
-  users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate oracle_host ];
-  systems = [ zephyrus_host zephyrus-wsl_host bulldozer_host raphael_host ];
+  users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate ];
+  systems = [ zephyrus_host zephyrus-wsl_host bulldozer_host raphael_host oracle_host ];
 in {
   # Global
   "global_tailscale_auth_key.age".publicKeys = users ++ systems;
