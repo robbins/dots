@@ -52,7 +52,7 @@
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = [ pkgs.git ];
+  environment.systemPackages = [ pkgs.git pkgs.vim ];
 
   boot.kernelParams = [ "net.ifnames=0" ];
 
