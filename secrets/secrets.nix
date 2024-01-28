@@ -11,7 +11,7 @@ let
   raphael_nate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOFDezCzrk25XQKXWts+ISFtNyivW/vuHGzDjWJIMo2L nate@raphael";
   raphael_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTd6H0NLHdbltc4KEZgz6koT6GkvWKdUdsmHcXt6ClD root@raphael";
   # Oracle
-  oracle_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID9LlqWzxcoPERjeGAEivH2PpWDl9hOawY6466AOj2HT";
+  oracle_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGw1EG7eSeoooa6lp3NOTPgyEJjGVRckqYfv+QMkSGzm root@oracle";
 
   users = [ zephyrus_nate zephyrus-wsl_nate raphael_nate oracle_host ];
   systems = [ zephyrus_host zephyrus-wsl_host bulldozer_host raphael_host ];
@@ -28,4 +28,8 @@ in {
   "nate_raphael_user_password.age".publicKeys = [ raphael_host raphael_nate ];
 
   # Bulldozer
+
+  # Oracle
+  "nate_oracle_user_password.age".publicKeys = [ oracle_host ];
+  "root_oracle_user_password.age".publicKeys = [ oracle_host ];
 }
