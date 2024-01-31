@@ -17,6 +17,7 @@
   modules = {
     services = {
       xdg.enable = true;
+      wayvnc.enable = true;
     };
     gui = {
       hyprland.enable = true;
