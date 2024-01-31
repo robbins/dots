@@ -227,6 +227,12 @@ in {
                                 bind = , Print, exec, grim -t png -g "$(slurp -d)" ${config.xdg.userDirs.pictures}/screenshots/$(date +'%F_%I-%M-%S_%p.png') | wl-copy
 
                                 workspace = special:scratchpad, on-created-empty:kitty-run, gapsout:20
+
+                                # Passthrough
+                                bind=$mainMod, Delete, submap, passthrough
+                                submap=passthrough
+                                bind=$mainMod,escape,submap,reset
+                                submap=reset
       '';
     };
   };
