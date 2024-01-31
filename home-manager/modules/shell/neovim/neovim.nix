@@ -186,6 +186,19 @@ require('jdtls').start_or_attach(config)
         lspkind-nvim
 
         dropbar-nvim
+
+        conjure
+        cmp-conjure
+      ] ++ [
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "vim-racket";
+          src = pkgs.fetchFromGitHub {
+            owner = "benknoble";
+            repo = "vim-racket";
+            rev = "2a4862a09e1cd8106490df6d0fec8ebc61d0a2dc";
+            hash = "sha256-eyWd/1jgEVf0Y/EqO/8AIpIu4I/ai8+Fv7VVESfIr2Q=";
+          };
+        })
       ];
 
       extraPackages = with pkgs; [

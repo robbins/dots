@@ -70,6 +70,7 @@ cmp.setup({
           strategy = 2,
         },
       },
+      { name = 'conjure' },
       { name = 'buffer' },
       { name = 'async_path' },
     }),
