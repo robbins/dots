@@ -30,6 +30,7 @@
       chromium.enable = true;
       swaylock.enable = true;
       mako.enable = true;
+      moonlight.enable = true;
     };
     dev = {
       shell.enable = true;

@@ -18,6 +18,7 @@
     services = {
       xdg.enable = true;
       wayvnc.enable = true;
+      sunshine.enable = true;
     };
     gui = {
       hyprland.enable = true;
