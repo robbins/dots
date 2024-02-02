@@ -20,7 +20,7 @@ in {
           Description = "WayVNC Server";
         };
         Install = {
-          WantedBy = [ "default.target" ];
+          WantedBy = [ "hyprland-session.target" ];
         };
         Service = {
           ExecStart = "${pkgs.wayvnc}/bin/wayvnc";
