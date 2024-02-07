@@ -19,6 +19,7 @@
 
   modules = {
     services = {
+      docker.enable = true;
       ssh.enable = true;
       persistence.system = {
         enable = true;
