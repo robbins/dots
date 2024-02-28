@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  specialArgs,
   ...
 }:
 with lib; let
@@ -13,10 +14,7 @@ in {
   config = mkIf cfg.enable (mkMerge [
     {
       virtualisation.docker.enable = true;
-      virtualisation.docker.rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
+      users.users.${specialArgs.username}.extraGroups = [ "docker" ];
     }
   ]);
 }
