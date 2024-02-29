@@ -13,6 +13,7 @@ inputs: {
     ./.
   ];
   overlays' = [
+    inputs.neovim-nightly.overlay
   ];
   pkgsForSystem = inputs.nixos-unstable;
 }

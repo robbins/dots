@@ -21,18 +21,20 @@
       sunshine.enable = true;
     };
     gui = {
-      hyprland.enable = true;
+      cursors.enable = true;
       kitty.enable = true;
-      microsoftEdge.enable = true;
+      hyprland.enable = true;
+      wayland.enable = true;
       bar.enable = true;
       rofi.enable = true;
+      chromium.enable = true;
+      mako.enable = true;
     };
     dev = {
       shell.enable = true;
       android.enable = true;
     };
     shell = {
-      neovim.enable = true;
       zsh.enable = true;
       ripgrep.enable = true;
       git = {
@@ -41,6 +43,7 @@
 	userEmail = "nejrobbins@gmail.com";
       };
       ghcli.enable = true;
+      neovim.enable = true;
       direnv.enable = true;
       dircolors.enable = true;
     };
@@ -50,6 +53,16 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  home.packages =
+    [
+      pkgs.prismlauncher
+    ]
+    ++ (with pkgs; [
+      dconf2nix
+      obsidian
+      fd
+    ]);
 
   programs.nix-index-database.comma.enable = true;
 

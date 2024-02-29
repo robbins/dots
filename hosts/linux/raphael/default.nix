@@ -17,12 +17,14 @@
 
   modules = {
     services = {
+      docker.enable = true;
       ssh.enable = true;
       persistence.system = {
         enable = true;
 	persistUserSshKeys = true;
       };
       tailscale.enable = true;
+      syncthing.enable = true;
     };
     android.adb.enable = true;
     user = {
