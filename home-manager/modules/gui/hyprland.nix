@@ -29,8 +29,9 @@ in {
 				#
 				
 				# See https://wiki.hyprland.org/Configuring/Monitors/
-				monitor=HDMI-A-1,3840x2160@120,0x0,1.25
-				monitor=eDP-1,1920x1080@144,0x1728,1
+				monitor=DP-1,3840x2160@120,0x0,1.25
+                                monitor=HDMI-A-1,1920x1080@74,3072x0,1,transform,3
+				monitor=eDP-1,1920x1080@144,0x0,1
 				monitor=,preferred,auto,auto
 				
 				# See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -43,7 +44,7 @@ in {
 				# source = ~/.config/hypr/myColors.conf
 				
 				# Some default env vars.
-				env = XCURSOR_SIZE,24
+                                env = XCURSOR_SIZE,96
 				
 				# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 				input {
