@@ -16,5 +16,13 @@ in {
       virtualisation.docker.enable = true;
       users.users.${specialArgs.username}.extraGroups = [ "docker" ];
     }
+
+    (mkIf config.modules.services.persistence.system.enable {
+      environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
+        directories = [
+          "/var/lib/docker"
+        ];
+      };
+    })
   ]);
 }
