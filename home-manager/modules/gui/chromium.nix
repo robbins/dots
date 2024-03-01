@@ -15,10 +15,11 @@ in {
 
   config = mkIf cfg.enable (mkMerge [
   	{
-          programs.chromium = {
-            enable = true;
-            commandLineArgs = [ "--enable-features=TouchpadOverscrollHistoryNavigation" "--user-data-dir=\"${osConfig.modules.services.persistence.system.persistenceRoot}/home/${specialArgs.username}/.config/chromium\"" ];
-          };
+      programs.chromium = {
+        enable = true;
+        commandLineArgs = [ "--enable-features=TouchpadOverscrollHistoryNavigation" "--user-data-dir=\"${osConfig.modules.services.persistence.system.persistenceRoot}/home/${specialArgs.username}/.config/chromium\"" ];
+        package = pkgs.chromium.override { enableWideVine = true; };
+      };
   	  programs.zsh.shellAliases = {
   	    chromium = "chromium --user-data-dir=${osConfig.modules.services.persistence.system.persistenceRoot}/home/${specialArgs.username}/.config/chromium";
   	  };
