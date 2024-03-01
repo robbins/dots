@@ -47,6 +47,9 @@ in {
         directories = [
           ".local/state/nix/profiles"
           ".local/share/PrismLauncher"
+          ".config/JetBrains/WebStorm2023.3"
+          ".cache/JetBrains/WebStorm2023.3"
+          ".local/share/JetBrains"
         ]
         ++ (if cfg.persistUserSshKeys then [".ssh"] else [])
         ++ (if (homeCfg.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
