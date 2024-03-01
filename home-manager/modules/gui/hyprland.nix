@@ -234,6 +234,10 @@ in {
                                 submap=passthrough
                                 bind=$mainMod,escape,submap,reset
                                 submap=reset
+
+                                xwayland {
+                                  force_zero_scaling = true
+                                }
       '';
     };
   };
