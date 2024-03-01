@@ -10,7 +10,7 @@ NixOS tweaks for system security (from @hlissner on GitHub)
   security.protectKernelImage = true;
   boot = {
     tmp = {
-      useTmpfs = false;
+      useTmpfs = true;
       cleanOnBoot = lib.mkDefault (!config.boot.tmp.useTmpfs);
     };
     loader.systemd-boot.editor = false;
