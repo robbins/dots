@@ -29,7 +29,7 @@ in {
 				#
 				
 				# See https://wiki.hyprland.org/Configuring/Monitors/
-				monitor=DP-1,3840x2160@120,0x0,1.25
+				monitor=DP-1,3840x2160@120,0x0,1.25,bitdepth,10
                                 monitor=HDMI-A-1,1920x1080@74,3072x0,1,transform,3
 				monitor=eDP-1,1920x1080@144,0x0,1
 				monitor=,preferred,auto,auto
