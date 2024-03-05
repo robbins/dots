@@ -20,10 +20,9 @@ window#waybar {
     margin-left: 4px;
 }
 
-#workspaces button.focused {
-    background: #ebdbb2;
+#workspaces button.active {
+    background: #f7f9ff;
     color: #1d2021;
-    border-bottom: 1px solid #ebdbb2;
 }
 
 #clock {
