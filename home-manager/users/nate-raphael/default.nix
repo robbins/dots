@@ -46,6 +46,7 @@
       neovim.enable = true;
       direnv.enable = true;
       dircolors.enable = true;
+      bat.enable = true;
     };
   };
 
