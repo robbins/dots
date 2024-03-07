@@ -14,11 +14,11 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      zsh-autosuggestions
-      zsh-syntax-highlighting
       zsh-powerlevel10k
       zsh-completions
+      #zsh-autocomplete
       fzf
+      zsh-fzf-tab
     ];
     programs.zsh = {
       enable = true;
@@ -44,26 +44,24 @@ in {
       initExtra = ''
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         bindkey -M menuselect '\r' accept-line
+        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       '';
       initExtraBeforeCompInit = ''
-        zstyle ':autocomplete:*' fzf-completion no
+        zstyle ':autocomplete:*' fzf-completion yes
         zstyle ':autocomplete:*' widget-style menu-select
         source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       '';
       enableAutosuggestions = true;
       enableCompletion = true;
-      #syntaxHighlighting.enable = true;
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = [
+          "main"
+          "brackets"
+        ];
+      };
       plugins = [
-        {
-          name = "zsh-autocomplete";
-          src = pkgs.fetchFromGitHub {
-            owner = "marlonrichert";
-            repo = "zsh-autocomplete";
-            rev = "5cc9da132e7535a540fb1235ce27fd5a233d4f0e";
-            sha256 = "sha256-+w9+d7cYmPBdnqWgooh+OmscavB9JL7dVqOQyj8jJ7E=";
-          };
-        }
         {
           name = "powerlevel10k-config";
           src = ./.;
