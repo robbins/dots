@@ -25,20 +25,36 @@ in {
         kitty = "MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json kitty";
       };
       programs.kitty = {
+        enable = true;
+        shellIntegration.enableZshIntegration = true;
+
         extraConfig = ''
           font_family PragmataPro Mono Liga Regular
           bold_font PragmataPro Mono Liga Bold
           italic_font PragmataPro Mono Liga Italic
           bold_italic_font PragmataPro Mono Liga Bold Ital
-          # font_size 13.0
           # Nerd Fonts v2.3.3
           symbol_map U+23FB-U+23FE,U+2665,U+26A1,U+2B58,U+E000-U+E00A,U+E0A0-U+E0A3,U+E0B0-U+E0C8,U+E0CA,U+E0CC-U+E0D4,U+E200-U+E2A9,U+E300-U+E3E3,U+E5FA-U+E6B1,U+E700-U+E7C5,U+EA60-U+EBEB,U+F000-U+F2E0,U+F300-U+F372,U+F400-U+F532,U+F500-U+FD46,U+F0001-U+F1AF0 Symbols Nerd Font Mono
         '';
-        enable = true;
+
         keybindings = {
+          "ctrl+t" = "new_tab_with_cwd !neighbour";
+          "ctrl+shift+t" = "new_tab";
+          "ctrl+alt+1" = "goto_tab 1";
+          "ctrl+alt+2" = "goto_tab 2";
+          "ctrl+alt+3" = "goto_tab 3";
+          "ctrl+alt+4" = "goto_tab 4";
+          "ctrl+alt+5" = "goto_tab 5";
+          "ctrl+alt+6" = "goto_tab 6";
+          "ctrl+alt+7" = "goto_tab 7";
+          "ctrl+alt+8" = "goto_tab 8";
+          "ctrl+alt+9" = "goto_tab 9";
         };
         settings = {
-          draw_minimal_borders = true;
+          scrollback_lines = 10000;
+
+          strip_trailing_spaces = "smart";
+
 
           font_size = "13.0";
 
@@ -86,11 +102,16 @@ in {
           url_color = "#d65c0d";
 
           enable_audio_bell = false;
+
           hide_window_decorations = if (config.wsl.enable or false) then true else false; # Keep window decorations on WSL
+          draw_minimal_borders = true;
 
           shell = "zsh";
 
           tab_bar_edge = "bottom";
+          
+          # SSH Kitten
+          login_shell = "zsh";
         };
       };
     });
