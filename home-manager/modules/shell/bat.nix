@@ -14,7 +14,11 @@ in {
   config = mkIf cfg.enable {
     programs.zsh.shellAliases = {
       "bap" = "bat -pp";
+      "bam" = "batman";
     };
+    home.packages = [
+      pkgs.bat-extras.batman
+    ];
     programs.bat = {
       enable = true;
       config = {
