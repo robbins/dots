@@ -22,11 +22,13 @@ in {
       settings = {
         devices = {
           "oneplus-7-pro" = { id = "BVEUPVT-D4XSNJU-JMRAJ6Q-MEX4X3H-ACB7D4K-AH2NCK7-2AN3LNF-V6J3QQR"; };
+          "zephyrus" = { id = "SKIE7HH-I75FBTS-UUGE4IB-CLJRNGW-A4HJ5N2-JHCLVRZ-LLIP5MW-Z2I7VAH"; };
+          "raphael" = { id = "PVJ2IXX-SIAL33Q-2TIGSYO-H4CTA54-AKH7TB5-OKOZAHS-YSB6XT5-INNB4QJ"; };
         };
         folders = {
           "Nate's Vault" = {
             path = "/home/${specialArgs.username}/data/obsidian/nates-vault";
-            devices = [ "oneplus-7-pro" ];
+            devices = [ "oneplus-7-pro" "zephyrus" "raphael" ];
           };
         };
       };
