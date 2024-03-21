@@ -42,6 +42,7 @@
       hyprland.enable = true;
     };
     hardware = {
+      audio.enable = true;
       bootloader = {
         quiet = false;
 	sshInitrd = true;
