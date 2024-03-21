@@ -50,6 +50,7 @@ in {
           ".config/JetBrains/WebStorm2023.3"
           ".cache/JetBrains/WebStorm2023.3"
           ".local/share/JetBrains"
+          ".cache/jdtls"
         ]
         ++ (if cfg.persistUserSshKeys then [".ssh"] else [])
         ++ (if (homeCfg.modules.gui.microsoftEdge.enable or false) then [ ".config/microsoft-edge-dev" ".cache/microsoft-edge-dev" ] else [])
@@ -69,9 +70,6 @@ in {
 #          ".local/share/direnv/allow"
 #          ".local/share/TelegramDesktop"
 #          ".local/share/backgrounds"
-#          ".local/share/PrismLauncher"
-
-#          ".cache/jdtls"
 #          ".cache/Google"
 
 #          ".minecraft"
