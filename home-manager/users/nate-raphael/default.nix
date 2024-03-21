@@ -58,6 +58,7 @@
   home.packages =
     [
       pkgs.prismlauncher
+      pkgs.alsa-oss # TODO: https://github.com/NixOS/nixpkgs/issues/206378
     ]
     ++ (with pkgs; [
       dconf2nix
