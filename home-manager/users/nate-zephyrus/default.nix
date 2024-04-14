@@ -27,7 +27,7 @@
       wayland.enable = true;
       bar.enable = true;
       rofi.enable = true;
-      chromium.enable = true;
+      microsoftEdge.enable = true;
       swaylock.enable = true;
       mako.enable = true;
       moonlight.enable = true;
