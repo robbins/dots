@@ -33,7 +33,7 @@ in {
       boot = {
         supportedFilesystems = ["zfs"];
         zfs = {
-          enableUnstable = cfg.zfs.unstable;
+          package = if cfg.zfs.unstable then pkgs.zfsUnstable else pkgs.zfs;
           devNodes = "/dev/disk/by-partuuid";
         };
         kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
