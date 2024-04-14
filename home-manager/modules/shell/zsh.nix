@@ -52,7 +52,7 @@ in {
         source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       '';
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
       syntaxHighlighting = {
         enable = true;
