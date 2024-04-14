@@ -30,6 +30,10 @@ in {
             path = "/home/${specialArgs.username}/data/obsidian/nates-vault";
             devices = [ "oneplus-7-pro" "zephyrus" "raphael" ];
           };
+          "Wallpapers" = {
+            path = "/home/${specialArgs.username}/pictures/wallpapers";
+            devices = [ "zephyrus" "raphael" ];
+          };
         };
       };
     };
