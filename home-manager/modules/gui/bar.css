@@ -15,34 +15,34 @@ window#waybar {
 #workspaces button {
     color: #222222;
     padding: 6px;
-    background: #b4bad4;
+    background: #767981;
     border-radius: 4px;
     margin-left: 4px;
 }
 
 #workspaces button.active {
-    background: #f7f9ff;
+    background: #cfd0d3;
     color: #1d2021;
 }
 
 #clock {
 	color: #222222;
 	padding: 5px 5px;
-	background: #b4bad4;
-	border-radius: 4px
+        background: #767981;
+	border-radius: 4px;
 }
 
 #battery {
 	color: #222222;
 	padding: 5px 5px;
-	background: #b4bad4;
-	border-radius: 4px
+        background: #767981;
+	border-radius: 4px;
 }
 
 #custom-date {
 	color: #222222;
 	padding: 5px 5px;
-	background: #b4bad4;
-	border-radius: 4px
+        background: #767981;
+	border-radius: 4px;
 }
 
