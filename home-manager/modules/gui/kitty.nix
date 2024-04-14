@@ -55,8 +55,7 @@ in {
 
           strip_trailing_spaces = "smart";
 
-
-          font_size = "13.0";
+          font_size = "14.0";
 
           # https://s3.amazonaws.com/burkelibbey/maybe-gruvbox-but-dunno.itermcolors
           background = "#272727";
