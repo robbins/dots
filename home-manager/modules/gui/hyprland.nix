@@ -39,7 +39,7 @@ in {
 	
 	# Execute your favorite apps at launch
         # wp-notifyd and brightness-libnotify currently only locally installed TODO
-	exec-once = swaybg -i ~/pictures/wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg -m fill & waybar & wp-notifyd & brightness-libnotify
+	exec-once = swaybg -i ~/pictures/wallpapers/m3_macbook_pro_8k_dynamic-1.jpg -m fill & waybar & wp-notifyd & brightness-libnotify
 	
 	# Source a file (multi-file configs)
 	# source = ~/.config/hypr/myColors.conf
