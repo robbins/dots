@@ -16,7 +16,6 @@ in {
       scrcpy
     ];
     home.sessionVariables = {
-      ANDROID_HOME = "${config.xdg.dataHome}/android/sdk";
       ANDROID_USER_HOME = "${config.xdg.configHome}/android";
     };
   };
