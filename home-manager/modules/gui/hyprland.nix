@@ -211,6 +211,8 @@ in {
 	# Move/resize windows with mainMod + LMB/RMB and dragging
 	bindm = $mainMod, mouse:272, movewindow
 	bindm = $mainMod, mouse:273, resizewindow
+
+        bind = $mainMod, F, fullscreen, 0
 	
 	binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+
 	binde=, XF86AudioLowerVolume, exec, wpctl set-volume -l 0.0 @DEFAULT_SINK@ 5%-
@@ -219,8 +221,8 @@ in {
 	binde=, XF86KbdBrightnessDown, exec, asusctl -p
 	binde=, XF86KbdBrightnessUp, exec, asusctl -n
 
-	binde=, XF86MonBrightnessDown, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
-	binde=, XF86MonBrightnessUp, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl0/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl0/brightness >/dev/null
+	binde=, XF86MonBrightnessDown, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl1/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl1/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null
+	binde=, XF86MonBrightnessUp, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl1/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl1/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null
 
         bind = $mainMod, L, exec, swaylock
 
