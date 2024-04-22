@@ -22,7 +22,10 @@
     };
     gui = {
       cursors.enable = true;
-      kitty.enable = true;
+      kitty = {
+        enable = true;
+        fontSize = "13.0";
+      };
       hyprland.enable = true;
       wayland.enable = true;
       bar.enable = true;
