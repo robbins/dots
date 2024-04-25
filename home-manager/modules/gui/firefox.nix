@@ -3,6 +3,7 @@
   osConfig ? {},
   pkgs,
   lib,
+  inputs,
   specialArgs,
   ...
 }:
@@ -16,11 +17,7 @@ in {
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-devedition.override {
-        nativeMessagingHosts = [
-          pkgs.tridactyl-native
-        ];
-      };
+      package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
     };
   };
 }

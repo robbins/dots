@@ -61,6 +61,7 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+    firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
   };
 
   outputs = inputs @ {self, ...}: {
