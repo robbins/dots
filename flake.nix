@@ -39,6 +39,7 @@
       url = "github:nix-community/nixos-wsl";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
 
     # Programs
     hyprland = {
@@ -62,6 +63,10 @@
       inputs.nixpkgs.follows = "nixos-unstable";
     };
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
   };
 
   outputs = inputs @ {self, ...}: {

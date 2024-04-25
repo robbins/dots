@@ -46,7 +46,7 @@ with pkgsForSystem.lib;
         ../nixos
         ../nixos/agenix.nix
         {modules.nixos.localNixpkgs = pkgsForSystem;}
-      ] ++ (if isDesktop then [ inputs.home-manager.nixosModules.home-manager ../home-manager ] else [])
+      ] ++ (if isDesktop then [ inputs.home-manager.nixosModules.home-manager inputs.nur.nixosModules.nur ../home-manager ] else [])
       ++ modules';
     specialArgs = {inherit inputs username hostname isDesktop;};
   }
