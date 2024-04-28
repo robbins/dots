@@ -19,7 +19,6 @@
     services = {
       xdg.enable = true;
       wayvnc.enable = true;
-      sunshine.enable = true;
     };
     gui = {
       cursors.enable = true;
