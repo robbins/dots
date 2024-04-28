@@ -15,7 +15,7 @@
   # Final value
   Attribute set mapping hostnames to mk{Nixos/Darwin}System
 */
-inputs: system: hostArgs: mkHost:
+inputs: platform: hostArgs: mkHost:
 
 with inputs.nixos-unstable.lib;
 let
@@ -41,23 +41,14 @@ let
 in
 genAttrs (builtins.attrNames hostArgs) (
   hostname:
-  mkHost (recursiveMerge [
+  mkHost (recursiveMerge [ # modules' is set here and in hosts/platform/hostname/hostname.nix
     {
       modules' =
         [
           ../common/nixconf.nix
           { networking.hostName = mkDefault "${hostname}"; }
-        ]
-        ++ (
-          if (system == "linux") then
-            [
-              (import ../hosts/linux/${hostname}) # hosts/platform/hostname/default.nix, where config options are set
-            ]
-          else
-            [
-              (import ../hosts/darwin/${hostname}) # hosts/platform/hostname/default.nix, where config options are set
-            ]
-        );
+          (import ../hosts/${platform}/${hostname})
+        ];
     }
     (hostArgs.${hostname} inputs) # Attribute set of arguments passed to mkNixosSystem from hosts/hostname/hostname.nix
   ])

@@ -23,18 +23,14 @@ in
   };
 
   config = lib.mkMerge [
-    {
+    rec {
       environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
 
       # Tag each generation with Git hash
-      system.configurationRevision =
-        if (inputs.self ? rev) then
-          inputs.self.shortRev
-        else
-          throw "Refusing to build from a dirty Git tree!";
+      system.configurationRevision = inputs.self.mylib.gitRev inputs;
 
       system.nixos.label = "GitRev.${config.system.configurationRevision}.Rel.${config.system.nixos.release}";
-      environment.etc."os-release".text = "GIT_REV=${inputs.self.shortRev}\n";
+      environment.etc."os-release".text = "GIT_REV=${system.configurationRevision}\n";
 
       nix.registry.nixpkgs.flake = cfg.localNixpkgs;
 
@@ -46,6 +42,7 @@ in
       environment.etc."nixos/activeconfig".source = inputs.self;
     }
 
+    # Every bare-metal NixOS machine needs a bootloader
     (lib.mkIf (!config.wsl.enable or false) {
       boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
       boot.loader = {

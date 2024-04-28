@@ -10,11 +10,6 @@
 }:
 let
   cfg = config.modules.darwin;
-  gitRev =
-    if (inputs.self ? rev) then
-      inputs.self.shortRev
-    else
-      throw "Refusing to build from a dirty Git tree!";
 in
 {
   imports = [
@@ -25,11 +20,12 @@ in
     localNixpkgs = lib.mkOption { };
   };
 
-  config = {
+  config = rec {
     environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
 
     # Tag each generation with Git hash
-    system.darwinLabel = "GitRev.${gitRev}.Rel.${config.system.nixpkgsRelease}";
+    system.configurationRevision = inputs.self.mylib.gitRev inputs;
+    system.darwinLabel = "GitRev.${system.configurationRevision}.Rel.${config.system.nixpkgsRelease}";
 
     # Store the flake's Nixpkgs input to use with tooling that doesn't support flakes
     environment.etc."nixdarwin/nixpkgs".source = cfg.localNixpkgs;
@@ -39,5 +35,19 @@ in
 
     nix.useDaemon = true;
     services.nix-daemon.enable = true;
+
+    # Some nice MacOS defaults
+    system = {
+      defaults = {
+        dock = {
+          autohide = true;
+          autohide-delay = 0.0;
+          autohide-time-modifier = 0.35;
+        };
+        NSGlobalDomain = {
+          ApplePressAndHoldEnabled = false;
+        };
+      };
+    };
   };
 }

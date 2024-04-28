@@ -8,17 +8,17 @@
   { ... } -> { ... }
 
   # Arguments
-  inputs: attribute set of flake references (the argument to the top-level flake.nix outputs attribute) (the flake inputs)
+  args: attribute set of flake references (the argument to the top-level flake.nix outputs attribute) (the flake inputs and self)
 
   # Final value
   Attribute set
 */
-inputs@{ ... }:
-with inputs.nixpkgs.lib;
+args@{ ... }:
+with args.nixpkgs.lib;
 rec {
-  genHosts = import ./genhosts.nix inputs;
-  mkNixosSystem = import ./mknixossystem.nix inputs;
-  mkDarwinSystem = import ./mkdarwinsystem.nix inputs;
+  genHosts = import ./genhosts.nix args;
+  mkNixosSystem = import ./mknixossystem.nix args;
+  mkDarwinSystem = import ./mkdarwinsystem.nix args;
 
   # Returns a list containing the names of each Linux and Darwin host
   # [ ${hostname}: String ]
@@ -44,6 +44,12 @@ rec {
 
   platformHosts = platform: if platform == "linux" then nixosHosts else darwinHosts;
 
-  modulesInDir = import ./modulesInDir.nix inputs;
-  modulesInDirRec = import ./modulesInDirRec.nix inputs;
+  modulesInDir = import ./modulesInDir.nix args;
+  modulesInDirRec = import ./modulesInDirRec.nix args;
+
+  gitRev = args:
+    if (args.self ? rev) then
+      args.self.shortRev
+    else
+      throw "Refusing to build from a dirty Git tree!";
 }

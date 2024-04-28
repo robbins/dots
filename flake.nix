@@ -70,13 +70,15 @@
   };
 
   outputs =
-    inputs@{ self, ... }:
+    args@{ self, ... }:
     {
-      # The attribute set argument to outputs taking self + all flakes specified in the inputs attribute can be referred to by 'inputs'
-      mylib = import ./lib inputs;
-      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      formatter.aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
-      nixosConfigurations = import ./hosts "linux" inputs;
-      darwinConfigurations = import ./hosts "darwin" inputs;
+      # The attribute set argument to outputs taking self + all flakes specified in the inputs attribute can be referred to by 'args'. 
+      # It gets renamed to inputs when passed to the module system via specialArgs/extraSpecialArgs
+      inherit self;
+      mylib = import ./lib args;
+      formatter.x86_64-linux = args.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.aarch64-darwin = args.nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      nixosConfigurations = import ./hosts "linux" args;
+      darwinConfigurations = import ./hosts "darwin" args;
     };
 }

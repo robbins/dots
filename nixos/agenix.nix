@@ -6,7 +6,6 @@
   ...
 }:
 with lib;
-with inputs.self.mylib;
 {
   imports = [ inputs.agenix.nixosModules.default ];
   age = {

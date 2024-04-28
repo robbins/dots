@@ -9,15 +9,15 @@
 
   # Arguments
   platform: "linux" or "darwin" which controls what type of system to build
-  inputs: Attribute set of flake references (top-level flake.nix inputs attribute + self)
+  args: Attribute set of flake references (top-level flake.nix inputs attribute + self)
 
   # Final value
   Attribute set mapping hostnames to nixosSystem/darwinSystem
 */
-platform: inputs:
-with inputs.self.mylib;
+platform: args:
+with args.self.mylib;
 let
-  lib = if platform == "linux" then inputs.nixos-unstable.lib else inputs.nixpkgs.lib;
+  lib = if platform == "linux" then args.nixos-unstable.lib else args.nixpkgs.lib;
   hostnames = platformHosts platform;
   hostArgs = lib.genAttrs hostnames (hostname: import ./${platform}/${hostname}/${hostname}.nix);
 in
