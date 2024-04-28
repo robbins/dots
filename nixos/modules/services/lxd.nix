@@ -5,11 +5,13 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.lxd;
-in {
+in
+{
   options.modules.services.lxd = {
-    enable = mkOption {default = false;};
+    enable = mkOption { default = false; };
   };
   config = mkIf cfg.enable {
     virtualisation = {
@@ -24,6 +26,6 @@ in {
         defaultConfig = "lxc.include = ${pkgs.lxcfs}/share/lxc/config/common.conf.d/00-lxcfs.conf";
       };
     };
-    users.users.${specialArgs.username}.extraGroups = ["lxd"];
+    users.users.${specialArgs.username}.extraGroups = [ "lxd" ];
   };
 }

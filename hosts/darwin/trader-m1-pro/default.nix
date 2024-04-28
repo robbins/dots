@@ -10,9 +10,9 @@
   options,
   specialArgs,
   ...
-}: {
-  imports = [
-  ];
+}:
+{
+  imports = [ ];
 
   system = {
     defaults = {
@@ -27,9 +27,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    xcodes
-  ];
+  environment.systemPackages = with pkgs; [ xcodes ];
 
   # Misc
   system.stateVersion = 4;

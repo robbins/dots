@@ -1,19 +1,19 @@
 {
   config,
-  osConfig ? {},
+  osConfig ? { },
   pkgs,
   lib,
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.sunshine;
-in {
+in
+{
   options.modules.services.sunshine = {
     enable = mkEnableOption "Sunshine";
   };
 
-  config = mkIf cfg.enable {
-    home.packages = [ pkgs.sunshine ];
-  };
+  config = mkIf cfg.enable { home.packages = [ pkgs.sunshine ]; };
 }

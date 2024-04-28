@@ -1,14 +1,16 @@
 {
   config,
-  osConfig ? {},
+  osConfig ? { },
   pkgs,
   lib,
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.swaylock;
-in {
+in
+{
   options.modules.gui.swaylock = {
     enable = mkEnableOption "Swaylock";
   };

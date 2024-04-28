@@ -4,17 +4,17 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.dev.android;
-in {
+in
+{
   options.modules.dev.android = {
     enable = lib.mkEnableOption "Android Development";
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      scrcpy
-    ];
+    home.packages = with pkgs; [ scrcpy ];
     home.sessionVariables = {
       ANDROID_USER_HOME = "${config.xdg.configHome}/android";
     };

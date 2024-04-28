@@ -3,10 +3,12 @@
   pkgs,
   lib,
   ...
-}: with lib;
+}:
+with lib;
 let
   cfg = config.modules.hardware.networking.wifi;
-in {
+in
+{
   options.modules.hardware.networking.wifi = {
     enable = mkEnableOption "Wifi";
     persistUoftCerts = mkOption {
@@ -56,13 +58,15 @@ in {
 
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
-        files = if (cfg.persistUoftCerts) then [
-          "/etc/ssl/certs/UofT.pem"
-          "/etc/ssl/certs/ca_radius_2022.pem"
-        ] else [];
-        directories = [
-          "/var/lib/iwd"
-        ];
+        files =
+          if (cfg.persistUoftCerts) then
+            [
+              "/etc/ssl/certs/UofT.pem"
+              "/etc/ssl/certs/ca_radius_2022.pem"
+            ]
+          else
+            [ ];
+        directories = [ "/var/lib/iwd" ];
       };
     })
   ]);

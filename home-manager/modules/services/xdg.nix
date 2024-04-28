@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.xdg;
-in {
+in
+{
   options.modules.services.xdg = {
     enable = lib.mkEnableOption "XDG";
   };

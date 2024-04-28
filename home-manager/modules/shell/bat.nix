@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.shell.bat;
-in {
+in
+{
   options.modules.shell.bat = {
     enable = mkEnableOption "enable";
   };
@@ -16,9 +18,7 @@ in {
       "bap" = "bat -pp";
       "bam" = "batman";
     };
-    home.packages = [
-      pkgs.bat-extras.batman
-    ];
+    home.packages = [ pkgs.bat-extras.batman ];
     programs.bat = {
       enable = true;
       config = {

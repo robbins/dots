@@ -1,7 +1,7 @@
 /*
-  *
-Common home-manager configuration for all home-manager setups
-Passes flake inputs & username to the module system, and imports the user's HM config
+    *
+  Common home-manager configuration for all home-manager setups
+  Passes flake inputs & username to the module system, and imports the user's HM config
 */
 {
   config,
@@ -11,7 +11,8 @@ Passes flake inputs & username to the module system, and imports the user's HM c
   inputs,
   specialArgs,
   ...
-}: {
+}:
+{
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

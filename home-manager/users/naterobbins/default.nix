@@ -6,7 +6,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports =
     [
       #    ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason
@@ -34,8 +35,7 @@
   };
 
   # Misc
-  home.packages = [
-  ];
+  home.packages = [ ];
 
   programs.nix-index-database.comma.enable = true;
 

@@ -8,10 +8,7 @@ inputs: {
   username = "nate";
   hostname = "oracle";
   isDesktop = false;
-  modules' = [
-    ./.
-  ];
-  overlays' = [
-  ];
+  modules' = [ ./. ];
+  overlays' = [ ];
   pkgsForSystem = inputs.nixos-unstable;
 }

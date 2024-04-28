@@ -1,15 +1,17 @@
 {
   config,
-  osConfig ? {},
+  osConfig ? { },
   pkgs,
   lib,
   inputs,
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.firefox;
-in {
+in
+{
   options.modules.gui.firefox = {
     enable = mkEnableOption "Firefox";
   };

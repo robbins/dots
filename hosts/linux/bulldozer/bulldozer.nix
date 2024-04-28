@@ -12,7 +12,6 @@ inputs: {
     inputs.disko.nixosModules.disko
     ./.
   ];
-  overlays' = [
-  ];
+  overlays' = [ ];
   pkgsForSystem = inputs.nixos-unstable;
 }

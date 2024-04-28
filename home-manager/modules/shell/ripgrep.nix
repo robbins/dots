@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.shell.ripgrep;
-in {
+in
+{
   options.modules.shell.ripgrep = {
     enable = mkEnableOption "enable";
   };

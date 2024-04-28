@@ -5,18 +5,20 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.tailscale;
-in {
+in
+{
   options.modules.services.tailscale = {
-    enable = mkOption {default = false;};
+    enable = mkOption { default = false; };
   };
   config = mkIf cfg.enable (mkMerge [
     {
       services.tailscale = {
         enable = true;
-	authKeyFile = config.age.secrets."global_tailscale_auth_key".path;
-	openFirewall = true;
+        authKeyFile = config.age.secrets."global_tailscale_auth_key".path;
+        openFirewall = true;
       };
 
       environment.systemPackages = with pkgs; [ tailscale ];
@@ -26,7 +28,7 @@ in {
       networking.firewall = {
         # always allow traffic from the Tailscale network
         trustedInterfaces = [ "tailscale0" ];
-  
+
         # allow SSH over the public internet
         allowedTCPPorts = [ 22 ];
       };
@@ -34,11 +36,8 @@ in {
 
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
-        directories = [
-	  "/var/lib/tailscale"
-	];
+        directories = [ "/var/lib/tailscale" ];
       };
     })
-
   ]);
 }

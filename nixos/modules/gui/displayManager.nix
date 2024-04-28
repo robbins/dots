@@ -5,9 +5,11 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.displayManager;
-in {
+in
+{
   options.modules.gui.displayManager = {
     enable = mkEnableOption "enable";
     autoLogin = {
@@ -31,9 +33,7 @@ in {
   };
 
   config = mkIf cfg.enable (mkMerge [
-    {
-      environment.systemPackages = [pkgs.wlr-randr];
-    }
+    { environment.systemPackages = [ pkgs.wlr-randr ]; }
 
     (mkIf cfg.autoLogin.enable {
       services.greetd = {
@@ -55,7 +55,7 @@ in {
         enable = true;
         displayManager.sddm.enable = true;
         desktopManager.plasma5.enable = true;
-        excludePackages = [pkgs.xterm];
+        excludePackages = [ pkgs.xterm ];
       };
     })
 
@@ -70,14 +70,15 @@ in {
           };
         };
         desktopManager.gnome.enable = true;
-        excludePackages = [pkgs.xterm];
+        excludePackages = [ pkgs.xterm ];
       };
       systemd.services = {
         "getty@tty1".enable = false;
         "autovt@tty1".enable = false;
       };
       networking.networkmanager.enable = lib.mkForce false;
-      environment.systemPackages = with pkgs.gnome;
+      environment.systemPackages =
+        with pkgs.gnome;
         [
           nautilus
           sushi
@@ -94,9 +95,7 @@ in {
           tiling-assistant
           space-bar
         ])
-        ++ (with pkgs; [
-          gnome-frog
-        ]);
+        ++ (with pkgs; [ gnome-frog ]);
       services.gnome.core-utilities.enable = false;
       programs.seahorse.enable = true;
     })

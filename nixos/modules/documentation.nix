@@ -4,11 +4,13 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.documentation;
-in {
+in
+{
   options.modules.documentation = {
-    enable = mkOption {default = false;};
+    enable = mkOption { default = false; };
   };
   config = mkIf cfg.enable {
     documentation = {
@@ -21,6 +23,10 @@ in {
         generateCaches = false;
       };
     };
-    environment.systemPackages = with pkgs; [ man-pages man-pages-posix linux-manual ];
+    environment.systemPackages = with pkgs; [
+      man-pages
+      man-pages-posix
+      linux-manual
+    ];
   };
 }

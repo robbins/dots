@@ -7,9 +7,8 @@ inputs: rec {
   username = "naterobbins";
   modules' = [
     ./.
-    {users.users."naterobbins".home = "/Users/naterobbins";}
+    { users.users."naterobbins".home = "/Users/naterobbins"; }
   ];
-  overlays' = [
-  ];
+  overlays' = [ ];
   pkgsForSystem = inputs.nixpkgs;
 }

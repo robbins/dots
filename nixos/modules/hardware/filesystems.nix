@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.hardware.filesystems;
-in {
+in
+{
   options.modules.hardware.filesystems = {
     enable = mkEnableOption "filesystems";
     zfs = {
@@ -23,15 +25,13 @@ in {
   };
   config = mkIf cfg.enable (mkMerge [
     {
-      environment.systemPackages = with pkgs; [
-        e2fsprogs
-      ];
-      boot.supportedFilesystems = ["ntfs"];
+      environment.systemPackages = with pkgs; [ e2fsprogs ];
+      boot.supportedFilesystems = [ "ntfs" ];
     }
 
     (mkIf cfg.zfs.enable {
       boot = {
-        supportedFilesystems = ["zfs"];
+        supportedFilesystems = [ "zfs" ];
         zfs = {
           package = if cfg.zfs.unstable then pkgs.zfsUnstable else pkgs.zfs;
           devNodes = "/dev/disk/by-partuuid";

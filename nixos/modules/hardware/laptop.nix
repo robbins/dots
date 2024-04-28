@@ -4,12 +4,12 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.hardware.laptop;
-in {
+in
+{
   options.modules.hardware.laptop.enable = mkEnableOption "Laptop";
 
-  config = mkIf cfg.enable {
-    services.power-profiles-daemon.enable = true;
-  };
+  config = mkIf cfg.enable { services.power-profiles-daemon.enable = true; };
 }

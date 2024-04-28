@@ -6,9 +6,9 @@
   pkgs,
   inputs,
   ...
-}: {
-  imports = [
-  ];
+}:
+{
+  imports = [ ];
 
   # Meta
   home.stateVersion = "21.05";

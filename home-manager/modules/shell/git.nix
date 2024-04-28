@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.shell.git;
-in {
+in
+{
   options.modules.shell.git = {
     enable = mkEnableOption "enable";
     userName = mkOption {

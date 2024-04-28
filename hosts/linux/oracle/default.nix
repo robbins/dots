@@ -10,10 +10,9 @@
   options,
   specialArgs,
   ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+}:
+{
+  imports = [ ./hardware-configuration.nix ];
 
   modules = {
     services = {
@@ -52,7 +51,10 @@
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.systemPackages = [ pkgs.git pkgs.vim ];
+  environment.systemPackages = [
+    pkgs.git
+    pkgs.vim
+  ];
 
   boot.kernelParams = [ "net.ifnames=0" ];
 

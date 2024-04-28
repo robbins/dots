@@ -1,14 +1,16 @@
 {
   config,
-  osConfig ? {},
+  osConfig ? { },
   pkgs,
   lib,
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.mako;
-in {
+in
+{
   options.modules.gui.mako = {
     enable = mkEnableOption "Mako";
   };
@@ -17,7 +19,7 @@ in {
     services.mako = {
       enable = true;
       font = "PragmataPro Mono Liga Regular 12";
-      defaultTimeout = 8000; #Timeout in ms
+      defaultTimeout = 8000; # Timeout in ms
     };
   };
 }

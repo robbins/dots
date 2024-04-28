@@ -5,9 +5,11 @@
   osConfig,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.shell.zsh;
-in {
+in
+{
   options.modules.shell.zsh = {
     enable = mkEnableOption "Zsh";
   };
@@ -31,9 +33,10 @@ in {
         save = 1000000000;
         size = 1000000000;
         path =
-          if osConfig.modules.services.persistence.system.enable or false == true
-          then "/persist${config.xdg.dataHome}/zsh/zsh_history"
-          else "${config.xdg.dataHome}/zsh/zsh_history";
+          if osConfig.modules.services.persistence.system.enable or false == true then
+            "/persist${config.xdg.dataHome}/zsh/zsh_history"
+          else
+            "${config.xdg.dataHome}/zsh/zsh_history";
       };
       sessionVariables = rec {
         EDITOR = "vim";

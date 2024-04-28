@@ -4,24 +4,26 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.kitty;
-in {
+in
+{
   options.modules.gui.kitty = {
     enable = mkEnableOption "Kitty";
     fontSize = mkOption { default = 13.0; };
   };
 
-  config =
-    mkIf cfg.enable
-    (let
+  config = mkIf cfg.enable (
+    let
       kitty-run = pkgs.writeShellScriptBin "kitty-run" ''
         export MESA_LOADER_DRIVER_OVERRIDE=radeonsi
         export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json
         exec kitty
       '';
-    in {
-      home.packages = [kitty-run];
+    in
+    {
+      home.packages = [ kitty-run ];
       programs.zsh.shellAliases = {
         kitty = "MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json kitty";
       };
@@ -109,10 +111,11 @@ in {
           shell = "zsh";
 
           tab_bar_edge = "bottom";
-          
+
           # SSH Kitten
           login_shell = "zsh";
         };
       };
-    });
+    }
+  );
 }

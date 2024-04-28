@@ -7,11 +7,7 @@ inputs: {
   system = "x86_64-linux";
   username = "nate";
   hostname = "zephyrus-wsl";
-  modules' = [
-    ./.
-  ];
-  overlays' = [
-    inputs.neovim-nightly.overlay
-  ];
+  modules' = [ ./. ];
+  overlays' = [ inputs.neovim-nightly.overlay ];
   pkgsForSystem = inputs.nixos-unstable;
 }

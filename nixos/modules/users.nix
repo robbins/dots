@@ -4,9 +4,11 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.user;
-in {
+in
+{
   options.modules.user = {
     enable = mkEnableOption "enable";
     hashedPasswordFile = mkOption {
@@ -23,14 +25,20 @@ in {
     users = {
       mutableUsers = false;
       users = {
-        ${specialArgs.username} = {
-          extraGroups = ["wheel"];
-          isNormalUser = true;
-          home = "/home/${specialArgs.username}";
-        } // 
-	  (if (cfg.hashedPasswordFile != null) then {inherit (cfg) hashedPasswordFile;}
-	  else if (cfg.password != null) then {inherit (cfg) password;}
-	  else {});
+        ${specialArgs.username} =
+          {
+            extraGroups = [ "wheel" ];
+            isNormalUser = true;
+            home = "/home/${specialArgs.username}";
+          }
+          // (
+            if (cfg.hashedPasswordFile != null) then
+              { inherit (cfg) hashedPasswordFile; }
+            else if (cfg.password != null) then
+              { inherit (cfg) password; }
+            else
+              { }
+          );
       };
     };
   };

@@ -5,9 +5,11 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.wayvnc;
-in {
+in
+{
   options.modules.services.wayvnc = {
     enable = mkOption { default = false; };
   };

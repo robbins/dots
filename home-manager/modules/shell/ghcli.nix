@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.shell.ghcli;
-in {
+in
+{
   options.modules.shell.ghcli = {
     enable = mkEnableOption "GitHub CLI";
     gitProtocol = mkOption {

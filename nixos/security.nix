@@ -1,12 +1,9 @@
 /*
-  *
-NixOS tweaks for system security (from @hlissner on GitHub)
+    *
+  NixOS tweaks for system security (from @hlissner on GitHub)
 */
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   security.protectKernelImage = true;
   boot = {
     tmp = {
@@ -49,6 +46,6 @@ NixOS tweaks for system security (from @hlissner on GitHub)
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
     };
-    kernelModules = ["tcp_bbr"];
+    kernelModules = [ "tcp_bbr" ];
   };
 }

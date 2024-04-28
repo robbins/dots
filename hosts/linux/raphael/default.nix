@@ -10,10 +10,9 @@
   options,
   specialArgs,
   ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+}:
+{
+  imports = [ ./hardware-configuration.nix ];
 
   modules = {
     services = {
@@ -21,7 +20,7 @@
       ssh.enable = true;
       persistence.system = {
         enable = true;
-	persistUserSshKeys = true;
+        persistUserSshKeys = true;
       };
       tailscale.enable = true;
       syncthing.enable = true;
@@ -34,10 +33,10 @@
     gui = {
       displayManager = {
         enable = true;
-	autoLogin = {
-	  enable = true;
-	  autoSessionCommand = "Hyprland";
-	};
+        autoLogin = {
+          enable = true;
+          autoSessionCommand = "Hyprland";
+        };
       };
       hyprland.enable = true;
     };
@@ -45,15 +44,15 @@
       audio.enable = true;
       bootloader = {
         quiet = false;
-	sshInitrd = true;
+        sshInitrd = true;
       };
       networking = {
         enable = true;
-	wifi = {
-	  enable = true;
+        wifi = {
+          enable = true;
           interfaceName = "wlan0";
           dhcp = "ipv4";
-	};
+        };
       };
       filesystems = {
         enable = true;

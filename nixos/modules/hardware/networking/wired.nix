@@ -3,9 +3,11 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.modules.hardware.networking.wired;
-in {
+in
+{
   options.modules.hardware.networking.wired = {
     enable = lib.mkEnableOption "Wired";
     interfaceName = lib.mkOption {

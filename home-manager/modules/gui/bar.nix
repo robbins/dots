@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.bar;
-in {
+in
+{
   options.modules.gui.bar = {
     enable = lib.mkEnableOption "Bar";
   };
@@ -15,7 +17,9 @@ in {
     programs.waybar = {
       style = ./bar.css;
       enable = true;
-      package = pkgs.waybar.overrideAttrs (oldAttrs: {mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];});
+      package = pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
       settings = [
         {
           layer = "top";
@@ -25,11 +29,21 @@ in {
           margin-right = 4;
           spacing = 8;
           modules-left = [ "hyprland/workspaces" ];
-          modules-center = [""];
-          modules-right = [ "battery" "custom/date" "clock" ];
+          modules-center = [ "" ];
+          modules-right = [
+            "battery"
+            "custom/date"
+            "clock"
+          ];
           "battery" = {
             format = "{capacity}% {icon}";
-            format-icons = ["" "" "" "" ""];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
             format-charging = "{capacity}% {time}";
             format-discharging = "{icon} {capacity}% {time}";
             format-plugged = " {capacity}%";
@@ -43,7 +57,11 @@ in {
             format-bluetooth-muted = "  {volume}% {desc}";
             headphone = "";
             format-icons = {
-              default = ["" "" ""];
+              default = [
+                ""
+                ""
+                ""
+              ];
             };
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
@@ -60,7 +78,17 @@ in {
           };
           "backlight" = {
             format = "{percent}% {icon}";
-            format-icons = ["" "" "" "" "" "" "" "" ""];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
             on-scroll-up = "";
             on-scroll-down = "";
           };

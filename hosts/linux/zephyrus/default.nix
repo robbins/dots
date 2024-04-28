@@ -10,7 +10,8 @@
   options,
   specialArgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     # ../../../nixos/agenix.nix
@@ -95,7 +96,7 @@
   };
 
   # Guided Autonomous Mode
-  boot.kernelParams = ["amd_pstate=active"];
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   # Access built-in display backlight without root
   services.udev.extraRules = ''
@@ -103,7 +104,7 @@
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl0", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
   '';
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   services.auto-epp = {
     enable = true;

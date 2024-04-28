@@ -6,7 +6,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ((import ../../modules) inputs) # all my custom HM modules TODO cant pull up to common iirc for some reason maybe its good cause itll evaluate on all hosts which might not be compatible
     ./dconf.nix
@@ -60,9 +61,7 @@
   };
 
   home.packages =
-    [
-      pkgs.prismlauncher
-    ]
+    [ pkgs.prismlauncher ]
     ++ (with pkgs; [
       dconf2nix
       obsidian

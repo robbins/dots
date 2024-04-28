@@ -4,11 +4,13 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.ssh;
-in {
+in
+{
   options.modules.services.ssh = {
-    enable = mkOption {default = false;};
+    enable = mkOption { default = false; };
   };
   config = mkIf cfg.enable (mkMerge [
     {
@@ -41,6 +43,5 @@ in {
         ];
       };
     })
-
   ]);
 }

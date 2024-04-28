@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.rofi;
-in {
+in
+{
   options.modules.gui.rofi = {
     enable = lib.mkEnableOption "Rofi";
   };

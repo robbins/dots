@@ -5,9 +5,11 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.hyprland;
-in {
+in
+{
   options.modules.gui.hyprland = {
     enable = mkEnableOption "Hyprland";
   };

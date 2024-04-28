@@ -6,7 +6,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ((import ../../modules) inputs)
     inputs.hyprland.homeManagerModules.default
@@ -42,8 +43,8 @@
       ripgrep.enable = true;
       git = {
         enable = true;
-	userName = "Nathanael Robbins";
-	userEmail = "nejrobbins@gmail.com";
+        userName = "Nathanael Robbins";
+        userEmail = "nejrobbins@gmail.com";
       };
       ghcli.enable = true;
       neovim.enable = true;

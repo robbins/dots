@@ -5,19 +5,32 @@
   specialArgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.services.virtualization;
-in {
+in
+{
   options.modules.services.virtualization = {
-    enable = mkOption {default = false;};
+    enable = mkOption { default = false; };
   };
   config = mkIf cfg.enable {
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.swtpm.enable = true;
     #    virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMF ];
     programs.dconf.enable = true;
-    environment.systemPackages = with pkgs; [virt-manager swtpm tpm2-tools libtpms looking-glass-client];
-    users.users.${specialArgs.username}.extraGroups = ["libvirtd" "tss" "virt-viewer" "kvm"];
+    environment.systemPackages = with pkgs; [
+      virt-manager
+      swtpm
+      tpm2-tools
+      libtpms
+      looking-glass-client
+    ];
+    users.users.${specialArgs.username}.extraGroups = [
+      "libvirtd"
+      "tss"
+      "virt-viewer"
+      "kvm"
+    ];
     security.tpm2.enable = true;
     security.tpm2.pkcs11.enable = true; # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
     security.tpm2.tctiEnvironment.enable = true; # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
@@ -32,10 +45,18 @@ in {
         user = "libvirtd";
       };
     };
-    boot.kernelModules = ["vfio-pci" "kvmfr"];
+    boot.kernelModules = [
+      "vfio-pci"
+      "kvmfr"
+    ];
     boot.extraModprobeConfig = "options vfio-pci ids=10de:2520,10de:228e";
-    boot.kernelParams = ["iommu=pt" "amd_iommu=on" "vfio-pci.ids=10de:2520,10de:228e" "kvmfr.static_size_mb=32"];
-    boot.blacklistedKernelModules = ["xpad"];
+    boot.kernelParams = [
+      "iommu=pt"
+      "amd_iommu=on"
+      "vfio-pci.ids=10de:2520,10de:228e"
+      "kvmfr.static_size_mb=32"
+    ];
+    boot.blacklistedKernelModules = [ "xpad" ];
     services.udev.extraRules = ''
       SUBSYSTEM=="kvmfr", OWNER="nate", GROUP="kvm", MODE="0600"
     '';
@@ -47,8 +68,8 @@ in {
           "/dev/kvm", "/dev/rtc", "/dev/hpet", "/dev/kvmfr0"
       ]
     '';
-    boot.initrd.kernelModules = ["kvmfr"]; # I think this gets it to always load
-    boot.extraModulePackages = with config.boot.kernelPackages; [kvmfr];
+    boot.initrd.kernelModules = [ "kvmfr" ]; # I think this gets it to always load
+    boot.extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
     services.supergfxd.settings = {
       mode = "Vfio";
       vfio_enable = true;

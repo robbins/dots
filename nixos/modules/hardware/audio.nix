@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.hardware.audio;
-in {
+in
+{
   options.modules.hardware.audio = {
     enable = mkEnableOption "enable";
     bluetooth.enable = mkOption {
@@ -25,7 +27,7 @@ in {
         enable = true;
         support32Bit = true;
       };
-      pulse.enable = true; #TODO: check if we need Pulseaudio backend
+      pulse.enable = true; # TODO: check if we need Pulseaudio backend
     };
     hardware.bluetooth.enable = cfg.bluetooth.enable;
   };

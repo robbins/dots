@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.gui.wayland;
-in {
+in
+{
   options.modules.gui.wayland = {
     enable = lib.mkEnableOption "Wayland";
   };
