@@ -26,7 +26,7 @@
         enable = true;
         persistUserSshKeys = true;
       };
-      virtualization.enable = true;
+      virtualization.enable = false;
       syncthing.enable = true;
       tailscale.enable = true;
     };
