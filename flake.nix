@@ -94,6 +94,7 @@
             pkgs.nix-output-monitor
             pkgs.nh
             args.agenix.packages.${pkgs.system}.default
+            pkgs.nix-inspect
           ];
         };
       });

@@ -27,3 +27,7 @@ boot:
 # Builds and activates the new configuration, and sets it as boot default
 switch:
   nh os switch
+
+# Loads the flake in the current directory (or upwards) in nix-inspect, an interactive Nix expression viewer
+inspect:
+  nix-inspect -p .
