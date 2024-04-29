@@ -41,14 +41,14 @@ let
 in
 genAttrs (builtins.attrNames hostArgs) (
   hostname:
-  mkHost (recursiveMerge [ # modules' is set here and in hosts/platform/hostname/hostname.nix
+  mkHost (recursiveMerge [
+    # modules' is set here and in hosts/platform/hostname/hostname.nix
     {
-      modules' =
-        [
-          ../common/nixconf.nix
-          { networking.hostName = mkDefault "${hostname}"; }
-          (import ../hosts/${platform}/${hostname})
-        ];
+      modules' = [
+        ../common/nixconf.nix
+        { networking.hostName = mkDefault "${hostname}"; }
+        (import ../hosts/${platform}/${hostname})
+      ];
     }
     (hostArgs.${hostname} inputs) # Attribute set of arguments passed to mkNixosSystem from hosts/hostname/hostname.nix
   ])

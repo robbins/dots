@@ -70,15 +70,15 @@
   };
 
   outputs =
-    args@{ self, ... }: # The parameter of the lambda bound to outputs that takes self and all flakes specified in the inputs attribute can be referred to by 'args'.
-                        # It gets renamed to inputs when passed to the module system via specialArgs/extraSpecialArgs.
+    args@{ self, ... }: # The parameter of the lambda bound to outputs that takes self and all flakes specified in the inputs attribute can be referred to by 'args', and is renamed to 'inputs' when passed to the module system via specialArgs/extraSpecialArgs.
     let
-      forAllSystems = function:
-      args.nixpkgs.lib.genAttrs [
+      supportedSystems = [
         "x86_64-linux"
         "x86_64-darwin"
         "aarch64-darwin"
-      ] (system: function args.nixpkgs.legacyPackages.${system});
+      ];
+      forAllSystems = function:
+      args.nixpkgs.lib.genAttrs supportedSystems (system: function args.nixpkgs.legacyPackages.${system});
     in 
     {
       inherit self;

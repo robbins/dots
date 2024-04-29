@@ -20,6 +20,8 @@
       inherit inputs;
       inherit (specialArgs) username hostname;
     };
-    users.${specialArgs.username} = import (../home-manager/homes + "/${specialArgs.username}@${specialArgs.hostname}");
+    users.${specialArgs.username} = import (
+      ../home-manager/homes + "/${specialArgs.username}@${specialArgs.hostname}"
+    );
   };
 }

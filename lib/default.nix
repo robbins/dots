@@ -47,9 +47,7 @@ rec {
   modulesInDir = import ./modulesInDir.nix args;
   modulesInDirRec = import ./modulesInDirRec.nix args;
 
-  gitRev = args:
-    if (args.self ? rev) then
-      args.self.shortRev
-    else
-      throw "Refusing to build from a dirty Git tree!";
+  gitRev =
+    args:
+    if (args.self ? rev) then args.self.shortRev else throw "Refusing to build from a dirty Git tree!";
 }

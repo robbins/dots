@@ -23,7 +23,7 @@ in
         extraPolicies = {
           # Privacy
           EnableTrackingProtection = {
-            Value= true;
+            Value = true;
             Locked = true;
             Cryptomining = true;
             Fingerprinting = true;
@@ -63,27 +63,46 @@ in
         search = {
           force = true;
           default = "Google";
-          order = [ "Google" "DuckDuckGo" ];
+          order = [
+            "Google"
+            "DuckDuckGo"
+          ];
           engines = {
             "Nix Packages" = {
-              urls = [{
-                template = "https://search.nixos.org/packages";
-                params = [
-                  { name = "type"; value = "packages"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }];
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
             };
             "NixOS Modules" = {
-              urls = [{
-                template = "https://search.nixos.org/options";
-                params = [
-                  { name = "type"; value = "options"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }];
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "type";
+                      value = "options";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
             };
@@ -97,11 +116,11 @@ in
           #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
               visibility: collapse !important;
           }
-          
+
           #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
             display: none;
           }
-          
+
           /*
               Display the status bar in Firefox Quantum (version 61+)
               permanently at the bottom of the browser window.
@@ -111,19 +130,19 @@ in
               Tested to work with Firefox 61 on Windows.
               Related blog post: http://www.optimiced.com/en/?p=1727
           */
-          
+
           #browser-bottombox {
             height: 20px;
             border-top: solid 1px #505050;
           }
-          
+
           .browserContainer>#statuspanel {
             left: 4px !important;
             bottom: 0px;
             transition-duration: 0s !important;
             transition-delay: 0s !important;
           }
-          
+
           .browserContainer>#statuspanel>#statuspanel-inner>#statuspanel-label {
             margin-left: 0px !important;
             border: none !important;
@@ -131,36 +150,36 @@ in
             color: #EEE !important;
             background: #333 !important;
           }
-          
+
           window[inFullscreen="true"] #browser-bottombox {
             display: none !important;
           }
-          
+
           window[inFullscreen="true"] .browserContainer>#statuspanel[type="overLink"] #statuspanel-label {
             display: none !important;
           }
-          
+
           #titlebar {
             appearance: none !important;
             height: 0px;
           }
-          
+
           #titlebar > #toolbar-menubar {
             margin-top: 0px;
           }
-          
+
           #TabsToolbar {
             min-width: 0 !important;
             min-height: 0 !important;
           }
-          
+
           #TabsToolbar > .titlebar-buttonbox-container {
             display: block;
             position: absolute;
             top: 12px;
             left: 0px;
           }
-          
+
           #nav-bar toolbarspring {
             min-width: 10px !important;
             max-width: 20px !important;
