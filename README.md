@@ -1,15 +1,23 @@
-# Nate's Nix Dotfiles
+# Nix-based system & user configuration for Linux & macOS
 
 # Structure
-lib:
-- default.nix: All helper functions 
-- mknixossystem.nix: Wrapper around nixpkgs.lib.nixosSystem to easily pass a username, the system & pkgs parameter, and extra modules and overlays
-- mkdarwinsystem.nix: Wrapper around nixpkgs.lib.darwinSystem to easily pass a username, the system & pkgs parameter, and extra modules and overlays
-- genhosts.nix: Merges common modules for all hosts, per-system modules, and all host arguments into an attribute set that is passed to mkNixosSystem/mkDarwinSystem as arguments, and returns an attribute set mapping the result of that function to each hostname
+[common](common): General configuration that can be applied to all systems.
 
-hosts:
-- default.nix: Passes the platform type, host arguments for each host, and the correct function to create the system to genHosts
-- ${platform} 
-  - ${hostname}
-    - default.nix: Main host configuration module
-    - ${hostname}.nix: Arguments to pass to nixosSystem (hostArgs)
+[lib](lib): Helper functions.
+
+[nixos](nixos): Common configuration for NixOS-based systems & my custom NixOS modules.
+
+[darwin](darwin): Common configuration for macOS-based systems (no custom modules yet!).
+
+[hosts](hosts): Machine-specific configuration for NixOS and macOS.
+
+[home-manager/homes](home-manager/homes): User-specific home-manager configs for each system.
+
+[home-manager/modules](home-manager/modules): My custom home-manager modules.
+
+[scripts](scripts): Misc. scripts.
+
+[secrets](secrets): Encrypted secrets managed with Agenix.
+
+# Management
+Just run `just`.
