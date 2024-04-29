@@ -31,3 +31,7 @@ switch:
 # Loads the flake in the current directory (or upwards) in nix-inspect, an interactive Nix expression viewer
 inspect:
   nix-inspect -p .
+
+# Updates the given flake input (or all inputs if no input is provided) and commits the changes
+update input='':
+  nix flake update $1 --commit-lock-file
