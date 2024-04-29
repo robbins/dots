@@ -70,15 +70,32 @@
   };
 
   outputs =
-    args@{ self, ... }:
+    args@{ self, ... }: # The parameter of the lambda bound to outputs that takes self and all flakes specified in the inputs attribute can be referred to by 'args'.
+                        # It gets renamed to inputs when passed to the module system via specialArgs/extraSpecialArgs.
+    let
+      forAllSystems = function:
+      args.nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ] (system: function args.nixpkgs.legacyPackages.${system});
+    in 
     {
-      # The attribute set argument to outputs taking self + all flakes specified in the inputs attribute can be referred to by 'args'. 
-      # It gets renamed to inputs when passed to the module system via specialArgs/extraSpecialArgs
       inherit self;
       mylib = import ./lib args;
       formatter.x86_64-linux = args.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       formatter.aarch64-darwin = args.nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
       nixosConfigurations = import ./hosts "linux" args;
       darwinConfigurations = import ./hosts "darwin" args;
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.just
+            pkgs.nix-output-monitor
+            pkgs.nh
+            args.agenix.packages.${pkgs.system}.default
+          ];
+        };
+      });
     };
 }
