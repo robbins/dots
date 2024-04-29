@@ -82,11 +82,15 @@
     in 
     {
       inherit self;
+
       mylib = import ./lib args;
+
       formatter.x86_64-linux = args.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       formatter.aarch64-darwin = args.nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+
       nixosConfigurations = import ./hosts "linux" args;
       darwinConfigurations = import ./hosts "darwin" args;
+
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           packages = [

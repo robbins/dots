@@ -1,19 +1,18 @@
-/*
-    *
-  genhosts
-
+/**
   Generates NixOS or Darwin configurations used as the value of the nixosConfigurations or darwinConfigurations flake output by passing hostArgs to mk{Nixos/Darwin}System wrapper
 
   # Type
-  { ... } -> String -> { ... } -> ( { ... } -> { ... } -> { ... } ) -> { ${hostname} :: a }
+
+  ```
+  genHosts :: AttrSet -> String -> AttrSet -> (AttrSet -> AttrSet -> AttrSet) -> { ${hostname} :: AttrSet }
+  ```
 
   # Arguments
-  inputs: Attribute set of flake references (top-level flake.nix inputs attribute + self)
-  hostArgs: An attribute set of hostnames to attribute sets of arguments passed to mkHost
-  mkHost: The function that generates the system configuration, either mkNixosSystem or mkDarwinSystem, wrappers to either nixosSystem or darwinSystem that pass hostArgs (the result of hosts/platform/hostname/hostname.nix)
 
-  # Final value
-  Attribute set mapping hostnames to mk{Nixos/Darwin}System
+  [inputs] The argument to the flake's top-level outputs attribute comprised of the flake inputs and `self`
+  [platform] The host platform
+  [hostArgs] An attribute set of hostnames to attribute sets of arguments passed to mkHost
+  [mkHost] The function that generates the system configuration. One of either mkNixosSystem or mkDarwinSystem which are wrappers around nixosSystem/darwinSystem that pass hostArgs
 */
 inputs: platform: hostArgs: mkHost:
 
@@ -41,8 +40,7 @@ let
 in
 genAttrs (builtins.attrNames hostArgs) (
   hostname:
-  mkHost (recursiveMerge [
-    # modules' is set here and in hosts/platform/hostname/hostname.nix
+  mkHost (recursiveMerge [ # modules' is set here and in hosts/platform/hostname/hostname.nix
     {
       modules' = [
         ../common/nixconf.nix

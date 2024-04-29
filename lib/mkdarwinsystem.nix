@@ -1,23 +1,21 @@
-/*
-    *
-  mkDarwinSystem
-
-  Wrapper around darwinSystem to pass username & flake inputs to the NixOS module system, as well as set the system , a list of default plus optional modules and overlays, and the nixpkgs input to use to build the system
+/**
+  Wrapper around darwinSystem
 
   # Type
-  { ... } -> { ... } -> { ... }
+
+  ```
+  mkDarwinSystem :: AttrSet -> AttrSet -> AttrSet
+  ```
 
   # Arguments
-  inputs: Attribute set of flake references (top-level flake.nix inputs attribute + self)
-  { ... }: misc. arguments used in nixosSystem call
-  username: Linux user name used for specifying the home directory, etc.
-  system: Required argument to nixosSystem
-  modules': Custom NixOS modules for a specific system
-  overlays': Custom overlays for a specific system
-  pkgsForSystem: the Nixpkgs input used as the package set for the system. Typically either nixpkgs-unstable or nixos-unstable
 
-  # Final value
-  A call to darwinSystem
+  [inputs] The argument to the flake's top-level outputs attribute comprised of the flake inputs and `self`
+  [system] Required argument to nixosSystem
+  [username] MacOS user name used for specifying the home directory, etc.
+  [hostname] MacOS system hostname
+  [modules'] Custom nix-darwin modules to import
+  [overlays'] Custom overlays to apply to pkgs
+  [pkgsForSystem] the Nixpkgs flake input used as the package set for the system. Typically either nixos-stable or nixos-unstable
 */
 inputs:
 {

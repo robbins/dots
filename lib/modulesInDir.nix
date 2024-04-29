@@ -1,5 +1,19 @@
-inputs:
-with inputs.nixpkgs.lib;
+  /**
+    Return a list of .nix files in a directory
+
+    # Type
+
+    ```
+    modulesRec :: AttrSet -> Path -> [String]
+
+    # Arguments
+
+    - [args] The argument to the flake's top-level outputs attribute comprised of the flake inputs and `self`
+    - [currentDir] The path of the directory to search
+    ```
+  */
+args:
+with args.nixpkgs.lib;
 with builtins;
 let
   modulesRec =
