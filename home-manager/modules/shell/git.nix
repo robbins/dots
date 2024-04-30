@@ -23,8 +23,23 @@ in
 
   config = mkIf cfg.enable {
     programs.zsh.shellAliases = {
+      # Git commands
       g = "git";
+      gco = "git checkout";
+      gcb = "git checkout -b";
+      gcp = "git cherry-pick";
+      gs = "git status";
+      gsh = "git show";
+      ga = "git add";
+      gaa = "git add .";
+      gc = "git commit";
+      gcm = "git commit -m";
+      gssl = "git stash show -p";
+      gb = "git reset HEAD~1";
+      gB = "git reset HEAD~1 --hard";
+      # Macros
       fixup = "git add . && git commit --amend --no-edit";
+      cdgr="cd '$(git rev-parse --show-toplevel)'";
     };
     programs.git = {
       enable = true;
@@ -57,18 +72,24 @@ in
         };
       };
       aliases = {
-        "s" = "status";
-        "c" = "commit";
-        "cm" = "commit -m";
-        "co" = "checkout";
-        "sh" = "show";
-        "a" = "add";
-        "aa" = "add .";
+        co = "checkout";
+        cb = "checkout -b";
+        cp = "cherry-pick";
+        s = "status";
+        sh = "show";
+        a = "add";
+        aa = "add .";
+        c = "commit";
+        cm = "commit -m";
+        ssl = "stash show -p";
+        b = "reset HEAD~1";
+        B = "reset HEAD~1 --hard";
         "r" = "rebase";
         "ri" = "rebase -i";
         "l" = "log";
         "ll" = "log --graph --pretty --decorate --all";
         "lm" = "log --graph --abbrev-commit --pretty --decorate --all --oneline";
+        "unstage" = "git restore --staged";
       };
     };
   };
