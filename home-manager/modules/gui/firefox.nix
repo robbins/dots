@@ -7,8 +7,8 @@
   specialArgs,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.gui.firefox;
 in
 {
@@ -19,23 +19,48 @@ in
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin.override {
-        extraPolicies = {
-          # Privacy
-          EnableTrackingProtection = {
-            Value = true;
-            Locked = true;
-            Cryptomining = true;
-            Fingerprinting = true;
-          };
-          DisablePocket = true;
-          DontCheckDefaultBrowser = true;
-          DisableFirefoxAccounts = true;
-          DNSOverHTTPS = true;
-          OfferToSaveLogins = false;
+      package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+      policies = {
+        # Privacy
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
         };
+        DisablePocket = true;
+        DNSOverHTTPS = true;
+
+        DontCheckDefaultBrowser = true;
+        OfferToSaveLogins = false;
       };
       profiles.default = {
+        bookmarks = [
+          {
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "Nix Sites";
+                bookmarks = [
+                  { name = "Dotfiles"; url = "https://github.com/robbins/dots"; }
+                  { name = "Nixpkgs"; url = "github.com/NixOS/nixpkgs"; }
+                  { name = "Home-Manager"; url = "https://github.com/nix-community/home-manager"; }
+                  { name = "Noogle"; url = "https://noogle.dev"; }
+                  { name = "NixOS Wiki"; url = "https://wiki.nixos.org"; }
+                  { name = "NixOS Manual"; url = "https://nixos.org/manual/nix/unstable"; }
+                ];
+              }
+              {
+                name = "UofT";
+                bookmarks = [
+                  { name = "Piazza"; url = "https://piazza.com/class"; }
+                  { name = "Quercus"; url = "https://q.utoronto.ca"; }
+                  { name = "Acorn"; url = "https://acorn.utoronto.ca"; }
+                ];
+              }
+            ];
+          }
+        ];
         extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           bitwarden
           darkreader
@@ -48,6 +73,7 @@ in
         settings = {
           "browser.aboutConfig.showWarning" = false;
           "browser.compactmode.show" = true;
+
           # Allow custom userChrome stylesheets
           "toolkit.legacyUserProfileCustomizations" = true;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
