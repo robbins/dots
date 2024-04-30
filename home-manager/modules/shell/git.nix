@@ -4,8 +4,8 @@
   lib,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkEnableOption mkOption mkIf;
   cfg = config.modules.shell.git;
 in
 {
