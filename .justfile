@@ -10,11 +10,11 @@ check:
 
 # Builds a NixOS configuration given a hostname
 nbuild hostname:
-  nom build ".#nixosConfigurations.$1.config.system.build.toplevel"
+  nom build ".?submodules=1#nixosConfigurations.$1.config.system.build.toplevel"
 
 # Builds a Darwin configuration given a hostname
 dbuild hostname:
-  nom build ".#darwinConfigurations.$1.config.system.build.toplevel"
+  nom build ".?submodules=1#darwinConfigurations.$1.config.system.build.toplevel"
 
 # Builds and activates the new configuration
 try:
