@@ -1,0 +1,3 @@
+[submodule "packages/pragmata-pro-mono-liga"]
+	path = packages/pragmata-pro-mono-liga
+	url = https://github.com/robbins/pragmata-pro-mono-liga

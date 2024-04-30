@@ -61,7 +61,13 @@
   };
 
   home.packages =
-    [ pkgs.prismlauncher ]
+    [
+      pkgs.prismlauncher
+      # TODO: font configuration module
+      inputs.self.packages.${pkgs.system}.apple-fonts
+      inputs.self.packages.${pkgs.system}.pragmata-pro-mono-liga
+      inputs.self.packages.${pkgs.system}.nerd-fonts-symbols-only
+    ]
     ++ (with pkgs; [
       dconf2nix
       obsidian
