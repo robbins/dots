@@ -21,6 +21,7 @@
       wayvnc.enable = true;
     };
     gui = {
+      fonts.enable = true;
       cursors.enable = true;
       kitty = {
         enable = true;
