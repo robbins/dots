@@ -17,8 +17,13 @@ in
     programs.waybar = {
       style = ./bar.css;
       enable = true;
-      package = pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      package = pkgs.waybar.overrideAttrs (oldAttrs: { # TODO: Revert when Waybar 0.10.3 lands in Nixpkgs
+        src = pkgs.fetchFromGitHub {
+          owner = "Alexays";
+          repo = "Waybar";
+          rev = "f41458ea24a57bb71b629089396c31fe4dd97f1c";
+          hash = "sha256-rgBFaUVE8x/NoZyq8TK20IqbTBQa4deYm+Jc+L2aHEg=";
+        };
       });
       settings = [
         {
@@ -125,6 +130,12 @@ in
           "clock" = {
             interval = 60;
             format = "{:%I:%M %p}";
+          };
+          "hyprland/workspaces" = {
+            disable-scroll = false;
+            format = "{name}";
+            persistent-workspaces = {
+            };
           };
         }
       ];
