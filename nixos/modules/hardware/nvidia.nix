@@ -21,6 +21,7 @@ in
     };
 
     hardware.nvidia = {
+      open = true;
       dynamicBoost.enable = false;
       powerManagement.finegrained = true;
       nvidiaPersistenced = false;
