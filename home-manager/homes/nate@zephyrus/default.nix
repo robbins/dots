@@ -38,6 +38,7 @@
       moonlight.enable = true;
     };
     dev = {
+      android.enable = true;
       shell.enable = true;
     };
     shell = {
