@@ -19,6 +19,10 @@ in
       hardware.opengl.driSupport32Bit = true;
       environment.systemPackages = [
         pkgs.lutris
+        pkgs.wineWowPackages.full
+        pkgs.wine64Packages.full
+        pkgs.winetricks
+        pkgs.wineWowPackages.waylandFull
       ];
     }
 
