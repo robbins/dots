@@ -15,6 +15,9 @@
   imports = [ ./hardware-configuration.nix ];
 
   modules = {
+    programs = {
+      lutris.enable = true;
+    };
     services = {
       docker.enable = false;
       ssh.enable = true;
