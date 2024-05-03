@@ -25,6 +25,9 @@ in
     networking = {
       useDHCP = false;
       useNetworkd = false;
+      hosts = {
+        "192.168.2.175" = [ "oneplus7pro" ];
+      };
     };
     services.resolved = {
       enable = true;
