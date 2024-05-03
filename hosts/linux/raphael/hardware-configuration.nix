@@ -96,6 +96,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/games" = {
+    device = "raphael/local/games";
+    fsType = "zfs";
+  };
+
   swapDevices = [ { device = "/dev/disk/by-uuid/bda5f1d0-82d0-4b98-bddc-19a11263aac5"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
