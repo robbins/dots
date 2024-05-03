@@ -86,6 +86,7 @@ in
                   ".config/android"
                   ".config/Google"
                   ".cache/Google"
+                  ".local/share/Google"
                 ]
               else
                 [ ]
