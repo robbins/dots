@@ -31,7 +31,7 @@
       wayland.enable = true;
       bar.enable = true;
       rofi.enable = true;
-      microsoftEdge.enable = true;
+      firefox.enable = true;
       mako.enable = true;
     };
     dev = {
