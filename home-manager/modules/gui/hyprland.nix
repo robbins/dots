@@ -30,9 +30,8 @@ in
         	#
         	
         	# See https://wiki.hyprland.org/Configuring/Monitors/
-        	monitor=DP-1,3840x2160@120,0x0,1.00,bitdepth,10
-                monitor=HDMI-A-1,1920x1080@74,3840x0,1,transform,3 # 125% scale
-                #monitor=HDMI-A-1,1920x1080@74,3072x0,1,transform,3 # 125% scale
+        	monitor=DP-4,3840x2160@144,0x0,1.00,bitdepth,10
+                monitor=HDMI-A-2,1920x1080@74,3840x0,1,transform,3
         	monitor=eDP-1,1920x1080@144,0x0,1
         	monitor=,preferred,auto,auto
         	
@@ -243,16 +242,16 @@ in
                   force_zero_scaling = true
                 }
 
-                workspace = 1, monitor:DP-1
-                workspace = 2, monitor:DP-1
-                workspace = 3, monitor:DP-1
-                workspace = 4, monitor:DP-1
-                workspace = 5, monitor:DP-1
-                workspace = 6, monitor:HDMI-A-1
-                workspace = 7, monitor:HDMI-A-1
-                workspace = 8, monitor:HDMI-A-1
-                workspace = 9, monitor:HDMI-A-1
-                workspace = 10, monitor:HDMI-A-1
+                workspace = 1, monitor:DP-4
+                workspace = 2, monitor:DP-4
+                workspace = 3, monitor:DP-4
+                workspace = 4, monitor:DP-4
+                workspace = 5, monitor:DP-4
+                workspace = 6, monitor:HDMI-A-2
+                workspace = 7, monitor:HDMI-A-2
+                workspace = 8, monitor:HDMI-A-2
+                workspace = 9, monitor:HDMI-A-2
+                workspace = 10, monitor:HDMI-A-2
       '';
     };
   };
