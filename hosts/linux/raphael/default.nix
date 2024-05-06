@@ -19,7 +19,7 @@
       lutris.enable = true;
     };
     services = {
-      docker.enable = false;
+      docker.enable = true;
       ssh.enable = true;
       persistence.system = {
         enable = true;
