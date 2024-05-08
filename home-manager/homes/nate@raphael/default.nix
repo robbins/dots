@@ -17,6 +17,7 @@
 
   modules = {
     services = {
+      virtualization.enable = true;
       xdg.enable = true;
       wayvnc.enable = true;
     };

@@ -19,7 +19,8 @@
       lutris.enable = false;
     };
     services = {
-      docker.enable = true;
+      virtualization.enable = true;
+      docker.enable = false;
       ssh.enable = true;
       persistence.system = {
         enable = true;
