@@ -16,7 +16,7 @@
 
   modules = {
     programs = {
-      lutris.enable = true;
+      lutris.enable = false;
     };
     services = {
       docker.enable = true;
