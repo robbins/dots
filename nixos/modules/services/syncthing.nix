@@ -5,8 +5,8 @@
   specialArgs,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkOption mkIf;
   cfg = config.modules.services.syncthing;
 in
 {
@@ -52,6 +52,13 @@ in
           };
           "Wallpapers" = {
             path = "/home/${specialArgs.username}/pictures/wallpapers";
+            devices = [
+              "zephyrus"
+              "raphael"
+            ];
+          };
+          "Books" = {
+            path = "/home/${specialArgs.username}/data/books";
             devices = [
               "zephyrus"
               "raphael"
