@@ -78,6 +78,10 @@
 
   users.users."root".password = "1";
 
+  users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" ];
+
+  options.services.cuttlefish-base.enable = true;
+
   # Meta
   system.stateVersion = "23.05";
 }
