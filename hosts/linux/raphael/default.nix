@@ -80,7 +80,7 @@
 
   users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" ];
 
-  prorams.cuttlefish-base.enable = true;
+  programs.cuttlefish-base.enable = true;
 
   # Meta
   system.stateVersion = "23.05";
