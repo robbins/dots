@@ -247,7 +247,7 @@ in
                 workspace = 3, monitor:DP-4
                 workspace = 4, monitor:DP-4
                 workspace = 5, monitor:DP-4
-                workspace = 6, monitor:HDMI-A-2
+                workspace = 6, monitor:DP-4
                 workspace = 7, monitor:HDMI-A-2
                 workspace = 8, monitor:HDMI-A-2
                 workspace = 9, monitor:HDMI-A-2
