@@ -20,13 +20,20 @@ in
       enable = true;
       settings = {
         general = {
-          grace = 300;
+          grace = 5;
         };
         background = [
           {
             path = "/home/${specialArgs.username}/pictures/wallpapers/apple-macbook-pro-stock-2021-apple-event-2021-dark-mode-6016x5468-6759.jpg";
-            blur_passes = 3;
-            blur_size = 8;
+            blur_passes = 0;
+            blur_size = 2;
+          }
+        ];
+        input-field = [
+          {
+            size = "200, 50";
+            position = "0, -80";
+            hide_input = false;
           }
         ];
       };
