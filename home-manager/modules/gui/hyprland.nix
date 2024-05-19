@@ -230,9 +230,9 @@ in
         	binde=, XF86MonBrightnessDown, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl1/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl1/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null
         	binde=, XF86MonBrightnessUp, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl1/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl1/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null
 
-                bind = $mainMod, L, exec, swaylock
+                bind = $mainMod, L, exec, hyprlock # Make a variable so we can change it defined by lockscreen module
 
-                bindl=,switch:on:Lid Switch, exec, swaylock
+                bindl=,switch:on:Lid Switch, exec, hyprlock
 
                 bind = , Print, exec, grim -t png -g "$(slurp -d)" ${config.xdg.userDirs.pictures}/screenshots/$(date +'%F_%I-%M-%S_%p.png') | wl-copy
 

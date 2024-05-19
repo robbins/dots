@@ -17,7 +17,7 @@ in
 
   config =
     let
-      lock = "${config.programs.swaylock.package}/bin/swaylock -fF";
+      lock = "${config.programs.hyprlock.package}/bin/hyprlock";
       suspend = "${pkgs.coreutils}/bin/sleep 1 && ${pkgs.systemd}/bin/systemctl suspend";
       isOnBattery = pkgs.writeShellScript "is-on-battery" ''
         [ "$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/AC0/online)" = "0" ] || exit 1

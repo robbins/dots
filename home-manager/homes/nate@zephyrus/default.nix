@@ -33,7 +33,7 @@
       bar.enable = true;
       rofi.enable = true;
       firefox.enable = true;
-      swaylock.enable = true;
+      lockscreen.enable = true;
       mako.enable = true;
       moonlight.enable = true;
     };
