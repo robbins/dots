@@ -24,7 +24,7 @@
   boot.extraModulePackages = [ ];
 
   services.logind.extraConfig = ''
-    RuntimeDirectorySize=12G
+    RuntimeDirectorySize=32G
   '';
 
   fileSystems."/" = {
