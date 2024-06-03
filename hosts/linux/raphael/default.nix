@@ -57,6 +57,10 @@
           interfaceName = "wlan0";
           dhcp = "ipv4";
         };
+        wired = {
+          enable = true;
+          interfaceName = "enp11s0";
+        };
       };
       filesystems = {
         enable = true;
