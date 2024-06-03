@@ -43,8 +43,9 @@
 
     # Programs
     hyprland = {
-      url = "github:vaxerski/Hyprland";
-      inputs.nixpkgs.follows = "nixos-unstable";
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
