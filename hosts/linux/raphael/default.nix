@@ -86,6 +86,11 @@
 
   programs.cuttlefish-base.enable = true;
 
+  fonts.fontconfig = {
+    hinting.style = "none";
+    hinting.enable = false;
+  };
+
   # Meta
   system.stateVersion = "23.05";
 }

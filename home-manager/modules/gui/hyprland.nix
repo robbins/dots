@@ -34,8 +34,6 @@ in
                 monitor=HDMI-A-2,1920x1080@74,3840x0,1,transform,3
         	monitor=eDP-1,1920x1080@144,0x0,1
         	monitor=,preferred,auto,auto
-
-                monitor=DP-4,addreserved,-10,0,0,0
         	
         	# See https://wiki.hyprland.org/Configuring/Keywords/ for more
         	
@@ -92,14 +90,17 @@ in
         	    blur {
         	        enabled = true 
         	        size = 3
-        	        passes = 1
-        	        
-        	        vibrancy = 0.1696
+        	        passes = 7
+                        noise = 0.0117
+                        contrast = 0.8916
+                        # 0.8172
+                        brightness = 1
+                        vibrancy = 0.1696
+                        vibrancy_darkness = 0
         	    }
-
                     layerrule = blur,waybar
         	
-        	    drop_shadow = true
+        	    drop_shadow = true 
         	    shadow_range = 4
         	    shadow_render_power = 3
         	    col.shadow = rgba(1a1a1aee)
