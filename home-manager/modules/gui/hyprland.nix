@@ -90,12 +90,14 @@ in
         	    rounding = 3
         	
         	    blur {
-        	        enabled = false
+        	        enabled = true 
         	        size = 3
         	        passes = 1
         	        
         	        vibrancy = 0.1696
         	    }
+
+                    layerrule = blur,waybar
         	
         	    drop_shadow = true
         	    shadow_range = 4
