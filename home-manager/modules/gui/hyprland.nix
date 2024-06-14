@@ -34,6 +34,8 @@ in
                 monitor=HDMI-A-2,1920x1080@74,3840x0,1,transform,3
         	monitor=eDP-1,1920x1080@144,0x0,1
         	monitor=,preferred,auto,auto
+
+                monitor=DP-4,addreserved,-10,0,0,0
         	
         	# See https://wiki.hyprland.org/Configuring/Keywords/ for more
         	
