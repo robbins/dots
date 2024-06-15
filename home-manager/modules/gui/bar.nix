@@ -20,6 +20,7 @@ in
         {
           layer = "top";
           height = 47;
+          reload_style_on_change = true;
           modules-left = [ "custom/logo" "hyprland/window" "hyprland/workspaces" ];
           modules-center = [ "" ];
           modules-right = [
