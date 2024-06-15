@@ -97,6 +97,7 @@ in
                         brightness = 1
                         vibrancy = 0.1696
                         vibrancy_darkness = 0
+                        popups = true
         	    }
                     layerrule = blur,waybar
         	

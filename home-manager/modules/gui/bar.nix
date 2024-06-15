@@ -19,13 +19,33 @@ in
       settings = [
         {
           layer = "top";
-          height = 47;
+          height = 32;
           reload_style_on_change = true;
+          spacing = 20;
           modules-left = [ "custom/logo" "hyprland/window" "hyprland/workspaces" ];
-          modules-center = [ "" ];
+          modules-center = [ ];
           modules-right = [
+            "battery"
+            "network#wired"
+            "network#wireless"
+            "custom/search"
             "clock"
           ];
+          "network#wireless" = {
+            interface = "wlan0";
+            format = "{icon}";
+            format-icons = [
+              "󰖩"
+            ];
+            tooltip-format = "{essid} {ipaddr} on {ifname} at {frequency} via {gwaddr}";
+            on-click = "kitty --hold zsh -c 'ip a show dev wlan0'";
+          };
+          "network#wired" = {
+            interface = "enp11s0";
+            format = "󰈀";
+            tooltip-format = "{ipaddr}/{cidr} on {ifname} at {bandwidthDownBytes} via {gwaddr}";
+            on-click = "kitty --hold zsh -c 'ip a show dev enp11s0'";
+          };
           "clock" = {
             interval = 60;
             format = "{:%a %b %d  %I:%M %p}";
@@ -36,6 +56,11 @@ in
           };
           "custom/logo" = {
             format = "";
+            on-click = "kitty --hold zsh -c 'fastfetch'";
+          };
+          "custom/search" = {
+            format = "";
+            on-click = "rofi -show drun";
           };
           "hyprland/workspaces" = {
             disable-scroll = false;
@@ -43,8 +68,22 @@ in
             persistent-workspaces = {
             };
           };
+          "battery" = {
+            format = "{capacity}% {icon}";
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
+            format-charging = "{capacity}% {time}";
+            format-discharging = "{icon} {capacity}% {time}";
+            format-plugged = " {capacity}%";
+            format-alt = "󰊚{power}";
+          };
         }
-      ];
-    };
+     ];
   };
+};
 }
