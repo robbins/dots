@@ -21,7 +21,7 @@ in
           layer = "top";
           height = 32;
           reload_style_on_change = true;
-          spacing = 20;
+          spacing = 0;
           modules-left = [ "custom/logo" "hyprland/window" "hyprland/workspaces" ];
           modules-center = [ ];
           modules-right = [
@@ -50,10 +50,6 @@ in
             interval = 60;
             format = "{:%a %b %d  %I:%M %p}";
           };
-          "hyprland/window" = {
-            separate-outputs = true;
-            max-length = 200;
-          };
           "custom/logo" = {
             format = "";
             on-click = "kitty --hold zsh -c 'fastfetch'";
@@ -71,16 +67,25 @@ in
           "battery" = {
             format = "{capacity}% {icon}";
             format-icons = [
-              ""
-              ""
-              ""
-              ""
-              ""
+              "􀛪"
+              "􀛩"
+              "􀛨"
             ];
-            format-charging = "{capacity}% {time}";
+            format-charging = "􀢋{capacity}% {time}";
             format-discharging = "{icon} {capacity}% {time}";
-            format-plugged = " {capacity}%";
+            format-plugged = "􀡸 {capacity}%";
             format-alt = "󰊚{power}";
+          };
+          "hyprland/window" = {
+            separate-outputs = true;
+            rewrite = {
+              "(.*Obsidian.*)" = "Obsidian";
+              "(.*) - Chromium" = "Chromium";
+              "^(?!.*Firefox).*(\\/[^\\/\\s]+)+" = "Terminal";
+              "(.*) — Firefox Nightly" = "Firefox Nightly";
+              "(.*vim.*)" = "Terminal";
+              "(.*~.*)" = "Terminal";
+            };
           };
         }
      ];

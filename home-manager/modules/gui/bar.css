@@ -4,37 +4,62 @@
     font-family: "SF Pro Display", "Symbols Nerd Font";
     font-size: 20px;
     color: rgba(0, 0, 0, 1);
-    letter-spacing: 1px;
     font-weight: 400;
     padding: 0;
     margin: 0;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+
+    /* Fade out highlight */
+    transition-property: background-color;
+    transition-duration: .3s;
+}
+
+*:hover {
+    /* Remove default hover effect */
+    box-shadow: inherit;
+    text-shadow: inherit;
+    /* Background highlight */
+    background: rgba(255,255,255,0.1);
+    /* Rounded corners */
+    border-radius: 6px;
+    /* Fade in highlight */
+    transition-property: background-color;
+    transition-duration: .3s;
+    padding: 0px 20px;
+
+}
+
+tooltip label {
+  color: white;
+}
+
+tooltip {
+    border-radius: 6px;
+    background: rgba(27, 27, 27, 1);
 }
 
 window#waybar {
     background: rgba(255, 255, 255, 0.35);
 }
 
-#clock {
-        margin-right: 36px;
-        padding-left: 4px;
-        padding-right: 4px;
+#custom-logo {
+        margin-left: 20px;
+        padding: 0px 10px;
+        font-size: 23px;
 }
 
-#custom-logo {
-        margin-left: 30px;
-        padding-left: 4px;
-        padding-right: 4px;
-        font-size: 24px;
+#custom-logo:hover {
+        padding: 0px 10px;
 }
 
 #window {
-        margin-left: 30px;
-        font-weight: 600;
+    padding: 0px 20px;
+}
+
+#window:hover {
 }
 
 #workspaces {
-        margin-left: 25px;
 }
 
 #workspaces button {
@@ -59,60 +84,37 @@ window#waybar {
     border-radius: 6px;
     padding-left: 4px;
     padding-right: 4px;
-    background: rgba(67,67,67,0.2);
+    background: rgba(255,255,255,0.1);
+    /* background: rgba(67,67,67,0.2); Dark highlight */
     box-shadow: inherit;
     text-shadow: inherit;
 }
 
-#custom-search {
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-bottom: 4px;
-    margin-top: 4px;
-    margin-right: 35px;
+#workspaces:hover {
+        background: transparent;
+        padding: 0px;
 }
 
 #network {
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-bottom: 4px;
-    margin-top: 4px;
-    margin-right: 20px;
+    padding: 0px 20px;
 }
 
 #network:hover {
-    border-radius: 6px;
-    background: rgba(67,67,67,0.2);
-    box-shadow: inherit;
-    text-shadow: inherit;
+}
+
+#custom-search {
+    padding: 0px 20px;
 }
 
 #custom-search:hover {
-    border-radius: 6px;
-    background: rgba(67,67,67,0.2);
-    box-shadow: inherit;
-    text-shadow: inherit;
+    padding: 0px 20px;
 }
 
-#custom-logo:hover {
-    border-radius: 6px;
-    background: rgba(67,67,67,0.2);
-    box-shadow: inherit;
-    text-shadow: inherit;
+#clock {
+        margin-right: 10px;
+        padding: 0px 20px;
 }
 
 #clock:hover {
-    border-radius: 6px;
-    background: rgba(67,67,67,0.2);
-    box-shadow: inherit;
-    text-shadow: inherit;
-}
-
-tooltip label {
-  color: white;
-}
-
-tooltip {
-    border-radius: 6px;
-    background: rgba(27, 27, 27, 1);
+    padding: 0px 20px;
 }
