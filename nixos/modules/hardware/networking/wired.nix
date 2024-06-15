@@ -22,7 +22,7 @@ in
 
   config = lib.mkIf cfg.enable {
     systemd.network.networks = {
-      "30-wired" = {
+      "10-wired" = {
         matchConfig = {
           Name = "${cfg.interfaceName}";
         };
@@ -32,7 +32,7 @@ in
         dhcpV4Config = {
           UseDNS = false;
           UseRoutes = true;
-          RouteMetric = 30;
+          RouteMetric = 100;
         };
       };
     };

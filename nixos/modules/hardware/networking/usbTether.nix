@@ -32,7 +32,7 @@ in
         dhcpV4Config = {
           UseDNS = false;
           UseRoutes = true;
-          RouteMetric = 10;
+          RouteMetric = 200;
         };
       };
     };

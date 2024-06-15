@@ -24,7 +24,7 @@ in
     };
     networking = {
       useDHCP = false;
-      useNetworkd = false;
+      useNetworkd = true;
       hosts = {
         "192.168.2.175" = [ "oneplus7pro" ];
       };

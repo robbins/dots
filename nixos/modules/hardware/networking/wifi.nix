@@ -40,7 +40,7 @@ in
       };
 
       systemd.network.networks = {
-        "25-wireless" = {
+        "30-wireless" = {
           matchConfig = {
             Name = "${cfg.interfaceName}";
           };
@@ -50,7 +50,7 @@ in
           dhcpV4Config = {
             UseDNS = false;
             UseRoutes = true;
-            RouteMetric = 20;
+            RouteMetric = 300;
           };
         };
       };
