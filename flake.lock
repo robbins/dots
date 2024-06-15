@@ -759,16 +759,16 @@
     },
     "nixos-unstable": {
       "locked": {
-        "lastModified": 1715653383,
-        "narHash": "sha256-6ar3HXCn16zvqizFzB5R/7A2UsoyR9iZfRpjNzPnmY8=",
-        "owner": "robbins",
+        "lastModified": 1718318537,
+        "narHash": "sha256-4Zu0RYRcAY/VWuu6awwq4opuiD//ahpc2aFHg2CWqFY=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b0632d86ab50a324d03420a54e78ff005ac25bef",
+        "rev": "e9ee548d90ff586a6471b4ae80ae9cfcbceb3420",
         "type": "github"
       },
       "original": {
-        "owner": "robbins",
-        "ref": "cuttlefish-on-unstable",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }

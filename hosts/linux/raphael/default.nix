@@ -84,12 +84,7 @@
 
   users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" ];
 
-  programs.cuttlefish-base.enable = true;
-
-  fonts.fontconfig = {
-    hinting.style = "none";
-    hinting.enable = false;
-  };
+  # programs.cuttlefish-base.enable = true;
 
   # Meta
   system.stateVersion = "23.05";
