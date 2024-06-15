@@ -217,9 +217,9 @@ in
         extraPackages =
           with pkgs;
           [
-            nixd
+            nil
             lua-language-server
-            nodePackages_latest.pyright
+            pyright
             nodePackages_latest.typescript-language-server
             typescript
           ]

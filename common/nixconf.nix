@@ -41,10 +41,10 @@
       auto-optimise-store = true;
       max-jobs = 4;
       cores = 3;
-      log-lines = 15;
+      log-lines = 30;
       fsync-metadata = lib.mkIf (!config.wsl.enable) config.fileSystems."/nix".fsType != "zfs";
     };
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
     gc = {
       automatic = true;
       dates = "monthly";
