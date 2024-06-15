@@ -93,7 +93,7 @@
             import args.nixpkgs {
               inherit system;
               config.allowUnfree = true;
-              overlays = [ args.neovim-nightly.overlay ];
+              overlays = [ args.neovim-nightly.overlays.default ];
             }
           )
         );
