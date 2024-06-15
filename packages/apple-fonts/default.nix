@@ -24,6 +24,11 @@ stdenv.mkDerivation (finalAttrs: {
     sha256 = "sha256-tn1QLCSjgo5q4PwE/we80pJavr3nHVgFWrZ8cp29qBk=";
   };
 
+  symbols = fetchurl {
+    url = "https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-6.dmg";
+    sha256 = "sha256-aEOSjaezFKQ2f1BMjIeUcyLxqoWvTnOFnlHfP8CFz8M=";
+  };
+
   nativeBuildInputs = [ p7zip ];
 
   sourceRoot = ".";
@@ -56,6 +61,12 @@ stdenv.mkDerivation (finalAttrs: {
     7z x ${finalAttrs.ny}
     cd NYFonts
     7z x 'NY Fonts.pkg'
+    7z x 'Payload~'
+    mv Library/Fonts/* $out/fontfiles
+    
+    7z x ${finalAttrs.symbols}
+    cd SFSymbols
+    7z x 'SF Symbols.pkg'
     7z x 'Payload~'
     mv Library/Fonts/* $out/fontfiles
 
