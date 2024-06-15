@@ -29,7 +29,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixos-unstable";
-      inputs.darwin.follows = "";
+      inputs.darwin.follows = ""; #TODO: what?
     };
     disko = {
       url = "github:nix-community/disko";
@@ -68,6 +68,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -84,10 +88,12 @@
         genAttrs supportedSystems (
           system:
           function (
-            # TODO: Avoid second evaluation of nixpkgs with potentially different arguments. See if possible to use pkgsForSystem.
+            # TODO: Avoid second evaluation of nixpkgs with potentially different arguments. See if possible to use pkgsForSystem. And requires copying overlays from system pkgs.
+            # Can we use packages from the system? No. Maybe we can just use the same nixpkgs here and in system by default, but override to not if we want.
             import args.nixpkgs {
               inherit system;
               config.allowUnfree = true;
+              overlays = [ args.neovim-nightly.overlay ];
             }
           )
         );
@@ -104,9 +110,10 @@
 
       packages =
         let
-          pnames = builtins.attrNames (builtins.readDir ./packages);
+          pnames = builtins.filter (name: name != "neovim") (builtins.attrNames (builtins.readDir ./packages));
         in
-        forAllSystems (pkgs: genAttrs pnames (pname: pkgs.callPackage ./packages/${pname} { }));
+        forAllSystems (pkgs: genAttrs pnames (pname: pkgs.callPackage ./packages/${pname} { })) //
+        forAllSystems (pkgs: { nvim = args.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule { inherit pkgs; module = ./packages/neovim; }; });
 
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
@@ -116,6 +123,7 @@
             pkgs.nh
             args.agenix.packages.${pkgs.system}.default
             pkgs.nix-inspect
+            self.packages.${pkgs.system}.nvim
           ];
         };
       });
