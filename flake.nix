@@ -112,8 +112,7 @@
         let
           pnames = builtins.filter (name: name != "neovim") (builtins.attrNames (builtins.readDir ./packages));
         in
-        forAllSystems (pkgs: genAttrs pnames (pname: pkgs.callPackage ./packages/${pname} { })) //
-        forAllSystems (pkgs: { nvim = args.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule { inherit pkgs; module = ./packages/neovim; }; });
+        forAllSystems (pkgs: genAttrs pnames (pname: pkgs.callPackage ./packages/${pname} { }));
 
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
@@ -123,7 +122,6 @@
             pkgs.nh
             args.agenix.packages.${pkgs.system}.default
             pkgs.nix-inspect
-            self.packages.${pkgs.system}.nvim
           ];
         };
       });
