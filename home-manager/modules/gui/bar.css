@@ -1,48 +1,32 @@
 * {
-    all: unset;
     border: none;
     border-radius: 0;
-    font-family: "PragmataPro Liga Regular";
-    font-weight: 700;
-    font-size: 14px;
-    min-height: 0;
+    font-family: "SF Pro Display", "Symbols Nerd Font";
+    font-size: 26px;
+    color: rgba(0, 0, 0, 1);
+    min-height: 39px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-    background-color: transparent;
-}
-
-#workspaces button {
-    color: #222222;
-    padding: 6px;
-    background: #767981;
-    border-radius: 4px;
-    margin-left: 4px;
-}
-
-#workspaces button.active {
-    background: #cfd0d3;
-    color: #1d2021;
+    background: rgba(255, 255, 255, 0.35);
 }
 
 #clock {
-	color: #222222;
-	padding: 5px 5px;
-        background: #767981;
-	border-radius: 4px;
+        padding-right: 40px;
 }
 
-#battery {
-	color: #222222;
-	padding: 5px 5px;
-        background: #767981;
-	border-radius: 4px;
+#custom-logo {
+        padding-left: 40px;
 }
 
-#custom-date {
-	color: #222222;
-	padding: 5px 5px;
-        background: #767981;
-	border-radius: 4px;
+#window {
+        padding-left: 40px;
 }
 
+#workspaces {
+        padding-left: 40px;
+}
