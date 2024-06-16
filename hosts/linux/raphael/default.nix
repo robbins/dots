@@ -35,6 +35,7 @@
       hashedPasswordFile = config.age.secrets.nate_raphael_user_password.path;
     };
     gui = {
+      fonts.enable = true;
       displayManager = {
         enable = true;
         autoLogin = {

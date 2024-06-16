@@ -64,6 +64,7 @@
       nvidia.enable = true;
     };
     gui = {
+      fonts.enable = true;
       displayManager = {
         enable = true;
         autoLogin = {
