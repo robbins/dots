@@ -10,11 +10,14 @@ in
 {
   options.modules.gui.bar = {
     enable = lib.mkEnableOption "Bar";
+    barHeight = lib.mkOption { default = 32; };
+    fontSize = lib.mkOption { default = "20px"; };
+    workspaceMargin = lib.mkOption { default = "6px"; };
   };
 
   config = lib.mkIf cfg.enable {
     programs.waybar = {
-      style = ./bar.css;
+      style = (import ./_bar.css.nix { inherit (cfg) fontSize workspaceMargin; });
       enable = true;
       settings = [
         {
