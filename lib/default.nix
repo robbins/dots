@@ -12,7 +12,9 @@
   - [args] The argument to the flake's top-level outputs attribute comprised of the flake inputs and `self`
 */
 args@{ ... }:
-with args.nixpkgs.lib;
+let
+  inherit (args.nixpkgs) lib;
+in 
 rec {
   genHosts = import ./genhosts.nix args;
   mkNixosSystem = import ./mknixossystem.nix args;
@@ -43,7 +45,7 @@ rec {
     let
       hostDirs = readDir ../hosts/linux;
     in
-    attrNames (filterAttrs (_: type: type == "directory") hostDirs);
+    attrNames (lib.filterAttrs (_: type: type == "directory") hostDirs);
 
   /**
     Return a list of hostnames of each macOS machine
@@ -59,7 +61,7 @@ rec {
     let
       hostDirs = readDir ../hosts/darwin;
     in
-    attrNames (filterAttrs (_: type: type == "directory") hostDirs);
+    attrNames (lib.filterAttrs (_: type: type == "directory") hostDirs);
 
   /**
     Return a list of hostnames corresponding to the given platform
@@ -77,7 +79,10 @@ rec {
   platformHosts = platform: if platform == "linux" then nixosHosts else darwinHosts;
 
   modulesInDir = import ./modulesInDir.nix args;
-  modulesInDirRec = import ./modulesInDirRec.nix args;
+  modulesInDirRec = lib.flip lib.pipe [
+    lib.filesystem.listFilesRecursive
+    (builtins.filter (file: !lib.hasInfix "_" file && lib.hasSuffix ".nix" file && !lib.hasSuffix "default.nix" file))
+  ];
 
   /**
     Return the shortened Git revision of the current flake, or throw an exception if the Git tree is dirty
