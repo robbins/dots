@@ -33,7 +33,7 @@
       bar = {
         enable = true;
         barHeight = 28;
-        fontSize = "15px";
+        fontSize = "13px";
         workspaceMargin = "1px";
       };
       rofi.enable = true;

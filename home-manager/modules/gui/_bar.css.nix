@@ -3,12 +3,13 @@
   * {
       border: none;
       border-radius: 0;
-      font-family: "SF Pro Display", "Symbols Nerd Font";
+      font-family: "SF Pro Display", "Symbols Nerd Font", "Material Symbols Rounded";
       font-size: ${fontSize};
       color: rgba(0, 0, 0, 1);
       font-weight: 400;
       padding: 0;
       margin: 0;
+      min-height: 0px;
   
       /* Fade out highlight */
       transition-property: background-color;
@@ -49,18 +50,9 @@
           font-size: 23px;
   }
   
-  #custom-logo:hover {
-          padding: 0px 10px;
-  }
-  
   #window {
       padding: 0px 20px;
-  }
-  
-  #window:hover {
-  }
-  
-  #workspaces {
+      font-weight: 700;
   }
   
   #workspaces button {
@@ -107,16 +99,8 @@
       padding: 0px 15px;
   }
   
-  #custom-search:hover {
-      padding: 0px 15px;
-  }
-  
   #clock {
           margin-right: 15px;
           padding: 0px 15px;
-  }
-  
-  #clock:hover {
-      padding: 0px 15px;
   }
 ''
