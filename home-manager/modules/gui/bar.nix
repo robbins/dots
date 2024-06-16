@@ -13,11 +13,16 @@ in
     barHeight = lib.mkOption { default = 32; };
     fontSize = lib.mkOption { default = "20px"; };
     workspaceMargin = lib.mkOption { default = "6px"; };
+    windowHorizontalPadding = lib.mkOption { default = "20px"; };
+    modulePadding = lib.mkOption { default = "15px"; };
+    leftEdgePadding = lib.mkOption { default = "20px"; };
+    rightEdgePadding = lib.mkOption { default = "15px"; };
+    extraConfig = lib.mkOption { default = ""; };
   };
 
   config = lib.mkIf cfg.enable {
     programs.waybar = {
-      style = (import ./_bar.css.nix { inherit (cfg) fontSize workspaceMargin; });
+      style = (import ./_bar.css.nix { inherit (cfg) fontSize workspaceMargin windowHorizontalPadding modulePadding leftEdgePadding rightEdgePadding extraConfig; });
       enable = true;
       settings = [
         {
@@ -38,14 +43,14 @@ in
             interface = "wlan0";
             format = "{icon}";
             format-icons = [
-              "󰖩"
+              "􀙇"
             ];
             tooltip-format = "{essid} {ipaddr} on {ifname} at {frequency} via {gwaddr}";
             on-click = "kitty --hold zsh -c 'ip a show dev wlan0'";
           };
           "network#wired" = {
             interface = "enp11s0";
-            format = "󰈀";
+            format = "";
             tooltip-format = "{ipaddr}/{cidr} on {ifname} at {bandwidthDownBytes} via {gwaddr}";
             on-click = "kitty --hold zsh -c 'ip a show dev enp11s0'";
           };
@@ -58,7 +63,7 @@ in
             on-click = "kitty --hold zsh -c 'fastfetch'";
           };
           "custom/search" = {
-            format = "";
+            format = "􀊫";
             on-click = "rofi -show drun";
           };
           "hyprland/workspaces" = {
@@ -68,14 +73,16 @@ in
             };
           };
           "battery" = {
-            format = "{capacity}% {icon}";
+            format = "{capacity}%{icon} ";
             format-icons = [
               "􀛪"
               "􀛩"
+              "􀺶"
+              "􀺶"
               "􀛨"
             ];
-            format-charging = "􀢋{capacity}% {time}";
-            format-discharging = "{icon} {capacity}% {time}";
+            format-charging = "{capacity}%􀢋";
+            format-discharging = "{capacity}% {icon}";
             format-plugged = "􀡸 {capacity}%";
             format-alt = "󰊚{power}";
           };

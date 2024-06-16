@@ -1,4 +1,4 @@
-{ fontSize, workspaceMargin }:
+{ fontSize, workspaceMargin, windowHorizontalPadding, modulePadding, leftEdgePadding, rightEdgePadding, extraConfig }:
 ''
   * {
       border: none;
@@ -6,7 +6,6 @@
       font-family: "SF Pro Display", "Symbols Nerd Font", "Material Symbols Rounded";
       font-size: ${fontSize};
       color: rgba(0, 0, 0, 1);
-      font-weight: 400;
       padding: 0;
       margin: 0;
       min-height: 0px;
@@ -45,14 +44,22 @@
   }
   
   #custom-logo {
-          margin-left: 20px;
+          margin-left: ${leftEdgePadding};
           padding: 0px 10px;
-          font-size: 23px;
   }
   
   #window {
-      padding: 0px 20px;
-      font-weight: 700;
+      padding: 0px ${windowHorizontalPadding};
+      font-weight: 600;
+  }
+
+  /* Hide hyprland/window module when no windows open */
+  window#waybar.empty #window {
+      font-size: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: none;
   }
   
   #workspaces button {
@@ -89,18 +96,20 @@
   }
   
   #network {
-      padding: 0px 15px;
+      padding: 0px ${modulePadding};
   }
   
   #network:hover {
   }
   
   #custom-search {
-      padding: 0px 15px;
+      padding: 0px ${modulePadding};
   }
   
   #clock {
-          margin-right: 15px;
-          padding: 0px 15px;
+          margin-right: ${modulePadding};
+          padding: 0px ${rightEdgePadding};
   }
+
+  ${extraConfig}
 ''

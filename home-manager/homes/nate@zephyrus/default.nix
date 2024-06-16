@@ -32,9 +32,21 @@
       wayland.enable = true;
       bar = {
         enable = true;
-        barHeight = 28;
+        barHeight = 23;
         fontSize = "13px";
-        workspaceMargin = "1px";
+        workspaceMargin = "0px";
+        windowHorizontalPadding = "12px";
+        modulePadding = "8px";
+        leftEdgePadding = "10px";
+        rightEdgePadding = "10px";
+        extraConfig = ''
+        #network.wired {
+          font-size: 19px;
+        }
+        #network.wireless {
+          font-size: 14px;
+        }
+        '';
       };
       rofi.enable = true;
       firefox.enable = true;
