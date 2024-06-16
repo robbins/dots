@@ -28,6 +28,10 @@ in
         	# Please note not all available settings / options are set here.
         	# For a full list, see the wiki
         	#
+
+                # opengl {
+                #   force_introspection = true
+                # }
         	
         	# See https://wiki.hyprland.org/Configuring/Monitors/
         	monitor=DP-4,3840x2160@144,0x0,1.00,bitdepth,10
@@ -97,9 +101,10 @@ in
                         brightness = 1
                         vibrancy = 0.1696
                         vibrancy_darkness = 0
-                        popups = true
+                        popups = false
         	    }
                     layerrule = blur,waybar
+                    layerrule=xray 1, ^(bar)$
         	
         	    drop_shadow = true 
         	    shadow_range = 4
