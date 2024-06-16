@@ -10,9 +10,6 @@
       padding: 0;
       margin: 0;
   
-      /* Try to imitate macOS font dilation */
-      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-  
       /* Fade out highlight */
       transition-property: background-color;
       transition-duration: .3s;
