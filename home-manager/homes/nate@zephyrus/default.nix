@@ -30,7 +30,12 @@
       };
       hyprland.enable = true;
       wayland.enable = true;
-      bar.enable = true;
+      bar = {
+        enable = true;
+        barHeight = 28;
+        fontSize = "15px";
+        workspaceMargin = "1px";
+      };
       rofi.enable = true;
       firefox.enable = true;
       lockscreen.enable = true;

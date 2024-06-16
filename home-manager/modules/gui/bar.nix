@@ -22,7 +22,7 @@ in
       settings = [
         {
           layer = "top";
-          height = 32;
+          height = cfg.barHeight;
           reload_style_on_change = true;
           spacing = 0;
           modules-left = [ "custom/logo" "hyprland/window" "hyprland/workspaces" ];
