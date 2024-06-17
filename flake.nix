@@ -3,7 +3,7 @@
     # Nixpkgs
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-stable.url = "github:nixos/nixpkgs/nixos-22.11";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Hardware
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
@@ -15,13 +15,13 @@
     };
     home-manager-darwin = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Darwin
     darwin = {
       url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Modules
@@ -29,15 +29,16 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixos-unstable";
-      inputs.darwin.follows = ""; #TODO: what?
+      inputs.home-manager.follows = "home-manager"; #TODO: Not perfect as Darwin systems are now limited to nixos-unstable as opposed to nixpkgs
+      inputs.darwin.follows = "darwin";
     };
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos-unstable";
     };
     wsl = {
       url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nur.url = "github:nix-community/NUR";
 
@@ -53,7 +54,7 @@
     };
     minidev = {
       url = "github:robbins/minidev";
-      inputs.nixpkgs.follows = "nixos-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     neovim-nightly = {
       url = "github:nix-community/neovim-nightly-overlay";
@@ -63,21 +64,24 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
-    firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
+    firefox-nightly = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixos-unstable";
+    };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
   outputs =
     args@{ self, ... }: # The parameter of the lambda bound to outputs that takes self and all flakes specified in the inputs attribute can be referred to by 'args', and is renamed to 'inputs' when passed to the module system via specialArgs/extraSpecialArgs.
     let
-      inherit (args.nixpkgs.lib) genAttrs;
+      inherit (args.nixpkgs-unstable.lib) genAttrs;
       supportedSystems = [
         "x86_64-linux"
         "x86_64-darwin"
@@ -88,9 +92,8 @@
         genAttrs supportedSystems (
           system:
           function (
-            # TODO: Avoid second evaluation of nixpkgs with potentially different arguments. See if possible to use pkgsForSystem. And requires copying overlays from system pkgs.
-            # Can we use packages from the system? No. Maybe we can just use the same nixpkgs here and in system by default, but override to not if we want.
-            import args.nixpkgs {
+            # Forced to have a second eval of nixpkgs* here because we want this to use nixpkgs-unstable, but Linux systems use nixos-unstable. Darwin systems could share but I'd prefer to keep it consistent.
+            import args.nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
               overlays = [ args.neovim-nightly.overlays.default ];

@@ -13,7 +13,7 @@
 */
 args@{ ... }:
 let
-  inherit (args.nixpkgs) lib;
+  inherit (args.nixpkgs-unstable) lib;
 in 
 rec {
   genHosts = import ./genhosts.nix args;
