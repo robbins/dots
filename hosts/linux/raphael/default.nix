@@ -83,7 +83,7 @@
 
   users.users."root".password = "1";
 
-  users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" ];
+  users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" "dialout" ];
 
   # programs.cuttlefish-base.enable = true;
 
