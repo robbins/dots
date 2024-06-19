@@ -43,6 +43,10 @@
     nur.url = "github:nix-community/NUR";
 
     # Programs
+    neovim-nix = {
+      url = "github:robbins/neovim-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -71,10 +75,6 @@
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixos-unstable";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -125,6 +125,7 @@
             pkgs.nh
             args.agenix.packages.${pkgs.system}.default
             pkgs.nix-inspect
+            args.neovim-nix.packages.${pkgs.system}.default
           ];
         };
       });
