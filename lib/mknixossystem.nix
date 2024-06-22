@@ -37,7 +37,11 @@ nixosSystem {
       permittedInsecurePackages = [
       ];
     };
-    overlays = overlays';
+    overlays = overlays' ++ [
+      (self: super: {
+        cuttlefish-base = super.callPackage ../packages/cuttlefish-base/default.nix { };
+      })
+    ];
   };
   modules =
     [

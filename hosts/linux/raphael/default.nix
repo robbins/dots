@@ -83,9 +83,57 @@
 
   users.users."root".password = "1";
 
-  users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" "dialout" ];
+  # /etc/security/limits.d/1_cuttlefish.conf
+    security.pam.loginLimits = [
+      {
+        domain = "@cvdnetwork";
+        item = "nofile";
+        type = "soft";
+        value = "4096";
+      }
+    ];
 
-  # programs.cuttlefish-base.enable = true;
+    # /etc/modules-load.d/cuttlefish-common.conf
+    boot.kernelModules = [ "vhci-hcd" "vhost_net" "vhost_vsock" ];
+
+    users.groups = {
+      cvdnetwork = {};
+      render = {};
+      kvm = {};
+    };
+
+    # /etc/NetworkManager/conf.d/99-cuttlefish.conf
+    networking.networkmanager.unmanaged = [
+      "interface-name:cvd-*"
+    ];
+
+    # /lib/udev/rules.d/60-cuttlefish-base.rules
+    services.udev.packages = [
+      inputs.self.packages.${pkgs.system}.cuttlefish-base
+    ];
+
+    systemd.services.cuttlefish-host-resources = {
+      description = "Set up initial cuttlefish environment";
+
+      before = [ "multi-user.target" "graphical.target" ];
+      after = [ "network-online.target" "remote-fs.target" ];
+      wants = [ "network-online.target" ];
+
+      serviceConfig = {
+        Type = "forking";
+        Restart = "no";
+        TimeoutSec = "5min";
+        IgnoreSIGPIPE= "no";
+        KillMode = "process";
+        GuessMainPID = "no";
+        RemainAfterExit = "yes";
+        SuccessExitStatus = "5 6";
+        ExecStart = "${inputs.self.packages.${pkgs.system}.cuttlefish-base}/etc/init.d/cuttlefish-base.cuttlefish-host-resources.init start";
+        ExecStop = "${inputs.self.packages.${pkgs.system}.cuttlefish-base}/etc/init.d/cuttlefish-base.cuttlefish-host-resources.init stop";
+      };
+    };
+
+  users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" "dialout" ];
 
   # Meta
   system.stateVersion = "23.05";

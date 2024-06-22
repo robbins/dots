@@ -12,6 +12,9 @@ inputs: {
     inputs.hyprland.nixosModules.default
     ./.
   ];
-  overlays' = [ inputs.neovim-nightly.overlays.default ];
+  overlays' = [ inputs.neovim-nightly.overlays.default 
+                (self: super: {
+                  cuttlefish-base = super.callPackage ../../../packages/cuttlefish-base/default.nix { };
+                }) ];
   pkgsForSystem = inputs.nixos-unstable;
 }
