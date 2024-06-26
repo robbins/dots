@@ -136,6 +136,13 @@
 
   users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" "dialout" ];
 
+  # ESP-IDF
+#  environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
+#    users."${specialArgs.username}" = {
+#      directories = [ ".espressif" ];
+#    };
+#  };
+
   # Meta
   system.stateVersion = "23.05";
 }

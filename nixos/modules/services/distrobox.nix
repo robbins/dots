@@ -21,7 +21,7 @@ in
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
         users."${specialArgs.username}" = {
-          directories = [ ".local/share/lilipod" ];
+          directories = [ ".local/share/lilipod" ".espressif" ];
         };
       };
     })
