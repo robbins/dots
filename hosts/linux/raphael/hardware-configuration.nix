@@ -73,7 +73,7 @@
   };
 
   fileSystems."/aosp" = {
-    device = "/dev/nvme0n1p4";
+    device = "/dev/disk/by-uuid/31640819-9af8-432b-998d-098c3f9ea0f7";
     fsType = "ext4";
     options = [
       "noatime"
