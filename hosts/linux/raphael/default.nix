@@ -135,6 +135,13 @@
     };
 
   users.users.${specialArgs.username}.extraGroups = [ "kvm" "cvdnetwork" "render" "dialout" ];
+  users.groups.dialout = {
+    gid = lib.mkForce 6969;
+  };
+  # Access built-in display backlight without root
+  services.udev.extraRules = ''
+    KERNEL=="ttyUSB0", OWNER="${specialArgs.username}"
+  '';
 
   # ESP-IDF
 #  environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
