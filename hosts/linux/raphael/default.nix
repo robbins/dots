@@ -143,6 +143,8 @@
     KERNEL=="ttyUSB0", OWNER="${specialArgs.username}"
   '';
 
+  services.avahi.enable = true;
+
   # ESP-IDF
 #  environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
 #    users."${specialArgs.username}" = {
