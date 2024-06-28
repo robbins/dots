@@ -15,13 +15,16 @@ in
   };
   config = mkIf cfg.enable (mkMerge [
     {
-      environment.systemPackages = [ pkgs.distrobox pkgs.lilipod ];
+      environment.systemPackages = [ pkgs.distrobox ];
+      virtualisation.podman = {
+        enable = true;
+      };
     }
 
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
         users."${specialArgs.username}" = {
-          directories = [ ".local/share/lilipod" ".espressif" ];
+          directories = [ ".local/share/containers" ".espressif" ];
         };
       };
     })
