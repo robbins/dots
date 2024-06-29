@@ -148,6 +148,8 @@ in
                     force_default_wallpaper = 0
                     mouse_move_enables_dpms = true
                     key_press_enables_dpms = true
+                    vfr = true
+                    vrr = 1
         	}
         	
         	# Example per-device config
@@ -262,6 +264,10 @@ in
                 workspace = 8, monitor:HDMI-A-2
                 workspace = 9, monitor:HDMI-A-2
                 workspace = 10, monitor:HDMI-A-2
+
+                debug {
+                  overlay = true
+                }
       '';
     };
   };
