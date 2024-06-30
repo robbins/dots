@@ -41,10 +41,10 @@
         enable = true;
         autoLogin = {
           enable = true;
-          autoSessionCommand = "Hyprland";
+          autoSessionCommand = "niri-session";
         };
       };
-      hyprland.enable = true;
+      niri.enable = true;
     };
     hardware = {
       audio.enable = true;
