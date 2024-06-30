@@ -15,6 +15,8 @@ inputs: {
   overlays' = [ inputs.neovim-nightly.overlays.default 
                 (self: super: {
                   cuttlefish-base = super.callPackage ../../../packages/cuttlefish-base/default.nix { };
-                }) ];
+                }) 
+                inputs.niri.overlays.niri
+              ];
   pkgsForSystem = inputs.nixos-unstable;
 }
