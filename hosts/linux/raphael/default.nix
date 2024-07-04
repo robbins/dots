@@ -95,7 +95,7 @@
     ];
 
     # /etc/modules-load.d/cuttlefish-common.conf
-    boot.kernelModules = [ "vhci-hcd" "vhost_net" "vhost_vsock" ];
+    boot.kernelModules = [ "vhci-hcd" "vhost_net" "vhost_vsock" "i2c-dev" ];
 
     users.groups = {
       cvdnetwork = {};
@@ -138,12 +138,14 @@
   users.groups.dialout = {
     gid = lib.mkForce 6969;
   };
-  # Access built-in display backlight without root
+
   services.udev.extraRules = ''
     KERNEL=="ttyUSB0", OWNER="${specialArgs.username}"
   '';
 
   services.avahi.enable = true;
+
+  environment.systemPackages = [ pkgs.ddcutil ];
 
   # ESP-IDF
 #  environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
