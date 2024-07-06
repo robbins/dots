@@ -79,6 +79,7 @@
     niri = {
       url = "github:sodiboo/niri-flake";
     };
+    ags.url = "github:Aylur/ags";
   };
 
   outputs =

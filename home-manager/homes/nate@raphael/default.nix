@@ -35,6 +35,7 @@
       firefox.enable = true;
       chromium.enable = true;
       mako.enable = true;
+      ags.enable = true;
     };
     dev = {
       shell.enable = true;
