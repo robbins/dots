@@ -25,11 +25,13 @@ in
       settings = {
         window-rules = [
           {
-            geometry-corner-radius = {
-              bottom-left = 12.;
-              bottom-right = 12.;
-              top-left = 12.;
-              top-right = 12.;
+            geometry-corner-radius = let
+              radius = 4.0;
+            in {
+              bottom-left = radius;
+              bottom-right = radius;
+              top-left = radius;
+              top-right = radius;
             };
             clip-to-geometry = true;
           }
@@ -56,18 +58,19 @@ in
             { proportion = 1. / 2.; }
             { proportion = 2. / 3.; }
           ];
-          focus-ring.enable = true;
+          focus-ring.enable = false;
           border = {
-            width = 3;
+            enable = true;
+            width = 1;
             active.gradient = {
-              angle = 315;
-              from = "#414053";
-              to = "#342D3B";
+              angle = 200;
+              from = "#676767";
+              to = "#414141";
             };
             inactive.gradient = {
               angle = 315;
-              from = "#46424D";
-              to = "#050118";
+              from = "#3B3C3C";
+              to = "#3B3C3C";
             };
           };
         };
