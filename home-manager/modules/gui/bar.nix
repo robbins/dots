@@ -49,10 +49,10 @@ in
             on-click = "kitty --hold zsh -c 'ip a show dev wlan0'";
           };
           "network#wired" = {
-            interface = "enp11s0";
+            interface = "enp10s0";
             format = "";
             tooltip-format = "{ipaddr}/{cidr} on {ifname} at {bandwidthDownBytes} via {gwaddr}";
-            on-click = "kitty --hold zsh -c 'ip a show dev enp11s0'";
+            on-click = "kitty --hold zsh -c 'ip a show dev enp10s0'";
           };
           "clock" = {
             interval = 60;
