@@ -21,18 +21,10 @@ in
         openFirewall = true;
       };
 
-      environment.systemPackages = with pkgs; [ tailscale ];
+      services.openssh.openFirewall = false;
+
+      environment.systemPackages = [ pkgs.tailscale ];
     }
-
-    (mkIf config.networking.firewall.enable {
-      networking.firewall = {
-        # always allow traffic from the Tailscale network
-        trustedInterfaces = [ "tailscale0" ];
-
-        # allow SSH over the public internet
-        allowedTCPPorts = [ 22 ];
-      };
-    })
 
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
