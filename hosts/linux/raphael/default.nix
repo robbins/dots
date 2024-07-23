@@ -12,7 +12,7 @@
   ...
 }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix "${inputs.nixpkgs-cuttlefish}/nixos/modules/programs/cuttlefish-base.nix" ];
 
   modules = {
     programs = {
@@ -76,9 +76,12 @@
     documentation.enable = true;
   };
 
-  boot.kernelParams = [ "amd_pstate=active" ];
+  # Cuttlefish
+  programs.cuttlefish-base.enable = true;
+  users.users.${specialArgs.username}.extraGroups = [ "cvdnetwork" "render" "kvm" ];
 
   # Misc
+  boot.kernelParams = [ "amd_pstate=active" ];
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
 

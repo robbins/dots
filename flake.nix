@@ -80,6 +80,7 @@
       url = "github:sodiboo/niri-flake";
     };
     ags.url = "github:Aylur/ags";
+    nixpkgs-cuttlefish.url = "github:robbins/nixpkgs/cuttlefish-on-unstable";
   };
 
   outputs =

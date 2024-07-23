@@ -13,8 +13,8 @@ inputs: {
     ./.
   ];
   overlays' = [ inputs.neovim-nightly.overlays.default 
-                (self: super: {
-                  cuttlefish-base = super.callPackage ../../../packages/cuttlefish-base/default.nix { };
+                (final: prev: {
+                  inherit (inputs.nixpkgs-cuttlefish.legacyPackages.${prev.system}) cuttlefish-base;
                 }) 
                 inputs.niri.overlays.niri
               ];
