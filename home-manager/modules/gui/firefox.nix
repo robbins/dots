@@ -91,6 +91,7 @@ in
           surfingkeys
           tree-style-tab
           gruvbox-dark-theme
+          omnivore
         ];
         settings = {
           "browser.aboutConfig.showWarning" = false;
