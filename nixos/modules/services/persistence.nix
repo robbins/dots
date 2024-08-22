@@ -45,7 +45,9 @@ in
             };
           }
         ];
-        directories = (if config.modules.services.persistence.system.enable then [ "/var/lib/libvirt"] else []);
+          directories = [
+            "/var/lib/nixos"
+          ] ++ (if config.modules.services.virtualization.enable then [ "/var/lib/libvirt"] else []);
         users."${specialArgs.username}" = {
           directories =
             [

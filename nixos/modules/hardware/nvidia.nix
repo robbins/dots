@@ -14,11 +14,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
+      enable32Bit = true;
     };
-
-    hardware.graphics.enable32Bit = true;
 
     hardware.nvidia = {
       open = true;
