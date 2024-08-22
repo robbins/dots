@@ -239,7 +239,7 @@ in
           /* The border controlling sidebar width will be removed so you'll need to modify these values to change width */
           
           #sidebar-box{
-            --uc-sidebar-width: 60px;
+            --uc-sidebar-width: 0px;
             --uc-sidebar-hover-width: 210px;
             --uc-autohide-sidebar-delay: 600ms; /* Wait 0.6s before hiding sidebar */
             --uc-autohide-transition-duration: 115ms;
