@@ -16,7 +16,7 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      hardware.opengl.driSupport32Bit = true;
+      hardware.graphics.enable32Bit = true;
       environment.systemPackages = [
         pkgs.lutris
         pkgs.wineWowPackages.full
