@@ -99,6 +99,15 @@ in
           "Mod+F".action = maximize-column;
         } // (builtins.listToAttrs (map (num: { name = "Mod+${toString num}"; value.action.focus-workspace = num; }) (lib.lists.range 1 9)));
         outputs = {
+          "eDP-1" = {
+            mode = {
+              width = 1920;
+              height = 1080;
+              refresh = 143.981;
+            };
+            variable-refresh-rate = true;
+            scale = 1.;
+          };
           "DP-4" = {
             mode = {
               width = 3840;
