@@ -37,7 +37,10 @@ in
           }
         ];
         input = {
-          focus-follows-mouse = true;
+          focus-follows-mouse = {
+            enable = true;
+            max-scroll-amount = "0%";
+          };
           warp-mouse-to-focus = true;
           workspace-auto-back-and-forth = true;
 
