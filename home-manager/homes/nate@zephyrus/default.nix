@@ -51,6 +51,7 @@
       };
       rofi.enable = true;
       firefox.enable = true;
+      chromium.enable = true;
       lockscreen.enable = true;
       mako.enable = true;
       moonlight.enable = true;
