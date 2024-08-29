@@ -49,6 +49,7 @@
         }
         '';
       };
+      ags.enable = true;
       rofi.enable = true;
       firefox.enable = true;
       chromium.enable = true;
