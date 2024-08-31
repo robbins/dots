@@ -19,6 +19,9 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
+      plugins = with pkgs.hyprlandPlugins; [
+        hyprscroller
+      ];
       extraConfig = ''
         	# This is an example Hyprland config file.
         	#
@@ -266,7 +269,7 @@ in
                 workspace = 10, monitor:HDMI-A-2
 
                 debug {
-                  overlay = true
+                  overlay = false
                 }
       '';
     };
