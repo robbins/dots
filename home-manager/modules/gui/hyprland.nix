@@ -3,6 +3,7 @@
   pkgs,
   lib,
   specialArgs,
+  inputs,
   ...
 }:
 with lib;
@@ -19,8 +20,8 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;
-      plugins = with pkgs.hyprlandPlugins; [
-        hyprscroller
+      plugins = [
+        inputs.hyprscroller.packages.${pkgs.system}.default
       ];
       extraConfig = ''
         	# This is an example Hyprland config file.

@@ -1327,6 +1327,26 @@
         "type": "github"
       }
     },
+    "hyprscroller": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724406842,
+        "narHash": "sha256-RgonjjB7WtLKpF28HramDVE+U36j0z3CJ96s5chEYa4=",
+        "owner": "dawsers",
+        "repo": "hyprscroller",
+        "rev": "cd683d205a1edcd7fc13a3b8c1cbe11e04da5a97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dawsers",
+        "repo": "hyprscroller",
+        "type": "github"
+      }
+    },
     "hyprutils": {
       "inputs": {
         "nixpkgs": [
@@ -2105,6 +2125,7 @@
         "home-manager-darwin": "home-manager-darwin",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
+        "hyprscroller": "hyprscroller",
         "impermanence": "impermanence",
         "minidev": "minidev",
         "neovim-nightly": "neovim-nightly",

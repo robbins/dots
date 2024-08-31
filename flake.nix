@@ -81,6 +81,10 @@
     };
     ags.url = "github:Aylur/ags";
     nixpkgs-cuttlefish.url = "github:robbins/nixpkgs/cuttlefish-on-unstable";
+    hyprscroller = {
+      url = "github:dawsers/hyprscroller";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =
