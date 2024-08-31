@@ -28,8 +28,8 @@
         enable = true;
         fontSize = "13.0";
       };
-      hyprland.enable = false;
-      niri.enable = true;
+      hyprland.enable = true;
+      niri.enable = false;
       wayland.enable = true;
       bar = {
         enable = true;
