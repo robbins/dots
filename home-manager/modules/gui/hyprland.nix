@@ -22,8 +22,20 @@ in
       systemd.enable = true;
       plugins = [
         inputs.hyprscroller.packages.${pkgs.system}.default
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
       ];
       extraConfig = ''
+        plugin {
+          hyprbars {
+            bar_height = 13
+            bar_color = rgba(000000ff)
+            bar_text_font = "PragmataPro Mono Liga Regular"
+            bar_text_align = left
+            bar_part_of_window = true
+            bar_padding = 0
+          }
+        }
+        windowrulev2 = plugin:hyprbars:bar_color rgba(5e5e5eff), ^focus:1
         	# This is an example Hyprland config file.
         	#
         	# Refer to the wiki for more information.
@@ -79,7 +91,7 @@ in
         	    # See https://wiki.hyprland.org/Configuring/Variables/ for more
         	
         	    gaps_in = 3
-        	    gaps_out = 10
+        	    gaps_out = 17,5,5,5 
         	    border_size = 1
         	    col.active_border = rgba(4c4c4eff) rgba(3b3c3cff) 80deg
         	    col.inactive_border = rgba(3b3c3cff)
