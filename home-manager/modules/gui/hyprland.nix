@@ -36,7 +36,7 @@ in
                 # opengl {
                 #   force_introspection = true
                 # }
-        	
+
         	# See https://wiki.hyprland.org/Configuring/Monitors/
         	monitor=DP-4,3840x2160@144,0x0,1.00,bitdepth,10
                 monitor=HDMI-A-2,1920x1080@74,3840x0,1,transform,3
@@ -84,7 +84,7 @@ in
         	    col.active_border = rgba(4c4c4eff) rgba(3b3c3cff) 80deg
         	    col.inactive_border = rgba(3b3c3cff)
         	
-        	    layout = dwindle
+        	    layout = scroller
         	
         	    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
         	    allow_tearing = false
@@ -187,10 +187,10 @@ in
         	bind = $mainMod, S, togglesplit, # dwindle
         	
         	# Move focus with mainMod + vim keybinds
-        	bind = $mainMod, h, movefocus, l
-        	bind = $mainMod, l, movefocus, r
-        	bind = $mainMod, k, movefocus, u
-        	bind = $mainMod, j, movefocus, d
+        	bind = $mainMod, h, scroller:movefocus, l
+        	bind = $mainMod, l, scroller:movefocus, r
+        	bind = $mainMod, k, scroller:movefocus, u
+        	bind = $mainMod, j, scroller:movefocus, d
         	
         	# Switch workspaces with mainMod + [0-9]
         	bind = $mainMod, 1, workspace, 1
@@ -240,7 +240,7 @@ in
         	binde=, XF86MonBrightnessDown, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl1/brightness) - 10 < 0 ? 0 : $(cat /sys/class/backlight/amdgpu_bl1/brightness) - 10 )) | tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null
         	binde=, XF86MonBrightnessUp, exec, echo $(( $(cat /sys/class/backlight/amdgpu_bl1/brightness) + 10 > 255 ? 255 : $(cat /sys/class/backlight/amdgpu_bl1/brightness) + 10 )) | tee /sys/class/backlight/amdgpu_bl1/brightness >/dev/null
 
-                bind = $mainMod, L, exec, hyprlock # Make a variable so we can change it defined by lockscreen module
+                bind = $mainMod, backslash, exec, hyprlock # Make a variable so we can change it defined by lockscreen module
 
                 bindl=,switch:on:Lid Switch, exec, hyprlock
 
