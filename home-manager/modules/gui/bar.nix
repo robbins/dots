@@ -30,20 +30,22 @@ in
           height = cfg.barHeight;
           reload_style_on_change = true;
           spacing = 0;
-          modules-left = [ "custom/logo" "hyprland/window" "hyprland/workspaces" ];
-          modules-center = [ ];
+          modules-left = [ "hyprland/workspaces" ];
+          modules-center = [ "clock" ];
           modules-right = [
             "battery"
             "network#wired"
             "network#wireless"
-            "custom/search"
-            "clock"
           ];
           "network#wireless" = {
             interface = "wlan0";
             format = "{icon}";
             format-icons = [
-              "􀙇"
+              "󰤨"
+              "󰤥"
+              "󰤢"
+              "󰤟"
+              "󰤯"
             ];
             tooltip-format = "{essid} {ipaddr} on {ifname} at {frequency} via {gwaddr}";
             on-click = "kitty --hold zsh -c 'ip a show dev wlan0'";
@@ -75,15 +77,21 @@ in
           "battery" = {
             format = "{capacity}%{icon} ";
             format-icons = [
-              "􀛪"
-              "􀛩"
-              "􀺶"
-              "􀺶"
-              "􀛨"
+              "󰂃"
+              "󰁺"
+              "󰁻"
+              "󰁼"
+              "󰁽"
+              "󰁾"
+              "󰁿"
+              "󰂀"
+              "󰂁"
+              "󰂂"
+              "󰁹"
             ];
-            format-charging = "{capacity}%􀢋";
+            format-charging = "{capacity}%󰂄";
             format-discharging = "{capacity}% {icon}";
-            format-plugged = "􀡸 {capacity}%";
+            format-plugged = "󱈑{capacity}%";
             format-alt = "󰊚{power}";
           };
           "hyprland/window" = {

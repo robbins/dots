@@ -3,9 +3,9 @@
   * {
       border: none;
       border-radius: 0;
-      font-family: "SF Pro Display", "Symbols Nerd Font", "Material Symbols Rounded";
+      font-family: "PragmataPro Mono Liga Regular", "Symbols Nerd Font", "Material Symbols Rounded";
       font-size: ${fontSize};
-      color: rgba(0, 0, 0, 1);
+      color: rgba(255, 255, 255, 1);
       padding: 0;
       margin: 0;
       min-height: 0px;
@@ -40,7 +40,7 @@
   }
   
   window#waybar {
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 1);
   }
   
   #custom-logo {

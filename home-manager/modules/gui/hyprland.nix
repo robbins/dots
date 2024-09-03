@@ -4,8 +4,7 @@
   lib,
   specialArgs,
   inputs,
-  ...
-}:
+  ... }:
 with lib;
 let
   cfg = config.modules.gui.hyprland;
@@ -35,6 +34,7 @@ in
             bar_padding = 0
           }
         }
+        # Change bar color on focused window
         windowrulev2 = plugin:hyprbars:bar_color rgba(5e5e5eff), ^focus:1
         	# This is an example Hyprland config file.
         	#
@@ -203,6 +203,11 @@ in
         	bind = $mainMod, l, scroller:movefocus, r
         	bind = $mainMod, k, scroller:movefocus, u
         	bind = $mainMod, j, scroller:movefocus, d
+
+        	bind = $mainMod SHIFT, h, scroller:movewindow, l
+        	bind = $mainMod SHIFT, l, scroller:movewindow, r
+        	bind = $mainMod SHIFT, k, scroller:movewindow, u
+        	bind = $mainMod SHIFT, j, scroller:movewindow, d
         	
         	# Switch workspaces with mainMod + [0-9]
         	bind = $mainMod, 1, workspace, 1
