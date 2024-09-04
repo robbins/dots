@@ -13,7 +13,7 @@
   ```
 */
 args:
-with args.nixpkgs.lib;
+with args.nixpkgs-unstable.lib;
 with builtins;
 let
   modulesRec =

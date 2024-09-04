@@ -22,7 +22,7 @@ rec {
   mkNixosSystem = import ./mknixossystem.nix args;
   mkDarwinSystem = import ./mkdarwinsystem.nix args;
 
-  options = import ./options.nix;
+  options = import ./options.nix args;
 
   /**
     Return a list of hostnames of each Linux and Darwin machine

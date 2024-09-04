@@ -1,8 +1,8 @@
 # Source: https://github.com/hlissner/dotfiles lib/options.nix
-{ lib }:
+inputs:
 
 let
-  inherit (lib) mkOption types;
+  inherit (inputs.nixpkgs-unstable.lib) mkOption types;
 in
 rec {
   mkOpt  = type: default:
