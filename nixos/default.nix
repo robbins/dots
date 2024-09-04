@@ -30,18 +30,11 @@ in
 
       # Tag each generation with Git hash
       system.configurationRevision = inputs.self.mylib.gitRev inputs;
-
       system.nixos.label = "GitRev.${config.system.configurationRevision}.Rel.${config.system.nixos.release}";
       environment.etc."os-release".text = "GIT_REV=${system.configurationRevision}\n";
 
-      nix.registry.nixpkgs.flake = cfg.localNixpkgs;
-
-      # Store the flake's Nixpkgs input to use with tooling that doesn't support flakes
-      environment.etc."nixos/nixpkgs".source = cfg.localNixpkgs;
-      nix.nixPath = [ "nixpkgs=${cfg.localNixpkgs}" ];
-
-      nix.registry.activeconfig.flake = inputs.self;
-      environment.etc."nixos/activeconfig".source = inputs.self;
+      # Store the activity config in the registry
+      nix.registry.active-config.flake = inputs.self;
     }
 
     # Every bare-metal NixOS machine needs a bootloader

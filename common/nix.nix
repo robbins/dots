@@ -11,7 +11,7 @@
 }:
 {
   nix = {
-    channel.enable = false; # Flakes everywhere!
+    channel.enable = config.nixpkgs.flake.source != null; # Flakes everywhere, if we have them!
 
     settings = {
       experimental-features = [
