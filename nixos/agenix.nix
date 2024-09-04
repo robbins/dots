@@ -1,4 +1,5 @@
 {
+  config,
   options,
   lib,
   inputs,
@@ -8,6 +9,7 @@
 with lib;
 {
   imports = [ inputs.agenix.nixosModules.default ];
+
   age = {
     secrets =
       let
@@ -31,14 +33,8 @@ with lib;
         );
       in
       secretFileToPath;
-    identityPaths = options.age.identityPaths.default ++ [ "/persist/etc/ssh/ssh_host_ed25519_key" ]; # TODO: this is specific, also only needed if / is on tmpfs (secrets are needed decrypted before etc/ssh is available and mounted by impermanence, so get it from the source)
 
-    /*
-           identityPaths =
-           options.age.identityPaths.default ++ (filter pathExists [
-             (config.users.users.${specialArgs.username}.home + "/.ssh/id_ed25519_${config.networking.hostName}")
-      "/persist/etc/ssh/ssh_host_ed25519_key"
-      ]);
-    */
+    # If impermanence is enabled ssh keys are needed before impermanence places them in /etc/ssh, so get them directly from persistent storage
+    identityPaths = options.age.identityPaths.default ++ (if config.modules.services.persistence.system.enable then [ "${config.modules.services.persistence.system.persistenceRoot}/etc/ssh/ssh_host_ed25519_key" ] else []);
   };
 }

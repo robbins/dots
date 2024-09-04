@@ -8,9 +8,10 @@
   boot = {
     tmp = {
       useTmpfs = true;
+      tmpfsSize = "70%";
       cleanOnBoot = lib.mkDefault (!config.boot.tmp.useTmpfs);
     };
-    loader.systemd-boot.editor = false;
+
     kernel.sysctl = {
       ## TCP hardening
       # Prevent bogus ICMP errors from filling up logs.
@@ -46,6 +47,7 @@
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
     };
+
     kernelModules = [ "tcp_bbr" ];
   };
 }
