@@ -34,10 +34,11 @@ nixosSystem {
     inherit system;
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-      ];
+      permittedInsecurePackages =
+        [
+        ];
     };
-    overlays = overlays' ++ [];
+    overlays = overlays' ++ [ ];
   };
   modules =
     [

@@ -22,7 +22,19 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.waybar = {
-      style = (import ./_bar.css.nix { inherit (cfg) fontSize workspaceMargin windowHorizontalPadding modulePadding leftEdgePadding rightEdgePadding extraConfig; });
+      style = (
+        import ./_bar.css.nix {
+          inherit (cfg)
+            fontSize
+            workspaceMargin
+            windowHorizontalPadding
+            modulePadding
+            leftEdgePadding
+            rightEdgePadding
+            extraConfig
+            ;
+        }
+      );
       enable = true;
       settings = [
         {
@@ -71,8 +83,9 @@ in
           "hyprland/workspaces" = {
             disable-scroll = false;
             format = "{name}";
-            persistent-workspaces = {
-            };
+            persistent-workspaces =
+              {
+              };
           };
           "battery" = {
             format = "{capacity}%{icon} ";
@@ -106,7 +119,7 @@ in
             };
           };
         }
-     ];
+      ];
+    };
   };
-};
 }

@@ -40,7 +40,8 @@ let
 in
 genAttrs (builtins.attrNames hostArgs) (
   hostname:
-  mkHost (recursiveMerge [ # modules' is set here and in hosts/platform/hostname/hostname.nix
+  mkHost (recursiveMerge [
+    # modules' is set here and in hosts/platform/hostname/hostname.nix
     {
       modules' = [
         ../common/nixconf.nix

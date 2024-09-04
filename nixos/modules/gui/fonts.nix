@@ -15,7 +15,7 @@ in
   };
 
   config = mkIf cfg.enable (mkMerge [
-    { 
+    {
       fonts.fontconfig.defaultFonts.monospace = [ "PragmataPro Mono Liga Regular" ];
       fonts.fontconfig.defaultFonts.sansSerif = [ "SF Pro Text" ];
       environment.sessionVariables = {

@@ -11,8 +11,8 @@ inputs: {
     inputs.hyprland.nixosModules.default
     ./.
   ];
-  overlays' = [ 
-    inputs.neovim-nightly.overlays.default 
+  overlays' = [
+    inputs.neovim-nightly.overlays.default
     inputs.niri.overlays.niri
   ];
   pkgsForSystem = inputs.nixos-unstable;

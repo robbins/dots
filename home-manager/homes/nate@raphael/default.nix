@@ -65,7 +65,7 @@
 
   home.packages =
     [
-      (pkgs.prismlauncher.override{withWaylandGLFW=true;})
+      (pkgs.prismlauncher.override { withWaylandGLFW = true; })
       pkgs.alsa-oss # TODO: https://github.com/NixOS/nixpkgs/issues/206378
     ]
     ++ (with pkgs; [

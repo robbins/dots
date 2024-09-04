@@ -6,7 +6,12 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkOption mkEnableOption mkMerge;
+  inherit (lib)
+    mkIf
+    mkOption
+    mkEnableOption
+    mkMerge
+    ;
   cfg = config.modules.services.virtualization;
 in
 {

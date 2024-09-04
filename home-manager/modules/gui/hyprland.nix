@@ -4,7 +4,8 @@
   lib,
   specialArgs,
   inputs,
-  ... }:
+  ...
+}:
 with lib;
 let
   cfg = config.modules.gui.hyprland;

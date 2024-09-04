@@ -29,7 +29,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixos-unstable";
-      inputs.home-manager.follows = "home-manager"; #TODO: Not perfect as Darwin systems are now limited to nixos-unstable as opposed to nixpkgs
+      inputs.home-manager.follows = "home-manager"; # TODO: Not perfect as Darwin systems are now limited to nixos-unstable as opposed to nixpkgs
       inputs.darwin.follows = "darwin";
     };
     disko = {
@@ -114,15 +114,17 @@
       inherit self;
 
       mylib = import ./lib args;
-      formatter.x86_64-linux = args.nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      formatter.aarch64-darwin = args.nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter.x86_64-linux = args.nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.aarch64-darwin = args.nixpkgs-unstable.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
 
       nixosConfigurations = import ./hosts "linux" args;
       darwinConfigurations = import ./hosts "darwin" args;
 
       packages =
         let
-          pnames = builtins.filter (name: name != "neovim") (builtins.attrNames (builtins.readDir ./packages));
+          pnames = builtins.filter (name: name != "neovim") (
+            builtins.attrNames (builtins.readDir ./packages)
+          );
         in
         forAllSystems (pkgs: genAttrs pnames (pname: pkgs.callPackage ./packages/${pname} { }));
 

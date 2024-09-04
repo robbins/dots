@@ -14,7 +14,7 @@
 args@{ ... }:
 let
   inherit (args.nixpkgs-unstable) lib;
-in 
+in
 rec {
   genHosts = import ./genhosts.nix args;
   mkNixosSystem = import ./mknixossystem.nix args;
@@ -81,7 +81,9 @@ rec {
   modulesInDir = import ./modulesInDir.nix args;
   modulesInDirRec = lib.flip lib.pipe [
     lib.filesystem.listFilesRecursive
-    (builtins.filter (file: !lib.hasInfix "_" file && lib.hasSuffix ".nix" file && !lib.hasSuffix "default.nix" file))
+    (builtins.filter (
+      file: !lib.hasInfix "_" file && lib.hasSuffix ".nix" file && !lib.hasSuffix "default.nix" file
+    ))
   ];
 
   /**

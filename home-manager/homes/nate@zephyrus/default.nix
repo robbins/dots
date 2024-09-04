@@ -41,12 +41,12 @@
         leftEdgePadding = "10px";
         rightEdgePadding = "10px";
         extraConfig = ''
-        #network.wired {
-          font-size: 19px;
-        }
-        #network.wireless {
-          font-size: 14px;
-        }
+          #network.wired {
+            font-size: 19px;
+          }
+          #network.wireless {
+            font-size: 14px;
+          }
         '';
       };
       ags.enable = true;

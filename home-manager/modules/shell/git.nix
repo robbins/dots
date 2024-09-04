@@ -39,7 +39,7 @@ in
       gB = "git reset HEAD~1 --hard";
       # Macros
       fixup = "git add . && git commit --amend --no-edit";
-      cdgr="cd '$(git rev-parse --show-toplevel)'";
+      cdgr = "cd '$(git rev-parse --show-toplevel)'";
     };
     programs.git = {
       enable = true;

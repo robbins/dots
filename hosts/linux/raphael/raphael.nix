@@ -12,11 +12,12 @@ inputs: {
     inputs.hyprland.nixosModules.default
     ./.
   ];
-  overlays' = [ inputs.neovim-nightly.overlays.default 
-                (final: prev: {
-                  inherit (inputs.nixpkgs-cuttlefish.legacyPackages.${prev.system}) cuttlefish-base;
-                }) 
-                inputs.niri.overlays.niri
-              ];
+  overlays' = [
+    inputs.neovim-nightly.overlays.default
+    (final: prev: {
+      inherit (inputs.nixpkgs-cuttlefish.legacyPackages.${prev.system}) cuttlefish-base;
+    })
+    inputs.niri.overlays.niri
+  ];
   pkgsForSystem = inputs.nixos-unstable;
 }
