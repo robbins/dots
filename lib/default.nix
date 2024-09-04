@@ -13,12 +13,16 @@
 */
 args@{ ... }:
 let
-  inherit (args.nixpkgs-unstable) lib;
+  inherit (builtins) filter readDir attrNames;
+  inherit (args.nixpkgs-unstable.lib) filterAttrs flip pipe hasInfix hasSuffix;
+  inherit (args.nixpkgs-unstable.lib.filesystem) listFilesRecursive;
 in
 rec {
   genHosts = import ./genhosts.nix args;
   mkNixosSystem = import ./mknixossystem.nix args;
   mkDarwinSystem = import ./mkdarwinsystem.nix args;
+
+  options = import ./options.nix;
 
   /**
     Return a list of hostnames of each Linux and Darwin machine
@@ -41,11 +45,10 @@ rec {
     ```
   */
   nixosHosts =
-    with builtins;
     let
       hostDirs = readDir ../hosts/linux;
     in
-    attrNames (lib.filterAttrs (_: type: type == "directory") hostDirs);
+    attrNames (filterAttrs (_: type: type == "directory") hostDirs);
 
   /**
     Return a list of hostnames of each macOS machine
@@ -57,11 +60,10 @@ rec {
     ```
   */
   darwinHosts =
-    with builtins;
     let
       hostDirs = readDir ../hosts/darwin;
     in
-    attrNames (lib.filterAttrs (_: type: type == "directory") hostDirs);
+    attrNames (filterAttrs (_: type: type == "directory") hostDirs);
 
   /**
     Return a list of hostnames corresponding to the given platform
@@ -79,10 +81,10 @@ rec {
   platformHosts = platform: if platform == "linux" then nixosHosts else darwinHosts;
 
   modulesInDir = import ./modulesInDir.nix args;
-  modulesInDirRec = lib.flip lib.pipe [
-    lib.filesystem.listFilesRecursive
-    (builtins.filter (
-      file: !lib.hasInfix "_" file && lib.hasSuffix ".nix" file && !lib.hasSuffix "default.nix" file
+  modulesInDirRec = flip pipe [
+    listFilesRecursive
+    (filter (
+      file: !hasInfix "_" file && hasSuffix ".nix" file && !hasSuffix "default.nix" file
     ))
   ];
 
