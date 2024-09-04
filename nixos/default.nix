@@ -16,7 +16,7 @@ in
 {
   imports = [
     ((import ../nixos/modules) inputs) # all my custom NixOS modules
-    "${modulesPath}/profiles/perlless.nix"
+    # "${modulesPath}/profiles/perlless.nix" Not working until ryantm/agenix#238 is fixed
     ./security.nix
   ];
 
