@@ -4,8 +4,8 @@
   lib,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.shell.bat;
 in
 {
@@ -16,11 +16,20 @@ in
   config = mkIf cfg.enable {
     programs.zsh.shellAliases = {
       "bap" = "bat -pp";
-      "bam" = "batman";
+      "bag" = "batdiff";
+      "bad" = "batdiff";
     };
-    home.packages = [ pkgs.bat-extras.batman ];
+    programs.zsh.localVariables = {
+      MANPAGER = "${pkgs.bash}/bin/sh -c '${pkgs.util-linux}/bin/col -bx | ${pkgs.bat}/bin/bat -l ${pkgs.man}/share/man -p'";
+    };
+    programs.zsh.shellGlobalAliases = {
+      "-h" = "-h 2>&1 | bat --language=help --style=plain";
+      "--help" = "--help 2>&1 | bat --language=help --style=plain";
+    };
     programs.bat = {
       enable = true;
+      # TODO: Batdiff tests currently broken
+      extraPackages = with pkgs.bat-extras; [ batgrep ];
       config = {
         theme = "gruvbox-dark";
       };
