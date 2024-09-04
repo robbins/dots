@@ -7,6 +7,7 @@
   config,
   lib,
   inputs,
+  modulesPath,
   ...
 }:
 let
@@ -15,6 +16,7 @@ in
 {
   imports = [
     ((import ../nixos/modules) inputs) # all my custom NixOS modules
+    "${modulesPath}/profiles/perlless.nix"
     ./security.nix
   ];
 
@@ -49,6 +51,10 @@ in
         timeout = 0;
         systemd-boot = {
           enable = true;
+          consoleMode = "max";
+          editor = false;
+          memtest86.enable = true;
+          netbootxyz.enable = true;
         };
         efi.canTouchEfiVariables = true;
       };
