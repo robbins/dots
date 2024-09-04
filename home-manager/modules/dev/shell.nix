@@ -4,14 +4,14 @@
   lib,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.dev.shell;
 in
 {
   options.modules.dev.shell = {
-    enable = lib.mkEnableOption "Shell Development";
+    enable = mkEnableOption "Bash Scripting Utilities";
   };
 
-  config = lib.mkIf cfg.enable { home.packages = with pkgs; [ shellcheck ]; };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ shellcheck shellharden shfmt ]; };
 }

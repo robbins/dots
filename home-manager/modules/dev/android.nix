@@ -10,12 +10,13 @@ let
 in
 {
   options.modules.dev.android = {
-    enable = mkEnableOption "Android Development";
+    enable = mkEnableOption "Android App Development Utilities";
   };
 
   config = mkIf cfg.enable {
     home.packages =
       let
+        # Automatically connect to ADB Wi-Fi without having to check the port number
         adb-wireless-find-port = pkgs.writeShellScriptBin "adbw" ''
           set -x
           set -e
@@ -25,7 +26,8 @@ in
         '';
       in
       [
-        pkgs.scrcpy
+        pkgs.scrcpy # Screen mirroring
+        pkgs.httpie # HTTP requests
         adb-wireless-find-port
       ];
     home.sessionVariables = {
