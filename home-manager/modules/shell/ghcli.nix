@@ -2,22 +2,23 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
-with lib;
 let
+  inherit (lib) mkEnableOption mkIf;
+  inherit (lib.types) str;
+  inherit (inputs.self.mylib.options) mkOpt;
   cfg = config.modules.shell.ghcli;
 in
 {
   options.modules.shell.ghcli = {
     enable = mkEnableOption "GitHub CLI";
-    gitProtocol = mkOption {
-      type = lib.types.str;
-      default = "https";
-    };
+    gitProtocol = mkOpt str "https";
   };
 
   config = mkIf cfg.enable {
+    programs.gh-dash.enable = true;
     programs.gh = {
       enable = true;
       settings = {
