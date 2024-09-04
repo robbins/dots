@@ -20,7 +20,7 @@ in
       "bad" = "batdiff";
     };
     programs.zsh.sessionVariables = {
-      MANPAGER = "${pkgs.bash}/bin/sh -c '${pkgs.util-linux}/bin/col -bx | ${pkgs.bat}/bin/bat -l ${pkgs.man}/share/man -p'";
+      MANPAGER = "${pkgs.bash}/bin/sh -c '${pkgs.util-linux}/bin/col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
     programs.zsh.shellGlobalAliases = {
       "-h" = "-h 2>&1 | bat --language=help --style=plain";
