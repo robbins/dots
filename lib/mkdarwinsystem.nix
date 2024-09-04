@@ -23,7 +23,7 @@ inputs:
   system,
   modules' ? [ ],
   overlays' ? [ ],
-  pkgsForSystem ? inputs.nixpkgs,
+  pkgsForSystem ? inputs.nixpkgs-unstable,
 }:
 with pkgsForSystem.lib;
 inputs.darwin.lib.darwinSystem {

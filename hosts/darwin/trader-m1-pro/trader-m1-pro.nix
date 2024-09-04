@@ -10,5 +10,5 @@ inputs: rec {
     { users.users."naterobbins".home = "/Users/naterobbins"; }
   ];
   overlays' = [ ];
-  pkgsForSystem = inputs.nixpkgs;
+  pkgsForSystem = inputs.nixpkgs-unstable;
 }

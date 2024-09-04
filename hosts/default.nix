@@ -13,7 +13,7 @@
 platform: args:
 with args.self.mylib;
 let
-  lib = if platform == "linux" then args.nixos-unstable.lib else args.nixpkgs.lib;
+  lib = if platform == "linux" then args.nixos-unstable.lib else args.nixpkgs-unstable.lib;
   hostnames = platformHosts platform;
   hostArgs = lib.genAttrs hostnames (hostname: import ./${platform}/${hostname}/${hostname}.nix);
 in
