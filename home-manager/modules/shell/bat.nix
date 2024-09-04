@@ -19,7 +19,7 @@ in
       "bag" = "batdiff";
       "bad" = "batdiff";
     };
-    programs.zsh.localVariables = {
+    programs.zsh.sessionVariables = {
       MANPAGER = "${pkgs.bash}/bin/sh -c '${pkgs.util-linux}/bin/col -bx | ${pkgs.bat}/bin/bat -l ${pkgs.man}/share/man -p'";
     };
     programs.zsh.shellGlobalAliases = {
