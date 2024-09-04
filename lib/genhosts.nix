@@ -44,7 +44,7 @@ genAttrs (builtins.attrNames hostArgs) (
     # modules' is set here and in hosts/platform/hostname/hostname.nix
     {
       modules' = [
-        ../common/nixconf.nix
+        ../common/nix.nix
         { networking.hostName = mkDefault "${hostname}"; }
         (import ../hosts/${platform}/${hostname})
       ];

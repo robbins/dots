@@ -11,11 +11,14 @@
 }:
 {
   nix = {
+    channel.enable = false; # Flakes everywhere!
+
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+
       substituters = [
         "https://cache.nixos.org"
         "https://robbins.cachix.org"
@@ -38,17 +41,26 @@
         "${specialArgs.username}"
         "root"
       ];
+
+      max-jobs = 3;
+      cores = 4;
+
       auto-optimise-store = true;
-      max-jobs = 4;
-      cores = 3;
-      log-lines = 30;
+      log-lines = 45;
       fsync-metadata = lib.mkIf (!config.wsl.enable) config.fileSystems."/nix".fsType != "zfs";
     };
+
     package = pkgs.nixVersions.latest;
+
     gc = {
       automatic = true;
       dates = "monthly";
-      options = "--delete-older-than 60d";
+      options = "--delete-older-than 90d";
+    };
+
+    optimise = {
+      automatic = true;
+      dates = [ "monthly" ];
     };
   };
 }
