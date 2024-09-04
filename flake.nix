@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # Darwin
+    # Nix-Darwin
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -47,7 +47,12 @@
       url = "github:robbins/neovim-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      ref = "refs/tags/v0.42.0"; # Keep locked to Hyprscroller-compatible version
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixos-unstable";
@@ -114,8 +119,6 @@
       inherit self;
 
       mylib = import ./lib args;
-      formatter.x86_64-linux = args.nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      formatter.aarch64-darwin = args.nixpkgs-unstable.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
 
       nixosConfigurations = import ./hosts "linux" args;
       darwinConfigurations = import ./hosts "darwin" args;
@@ -140,5 +143,8 @@
           ];
         };
       });
+
+      formatter.x86_64-linux = args.nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.aarch64-darwin = args.nixpkgs-unstable.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
 }
