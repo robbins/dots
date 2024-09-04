@@ -9,7 +9,7 @@ let
 in
 {
   options.modules.shell.dircolors = {
-    enable = lib.mkEnableOption "enable";
+    enable = lib.mkEnableOption "Enable dircolors for colored ls output";
   };
 
   config = lib.mkIf cfg.enable (
@@ -671,9 +671,4 @@ in
       }
     ]
   );
-
-  /*
-      config = lib.mkIf cfg.enable {
-    };
-  */
 }
