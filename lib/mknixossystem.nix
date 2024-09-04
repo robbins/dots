@@ -13,8 +13,8 @@
   [system] Required argument to nixosSystem
   [username] Linux user name used for specifying the home directory, etc.
   [hostname] Linux system hostname
-  [modules'] Custom NixOS modules to import
-  [overlays'] Custom overlays to apply to pkgs
+  [modules'] Custom NixOS modules to import for the specific host
+  [overlays'] Custom overlays to apply to pkgs for the specific host
   [pkgsForSystem] the Nixpkgs flake input used as the package set for the system. Typically either nixos-stable or nixos-unstable
 */
 inputs:
@@ -42,9 +42,8 @@ nixosSystem {
   };
   modules =
     [
-      ../nixos
-      ../nixos/agenix.nix
-      { modules.nixos.localNixpkgs = pkgsForSystem; }
+      ../nixos # Common NixOS host config
+      ../nixos/agenix.nix # Agenix secret config
     ]
     ++ (optionals isDesktop [
       inputs.home-manager.nixosModules.home-manager

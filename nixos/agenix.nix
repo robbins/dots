@@ -1,3 +1,8 @@
+/**
+  Agenix secret configuration
+
+  Enumerates all secrets and sets up paths to SSH host keys for decryption
+*/
 {
   config,
   options,

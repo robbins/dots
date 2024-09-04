@@ -27,6 +27,7 @@ in
     system.configurationRevision = inputs.self.mylib.gitRev inputs;
     system.darwinLabel = "GitRev.${system.configurationRevision}.Rel.${config.system.nixpkgsRelease}";
 
+    # TODO: is this also set automatically on Darwin?
     # Store the flake's Nixpkgs input to use with tooling that doesn't support flakes
     environment.etc."nixdarwin/nixpkgs".source = cfg.localNixpkgs;
     nix.nixPath = [ "/etc/nixos" ];

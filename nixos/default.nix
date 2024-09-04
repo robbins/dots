@@ -20,10 +20,6 @@ in
     ./security.nix
   ];
 
-  options.modules.nixos = {
-    localNixpkgs = lib.mkOption { };
-  };
-
   config = lib.mkMerge [
     rec {
       environment.variables.NIXPKGS_ALLOW_UNFREE = "1";
