@@ -6,7 +6,7 @@
   specialArgs,
   ...
 }:
-with lib;
+
 {
   imports = [ inputs.agenix.nixosModules.default ];
 
@@ -35,6 +35,10 @@ with lib;
       secretFileToPath;
 
     # If impermanence is enabled ssh keys are needed before impermanence places them in /etc/ssh, so get them directly from persistent storage
-    identityPaths = options.age.identityPaths.default ++ (if config.modules.services.persistence.system.enable then [ "${config.modules.services.persistence.system.persistenceRoot}/etc/ssh/ssh_host_ed25519_key" ] else []);
+    identityPaths =
+      options.age.identityPaths.default
+      ++ (lib.optionals config.modules.services.persistence.system.enable [
+        "${config.modules.services.persistence.system.persistenceRoot}/etc/ssh/ssh_host_ed25519_key"
+      ]);
   };
 }

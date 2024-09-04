@@ -46,16 +46,11 @@ nixosSystem {
       ../nixos/agenix.nix
       { modules.nixos.localNixpkgs = pkgsForSystem; }
     ]
-    ++ (
-      if isDesktop then
-        [
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nur.nixosModules.nur
-          ../home-manager
-        ]
-      else
-        [ ]
-    )
+    ++ (optionals isDesktop [
+      inputs.home-manager.nixosModules.home-manager
+      inputs.nur.nixosModules.nur
+      ../home-manager
+    ])
     ++ modules';
   specialArgs = {
     inherit
