@@ -93,9 +93,9 @@
   };
 
   outputs =
-    args@{ self, ... }: # The parameter of the lambda bound to outputs that takes self and all flakes specified in the inputs attribute can be referred to by 'args', and is renamed to 'inputs' when passed to the module system via specialArgs/extraSpecialArgs.
+    inputs@{ self, ... }: # The parameter of the lambda bound to outputs that takes self and all flakes specified in the inputs attribute can be referred to by ''inputs' here and when passed to the module system via specialArgs/extraSpecialArgs.
     let
-      inherit (args.nixpkgs-unstable.lib) genAttrs;
+      inherit (inputs.nixpkgs-unstable.lib) genAttrs;
       supportedSystems = [
         "x86_64-linux"
         "x86_64-darwin"
@@ -107,10 +107,10 @@
           system:
           function (
             # Forced to have a second eval of nixpkgs* here because we want this to use nixpkgs-unstable, but Linux systems use nixos-unstable. Darwin systems could share but I'd prefer to keep it consistent.
-            import args.nixpkgs-unstable {
+            import inputs.nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
-              overlays = [ args.neovim-nightly.overlays.default ];
+              overlays = [ inputs.neovim-nightly.overlays.default ];
             }
           )
         );
@@ -118,10 +118,10 @@
     {
       inherit self;
 
-      mylib = import ./lib args;
+      mylib = import ./lib inputs;
 
-      nixosConfigurations = import ./hosts "linux" args;
-      darwinConfigurations = import ./hosts "darwin" args;
+      nixosConfigurations = import ./hosts "linux" inputs;
+      darwinConfigurations = import ./hosts "darwin" inputs;
 
       packages =
         let
@@ -137,14 +137,14 @@
             pkgs.just
             pkgs.nix-output-monitor
             pkgs.nh
-            args.agenix.packages.${pkgs.system}.default
+            inputs.agenix.packages.${pkgs.system}.default
             pkgs.nix-inspect
-            args.neovim-nix.packages.${pkgs.system}.default
+            inputs.neovim-nix.packages.${pkgs.system}.default
           ];
         };
       });
 
-      formatter.x86_64-linux = args.nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      formatter.aarch64-darwin = args.nixpkgs-unstable.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter.x86_64-linux = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.aarch64-darwin = inputs.nixpkgs-unstable.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
 }
