@@ -2,23 +2,20 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 let
   inherit (lib) mkEnableOption mkOption mkIf;
+  inherit (lib.types) str;
+  inherit (inputs.self.mylib.options) mkOpt;
   cfg = config.modules.shell.git;
 in
 {
   options.modules.shell.git = {
     enable = mkEnableOption "enable";
-    userName = mkOption {
-      type = lib.types.str;
-      default = "";
-    };
-    userEmail = mkOption {
-      type = lib.types.str;
-      default = "";
-    };
+    userName = mkOpt str "";
+    userEmail = mkOpt str "";
   };
 
   config = mkIf cfg.enable {
@@ -39,7 +36,7 @@ in
       gB = "git reset HEAD~1 --hard";
       # Macros
       fixup = "git add . && git commit --amend --no-edit";
-      cdgr = "cd '$(git rev-parse --show-toplevel)'";
+      groot = "cd \"$(git rev-parse --show-toplevel)\"";
     };
     programs.git = {
       enable = true;
