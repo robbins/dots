@@ -69,13 +69,13 @@
         enable = true;
         autoLogin = {
           enable = true;
-          autoSessionCommand = "Hyprland";
+          autoSessionCommand = "niri-session";
         };
         gnome = false;
         kde = false;
       };
-      niri.enable = false;
-      hyprland.enable = true;
+      niri.enable = true;
+      hyprland.enable = false;
     };
     documentation.enable = true;
   };
