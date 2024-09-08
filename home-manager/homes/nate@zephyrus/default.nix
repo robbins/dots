@@ -28,6 +28,7 @@
         enable = true;
         fontSize = "13.0";
       };
+      wezterm.enable = true;
       hyprland.enable = false;
       niri.enable = true;
       wayland.enable = true;

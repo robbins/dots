@@ -15,6 +15,7 @@ in
 
   config = mkIf cfg.enable (
     let
+      # TODO: This was needed for Kitty, might not be needed for Wezterm
       wezterm-run = pkgs.writeShellScriptBin "wezterm-run" ''
         export MESA_LOADER_DRIVER_OVERRIDE=radeonsi
         export __EGL_VENDOR_LIBRARY_FILENAMES=/run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json
@@ -28,6 +29,9 @@ in
       };
       programs.wezterm = {
         enable = true;
+        colorSchemes = {
+        };
+        extraConfig = builtins.readFile ./wezterm.lua;
       };
     }
   );
