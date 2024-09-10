@@ -120,4 +120,7 @@
 
   # Meta
   system.stateVersion = "21.05";
+
+  virtualisation.docker.enable = true;
+  users.users."nate".extraGroups = [ "docker" ];
 }
