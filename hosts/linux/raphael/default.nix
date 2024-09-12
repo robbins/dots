@@ -85,6 +85,7 @@
     "cvdnetwork"
     "render"
     "kvm"
+    "dialout"
   ];
 
   # Misc
