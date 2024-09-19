@@ -15,6 +15,8 @@ in
   config = mkIf cfg.enable (mkMerge [
     {
       services.openssh = {
+        ports = [ 23 ];
+        openFirewall = mkForce true;
         enable = true;
         settings = {
           PasswordAuthentication = false;
