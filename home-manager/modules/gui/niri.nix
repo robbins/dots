@@ -111,6 +111,19 @@ in
             variable-refresh-rate = true;
             scale = 1.;
           };
+          "DP-3" = {
+            mode = {
+              width = 3840;
+              height = 2160;
+              refresh = 120.000;
+            };
+            position = {
+              x = 0;
+              y = 0;
+            };
+            variable-refresh-rate = false;
+            scale = 1.;
+          };
           "DP-4" = {
             mode = {
               width = 3840;
