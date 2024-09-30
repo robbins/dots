@@ -121,6 +121,8 @@
   # Meta
   system.stateVersion = "21.05";
 
+  services.openssh.openFirewall = lib.mkForce true;
+
   virtualisation.docker.enable = true;
   users.users."nate".extraGroups = [ "docker" ];
 }
