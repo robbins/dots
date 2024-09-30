@@ -89,9 +89,37 @@
   ];
 
   # Misc
-  boot.kernelParams = [ "amd_pstate=active" ];
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # macOS GPU Passthrough
+  boot.kernelModules = [
+    "vfio-pci"
+  ];
+  boot.extraModprobeConfig = ''
+    options vfio-pci ids=1002:67df,1002:aaf0,1022:43f7
+    softdep radeon pre: vfio-pci
+    softdep amdgpu pre: vfio-pci
+    softdep nouveau pre: vfio-pci
+    softdep drm pre: vfio-pci
+  '';
+  boot.kernelParams = [
+    "iommu=pt"
+    "amd_iommu=on"
+    "vfio-pci.ids=1002:67df,1002:aaf0"
+    "kvm.ignore_msrs=1"
+    "video=vesafb:off,efifb:off"
+    "amd_pstate=active"
+  ];
+  security.pam.loginLimits = [
+    { domain = "@kvm"; type = "soft"; item = "memlock"; value = "unlimited"; }
+    { domain = "@kvm"; type = "hard"; item = "memlock"; value = "unlimited"; }
+    { domain = "@libvirt"; type = "soft"; item = "memlock"; value = "unlimited"; }
+    { domain = "@libvirt"; type = "hard"; item = "memlock"; value = "unlimited"; }
+  ];
+  services.udev.extraRules = ''
+    SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
+  '';
 
   # Meta
   system.stateVersion = "23.05";
