@@ -86,40 +86,77 @@
     "render"
     "kvm"
     "dialout"
+    "libvirtd"
   ];
 
   # Misc
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # macOS GPU Passthrough
-  boot.kernelModules = [
-    "vfio-pci"
-  ];
-  boot.extraModprobeConfig = ''
-    options vfio-pci ids=1002:67df,1002:aaf0,1022:43f7
-    softdep radeon pre: vfio-pci
-    softdep amdgpu pre: vfio-pci
-    softdep nouveau pre: vfio-pci
-    softdep drm pre: vfio-pci
-  '';
+  # OSX-KVM
+  #boot.kernelModules = [
+  #  "vfio-pci"
+  #];
+  #boot.extraModprobeConfig = ''
+  #  options vfio-pci ids=1002:67df,1002:aaf0,1022:43f7
+  #  softdep radeon pre: vfio-pci
+  #  softdep amdgpu pre: vfio-pci
+  #  softdep nouveau pre: vfio-pci
+  #  softdep drm pre: vfio-pci
+  #'';
+  #boot.kernelParams = [
+  #  "iommu=pt"
+  #  "amd_iommu=on"
+  #  "vfio-pci.ids=1002:67df,1002:aaf0"
+  #  "kvm.ignore_msrs=1"
+  #  "video=vesafb:off,efifb:off"
+  #  "amd_pstate=active"
+  #];
+  #security.pam.loginLimits = [
+  #  { domain = "@kvm"; type = "soft"; item = "memlock"; value = "unlimited"; }
+  #  { domain = "@kvm"; type = "hard"; item = "memlock"; value = "unlimited"; }
+  #  { domain = "@libvirt"; type = "soft"; item = "memlock"; value = "unlimited"; }
+  #  { domain = "@libvirt"; type = "hard"; item = "memlock"; value = "unlimited"; }
+  #];
+  #services.udev.extraRules = ''
+  #  SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
+  #'';
+
+  # DarwinKVM
   boot.kernelParams = [
-    "iommu=pt"
-    "amd_iommu=on"
-    "vfio-pci.ids=1002:67df,1002:aaf0"
-    "kvm.ignore_msrs=1"
-    "video=vesafb:off,efifb:off"
     "amd_pstate=active"
+    "video=efifb:off"
+    "iommu=pt"
   ];
-  security.pam.loginLimits = [
-    { domain = "@kvm"; type = "soft"; item = "memlock"; value = "unlimited"; }
-    { domain = "@kvm"; type = "hard"; item = "memlock"; value = "unlimited"; }
-    { domain = "@libvirt"; type = "soft"; item = "memlock"; value = "unlimited"; }
-    { domain = "@libvirt"; type = "hard"; item = "memlock"; value = "unlimited"; }
-  ];
-  services.udev.extraRules = ''
-    SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.extraConfig = ''
+    unix_sock_group = "libvirtd"
+    unix_sock_rw_perms = "0770"
+    log_filters="3:qemu 1:libvirt"
+    log_outputs="2:file:/var/log/libvirt/libvirtd.log"
   '';
+  virtualisation.libvirtd.qemu.verbatimConfig = ''
+    namespaces = []
+    user = "nate"
+    group = "users"
+  '';
+  environment.etc = {
+    "ovmf/OVMF_CODE.fd" = {
+      source = pkgs.OVMF.fd + "/FV/OVMF_CODE.fd";
+    };
+
+    "ovmf/OVMF_VARS.fd" = {
+      source = pkgs.OVMF.fd + "/FV/OVMF_VARS.fd";
+    };
+
+    "ovmf/edk2-i386-vars.fd" = {
+      source = config.virtualisation.libvirtd.qemu.package + "/share/qemu/edk2-i386-vars.fd";
+      mode = "0644";
+      user = "libvirtd";
+    };
+  };
+  environment.systemPackages = with pkgs; [ OVMFFull OVMF.fd ];
 
   # Meta
   system.stateVersion = "23.05";
