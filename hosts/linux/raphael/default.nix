@@ -127,6 +127,8 @@
     "amd_pstate=active"
     "video=efifb:off"
     "iommu=pt"
+    # GPU passthrough
+    "vfio-pci.ids=1002:67df,1002:aaf0"
   ];
   virtualisation.libvirtd = {
     enable = true;
@@ -134,6 +136,14 @@
     qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
   };
   programs.virt-manager.enable = true;
+  # GPU Passthrough
+  boot.extraModprobeConfig = ''
+    options vfio-pci ids=1002:67df,1002:aaf0
+    softdep radeon pre: vfio-pci
+    softdep amdgpu pre: vfio-pci
+    softdep nouveau pre: vfio-pci
+    softdep drm pre: vfio-pci
+  '';
 /*  virtualisation.libvirtd.extraConfig = ''
     unix_sock_group = "libvirtd"
     unix_sock_rw_perms = "0770"
