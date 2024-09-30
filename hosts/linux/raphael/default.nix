@@ -128,9 +128,13 @@
     "video=efifb:off"
     "iommu=pt"
   ];
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.ovmf.enable = true;
+    qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
+  };
   programs.virt-manager.enable = true;
-  virtualisation.libvirtd.extraConfig = ''
+/*  virtualisation.libvirtd.extraConfig = ''
     unix_sock_group = "libvirtd"
     unix_sock_rw_perms = "0770"
     log_filters="3:qemu 1:libvirt"
@@ -140,23 +144,7 @@
     namespaces = []
     user = "nate"
     group = "users"
-  '';
-  environment.etc = {
-    "ovmf/OVMF_CODE.fd" = {
-      source = pkgs.OVMF.fd + "/FV/OVMF_CODE.fd";
-    };
-
-    "ovmf/OVMF_VARS.fd" = {
-      source = pkgs.OVMF.fd + "/FV/OVMF_VARS.fd";
-    };
-
-    "ovmf/edk2-i386-vars.fd" = {
-      source = config.virtualisation.libvirtd.qemu.package + "/share/qemu/edk2-i386-vars.fd";
-      mode = "0644";
-      user = "libvirtd";
-    };
-  };
-  environment.systemPackages = with pkgs; [ OVMFFull OVMF.fd ];
+  '';*/
 
   # Meta
   system.stateVersion = "23.05";
