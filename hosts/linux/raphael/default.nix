@@ -169,6 +169,8 @@
     group = "users"
   '';*/
 
+  services.gvfs.enable = true;
+
   # Meta
   system.stateVersion = "23.05";
 }
