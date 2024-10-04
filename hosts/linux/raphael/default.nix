@@ -145,29 +145,26 @@
     softdep drm pre: vfio-pci
   '';
   virtualisation.libvirtd.qemu.verbatimConfig = ''
+    namespaces = []
+    user = "nate"
+    group = "users"
     security_default_confined = 0
     cgroup_device_acl = [
     "/dev/null", "/dev/full", "/dev/zero",
     "/dev/random", "/dev/urandom",
     "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
     "/dev/rtc", "/dev/hpet", "/dev/vfio/vfio",
-    # Your devices go here
     "/dev/input/by-id/usb-30fa_USB_OPTICAL_MOUSE-event-mouse",
     "/dev/input/by-id/usb-BY_Tech_Usb_Gaming_Keyboard-event-kbd",
     ]
     clear_emulator_capabilities = 0
   '';
-/*  virtualisation.libvirtd.extraConfig = ''
+  virtualisation.libvirtd.extraConfig = ''
     unix_sock_group = "libvirtd"
     unix_sock_rw_perms = "0770"
     log_filters="3:qemu 1:libvirt"
     log_outputs="2:file:/var/log/libvirt/libvirtd.log"
   '';
-  virtualisation.libvirtd.qemu.verbatimConfig = ''
-    namespaces = []
-    user = "nate"
-    group = "users"
-  '';*/
 
   services.gvfs.enable = true;
 
