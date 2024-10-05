@@ -166,7 +166,28 @@
     log_outputs="2:file:/var/log/libvirt/libvirtd.log"
   '';
 
-  services.gvfs.enable = true;
+  systemd.network.netdevs."br0" = {
+    netdevConfig = {
+      Kind = "bridge";
+      Name = "br0";
+    };
+  };
+  systemd.network.networks."1-br0-bind" = {
+    matchConfig = {
+      Name = "${config.modules.hardware.networking.wired.interfaceName}";
+    };
+    bridge = [
+      "br0"
+    ];
+  };
+  systemd.network.networks."2-br0-dhcp" = {
+    matchConfig = {
+      Name = "br0";
+    };
+    networkConfig = {
+      DHCP = "ipv4";
+    };
+  };
 
   # Meta
   system.stateVersion = "23.05";
