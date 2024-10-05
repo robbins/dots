@@ -64,7 +64,7 @@
         };
         wired = {
           enable = true;
-          interfaceName = "enp10s0";
+          interfaceName = "enp11s0";
         };
       };
       filesystems = {
