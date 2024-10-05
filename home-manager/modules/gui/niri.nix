@@ -149,6 +149,18 @@ in
             };
             transform.rotation = 270;
           };
+          "HDMI-A-1" = {
+            mode = {
+              width = 3840;
+              height = 2160;
+              refresh = 72.;
+            };
+            position = {
+              x = 3840;
+              y = 0;
+            };
+            transform.rotation = 0;
+          };
         };
         prefer-no-csd = true;
         spawn-at-startup = [
