@@ -188,6 +188,11 @@
       DHCP = "ipv4";
     };
   };
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+  };
 
   # Meta
   system.stateVersion = "23.05";
