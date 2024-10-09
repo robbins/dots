@@ -28,8 +28,9 @@
         enable = true;
         fontSize = "14.0";
       };
-      niri.enable = true;
-      hyprland.enable = true;
+      niri.enable = false;
+      hyprland.enable = false;
+      sway.enable = true;
       wayland.enable = true;
       bar.enable = true;
       rofi.enable = true;

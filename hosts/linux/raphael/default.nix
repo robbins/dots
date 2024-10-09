@@ -44,10 +44,10 @@
         enable = true;
         autoLogin = {
           enable = true;
-          autoSessionCommand = "niri-session";
+          autoSessionCommand = "sway";
         };
       };
-      niri.enable = true;
+      niri.enable = false;
     };
     hardware = {
       audio.enable = true;
