@@ -22,6 +22,16 @@ in
       config = rec {
         modifier = "Mod4";
         terminal = "kitty-run";
+        output = {
+          DP-1 = {
+            pos = "0,0";
+            mode = "3840x2160@144Hz";
+          };
+          HEADLESS-1 = {
+            pos = "-1920,0";
+            mode = "3840x2160@144Hz";
+          };
+        };
       };
     };
   };
