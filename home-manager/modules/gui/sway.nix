@@ -22,6 +22,12 @@ in
       config = rec {
         modifier = "Mod1";
         terminal = "kitty-run";
+        input = {
+          "*" = {
+            repeat_delay = "200";
+            repeat_rate = "20";
+          };
+        };
         output = {
           DP-1 = {
             pos = "0,0";
