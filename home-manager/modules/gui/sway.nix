@@ -20,7 +20,7 @@ in
     wayland.windowManager.sway = {
       enable = true;
       config = rec {
-        modifier = "Mod4";
+        modifier = "Mod1";
         terminal = "kitty-run";
         output = {
           DP-1 = {
