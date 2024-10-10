@@ -193,6 +193,8 @@
     autoStart = true;
     capSysAdmin = true;
   };
+  programs.sway.enable = true;
+  services.seatd.enable = true;
 
   # Meta
   system.stateVersion = "23.05";
