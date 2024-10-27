@@ -21,7 +21,7 @@ in
 
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
-        directories = [ "/var/lib/docker" ];
+        directories = [ "/var/lib/docker" "/var/lib/openvas" ];
       };
     })
   ]);
