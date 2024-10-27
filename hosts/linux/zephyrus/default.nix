@@ -20,7 +20,7 @@
 
   modules = {
     services = {
-      docker.enable = false;
+      docker.enable = true;
       ssh.enable = true;
       persistence.system = {
         enable = true;
@@ -122,7 +122,4 @@
   system.stateVersion = "21.05";
 
   services.openssh.openFirewall = lib.mkForce true;
-
-  virtualisation.docker.enable = true;
-  users.users."nate".extraGroups = [ "docker" ];
 }
