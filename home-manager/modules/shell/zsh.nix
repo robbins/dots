@@ -52,11 +52,10 @@ in
       initExtraBeforeCompInit = ''
         zstyle ':autocomplete:*' fzf-completion yes
         zstyle ':autocomplete:*' widget-style menu-select
-        source ${pkgs.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
         fpath=(${pkgs.zsh-completions}/share/zsh/site-functions $fpath)
       '';
       autosuggestion.enable = true;
-      enableCompletion = true;
+      enableCompletion = false;
       syntaxHighlighting = {
         enable = true;
         highlighters = [
