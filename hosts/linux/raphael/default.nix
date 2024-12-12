@@ -129,6 +129,8 @@
     "iommu=pt"
     # GPU passthrough
     "vfio-pci.ids=1002:67df,1002:aaf0"
+    # Intel
+    "ixgbe.allow_unsupported_sfp=1"
   ];
   virtualisation.libvirtd = {
     enable = true;
