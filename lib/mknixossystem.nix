@@ -47,7 +47,7 @@ nixosSystem {
     ]
     ++ (optionals isDesktop [
       inputs.home-manager.nixosModules.home-manager
-      inputs.nur.nixosModules.nur
+      inputs.nur.modules.nixos.default
       ../home-manager
     ])
     ++ modules';
