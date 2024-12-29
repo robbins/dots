@@ -123,26 +123,7 @@
 
   users.users.${specialArgs.username}.extraGroups = [
     "kvm"
-    "libvirtd"
   ];
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.ovmf.enable = true;
-    qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
-  };
-  programs.virt-manager.enable = true;
-  virtualisation.libvirtd.extraConfig = ''
-    unix_sock_group = "libvirtd"
-    unix_sock_rw_perms = "0770"
-    log_filters="3:qemu 1:libvirt"
-    log_outputs="2:file:/var/log/libvirt/libvirtd.log"
-  '';
-  virtualisation.libvirtd.qemu.verbatimConfig = ''
-    namespaces = []
-    user = "nate"
-    group = "users"
-  '';
-  networking.firewall.enable = false;
   programs.ssh.extraConfig = ''
    Host 192.168.2.2
      IdentitiesOnly yes
