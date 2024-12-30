@@ -1201,6 +1201,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-ghostty": {
+      "locked": {
+        "lastModified": 1735354307,
+        "narHash": "sha256-KeQb7/OwIicnRjEVcY6QLUtFq8+f0Z+YS0T2Mr7lI0w=",
+        "owner": "jcollie",
+        "repo": "nixpkgs",
+        "rev": "d9a2008b64acdd98f27b7d5149356a7831f75e90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jcollie",
+        "ref": "ghostty-init-1.0.0",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1733620091,
@@ -1392,6 +1408,7 @@
         "nixos-stable": "nixos-stable",
         "nixos-unstable": "nixos-unstable",
         "nixpkgs-cuttlefish": "nixpkgs-cuttlefish",
+        "nixpkgs-ghostty": "nixpkgs-ghostty",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "wsl": "wsl"

@@ -132,4 +132,7 @@
      PubkeyAcceptedKeyTypes=+ssh-rsa
      HostKeyAlgorithms=+ssh-rsa
   '';
+  environment.systemPackages = [
+    specialArgs.pkgs-ghostty.ghostty
+  ];
 }

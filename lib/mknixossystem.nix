@@ -58,5 +58,9 @@ nixosSystem {
       hostname
       isDesktop
       ;
+    pkgs-ghostty = (import inputs.nixpkgs-ghostty {
+      inherit system;
+      config.allowUnfree = true;
+    });
   };
 }
