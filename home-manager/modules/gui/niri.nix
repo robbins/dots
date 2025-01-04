@@ -110,6 +110,10 @@ in
             };
             variable-refresh-rate = true;
             scale = 1.;
+            position = {
+              x = 0;
+              y = 2160;
+            };
           };
           "DP-3" = {
             mode = {
@@ -153,12 +157,13 @@ in
             mode = {
               width = 3840;
               height = 2160;
-              refresh = 72.;
+              refresh = 120.;
             };
             position = {
-              x = 3840;
+              x = 0;
               y = 0;
             };
+            scale = 1.;
             transform.rotation = 0;
           };
         };
