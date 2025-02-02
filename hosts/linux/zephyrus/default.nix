@@ -123,6 +123,7 @@
 
   users.users.${specialArgs.username}.extraGroups = [
     "kvm"
+    "dialout"
   ];
   programs.ssh.extraConfig = ''
    Host 192.168.2.2
