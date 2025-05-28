@@ -136,4 +136,5 @@
   environment.systemPackages = [
     specialArgs.pkgs-ghostty.ghostty
   ];
+  networking.firewall.enable = false;
 }

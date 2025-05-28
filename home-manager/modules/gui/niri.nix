@@ -119,7 +119,7 @@ in
             mode = {
               width = 3840;
               height = 2160;
-              refresh = 120.000;
+              refresh = 60.;
             };
             position = {
               x = 0;
@@ -140,6 +140,17 @@ in
             };
             variable-refresh-rate = false;
             scale = 1.;
+          };
+          "DP-2" = {
+            mode = {
+              width = 3840;
+              height = 2160;
+              refresh = 60.;
+            };
+            position = {
+              x = 0;
+              y = 1080;
+            };
           };
           "HDMI-A-2" = {
             mode = {
