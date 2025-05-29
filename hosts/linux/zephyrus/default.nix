@@ -136,6 +136,7 @@
   environment.systemPackages = [
     specialArgs.pkgs-ghostty.ghostty
     pkgs.saleae-logic-2
+    pkgs.unblob
   ];
   hardware.saleae-logic = {
     enable = true;
