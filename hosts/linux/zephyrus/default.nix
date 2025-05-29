@@ -135,6 +135,9 @@
   '';
   environment.systemPackages = [
     specialArgs.pkgs-ghostty.ghostty
+    pkgs.saleae-logic-2
   ];
-  networking.firewall.enable = false;
+  hardware.saleae-logic = {
+    enable = true;
+  };
 }
