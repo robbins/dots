@@ -31,12 +31,12 @@ in
     };
     services.resolved = {
       enable = true;
-      dnssec = "false";
-      domains = [ "~." ];
-      extraConfig = ''
-        DNS=1.1.1.1#1dot1dot1dot1.cloudflare-dns.com
-        DNSOverTLS=yes
-      '';
+      #dnssec = "false";
+      #domains = [ "~." ];
+      #extraConfig = ''
+      #  DNS=1.1.1.1#1dot1dot1dot1.cloudflare-dns.com
+      #  DNSOverTLS=yes
+      #'';
     };
   };
 }
