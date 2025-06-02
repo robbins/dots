@@ -140,4 +140,5 @@
   hardware.saleae-logic = {
     enable = true;
   };
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 }
