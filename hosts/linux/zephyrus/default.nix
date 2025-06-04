@@ -141,4 +141,13 @@
     enable = true;
   };
   boot.binfmt.emulatedSystems = ["aarch64-linux" "armv7l-linux"];
+  programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs.pkgsCross.armv7l-hf-multiplatform; [
+    stdenv.cc.cc.lib
+    glibc
+  ] ++ [
+      pkgs.avahi-compat
+      pkgs.avahi-compat.dev
+    ];
+  services.avahi.enable = true;
 }
