@@ -86,7 +86,7 @@
 
   services.asusd = {
     enable = true;
-    asusdConfig = ''
+    asusdConfig.text = ''
       (
       bat_charge_limit: 60,
       panel_od: false,
