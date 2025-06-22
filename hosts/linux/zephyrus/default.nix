@@ -152,4 +152,5 @@
     ];
   services.avahi.enable = true;
   programs.wireshark.enable = true;
+  programs.ghidra.enable = true;
 }
