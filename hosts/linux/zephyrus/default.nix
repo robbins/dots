@@ -135,7 +135,6 @@
      HostKeyAlgorithms=+ssh-rsa
   '';
   environment.systemPackages = [
-    specialArgs.pkgs-ghostty.ghostty
     pkgs.saleae-logic-2
   ];
   hardware.saleae-logic = {

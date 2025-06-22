@@ -86,7 +86,6 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    nixpkgs-ghostty.url = "github:jcollie/nixpkgs/ghostty-init-1.0.0";
   };
 
   outputs =
