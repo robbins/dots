@@ -35,8 +35,9 @@ in
         OfferToSaveLogins = false;
       };
       profiles.default = {
-        bookmarks = [
-          {
+        bookmarks = {
+          force = true;
+          settings = [{
             toolbar = true;
             bookmarks = [
               {
@@ -144,8 +145,8 @@ in
                 ];
               }
             ];
-          }
-        ];
+          }];
+        };
         extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           bitwarden
           darkreader
