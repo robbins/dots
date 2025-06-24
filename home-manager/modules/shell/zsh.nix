@@ -18,9 +18,8 @@ in
     home.packages = with pkgs; [
       zsh-powerlevel10k
       zsh-completions
-      #zsh-autocomplete
+      zsh-autocomplete
       fzf
-      zsh-fzf-tab
     ];
     programs.zsh = {
       enable = true;
@@ -64,6 +63,16 @@ in
         ];
       };
       plugins = [
+        {
+          # will source zsh-autosuggestions.plugin.zsh
+          name = "fzf-tab-completion";
+          src = pkgs.fetchFromGitHub {
+            owner = "lincheney";
+            repo = "fzf-tab-completion";
+            rev = "4850357beac6f8e37b66bd78ccf90008ea3de40b";
+            sha256 = "sha256-pgcrRRbZaLoChVPeOvw4jjdDCokUK1ew0Wfy42bXfQo=";
+          };
+        }
         {
           name = "powerlevel10k-config";
           src = ./.;
