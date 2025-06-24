@@ -147,7 +147,7 @@ in
             ];
           }];
         };
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
           bitwarden
           darkreader
           ublock-origin
@@ -173,10 +173,10 @@ in
         };
         search = {
           force = true;
-          default = "Google";
+          default = "google";
           order = [
-            "Google"
-            "DuckDuckGo"
+            "google"
+            "duckduckgo"
           ];
           engines = {
             "Nix Packages" = {
