@@ -28,16 +28,16 @@
         enable = true;
         fontSize = "14.0";
       };
-      niri.enable = false;
+      niri.enable = true;
       hyprland.enable = false;
-      sway.enable = true;
+      sway.enable = false;
       wayland.enable = true;
       bar.enable = true;
       rofi.enable = true;
       firefox.enable = true;
       chromium.enable = true;
       mako.enable = true;
-      ags.enable = true;
+      ags.enable = false;
     };
     dev = {
       shell.enable = true;
