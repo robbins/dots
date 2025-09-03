@@ -44,10 +44,10 @@
         enable = true;
         autoLogin = {
           enable = true;
-          autoSessionCommand = "sway";
+          autoSessionCommand = "niri-session";
         };
       };
-      niri.enable = false;
+      niri.enable = true;
     };
     hardware = {
       audio.enable = true;
@@ -195,7 +195,7 @@
     autoStart = true;
     capSysAdmin = true;
   };
-  programs.sway.enable = true;
+  programs.sway.enable = false;
   services.seatd.enable = true;
 
   # Meta
