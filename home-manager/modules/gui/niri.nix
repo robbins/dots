@@ -115,56 +115,7 @@ in
               y = 2160;
             };
           };
-          "DP-3" = {
-            mode = {
-              width = 3840;
-              height = 2160;
-              refresh = 60.;
-            };
-            position = {
-              x = 0;
-              y = 0;
-            };
-            variable-refresh-rate = false;
-            scale = 1.;
-          };
-          "DP-4" = {
-            mode = {
-              width = 3840;
-              height = 2160;
-              refresh = 143.963;
-            };
-            position = {
-              x = 0;
-              y = 0;
-            };
-            variable-refresh-rate = false;
-            scale = 1.;
-          };
-          "DP-2" = {
-            mode = {
-              width = 3840;
-              height = 2160;
-              refresh = 60.;
-            };
-            position = {
-              x = 0;
-              y = 1080;
-            };
-          };
-          "HDMI-A-2" = {
-            mode = {
-              width = 1920;
-              height = 1080;
-              refresh = 72.;
-            };
-            position = {
-              x = 3840;
-              y = 0;
-            };
-            transform.rotation = 270;
-          };
-          "HDMI-A-1" = {
+          "DP-1" = {
             mode = {
               width = 3840;
               height = 2160;
