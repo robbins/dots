@@ -198,6 +198,22 @@
   programs.sway.enable = false;
   services.seatd.enable = true;
 
+  # Misc TODO:
+  programs.firejail = {
+    enable = true;
+    wrappedBinaries = {
+      packettracer8 = {
+        executable = lib.getExe pkgs.ciscoPacketTracer8;
+        desktop = "${pkgs.ciscoPacketTracer8}/share/applications/cisco-pt8.desktop.desktop";
+        extraArgs = [
+          "--net=none"
+          "--noprofile"
+          # ''--env=QT_STYLE_OVERRIDE=""''
+        ];
+      };
+    };
+  };
+
   # Meta
   system.stateVersion = "23.05";
 }
