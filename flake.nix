@@ -106,7 +106,9 @@
             import inputs.nixpkgs-unstable {
               inherit system;
               config.allowUnfree = true;
-              overlays = [ inputs.neovim-nightly.overlays.default ];
+              overlays = [ 
+                inputs.neovim-nightly.overlays.default 
+              ];
             }
           )
         );

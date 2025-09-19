@@ -38,7 +38,16 @@ nixosSystem {
         [
         ];
     };
-    overlays = overlays' ++ [ ];
+    overlays = overlays' ++ [ 
+      (final: prev: {
+        mininet = prev.mininet.overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            substituteInPlace mininet/clean.py \
+            --replace "dpctl deldp " "ovs-dpctl del-dp "
+          '';
+        });
+      })
+    ];
   };
   modules =
     [
