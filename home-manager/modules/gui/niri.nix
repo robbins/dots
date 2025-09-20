@@ -23,6 +23,9 @@ in
 
     programs.niri = {
       settings = {
+        debug = {
+          honor-xdg-activation-with-invalid-serial = [];
+        };
         window-rules = [
           {
             geometry-corner-radius = let
