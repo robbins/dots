@@ -66,6 +66,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/var/lib/docker" = {
+    device = "raphael/system/var/lib/docker";
+    fsType = "zfs";
+  };
+
   fileSystems."/persist" = {
     device = "raphael/persist";
     fsType = "zfs";

@@ -15,13 +15,23 @@ in
   };
   config = mkIf cfg.enable (mkMerge [
     {
-      virtualisation.docker.enable = true;
-      users.users.${specialArgs.username}.extraGroups = [ "docker" ];
+      virtualisation.docker = {
+        enable = false;
+        rootless = {
+          enable = true;
+          setSocketVariable = true;
+          daemon.settings = {
+            dns = ["1.1.1.1"];
+            storage-driver = "overlay2"; # ZFS not supported by rootless
+            data-root = "/var/lib/docker";
+          };
+        };
+      };
     }
 
     (mkIf config.modules.services.persistence.system.enable {
       environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
-        directories = [ "/var/lib/docker" "/var/lib/openvas" ];
+        directories = [];
       };
     })
   ]);
