@@ -221,7 +221,7 @@
     configPackages = [pkgs.xdg-desktop-portal-gtk];
     config.common.default = "gtk";
   };
-  environment.systemPackages = [ pkgs.imhex ];
+  environment.systemPackages = [ pkgs.imhex pkgs.nautilus ];
 
   # Meta
   system.stateVersion = "23.05";
