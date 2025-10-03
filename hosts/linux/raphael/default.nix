@@ -221,6 +221,7 @@
     configPackages = [pkgs.xdg-desktop-portal-gtk];
     config.common.default = "gtk";
   };
+  environment.systemPackages = [ pkgs.imhex ];
 
   # Meta
   system.stateVersion = "23.05";
