@@ -40,6 +40,9 @@ nixosSystem {
     };
     overlays = overlays' ++ [ 
       (final: prev: {
+        usbmuxd = prev.usbmuxd2;
+      })
+      (final: prev: {
         mininet = prev.mininet.overrideAttrs (old: {
           postPatch = (old.postPatch or "") + ''
             substituteInPlace mininet/clean.py \
