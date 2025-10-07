@@ -40,24 +40,28 @@ in
           "raphael" = {
             id = "PVJ2IXX-SIAL33Q-2TIGSYO-H4CTA54-AKH7TB5-OKOZAHS-YSB6XT5-INNB4QJ";
           };
+          "iPhone-11" = {
+            id = "2757SJ2-5MI6ZG7-GO44P54-FOWSUJ2-W4TR42E-NZDPPPR-BKNNIXQ-ICUAGAW";
+          };
         };
         folders = {
-          "Nate's Vault" = {
+          "nates-vault-obsidian" = {
             path = "/home/${specialArgs.username}/data/obsidian/nates-vault";
             devices = [
               "oneplus-7-pro"
               "zephyrus"
               "raphael"
+              "iPhone-11"
             ];
           };
-          "Wallpapers" = {
+          "wallpapers" = {
             path = "/home/${specialArgs.username}/pictures/wallpapers";
             devices = [
               "zephyrus"
               "raphael"
             ];
           };
-          "Books" = {
+          "books" = {
             path = "/home/${specialArgs.username}/data/books";
             devices = [
               "zephyrus"
