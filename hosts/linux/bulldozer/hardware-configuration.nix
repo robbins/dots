@@ -47,7 +47,7 @@
   };
 
   fileSystems."/boot" = {
-    device = lib.mkForce "/dev/disk/by-uuid/3A02-4451";
+    device = lib.mkForce "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YHNX0K836387Z-part1";
     fsType = "vfat";
   };
 

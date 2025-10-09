@@ -18,8 +18,6 @@
     services = {
       ssh.enable = true;
       persistence.system.enable = true;
-      tailscale.enable = true;
-      tailscale-initrd.enable = true;
     };
     user = {
       enable = true;
@@ -27,32 +25,21 @@
     };
     hardware = {
       networking = {
-        enable = true;
-        wifi = {
-          enable = true;
-          interfaceName = "wlan0";
-        };
-        usbTether = {
-          enable = true;
-          interfaceName = "oneplus7pro";
-        };
+        enable = false;
       };
       filesystems = {
         enable = true;
         zfs = {
           enable = true;
           unstable = true;
-          hostId = "73f6cfc9";
+          hostId = "2ad3fe49";
         };
       };
     };
   };
 
   boot = {
-    kernelParams = [ "ip=192.168.2.214::::::" ];
     initrd = {
-      network.enable = true;
-      availableKernelModules = [ "r8169" ];
       verbose = true;
       systemd.enable = true;
     };
@@ -67,36 +54,6 @@
     ];
   };
 
-  /*
-    boot.initrd.systemd.services.rollback = {
-      description = "Rollback ZFS datasets to a pristine state";
-      serviceConfig.Type = "oneshot";
-      unitConfig.DefaultDependencies = "no";
-      wantedBy = [
-        "initrd.target"
-      ];
-      after = [
-        "zfs-import-bulldozer.service"
-      ];
-      before = [
-        "sysroot.mount"
-      ];
-      path = with pkgs; [
-        zfs
-      ];
-      script = ''
-        set -ex
-        zfs rollback -r bulldozer/system/root@blank && echo "rollback complete"
-      '';
-    };
-  */
-
-  /*
-    boot.initrd.postDeviceCommands = lib.mkAfter ''
-      zfs rollback -r bulldozer/system/root@blank
-    '';
-  */
-
   disko.devices = import ./disko.nix { inherit lib; };
 
   # Misc
@@ -107,5 +64,5 @@
   boot.supportedFilesystems = [ "zfs" ];
 
   # Meta
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }
