@@ -6,7 +6,7 @@ let
   zephyrus-wsl_nate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPaJg71mp7ceJX0n3NpP0J9hHFez4WOG/KQnBuXFFxxK nate@zephyrus-wsl";
   zephyrus-wsl_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtTif/V1z7cka7/HVPbfTCudIERFwzzEONGyUKXZ5on root@zephyrus-wsl";
   # Bulldozer
-  bulldozer_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP7XJjZGLuGYfyo9gB2+aZ5sUO8jm+lZxEJX5XejJhL2 root@bulldozer";
+  bulldozer_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGYOoPbthroSXWVyoqjWHipk3WCe3IdhziSO+2e9XtT root@bulldozer";
   # Raphael
   raphael_nate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOFDezCzrk25XQKXWts+ISFtNyivW/vuHGzDjWJIMo2L nate@raphael";
   raphael_host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGTd6H0NLHdbltc4KEZgz6koT6GkvWKdUdsmHcXt6ClD root@raphael";
@@ -45,8 +45,12 @@ in
   ];
 
   # Bulldozer
+  "nate_bulldozer_user_password.age".publicKeys = [
+    bulldozer_host
+  ];
 
   # Oracle
   "nate_oracle_user_password.age".publicKeys = [ oracle_host ];
   "root_oracle_user_password.age".publicKeys = [ oracle_host ];
 }
+

@@ -21,7 +21,7 @@
     };
     user = {
       enable = true;
-      password = "1";
+      hashedPasswordFile = config.age.secrets.nate_bulldozer_user_password.path;
     };
     hardware = {
       networking = {
