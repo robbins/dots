@@ -10,19 +10,14 @@
 }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports =
+    [ (modulesPath + "/profiles/qemu-guest.nix")
+    ];
 
-  boot.initrd.availableKernelModules = [
-    "ahci"
-    "ohci_pci"
-    "ehci_pci"
-    "xhci_pci"
-    "usb_storage"
-    "usbhid"
-    "sd_mod"
-  ];
+  boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
+
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -37,7 +32,7 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   fileSystems."/" = {
-    device = "none";
+    device = "tmpfs";
     fsType = "tmpfs";
     options = [
       "defaults"
@@ -46,29 +41,22 @@
     ];
   };
 
-  fileSystems."/boot" = {
-    device = lib.mkForce "/dev/disk/by-uuid/3A02-4451";
-    fsType = "vfat";
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/31FE-57E4";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
-  fileSystems."/nix" = {
-    device = "bulldozer/local/nix";
-    fsType = "zfs";
-    neededForBoot = true;
-  };
+  fileSystems."/persist" =
+    { device = "/dev/disk/by-uuid/39c24153-f3bb-49dc-b1e0-79f0130b1cb4";
+      fsType = "ext4";
+      neededForBoot = true;
+    };
 
-  fileSystems."/var/log" = {
-    device = "bulldozer/system/var/log";
-    fsType = "zfs";
-  };
-
-  fileSystems."/persist" = {
-    device = "bulldozer/persist";
-    fsType = "zfs";
-    neededForBoot = true;
-  };
-
-  swapDevices = [
-    { device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YHNX0K836387Z-part2"; }
-  ];
+  fileSystems."/nix" =
+    { device = "/persist/nix";
+      fsType = "none";
+      options = [ "bind" ];
+      neededForBoot = true;
+    };
 }
