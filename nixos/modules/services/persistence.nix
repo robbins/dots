@@ -48,7 +48,7 @@ in
         directories = [
           "/var/lib/nixos"
         ] ++ (if config.modules.services.virtualization.enable then [ "/var/lib/libvirt" ] else [ ]);
-        users."${specialArgs.username}" = {
+        users."${specialArgs.username}" = lib.mkIf (specialArgs.isDesktop) {
           directories =
             [
               ".local/state/nix/profiles"
