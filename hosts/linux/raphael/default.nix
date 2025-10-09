@@ -64,7 +64,7 @@
         };
         wired = {
           enable = true;
-          interfaceName = "enp12s0";
+          interfaceName = "enp11s0";
         };
       };
       filesystems = {
@@ -168,28 +168,28 @@
     log_outputs="2:file:/var/log/libvirt/libvirtd.log"
   '';
 
-  systemd.network.netdevs."br0" = {
-    netdevConfig = {
-      Kind = "bridge";
-      Name = "br0";
-    };
-  };
-  systemd.network.networks."1-br0-bind" = {
-    matchConfig = {
-      Name = "${config.modules.hardware.networking.wired.interfaceName}";
-    };
-    bridge = [
-      "br0"
-    ];
-  };
-  systemd.network.networks."2-br0-dhcp" = {
-    matchConfig = {
-      Name = "br0";
-    };
-    networkConfig = {
-      DHCP = "ipv4";
-    };
-  };
+  #systemd.network.netdevs."br0" = {
+  #  netdevConfig = {
+  #    Kind = "bridge";
+  #    Name = "br0";
+  #  };
+  #};
+  #systemd.network.networks."1-br0-bind" = {
+  #  matchConfig = {
+  #    Name = "${config.modules.hardware.networking.wired.interfaceName}";
+  #  };
+  #  bridge = [
+  #    "br0"
+  #  ];
+  #};
+  #systemd.network.networks."2-br0-dhcp" = {
+  #  matchConfig = {
+  #    Name = "br0";
+  #  };
+  #  networkConfig = {
+  #    DHCP = "ipv4";
+  #  };
+  #};
   services.sunshine = {
     enable = true;
     autoStart = true;
