@@ -68,7 +68,7 @@
     neededForBoot = true;
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YHNX0K836387Z-part2"; }
-  ];
+  #swapDevices = [
+  #  { device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YHNX0K836387Z-part2"; }
+  #];
 }
