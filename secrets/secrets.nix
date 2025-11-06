@@ -28,7 +28,7 @@ let
 in
 {
   # Global
-  "global_tailscale_auth_key.age".publicKeys = users ++ systems;
+  "global_tailscale_auth_key.age".publicKeys = builtins.filter (e: e != "bulldozer_host") (users ++ systems);
 
   # Zephyrus
   "nate_zephyrus_user_password.age".publicKeys = [

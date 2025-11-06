@@ -63,6 +63,101 @@
   users.users."root".password = "1";
   boot.supportedFilesystems = [ "zfs" ];
 
+  # Asterisk
+  services.asterisk = {
+    enable = true;
+    extraConfig = ''
+    '';
+    confFiles = {
+      "logger.conf" = ''
+        console => notice,warning,error,debug
+      '';
+      "extensions.conf" = ''
+        ; Hello World extension for debugging
+        [from-internal]
+        exten => 100,1,Answer()
+        same = n,Wait(1)
+        same = n,Playback(hello-world)
+        same = n,Hangup()
+
+	  ; Nate
+	  exten => 1001,1,Dial(PJSIP/nate-softphone)
+	  
+	  ; Indoor Station
+	  exten => 1002,1,Dial(PJSIP/6969)
+
+	  ; Doorbell
+	  exten => 1003,1,Dial(PJSIP/doorbell)
+      '';
+      "pjsip.conf" = ''
+        ; Transport
+        [transport-udp]
+        type=transport
+        protocol=udp
+        bind=0.0.0.0
+
+        ; Nate
+        [nate-softphone]
+	  type=endpoint
+	  context=from-internal
+	  disallow=all
+	  allow=opus
+	  auth=nate-auth
+	  aors=nate-softphone
+
+	  [nate-auth]
+	  type=auth
+	  auth_type=userpass
+	  username=nate-softphone
+	  password=password
+
+	  [nate-softphone]
+	  type=aor
+	  max_contacts=1
+
+	  ; Indoor Station
+	  [6969]
+	  type=endpoint
+	  context=from-internal
+	  disallow=all
+	  allow=ulaw
+	  auth=indoor-station-auth
+	  aors=6969
+
+	  [indoor-station-auth]
+	  type=auth
+	  auth_type=userpass
+	  username=indoor-station
+	  password=password
+
+	  [6969]
+	  type=aor
+	  max_contacts=1
+
+	  ; Doorbell
+	  [doorbell]
+	  type=endpoint
+	  context=from-internal
+	  disallow=all
+	  allow=ulaw
+	  auth=doorbell-auth
+	  aors=doorbell
+
+	  [doorbell-auth]
+	  type=auth
+	  auth_type=userpass
+	  username=doorbell
+	  password=password
+
+	  [doorbell]
+	  type=aor
+	  max_contacts=1
+      '';
+    };
+  };
+
+  networking.firewall.enable = false;
+
   # Meta
   system.stateVersion = "25.11";
 }
