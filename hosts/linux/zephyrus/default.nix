@@ -152,10 +152,4 @@
   services.avahi.enable = true;
   programs.wireshark.enable = true;
   programs.ghidra.enable = true;
-  programs.mininet.enable = true;
-  programs.minipro.enable = true;
-  services.usbmuxd = {
-    enable = true;
-    #package = lib.mkForce pkgs.usbmuxd2;
-  };
 }
