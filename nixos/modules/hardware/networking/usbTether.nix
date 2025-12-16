@@ -38,6 +38,7 @@ in
     };
     services.udev.extraRules = ''
       SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="2a70", ATTRS{idProduct}=="9024", NAME="${cfg.interfaceName}"
+      SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="8153", NAME="${cfg.interfaceName}"
     '';
   };
 }
