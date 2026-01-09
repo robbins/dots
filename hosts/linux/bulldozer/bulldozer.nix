@@ -10,7 +10,6 @@ inputs: {
   isDesktop = false;
   modules' = [
     inputs.disko.nixosModules.disko
-    ./.
   ];
   overlays' = [ ];
   pkgsForSystem = inputs.nixos-unstable;
