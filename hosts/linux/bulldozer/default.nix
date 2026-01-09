@@ -158,6 +158,55 @@
 
   networking.firewall.enable = false;
 
+  # Grafana
+  services.grafana = {
+    enable = true;
+    settings = {
+      server = {
+        http_addr = "127.0.0.1";
+        http_port = 9000;
+        enforce_domain = false;
+        enable_gzip = true;
+        domain = "localhost";
+
+        # Alternatively, if you want to serve Grafana from a subpath:
+        # domain = "your.domain";
+        # root_url = "https://your.domain/grafana/";
+        # serve_from_sub_path = true;
+      };
+
+      # Prevents Grafana from phoning home
+      analytics.reporting_enabled = false;
+    };
+  };
+
+  services.prometheus = {
+    enable = true;
+    port = 9001;
+    globalConfig.scrape_interval = "10s";
+    exporters = {
+      collectd = {
+        enable = true;
+        logLevel = "debug";
+        port = 9101;
+        extraFlags = let
+          typesDb = pkgs.writeText "types.db" (builtins.readFile ./types.db);
+        in [ "--collectd.typesdb-file=${typesDb}" ];
+        collectdBinary = {
+          enable = true;
+          port = 10001;
+          securityLevel = "None";
+        };
+      };
+    };
+    scrapeConfigs = [{
+      job_name = "collectd";
+        static_configs = [{
+          targets = [ "localhost:${toString config.services.prometheus.exporters.collectd.port}" ];
+        }];
+    }];
+  };
+
   # Meta
   system.stateVersion = "25.11";
 }
