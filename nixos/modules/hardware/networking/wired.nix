@@ -30,9 +30,9 @@ in
           DHCP = "${cfg.dhcp}";
         };
         dhcpV4Config = {
-          UseDNS = false;
+          UseDNS = true;
           UseRoutes = true;
-          RouteMetric = 500;
+          RouteMetric = 300;
         };
       };
     };

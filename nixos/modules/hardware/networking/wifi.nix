@@ -48,9 +48,9 @@ in
             DHCP = "${cfg.dhcp}";
           };
           dhcpV4Config = {
-            UseDNS = true;
+            UseDNS = false;
             UseRoutes = true;
-            RouteMetric = 300;
+            RouteMetric = 500;
           };
         };
       };
