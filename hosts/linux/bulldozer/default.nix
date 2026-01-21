@@ -205,7 +205,32 @@
         }];
     }];
   };
-  networking.firewall.allowedTCPPorts = [ 9000 9001 ];
+
+  networking.firewall.allowedTCPPorts = [ 9000 9001 80 ];
+
+  services.netbox = {
+    enable = true;
+    secretKeyFile = "/var/lib/netbox/secret-key-file";
+  };
+
+  services.nginx = {
+    enable = true;
+    user = "netbox"; # otherwise nginx cant access netbox files
+    recommendedProxySettings = true; # otherwise you will get CSRF error while login
+    virtualHosts."bulldozer.home.arpa" = {
+      locations = {
+        "/" = {
+          proxyPass = "http://[::1]:8001";
+          # proxyPass = "http://${config.services.netbox.listenAddress}:${toString config.services.netbox.port}";
+        };
+        "/static/" = { alias = "${config.services.netbox.dataDir}/static/"; };
+      };
+    };
+  };
+
+  environment.persistence."${config.modules.services.persistence.system.persistenceRoot}" = {
+    directories = [ "/var/lib/prometheus2" "/var/lib/netbox" ];
+  };
 
   # Meta
   system.stateVersion = "25.11";
