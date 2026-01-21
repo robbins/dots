@@ -18,6 +18,7 @@
     services = {
       ssh.enable = true;
       persistence.system.enable = true;
+      tailscale.enable = true;
     };
     user = {
       enable = true;
@@ -156,8 +157,6 @@
     };
   };
 
-  networking.firewall.enable = false;
-
   # Grafana
   services.grafana = {
     enable = true;
@@ -206,6 +205,7 @@
         }];
     }];
   };
+  networking.firewall.allowedTCPPorts = [ 9000 9001 ];
 
   # Meta
   system.stateVersion = "25.11";
