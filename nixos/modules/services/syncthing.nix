@@ -66,6 +66,7 @@ in
             devices = [
               "zephyrus"
               "raphael"
+              "iPhone-11"
             ];
           };
         };
