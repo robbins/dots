@@ -238,6 +238,7 @@
   # Virtualbox
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  programs.nix-ld.enable = true;
 
   # Meta
   system.stateVersion = "23.05";
