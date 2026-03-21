@@ -144,6 +144,27 @@
         "type": "github"
       }
     },
+    "devshell_2": {
+      "inputs": {
+        "nixpkgs": [
+          "openproject",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768818222,
+        "narHash": "sha256-460jc0+CZfyaO8+w8JNtlClB2n4ui1RbHfPTLkpwhU8=",
+        "owner": "numtide",
+        "repo": "devshell",
+        "rev": "255a2b1725a20d060f566e4755dbf571bbbb5f76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "devshell",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -1169,6 +1190,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_7": {
+      "locked": {
+        "lastModified": 1773821835,
+        "narHash": "sha256-TJ3lSQtW0E2JrznGVm8hOQGVpXjJyXY2guAxku2O9A4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b40629efe5d6ec48dd1efba650c797ddbd39ace0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "devshell": "devshell",
@@ -1213,6 +1250,26 @@
         "type": "github"
       }
     },
+    "openproject": {
+      "inputs": {
+        "devshell": "devshell_2",
+        "nixpkgs": "nixpkgs_7",
+        "systems": "systems_5"
+      },
+      "locked": {
+        "lastModified": 1769188530,
+        "narHash": "sha256-SKZQsLMc2nB2TxarpwSOHZZjy+yE4nmEdcs3mvBptf8=",
+        "owner": "bendlas",
+        "repo": "openproject-nix",
+        "rev": "375ea54569f7b51249ca2d76aa6ab00e4f703589",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bendlas",
+        "repo": "openproject-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -1238,6 +1295,7 @@
         "nixpkgs-cuttlefish": "nixpkgs-cuttlefish",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
+        "openproject": "openproject",
         "wsl": "wsl"
       }
     },
@@ -1299,6 +1357,20 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "systems_5": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "id": "systems",
+        "type": "indirect"
       }
     },
     "treefmt-nix": {

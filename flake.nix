@@ -86,6 +86,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    openproject = {
+      url = "github:bendlas/openproject-nix";
+      #inputs.nixpkgs.follows = "nixos-unstable";
+    };
   };
 
   outputs =

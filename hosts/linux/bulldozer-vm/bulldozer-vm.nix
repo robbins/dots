@@ -9,6 +9,7 @@ inputs: {
   hostname = "bulldozer-vm";
   isDesktop = false;
   modules' = [
+    inputs.openproject.nixosModules.openproject
   ];
   overlays' = [ ];
   pkgsForSystem = inputs.nixos-unstable;

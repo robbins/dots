@@ -45,6 +45,7 @@ in
 
   # Bulldozer-VM
   "nate_bulldozer-vm_user_password.age".publicKeys = [ bulldozer-vm_host ];
+  "bulldozer-vm_openproject_secret_key_base.age".publicKeys = [ bulldozer-vm_host ];
 
   # Oracle
   "nate_oracle_user_password.age".publicKeys = [ oracle_host ];

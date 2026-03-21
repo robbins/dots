@@ -57,6 +57,13 @@
 
   users.users."root".password = "1";
 
+  services.openproject = {
+    enable = true;
+    secrets = {
+      keyBaseFile = config.age.secrets.bulldozer-vm_openproject_secret_key_base.path;
+    };
+  };
+
   # Meta
   system.stateVersion = "25.11";
 }
