@@ -134,8 +134,6 @@
   ];
   virtualisation.libvirtd = {
     enable = true;
-    qemu.ovmf.enable = true;
-    qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
   };
   programs.virt-manager.enable = true;
   # GPU Passthrough
@@ -198,21 +196,6 @@
   programs.sway.enable = false;
   services.seatd.enable = true;
 
-  # Misc TODO:
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      packettracer8 = {
-        executable = lib.getExe pkgs.ciscoPacketTracer8;
-        desktop = "${pkgs.ciscoPacketTracer8}/share/applications/cisco-pt8.desktop.desktop";
-        extraArgs = [
-          "--net=none"
-          "--noprofile"
-          # ''--env=QT_STYLE_OVERRIDE=""''
-        ];
-      };
-    };
-  };
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -221,6 +204,7 @@
     configPackages = [pkgs.xdg-desktop-portal-gtk];
     config.common.default = "gtk";
   };
+
   environment.systemPackages = [ pkgs.imhex pkgs.nautilus ];
 
   programs.nix-ld.enable = true;

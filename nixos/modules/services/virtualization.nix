@@ -24,7 +24,6 @@ in
   config = mkIf cfg.enable (mkMerge [
     {
       virtualisation.libvirtd.enable = true;
-      #    virtualisation.libvirtd.qemu.ovmf.packages = [ pkgs.OVMF ];
       programs.virt-manager.enable = true;
       users.users.${specialArgs.username}.extraGroups = [
         "libvirtd"

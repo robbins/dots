@@ -21,8 +21,8 @@ in
       enable = true;
       systemd.enable = true;
       plugins = [
-        inputs.hyprscroller.packages.${pkgs.system}.default
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+        inputs.hyprscroller.packages.${pkgs.stdenv.hostPlatform.system}.default
+        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
       ];
       extraConfig = ''
         plugin {

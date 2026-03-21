@@ -33,11 +33,11 @@ in
       boot = {
         supportedFilesystems = [ "zfs" ];
         zfs = {
-          package = if cfg.zfs.unstable then pkgs.zfsUnstable else pkgs.zfs;
+          package = if cfg.zfs.unstable then pkgs.zfs_unstable else pkgs.zfs;
           devNodes = "/dev/disk/by-partuuid";
         };
         kernelPackages = let
-          isUnstable = config.boot.zfs.package == pkgs.zfsUnstable;
+          isUnstable = config.boot.zfs.package == pkgs.zfs_unstable;
           zfsCompatibleKernelPackages = lib.filterAttrs (name: kernelPackages:
             (builtins.match "linux_[0-9]+_[0-9]+" name) != null
             && (builtins.tryEval kernelPackages).success

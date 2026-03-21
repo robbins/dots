@@ -16,7 +16,7 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      programs.adb.enable = true;
+      environment.systemPackages = [ pkgs.android-tools ];
       users.users.${specialArgs.username}.extraGroups = [ "adbusers" ];
     }
 

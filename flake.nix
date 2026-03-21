@@ -135,9 +135,9 @@
             pkgs.just
             pkgs.nix-output-monitor
             pkgs.nh
-            inputs.agenix.packages.${pkgs.system}.default
+            inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
             pkgs.nix-inspect
-            inputs.neovim-nix.packages.${pkgs.system}.default
+            inputs.neovim-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
           ];
         };
       });

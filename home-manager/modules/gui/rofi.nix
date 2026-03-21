@@ -16,7 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      package = pkgs.rofi;
       font = "PragmataPro Mono Liga 14";
       theme = "gruvbox-dark-hard";
     };

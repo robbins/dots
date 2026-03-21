@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      package = inputs.firefox-nightly.packages.${pkgs.system}.firefox-nightly-bin;
+      package = inputs.firefox-nightly.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin;
       policies = {
         # Privacy
         EnableTrackingProtection = {
@@ -147,7 +147,7 @@ in
             ];
           }];
         };
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           bitwarden
           darkreader
           ublock-origin
