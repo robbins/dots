@@ -57,6 +57,20 @@
 
   users.users."root".password = "1";
 
+  services.openproject = {
+    enable = true;
+    host.name = "bulldozer-vm.home.arpa";
+    secrets = {
+      keyBaseFile = config.age.secrets.bulldozer-vm_openproject_secret_key_base.path;
+    };
+  };
+
+  age.secrets.bulldozer-vm_openproject_secret_key_base = {
+    owner = "openproject";
+    group = "openproject";
+  };
+  networking.firewall.allowedTCPPorts = [ 6346 ];
+
   # Meta
   system.stateVersion = "25.11";
 }
