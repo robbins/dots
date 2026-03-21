@@ -198,9 +198,6 @@ in
             lspkind-nvim
 
             dropbar-nvim
-
-            conjure
-            cmp-conjure
           ]
           ++ [
             (pkgs.vimUtils.buildVimPlugin {
