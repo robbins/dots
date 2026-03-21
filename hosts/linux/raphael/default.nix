@@ -131,8 +131,6 @@
     "vfio-pci.ids=1002:67df,1002:aaf0"
     # Intel
     "ixgbe.allow_unsupported_sfp=1"
-    # Virtualbox
-    "kvm.enable_virt_at_load=0"
   ];
   virtualisation.libvirtd = {
     enable = true;
@@ -235,9 +233,7 @@
       ];
     })
   ];
-  # Virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
   programs.nix-ld.enable = true;
 
   # Meta
