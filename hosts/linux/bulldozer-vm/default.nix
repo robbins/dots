@@ -78,10 +78,10 @@
 			  web = {
 				  address = ":80";
 					asDefault = true;
-					http.redirections.entrypoint = {
-					  to = "websecure";
-						scheme = "https";
-				  };
+					#http.redirections.entrypoint = {
+					#  to = "websecure";
+					#	scheme = "https";
+				  #};
 				};
 				websecure = {
 				  address = ":443";
@@ -103,8 +103,9 @@
 		  http.routers = {
 			  openproject = {
 				  rule = "Path(`openproject`)";
-					entryPoints = [ "websecure" ];
-					tls.certResolver = "letsencrypt";
+					#entryPoints = [ "websecure" ];
+					entryPoints = [ "web" ];
+					#tls.certResolver = "letsencrypt";
 					service = "openproject";
 				};
       };
