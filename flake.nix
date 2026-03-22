@@ -88,7 +88,7 @@
     };
     openproject = {
       url = "github:bendlas/openproject-nix";
-      #inputs.nixpkgs.follows = "nixos-unstable";
+      inputs.nixpkgs.follows = "nixos-unstable";
     };
   };
 
