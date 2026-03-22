@@ -102,7 +102,7 @@
 	  dynamicConfigOptions = {
 		  http.routers = {
 			  openproject = {
-				  rule = "Path(`openproject`)";
+				  rule = "Path(`/openproject`)";
 					#entryPoints = [ "websecure" ];
 					entryPoints = [ "web" ];
 					#tls.certResolver = "letsencrypt";
