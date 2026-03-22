@@ -1,7 +1,7 @@
 {
   inputs = {
     # Nixpkgs
-    nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-unstable.url = "github:nixos/nixpkgs/88d3861acdd3d2f0e361767018218e51810df8a1";
     nixos-stable.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
