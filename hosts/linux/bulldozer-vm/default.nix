@@ -64,6 +64,11 @@
     };
   };
 
+  age.secrets.bulldozer-vm_openproject_secret_key_base = {
+    owner = "openproject";
+    group = "openproject";
+  };
+
   # Meta
   system.stateVersion = "25.11";
 }
