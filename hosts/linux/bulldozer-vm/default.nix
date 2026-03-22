@@ -100,6 +100,7 @@
 			api.insecure = true;
     };
 	  dynamicConfigOptions = {
+		  http.middlewares.openproject-strip-prefix.prefixes = "/openproject";
 		  http.routers = {
 			  openproject = {
 				  rule = "Path(`/openproject`)";
@@ -107,6 +108,7 @@
 					entryPoints = [ "web" ];
 					#tls.certResolver = "letsencrypt";
 					service = "openproject";
+					middlewares = [ "openproject-strip-prefix" ];
 				};
       };
 			http.services = {
