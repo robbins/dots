@@ -68,6 +68,7 @@
     owner = "openproject";
     group = "openproject";
   };
+  networking.firewall.allowedTCPPorts = [ 6346 ];
 
   # Meta
   system.stateVersion = "25.11";
