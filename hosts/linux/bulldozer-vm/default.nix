@@ -102,7 +102,7 @@
 	  dynamicConfigOptions = {
 		  http.routers = {
 			  openproject = {
-				  rule = "Host(`openproject.home.arpa`)";
+				  rule = "Path(`openproject`)";
 					entryPoints = [ "websecure" ];
 					tls.certResolver = "letsencrypt";
 					service = "openproject";
