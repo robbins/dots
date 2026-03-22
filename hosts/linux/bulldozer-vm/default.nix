@@ -69,7 +69,7 @@
     owner = "openproject";
     group = "openproject";
   };
-  networking.firewall.allowedTCPPorts = [ 6346 8080 ];
+  networking.firewall.allowedTCPPorts = [ 6346 8080 80 443 ];
 
   services.traefik = {
     enable = true;
@@ -100,8 +100,19 @@
 			api.insecure = true;
     };
 	  dynamicConfigOptions = {
-		  http.routers = {};
-			http.services = {};
+		  http.routers = {
+			  openproject = {
+				  rule = "Host(`openproject.home.arpa`)";
+					entryPoints = [ "websecure" ];
+					tls.certResolver = "letsencrypt";
+					service = "openproject";
+				};
+      };
+			http.services = {
+			  openproject.loadBalancer.servers = [
+				  { url = "http://127.0.0.1:6346"; }
+				];
+			};
 		};
   };
 
