@@ -59,6 +59,7 @@
 
   services.openproject = {
     enable = true;
+    host.name = "bulldozer-vm.home.arpa";
     secrets = {
       keyBaseFile = config.age.secrets.bulldozer-vm_openproject_secret_key_base.path;
     };
