@@ -106,7 +106,7 @@
 		  #http.middlewares.openproject-strip-prefix.stripPrefix.prefixes = "/openproject";
 		  http.routers = {
 			  openproject = {
-				  rule = "Path(`/openproject`)";
+				  rule = "PathPrefix(`/openproject`)";
 					#entryPoints = [ "websecure" ];
 					entryPoints = [ "web" ];
 					#tls.certResolver = "letsencrypt";
