@@ -100,7 +100,7 @@
 			api.insecure = true;
     };
 	  dynamicConfigOptions = {
-		  http.middlewares.openproject-strip-prefix.prefixes = "/openproject";
+		  http.middlewares.openproject-strip-prefix.stripPrefix.prefixes = "/openproject";
 		  http.routers = {
 			  openproject = {
 				  rule = "Path(`/openproject`)";
