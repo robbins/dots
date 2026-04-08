@@ -41,6 +41,10 @@
         "${specialArgs.username}"
         "root"
       ];
+      allowed-users = [
+        "${specialArgs.username}"
+        "root"
+      ];
 
       max-jobs = 3;
       cores = 4;
