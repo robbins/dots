@@ -54,7 +54,7 @@
       fsync-metadata = lib.mkIf (!config.wsl.enable) config.fileSystems."/nix".fsType != "zfs";
     };
 
-    package = pkgs.nixVersions.latest;
+    package = pkgs.lixPackageSets.stable.lix;
 
     gc = {
       automatic = true;
