@@ -205,7 +205,9 @@
     config.common.default = "gtk";
   };
 
-  environment.systemPackages = [ pkgs.imhex pkgs.nautilus ];
+  environment.systemPackages = [ pkgs.imhex pkgs.nautilus pkgs.libimobiledevice pkgs.ifuse ];
+
+  services.usbmuxd.enable = true;
 
   programs.nix-ld.enable = true;
 
