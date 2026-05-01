@@ -49,5 +49,9 @@
     };
 
     kernelModules = [ "tcp_bbr" ];
+
+    # copy fail exploit mitigation
+    blacklistedKernelModules = [ "af_alg" "algif_hash" "algif_skcipher" "algif_rng" "algif_aead" ]; # if CRYPTO_USER_API_AEAD=m
+    extraModprobeConfig = "install algif_aead /bin/false";
   };
 }
