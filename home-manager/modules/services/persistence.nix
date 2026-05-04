@@ -14,10 +14,9 @@ in
   imports = [ "${inputs.impermanence}/home-manager.nix" ];
   options.modules.services.persistence.home.enable = mkEnableOption "persistence";
   config = mkIf cfg.enable {
-    home.persistence."/persist/home/${specialArgs.username}" = {
+    home.persistence."/persist" = {
       directories = [ ];
       files = [ ];
-      allowOther = true;
     };
   };
 }
