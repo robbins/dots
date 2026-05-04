@@ -124,7 +124,6 @@
   users.users.${specialArgs.username}.extraGroups = [
     "kvm"
     "dialout"
-    "wireshark"
   ];
   programs.ssh.extraConfig = ''
    Host 192.168.2.2
@@ -150,6 +149,5 @@
       pkgs.avahi-compat.dev
     ];
   services.avahi.enable = true;
-  programs.wireshark.enable = true;
   programs.ghidra.enable = true;
 }
