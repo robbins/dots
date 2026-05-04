@@ -32,6 +32,10 @@
       };
       tailscale.enable = true;
       syncthing.enable = true;
+      immich = {
+        enable = true;
+        mediaLocation = "/vault/immich-media";
+      };
     };
     android.adb.enable = true;
     user = {
