@@ -12,7 +12,7 @@
     ((import ../../modules) inputs)
     inputs.hyprland.homeManagerModules.default
     inputs.minidev.homeModules.default
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
   ];
 
   modules = {
