@@ -14,8 +14,8 @@ in
 {
   options.modules.shell.git = {
     enable = mkEnableOption "enable";
-    userName = mkOpt str "";
-    userEmail = mkOpt str "";
+    userName = mkOpt str "Nathanael Robbins";
+    userEmail = mkOpt str "31457698+robbins@users.noreply.github.com";
   };
 
   config = mkIf cfg.enable {
