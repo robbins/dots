@@ -217,7 +217,7 @@ in
             nil
             lua-language-server
             pyright
-            nodePackages_latest.typescript-language-server
+            typescript-language-server
             typescript
           ]
           ++ [ jdt-language-server-wrapped ];
