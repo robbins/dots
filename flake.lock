@@ -1243,15 +1243,16 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1769188530,
-        "narHash": "sha256-SKZQsLMc2nB2TxarpwSOHZZjy+yE4nmEdcs3mvBptf8=",
-        "owner": "bendlas",
+        "lastModified": 1777942330,
+        "narHash": "sha256-FlTMHvz/yc8m9ujMgnDSMt5uHwCGzfX28i7L8qgdAyY=",
+        "owner": "robbins",
         "repo": "openproject-nix",
-        "rev": "375ea54569f7b51249ca2d76aa6ab00e4f703589",
+        "rev": "09556b00b2a9b59693f60484373da2a464077ab5",
         "type": "github"
       },
       "original": {
-        "owner": "bendlas",
+        "owner": "robbins",
+        "ref": "enterprise-free",
         "repo": "openproject-nix",
         "type": "github"
       }

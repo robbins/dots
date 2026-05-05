@@ -87,7 +87,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     openproject = {
-      url = "github:bendlas/openproject-nix";
+      url = "github:robbins/openproject-nix/enterprise-free";
       inputs.nixpkgs.follows = "nixos-unstable";
     };
   };
