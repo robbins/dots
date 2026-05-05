@@ -34,6 +34,12 @@ in
         Defaults lecture = never
       '';
 
+      systemd.tmpfiles.settings."persist_data"."${cfg.persistenceRoot}/data".d = {
+        user = "root";
+        group = "root";
+        mode = "0750";
+      };
+
       environment.persistence."${cfg.persistenceRoot}" = {
         hideMounts = true;
         files = [
