@@ -37,7 +37,7 @@ in
       systemd.tmpfiles.settings."persist_data"."${cfg.persistenceRoot}/data".d = {
         user = "root";
         group = "root";
-        mode = "0750";
+        mode = "0751";
       };
 
       environment.persistence."${cfg.persistenceRoot}" = {
