@@ -19,6 +19,7 @@
       ssh.enable = true;
       persistence.system.enable = true;
       tailscale.enable = true;
+      postgresql.enable = true;
     };
     user = {
       enable = true;
