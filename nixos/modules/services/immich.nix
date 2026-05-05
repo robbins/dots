@@ -20,6 +20,10 @@ in
         enable = true;
         mediaLocation = cfg.mediaLocation;
       };
+
+      modules.services.postgresql = mkIf config.services.immich.database.enable {
+        enable = true;
+      };
     }
 
     (mkIf config.modules.services.persistence.system.enable {
