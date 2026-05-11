@@ -105,6 +105,18 @@ in
           "Mod+F".action = maximize-column;
         } // (builtins.listToAttrs (map (num: { name = "Mod+${toString num}"; value.action.focus-workspace = num; }) (lib.lists.range 1 9)));
         outputs = {
+          "HDMI-A-1" = {
+            mode = {
+              width = 1920;
+              height = 1080;
+              refresh = 72.;
+            };
+            scale = 1.;
+            position = {
+              x = -1920;
+              y = 0;
+            };
+          };
           "eDP-1" = {
             mode = {
               width = 1920;
@@ -115,7 +127,7 @@ in
             scale = 1.;
             position = {
               x = 0;
-              y = 2160;
+              y = 0;
             };
           };
           "DP-1" = {
@@ -126,7 +138,7 @@ in
             };
             position = {
               x = 0;
-              y = 0;
+              y = 1080;
             };
             scale = 1.;
             transform.rotation = 0;
