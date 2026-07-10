@@ -41,7 +41,7 @@ in
             id = "PVJ2IXX-SIAL33Q-2TIGSYO-H4CTA54-AKH7TB5-OKOZAHS-YSB6XT5-INNB4QJ";
           };
           "iPhone-11" = {
-            id = "2757SJ2-5MI6ZG7-GO44P54-FOWSUJ2-W4TR42E-NZDPPPR-BKNNIXQ-ICUAGAW";
+            id = "2I52G7X-TLQQAI5-TF4BNP3-A3G6K2M-IAR6U7C-V5WNP6X-CRQZU6S-K7ESTQR";
           };
         };
         folders = {
@@ -66,7 +66,6 @@ in
             devices = [
               "zephyrus"
               "raphael"
-              "iPhone-11"
             ];
           };
         };
