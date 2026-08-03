@@ -6,10 +6,10 @@
 inputs: {
   system = "x86_64-linux";
   username = "nate";
-  hostname = "bulldozer-vm";
+  hostname = "bulldozer";
   isDesktop = false;
   modules' = [
-    inputs.openproject.nixosModules.openproject
+    inputs.disko.nixosModules.disko
   ];
   overlays' = [ ];
   pkgsForSystem = inputs.nixos-unstable;

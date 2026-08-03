@@ -10,9 +10,7 @@
 }:
 
 {
-  imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
 
@@ -31,32 +29,10 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  fileSystems."/" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = [
-      "defaults"
-      "size=500M"
-      "mode=755"
-    ];
+  fileSystems."/persist" = {
+    neededForBoot = true;
   };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/31FE-57E4";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/39c24153-f3bb-49dc-b1e0-79f0130b1cb4";
-      fsType = "ext4";
-      neededForBoot = true;
-    };
-
-  fileSystems."/nix" =
-    { device = "/persist/nix";
-      fsType = "none";
-      options = [ "bind" ];
-      neededForBoot = true;
-    };
+  fileSystems."/nix" = {
+    neededForBoot = true;
+  };
 }
