@@ -75,6 +75,13 @@
             };
             mountpoint = "/nix";
           };
+          "bulldozer/var/log" = {
+            type = "zfs_fs";
+            options = {
+              mountpoint = "legacy";
+            };
+            mountpoint = "/var/log";
+          };
         };
       };
     };
