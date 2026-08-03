@@ -54,7 +54,7 @@
         };
         options.ashift = "12";
         datasets = {
-          "bulldozer" = {
+          "root" = {
             type = "zfs_fs";
             options = {
               encryption = "aes-256-gcm";
@@ -62,12 +62,12 @@
               keylocation = "prompt";
             };
           };
-          "bulldozer/persist" = {
+          "root/persist" = {
             type = "zfs_fs";
             options.mountpoint = "legacy";
             mountpoint = "/persist";
           };
-          "bulldozer/nix" = {
+          "root/nix" = {
             type = "zfs_fs";
             options = {
               mountpoint = "legacy";
@@ -75,7 +75,7 @@
             };
             mountpoint = "/nix";
           };
-          "bulldozer/var/log" = {
+          "root/var/log" = {
             type = "zfs_fs";
             options = {
               mountpoint = "legacy";
